@@ -1,0 +1,12 @@
+"1:12StringsGtr",
+"2:Deturned12Gt",
+"3:Ukulele",
+"4:UkuleleStrum",
+"5:FingSteelGtr",
+"6:FingStlStrum",
+"7:SoftPckStlGt",
+"8:SftPkStlStrm",
+"9:NylonGt2",
+"10:NylonGt2Strm",
+"11:MandolinGt",
+"12:MandolinStum"

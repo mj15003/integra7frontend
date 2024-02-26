@@ -1,0 +1,12 @@
+"1:LatinDrmKit",
+"2:AsiaDrm Kit",
+"3:IndiaDrmKit",
+"4:MidEastDrKit",
+"5:World Phrase",
+"6:Gtr Phrase",
+"7:Latin Menu1",
+"8:Latin Menu2",
+"9:Latin Menu3",
+"10:Asia Menu",
+"11:India Menu",
+"12:MidEast Menu"

@@ -1,0 +1,12 @@
+"1:Flugel Horn",
+"2:Trumpet 2",
+"3:Mariachi Tp",
+"4:Classic Tp",
+"5:CupMute Tp",
+"6:StraightMtTp",
+"7:FrenchHorn2",
+"8:FHorn2 Stc",
+"9:Trombone 2",
+"10:Bass Tb",
+"11:Tuba",
+"12:TubaStaccato"

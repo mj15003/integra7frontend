@@ -1,0 +1,12 @@
+"1:WideRock KIT",
+"2:WideJazz KIT",
+"3:TightRoomKIT",
+"4:3rdBalladKIT",
+"5:Studio 1 KIT",
+"6:Studio 2 KIT",
+"7:Studio 3 KIT",
+"8:Studio 4 KIT",
+"9:HipHop KIT",
+"10:Dyn.Perc KIT",
+"11:Drums MENU",
+"12:Perc. MENU"
