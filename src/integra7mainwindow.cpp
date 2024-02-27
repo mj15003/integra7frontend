@@ -367,6 +367,10 @@ integra7MainWindow::integra7MainWindow(QWidget *parent)
                      &QAbstractButton::clicked,this,
                      &integra7MainWindow::ShowMasterEQCard);
 
+    QObject::connect(ui->ChorusBtn,
+                     &QAbstractButton::clicked,this,
+                     &integra7MainWindow::ShowChorusCard);
+
     /* Setup Main Combo box lists*/
     ui->TypeBox->addItems(Integra7Device::TypeLabels());
     ui->BankBox->addItems(Integra7Device::SNAcousticBanks());
