@@ -83,3 +83,26 @@ void Integra7ParameterSet::DataSet2x7B(uint8_t a, int v)
     pIntegraDev->DataSet(output,6);
     EmitSignal(a,v);
 }
+
+void Integra7ParameterSet::DataSet2x4B(uint8_t a, int v)
+{
+    uint8_t msb = v >> 4;
+    uint8_t lsb = v & 0xF;
+
+    if (msb == data[a] && lsb == data[a+1]) return;
+
+    data[a] = msb;
+    data[a+1] = lsb;
+
+    uint8_t output[6];
+
+    output[0] = address[0];
+    output[1] = address[1];
+    output[2] = address[2];
+    output[3] = a;
+    output[4] = data[a];
+    output[5] = data[a+1];
+
+    pIntegraDev->DataSet(output,6);
+    EmitSignal(a,v);
+}

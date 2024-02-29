@@ -257,20 +257,3 @@ void Integra7Part::EmitSignal(uint8_t a, int v)
         break;
     }
 }
-
-void Integra7Part::setPartPortamentoTime(int v) {
-    data[0x11] = v >> 4;
-    data[0x12] = v & 0xF;
-
-    uint8_t output[6];
-
-    output[0] = address[0];
-    output[1] = address[1];
-    output[2] = address[2];
-    output[3] = 0x11;
-    output[4] = data[0x11];
-    output[5] = data[0x12];
-
-    pIntegraDev->DataSet(output,6);
-    EmitSignal(0x11,v);
-}

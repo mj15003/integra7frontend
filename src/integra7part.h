@@ -115,7 +115,7 @@ public slots:
     void setPartLegatoSwitch(int v) { DataSet(0x0E,v); }
     void setPartPitchBendRange(int v) { DataSet(0x0F,v); }
     void setPartPortamentoSwitch(int v) { DataSet(0x10,v); }
-    void setPartPortamentoTime(int v);
+    void setPartPortamentoTime(int v) { DataSet2x4B(0x11,v);}
     void setPartCutoffOffset(int v) { DataSetOffset(0x13,v,64); }
     void setPartResonanceOffset(int v) { DataSetOffset(0x14,v,64); }
     void setPartAttackTimeOffset(int v) { DataSetOffset(0x15,v,64); }

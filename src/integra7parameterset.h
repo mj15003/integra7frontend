@@ -38,6 +38,7 @@ protected:
     void DataSet(uint8_t a, int v);
     void DataSetOffset(uint8_t a, int v, int offset);
     void DataSet2x7B(uint8_t a, int v);
+    void DataSet2x4B(uint8_t a, int v);
     virtual void EmitSignal(uint8_t a, int v) = 0;
 };
 
