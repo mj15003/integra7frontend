@@ -16,6 +16,7 @@
 *************************************************************************/
 
 #include "integra7setup.h"
+#include "integra7systemcommon.h"
 #include "integra7part.h"
 #include "integra7parteq.h"
 #include "integra7mastereq.h"
@@ -37,7 +38,8 @@ Integra7Device::Integra7Device(integra7MainWindow *parent,const MidiEngine *midi
 
     pMidiEngine = midi;
 
-    Setup = new Integra7Setup(this,0x01,0x0,0x0);
+    Setup = new Integra7Setup(this,0x1,0x0,0x0);
+    SystemCommon = new Integra7SystemCommon(this,0x2,0,0);
     StudioSetCommon = new Integra7StudioSetCommon(this,0x18,0,0);
     MasterEQ = new Integra7MasterEQ(this,0x18,0,0x9);
 
@@ -58,6 +60,7 @@ Integra7Device::~Integra7Device()
 
     delete MasterEQ;
     delete StudioSetCommon;
+    delete SystemCommon;
     delete Setup;
 }
 

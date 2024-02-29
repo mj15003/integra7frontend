@@ -30,6 +30,7 @@ class Integra7Setup;
 class integra7MainWindow;
 class Integra7Part;
 class Integra7StudioSetCommon;
+class Integra7SystemCommon;
 class Integra7MasterEQ;
 class Integra7PartEQ;
 
@@ -45,6 +46,8 @@ public:
     void SendIdentityRequest();
 
     Integra7Setup *Setup;
+
+    Integra7SystemCommon *SystemCommon;
 
     Integra7StudioSetCommon *StudioSetCommon;
 
