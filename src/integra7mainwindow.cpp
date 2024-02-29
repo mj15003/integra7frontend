@@ -2211,6 +2211,295 @@ integra7MainWindow::integra7MainWindow(QWidget *parent)
     QObject::connect(ui->Ch16VeloSensOffsetBox,&QSpinBox::valueChanged,
                      pI7d->pParts[15],&Integra7Part::setPartVelocitySensOffset);
 
+    /* Create Part Pitch connections */
+    QObject::connect(ui->Ch1OctaveShiftBox,&QSpinBox::valueChanged,
+                     pI7d->pParts[0],&Integra7Part::setPartOctaveShift);
+
+    QObject::connect(ui->Ch1CoarseTuneBox,&QSpinBox::valueChanged,
+                     pI7d->pParts[0],&Integra7Part::setPartCoarseTune);
+
+    QObject::connect(ui->Ch1FineTuneBox,&QSpinBox::valueChanged,
+                     pI7d->pParts[0],&Integra7Part::setPartFineTune);
+
+    QObject::connect(ui->Ch1BendRangeBox,&QSpinBox::valueChanged,
+                     pI7d->pParts[0],&Integra7Part::setPartPitchBendRange);
+
+    QObject::connect(ui->Ch1PortaSwitchBox,&QComboBox::currentIndexChanged,
+                     pI7d->pParts[0],&Integra7Part::setPartPortamentoSwitch);
+
+    QObject::connect(ui->Ch1PortaTimeBox,&QSpinBox::valueChanged,
+                     pI7d->pParts[0],&Integra7Part::setPartPortamentoTime);
+
+    QObject::connect(ui->Ch2OctaveShiftBox,&QSpinBox::valueChanged,
+                     pI7d->pParts[1],&Integra7Part::setPartOctaveShift);
+
+    QObject::connect(ui->Ch2CoarseTuneBox,&QSpinBox::valueChanged,
+                     pI7d->pParts[1],&Integra7Part::setPartCoarseTune);
+
+    QObject::connect(ui->Ch2FineTuneBox,&QSpinBox::valueChanged,
+                     pI7d->pParts[1],&Integra7Part::setPartFineTune);
+
+    QObject::connect(ui->Ch2BendRangeBox,&QSpinBox::valueChanged,
+                     pI7d->pParts[1],&Integra7Part::setPartPitchBendRange);
+
+    QObject::connect(ui->Ch2PortaSwitchBox,&QComboBox::currentIndexChanged,
+                     pI7d->pParts[1],&Integra7Part::setPartPortamentoSwitch);
+
+    QObject::connect(ui->Ch2PortaTimeBox,&QSpinBox::valueChanged,
+                     pI7d->pParts[1],&Integra7Part::setPartPortamentoTime);
+
+    QObject::connect(ui->Ch3OctaveShiftBox,&QSpinBox::valueChanged,
+                     pI7d->pParts[2],&Integra7Part::setPartOctaveShift);
+
+    QObject::connect(ui->Ch3CoarseTuneBox,&QSpinBox::valueChanged,
+                     pI7d->pParts[2],&Integra7Part::setPartCoarseTune);
+
+    QObject::connect(ui->Ch3FineTuneBox,&QSpinBox::valueChanged,
+                     pI7d->pParts[2],&Integra7Part::setPartFineTune);
+
+    QObject::connect(ui->Ch3BendRangeBox,&QSpinBox::valueChanged,
+                     pI7d->pParts[2],&Integra7Part::setPartPitchBendRange);
+
+    QObject::connect(ui->Ch3PortaSwitchBox,&QComboBox::currentIndexChanged,
+                     pI7d->pParts[2],&Integra7Part::setPartPortamentoSwitch);
+
+    QObject::connect(ui->Ch3PortaTimeBox,&QSpinBox::valueChanged,
+                     pI7d->pParts[2],&Integra7Part::setPartPortamentoTime);
+
+    QObject::connect(ui->Ch4OctaveShiftBox,&QSpinBox::valueChanged,
+                     pI7d->pParts[3],&Integra7Part::setPartOctaveShift);
+
+    QObject::connect(ui->Ch4CoarseTuneBox,&QSpinBox::valueChanged,
+                     pI7d->pParts[3],&Integra7Part::setPartCoarseTune);
+
+    QObject::connect(ui->Ch4FineTuneBox,&QSpinBox::valueChanged,
+                     pI7d->pParts[3],&Integra7Part::setPartFineTune);
+
+    QObject::connect(ui->Ch4BendRangeBox,&QSpinBox::valueChanged,
+                     pI7d->pParts[3],&Integra7Part::setPartPitchBendRange);
+
+    QObject::connect(ui->Ch4PortaSwitchBox,&QComboBox::currentIndexChanged,
+                     pI7d->pParts[3],&Integra7Part::setPartPortamentoSwitch);
+
+    QObject::connect(ui->Ch4PortaTimeBox,&QSpinBox::valueChanged,
+                     pI7d->pParts[3],&Integra7Part::setPartPortamentoTime);
+
+    QObject::connect(ui->Ch5OctaveShiftBox,&QSpinBox::valueChanged,
+                     pI7d->pParts[4],&Integra7Part::setPartOctaveShift);
+
+    QObject::connect(ui->Ch5CoarseTuneBox,&QSpinBox::valueChanged,
+                     pI7d->pParts[4],&Integra7Part::setPartCoarseTune);
+
+    QObject::connect(ui->Ch5FineTuneBox,&QSpinBox::valueChanged,
+                     pI7d->pParts[4],&Integra7Part::setPartFineTune);
+
+    QObject::connect(ui->Ch5BendRangeBox,&QSpinBox::valueChanged,
+                     pI7d->pParts[4],&Integra7Part::setPartPitchBendRange);
+
+    QObject::connect(ui->Ch5PortaSwitchBox,&QComboBox::currentIndexChanged,
+                     pI7d->pParts[4],&Integra7Part::setPartPortamentoSwitch);
+
+    QObject::connect(ui->Ch5PortaTimeBox,&QSpinBox::valueChanged,
+                     pI7d->pParts[4],&Integra7Part::setPartPortamentoTime);
+
+    QObject::connect(ui->Ch6OctaveShiftBox,&QSpinBox::valueChanged,
+                     pI7d->pParts[5],&Integra7Part::setPartOctaveShift);
+
+    QObject::connect(ui->Ch6CoarseTuneBox,&QSpinBox::valueChanged,
+                     pI7d->pParts[5],&Integra7Part::setPartCoarseTune);
+
+    QObject::connect(ui->Ch6FineTuneBox,&QSpinBox::valueChanged,
+                     pI7d->pParts[5],&Integra7Part::setPartFineTune);
+
+    QObject::connect(ui->Ch6BendRangeBox,&QSpinBox::valueChanged,
+                     pI7d->pParts[5],&Integra7Part::setPartPitchBendRange);
+
+    QObject::connect(ui->Ch6PortaSwitchBox,&QComboBox::currentIndexChanged,
+                     pI7d->pParts[5],&Integra7Part::setPartPortamentoSwitch);
+
+    QObject::connect(ui->Ch6PortaTimeBox,&QSpinBox::valueChanged,
+                     pI7d->pParts[5],&Integra7Part::setPartPortamentoTime);
+
+    QObject::connect(ui->Ch7OctaveShiftBox,&QSpinBox::valueChanged,
+                     pI7d->pParts[6],&Integra7Part::setPartOctaveShift);
+
+    QObject::connect(ui->Ch7CoarseTuneBox,&QSpinBox::valueChanged,
+                     pI7d->pParts[6],&Integra7Part::setPartCoarseTune);
+
+    QObject::connect(ui->Ch7FineTuneBox,&QSpinBox::valueChanged,
+                     pI7d->pParts[6],&Integra7Part::setPartFineTune);
+
+    QObject::connect(ui->Ch7BendRangeBox,&QSpinBox::valueChanged,
+                     pI7d->pParts[6],&Integra7Part::setPartPitchBendRange);
+
+    QObject::connect(ui->Ch7PortaSwitchBox,&QComboBox::currentIndexChanged,
+                     pI7d->pParts[6],&Integra7Part::setPartPortamentoSwitch);
+
+    QObject::connect(ui->Ch7PortaTimeBox,&QSpinBox::valueChanged,
+                     pI7d->pParts[6],&Integra7Part::setPartPortamentoTime);
+
+    QObject::connect(ui->Ch8OctaveShiftBox,&QSpinBox::valueChanged,
+                     pI7d->pParts[7],&Integra7Part::setPartOctaveShift);
+
+    QObject::connect(ui->Ch8CoarseTuneBox,&QSpinBox::valueChanged,
+                     pI7d->pParts[7],&Integra7Part::setPartCoarseTune);
+
+    QObject::connect(ui->Ch8FineTuneBox,&QSpinBox::valueChanged,
+                     pI7d->pParts[7],&Integra7Part::setPartFineTune);
+
+    QObject::connect(ui->Ch8BendRangeBox,&QSpinBox::valueChanged,
+                     pI7d->pParts[7],&Integra7Part::setPartPitchBendRange);
+
+    QObject::connect(ui->Ch8PortaSwitchBox,&QComboBox::currentIndexChanged,
+                     pI7d->pParts[7],&Integra7Part::setPartPortamentoSwitch);
+
+    QObject::connect(ui->Ch8PortaTimeBox,&QSpinBox::valueChanged,
+                     pI7d->pParts[7],&Integra7Part::setPartPortamentoTime);
+
+    QObject::connect(ui->Ch9OctaveShiftBox,&QSpinBox::valueChanged,
+                     pI7d->pParts[8],&Integra7Part::setPartOctaveShift);
+
+    QObject::connect(ui->Ch9CoarseTuneBox,&QSpinBox::valueChanged,
+                     pI7d->pParts[8],&Integra7Part::setPartCoarseTune);
+
+    QObject::connect(ui->Ch9FineTuneBox,&QSpinBox::valueChanged,
+                     pI7d->pParts[8],&Integra7Part::setPartFineTune);
+
+    QObject::connect(ui->Ch9BendRangeBox,&QSpinBox::valueChanged,
+                     pI7d->pParts[8],&Integra7Part::setPartPitchBendRange);
+
+    QObject::connect(ui->Ch9PortaSwitchBox,&QComboBox::currentIndexChanged,
+                     pI7d->pParts[8],&Integra7Part::setPartPortamentoSwitch);
+
+    QObject::connect(ui->Ch9PortaTimeBox,&QSpinBox::valueChanged,
+                     pI7d->pParts[8],&Integra7Part::setPartPortamentoTime);
+
+    QObject::connect(ui->Ch10OctaveShiftBox,&QSpinBox::valueChanged,
+                     pI7d->pParts[9],&Integra7Part::setPartOctaveShift);
+
+    QObject::connect(ui->Ch10CoarseTuneBox,&QSpinBox::valueChanged,
+                     pI7d->pParts[9],&Integra7Part::setPartCoarseTune);
+
+    QObject::connect(ui->Ch10FineTuneBox,&QSpinBox::valueChanged,
+                     pI7d->pParts[9],&Integra7Part::setPartFineTune);
+
+    QObject::connect(ui->Ch10BendRangeBox,&QSpinBox::valueChanged,
+                     pI7d->pParts[9],&Integra7Part::setPartPitchBendRange);
+
+    QObject::connect(ui->Ch10PortaSwitchBox,&QComboBox::currentIndexChanged,
+                     pI7d->pParts[9],&Integra7Part::setPartPortamentoSwitch);
+
+    QObject::connect(ui->Ch10PortaTimeBox,&QSpinBox::valueChanged,
+                     pI7d->pParts[9],&Integra7Part::setPartPortamentoTime);
+
+    QObject::connect(ui->Ch11OctaveShiftBox,&QSpinBox::valueChanged,
+                     pI7d->pParts[10],&Integra7Part::setPartOctaveShift);
+
+    QObject::connect(ui->Ch11CoarseTuneBox,&QSpinBox::valueChanged,
+                     pI7d->pParts[10],&Integra7Part::setPartCoarseTune);
+
+    QObject::connect(ui->Ch11FineTuneBox,&QSpinBox::valueChanged,
+                     pI7d->pParts[10],&Integra7Part::setPartFineTune);
+
+    QObject::connect(ui->Ch11BendRangeBox,&QSpinBox::valueChanged,
+                     pI7d->pParts[10],&Integra7Part::setPartPitchBendRange);
+
+    QObject::connect(ui->Ch11PortaSwitchBox,&QComboBox::currentIndexChanged,
+                     pI7d->pParts[10],&Integra7Part::setPartPortamentoSwitch);
+
+    QObject::connect(ui->Ch11PortaTimeBox,&QSpinBox::valueChanged,
+                     pI7d->pParts[10],&Integra7Part::setPartPortamentoTime);
+
+    QObject::connect(ui->Ch12OctaveShiftBox,&QSpinBox::valueChanged,
+                     pI7d->pParts[11],&Integra7Part::setPartOctaveShift);
+
+    QObject::connect(ui->Ch12CoarseTuneBox,&QSpinBox::valueChanged,
+                     pI7d->pParts[11],&Integra7Part::setPartCoarseTune);
+
+    QObject::connect(ui->Ch12FineTuneBox,&QSpinBox::valueChanged,
+                     pI7d->pParts[11],&Integra7Part::setPartFineTune);
+
+    QObject::connect(ui->Ch12BendRangeBox,&QSpinBox::valueChanged,
+                     pI7d->pParts[11],&Integra7Part::setPartPitchBendRange);
+
+    QObject::connect(ui->Ch12PortaSwitchBox,&QComboBox::currentIndexChanged,
+                     pI7d->pParts[11],&Integra7Part::setPartPortamentoSwitch);
+
+    QObject::connect(ui->Ch12PortaTimeBox,&QSpinBox::valueChanged,
+                     pI7d->pParts[11],&Integra7Part::setPartPortamentoTime);
+
+    QObject::connect(ui->Ch13OctaveShiftBox,&QSpinBox::valueChanged,
+                     pI7d->pParts[12],&Integra7Part::setPartOctaveShift);
+
+    QObject::connect(ui->Ch13CoarseTuneBox,&QSpinBox::valueChanged,
+                     pI7d->pParts[12],&Integra7Part::setPartCoarseTune);
+
+    QObject::connect(ui->Ch13FineTuneBox,&QSpinBox::valueChanged,
+                     pI7d->pParts[12],&Integra7Part::setPartFineTune);
+
+    QObject::connect(ui->Ch13BendRangeBox,&QSpinBox::valueChanged,
+                     pI7d->pParts[12],&Integra7Part::setPartPitchBendRange);
+
+    QObject::connect(ui->Ch13PortaSwitchBox,&QComboBox::currentIndexChanged,
+                     pI7d->pParts[12],&Integra7Part::setPartPortamentoSwitch);
+
+    QObject::connect(ui->Ch13PortaTimeBox,&QSpinBox::valueChanged,
+                     pI7d->pParts[12],&Integra7Part::setPartPortamentoTime);
+
+    QObject::connect(ui->Ch14OctaveShiftBox,&QSpinBox::valueChanged,
+                     pI7d->pParts[13],&Integra7Part::setPartOctaveShift);
+
+    QObject::connect(ui->Ch14CoarseTuneBox,&QSpinBox::valueChanged,
+                     pI7d->pParts[13],&Integra7Part::setPartCoarseTune);
+
+    QObject::connect(ui->Ch14FineTuneBox,&QSpinBox::valueChanged,
+                     pI7d->pParts[13],&Integra7Part::setPartFineTune);
+
+    QObject::connect(ui->Ch14BendRangeBox,&QSpinBox::valueChanged,
+                     pI7d->pParts[13],&Integra7Part::setPartPitchBendRange);
+
+    QObject::connect(ui->Ch14PortaSwitchBox,&QComboBox::currentIndexChanged,
+                     pI7d->pParts[13],&Integra7Part::setPartPortamentoSwitch);
+
+    QObject::connect(ui->Ch14PortaTimeBox,&QSpinBox::valueChanged,
+                     pI7d->pParts[13],&Integra7Part::setPartPortamentoTime);
+
+    QObject::connect(ui->Ch15OctaveShiftBox,&QSpinBox::valueChanged,
+                     pI7d->pParts[14],&Integra7Part::setPartOctaveShift);
+
+    QObject::connect(ui->Ch15CoarseTuneBox,&QSpinBox::valueChanged,
+                     pI7d->pParts[14],&Integra7Part::setPartCoarseTune);
+
+    QObject::connect(ui->Ch15FineTuneBox,&QSpinBox::valueChanged,
+                     pI7d->pParts[14],&Integra7Part::setPartFineTune);
+
+    QObject::connect(ui->Ch15BendRangeBox,&QSpinBox::valueChanged,
+                     pI7d->pParts[14],&Integra7Part::setPartPitchBendRange);
+
+    QObject::connect(ui->Ch15PortaSwitchBox,&QComboBox::currentIndexChanged,
+                     pI7d->pParts[14],&Integra7Part::setPartPortamentoSwitch);
+
+    QObject::connect(ui->Ch15PortaTimeBox,&QSpinBox::valueChanged,
+                     pI7d->pParts[14],&Integra7Part::setPartPortamentoTime);
+
+    QObject::connect(ui->Ch16OctaveShiftBox,&QSpinBox::valueChanged,
+                     pI7d->pParts[15],&Integra7Part::setPartOctaveShift);
+
+    QObject::connect(ui->Ch16CoarseTuneBox,&QSpinBox::valueChanged,
+                     pI7d->pParts[15],&Integra7Part::setPartCoarseTune);
+
+    QObject::connect(ui->Ch16FineTuneBox,&QSpinBox::valueChanged,
+                     pI7d->pParts[15],&Integra7Part::setPartFineTune);
+
+    QObject::connect(ui->Ch16BendRangeBox,&QSpinBox::valueChanged,
+                     pI7d->pParts[15],&Integra7Part::setPartPitchBendRange);
+
+    QObject::connect(ui->Ch16PortaSwitchBox,&QComboBox::currentIndexChanged,
+                     pI7d->pParts[15],&Integra7Part::setPartPortamentoSwitch);
+
+    QObject::connect(ui->Ch16PortaTimeBox,&QSpinBox::valueChanged,
+                     pI7d->pParts[15],&Integra7Part::setPartPortamentoTime);
+
     ui->Ch1Btn->setChecked(true);
 
     ShowUtilityCard();

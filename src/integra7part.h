@@ -55,7 +55,7 @@ public:
     int getPartVibratoRate() {return data[0x18]-64;}
     int getPartVibratoDepth() {return data[0x19]-64;}
     int getPartVibratoDelay() {return data[0x1A]-64;}
-    int getPartOctaveShift() {return data[0x1B]-64;}
+    int getPartOctaveShift() {return data[0x1B]-3;}
     int getPartVelocitySensOffset() {return data[0x1C]-64;}
     int getKeyboardRangeLower() {return data[0x1D];}
     int getKeyboardRangeUpper() {return data[0x1E];}
@@ -124,7 +124,7 @@ public slots:
     void setPartVibratoRate(int v) { DataSetOffset(0x18,v,64); }
     void setPartVibratoDepth(int v) { DataSetOffset(0x19,v,64); }
     void setPartVibratoDelay(int v) { DataSetOffset(0x1A,v,64); }
-    void setPartOctaveShift(int v) { DataSetOffset(0x1B,v,64); }
+    void setPartOctaveShift(int v) { DataSetOffset(0x1B,v,3); }
     void setPartVelocitySensOffset(int v) { DataSetOffset(0x1C,v,64); }
     void setKeyboardRangeLower(int v) { DataSet(0x1D,v); }
     void setKeyboardRangeUpper(int v) { DataSet(0x1E,v); }
