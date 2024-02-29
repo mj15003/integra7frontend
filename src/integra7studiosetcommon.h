@@ -151,8 +151,7 @@ signals:
     void ExtPartMuteSwitch(uint8_t v);
 
 private:
-    void EmitSignal(uint8_t a, int v);
-    int DataReceive(const uint8_t *rdata);
+    void EmitSignal(uint8_t a, int v);    
 };
 
 #endif // INTEGRA7STUDIOSETCOMMON_H
