@@ -37,17 +37,6 @@ void Integra7StudioSetCommon::setStudioSetName(const QString name)
     }
 }
 
-void Integra7StudioSetCommon::setStudioSetTempo(int v)
-{
-    uint8_t msb = v >> 4;
-    uint8_t lsb = v & 0xF;
-
-    if (lsb == data[0x3E] && msb == data[0x3D]) return;
-
-    data[0x3D] = msb;
-    data[0x3E] = lsb;
-}
-
 void Integra7StudioSetCommon::EmitSignal(uint8_t a, int v)
 {
     switch (a) {

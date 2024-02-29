@@ -92,7 +92,7 @@ public slots:
     void setToneControl2Source(int v) { DataSet(0x3A,v); }
     void setToneControl3Source(int v) { DataSet(0x3B,v); }
     void setToneControl4Source(int v) { DataSet(0x3C,v); }
-    void setStudioSetTempo(int v);
+    void setStudioSetTempo(int v) { DataSet2x4B(0x3D,v); }
     void setSoloPart(int v) { DataSet(0x3F,v); }
     void setReverbSwitch(int v) { DataSet(0x40,v); }
     void setChorusSwitch(int v) { DataSet(0x41,v); }
