@@ -640,7 +640,7 @@
              </sizepolicy>
             </property>
             <property name="currentIndex">
-             <number>1</number>
+             <number>0</number>
             </property>
             <widget class="QWidget" name="StudioSetMenu">
              <property name="maximumSize">
@@ -959,7 +959,7 @@ COMMON</string>
        <item>
         <widget class="QStackedWidget" name="RightContent">
          <property name="currentIndex">
-          <number>11</number>
+          <number>4</number>
          </property>
          <widget class="QWidget" name="PartViewCard">
           <layout class="QGridLayout" name="PartViewCardLayout">
@@ -9348,8 +9348,11 @@ LOWER UPPER</string>
             <layout class="QHBoxLayout" name="Ch1PartKeyL7">
              <item>
               <widget class="QSlider" name="Ch1VeloSensOffsetSld">
+               <property name="minimum">
+                <number>-63</number>
+               </property>
                <property name="maximum">
-                <number>127</number>
+                <number>63</number>
                </property>
                <property name="orientation">
                 <enum>Qt::Horizontal</enum>
@@ -9505,8 +9508,11 @@ LOWER UPPER</string>
             <layout class="QHBoxLayout" name="Ch2PartKeyL7">
              <item>
               <widget class="QSlider" name="Ch2VeloSensOffsetSld">
+               <property name="minimum">
+                <number>-63</number>
+               </property>
                <property name="maximum">
-                <number>127</number>
+                <number>63</number>
                </property>
                <property name="orientation">
                 <enum>Qt::Horizontal</enum>
@@ -9662,8 +9668,11 @@ LOWER UPPER</string>
             <layout class="QHBoxLayout" name="Ch3PartKeyL7">
              <item>
               <widget class="QSlider" name="Ch3VeloSensOffsetSld">
+               <property name="minimum">
+                <number>-63</number>
+               </property>
                <property name="maximum">
-                <number>127</number>
+                <number>63</number>
                </property>
                <property name="orientation">
                 <enum>Qt::Horizontal</enum>
@@ -9819,8 +9828,11 @@ LOWER UPPER</string>
             <layout class="QHBoxLayout" name="Ch4PartKeyL7">
              <item>
               <widget class="QSlider" name="Ch4VeloSensOffsetSld">
+               <property name="minimum">
+                <number>-63</number>
+               </property>
                <property name="maximum">
-                <number>127</number>
+                <number>63</number>
                </property>
                <property name="orientation">
                 <enum>Qt::Horizontal</enum>
@@ -9976,8 +9988,11 @@ LOWER UPPER</string>
             <layout class="QHBoxLayout" name="Ch5PartKeyL7">
              <item>
               <widget class="QSlider" name="Ch5VeloSensOffsetSld">
+               <property name="minimum">
+                <number>-63</number>
+               </property>
                <property name="maximum">
-                <number>127</number>
+                <number>63</number>
                </property>
                <property name="orientation">
                 <enum>Qt::Horizontal</enum>
@@ -10133,8 +10148,11 @@ LOWER UPPER</string>
             <layout class="QHBoxLayout" name="Ch6PartKeyL7">
              <item>
               <widget class="QSlider" name="Ch6VeloSensOffsetSld">
+               <property name="minimum">
+                <number>-63</number>
+               </property>
                <property name="maximum">
-                <number>127</number>
+                <number>63</number>
                </property>
                <property name="orientation">
                 <enum>Qt::Horizontal</enum>
@@ -10290,8 +10308,11 @@ LOWER UPPER</string>
             <layout class="QHBoxLayout" name="Ch7PartKeyL7">
              <item>
               <widget class="QSlider" name="Ch7VeloSensOffsetSld">
+               <property name="minimum">
+                <number>-63</number>
+               </property>
                <property name="maximum">
-                <number>127</number>
+                <number>63</number>
                </property>
                <property name="orientation">
                 <enum>Qt::Horizontal</enum>
@@ -10447,8 +10468,11 @@ LOWER UPPER</string>
             <layout class="QHBoxLayout" name="Ch8PartKeyL7">
              <item>
               <widget class="QSlider" name="Ch8VeloSensOffsetSld">
+               <property name="minimum">
+                <number>-63</number>
+               </property>
                <property name="maximum">
-                <number>127</number>
+                <number>63</number>
                </property>
                <property name="orientation">
                 <enum>Qt::Horizontal</enum>
@@ -10604,8 +10628,11 @@ LOWER UPPER</string>
             <layout class="QHBoxLayout" name="Ch9PartKeyL7">
              <item>
               <widget class="QSlider" name="Ch9VeloSensOffsetSld">
+               <property name="minimum">
+                <number>-63</number>
+               </property>
                <property name="maximum">
-                <number>127</number>
+                <number>63</number>
                </property>
                <property name="orientation">
                 <enum>Qt::Horizontal</enum>
@@ -10761,8 +10788,11 @@ LOWER UPPER</string>
             <layout class="QHBoxLayout" name="Ch10PartKeyL7">
              <item>
               <widget class="QSlider" name="Ch10VeloSensOffsetSld">
+               <property name="minimum">
+                <number>-63</number>
+               </property>
                <property name="maximum">
-                <number>127</number>
+                <number>63</number>
                </property>
                <property name="orientation">
                 <enum>Qt::Horizontal</enum>
@@ -10918,8 +10948,11 @@ LOWER UPPER</string>
             <layout class="QHBoxLayout" name="Ch11PartKeyL7">
              <item>
               <widget class="QSlider" name="Ch11VeloSensOffsetSld">
+               <property name="minimum">
+                <number>-63</number>
+               </property>
                <property name="maximum">
-                <number>127</number>
+                <number>63</number>
                </property>
                <property name="orientation">
                 <enum>Qt::Horizontal</enum>
@@ -11075,8 +11108,11 @@ LOWER UPPER</string>
             <layout class="QHBoxLayout" name="Ch12PartKeyL7">
              <item>
               <widget class="QSlider" name="Ch12VeloSensOffsetSld">
+               <property name="minimum">
+                <number>-63</number>
+               </property>
                <property name="maximum">
-                <number>127</number>
+                <number>63</number>
                </property>
                <property name="orientation">
                 <enum>Qt::Horizontal</enum>
@@ -11232,8 +11268,11 @@ LOWER UPPER</string>
             <layout class="QHBoxLayout" name="Ch13PartKeyL7">
              <item>
               <widget class="QSlider" name="Ch13VeloSensOffsetSld">
+               <property name="minimum">
+                <number>-63</number>
+               </property>
                <property name="maximum">
-                <number>127</number>
+                <number>63</number>
                </property>
                <property name="orientation">
                 <enum>Qt::Horizontal</enum>
@@ -11389,8 +11428,11 @@ LOWER UPPER</string>
             <layout class="QHBoxLayout" name="Ch14PartKeyL7">
              <item>
               <widget class="QSlider" name="Ch14VeloSensOffsetSld">
+               <property name="minimum">
+                <number>-63</number>
+               </property>
                <property name="maximum">
-                <number>127</number>
+                <number>63</number>
                </property>
                <property name="orientation">
                 <enum>Qt::Horizontal</enum>
@@ -11546,8 +11588,11 @@ LOWER UPPER</string>
             <layout class="QHBoxLayout" name="Ch15PartKeyL7">
              <item>
               <widget class="QSlider" name="Ch15VeloSensOffsetSld">
+               <property name="minimum">
+                <number>-63</number>
+               </property>
                <property name="maximum">
-                <number>127</number>
+                <number>63</number>
                </property>
                <property name="orientation">
                 <enum>Qt::Horizontal</enum>
@@ -11703,8 +11748,11 @@ LOWER UPPER</string>
             <layout class="QHBoxLayout" name="Ch16PartKeyL7">
              <item>
               <widget class="QSlider" name="Ch16VeloSensOffsetSld">
+               <property name="minimum">
+                <number>-63</number>
+               </property>
                <property name="maximum">
-                <number>127</number>
+                <number>63</number>
                </property>
                <property name="orientation">
                 <enum>Qt::Horizontal</enum>
