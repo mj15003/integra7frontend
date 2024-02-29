@@ -1778,6 +1778,439 @@ integra7MainWindow::integra7MainWindow(QWidget *parent)
     QObject::connect(ui->Ch16EQHFGainBox,&QSpinBox::valueChanged,
                      pI7d->pPartsEQ[15],&Integra7PartEQ::setEQHighGain);
 
+    /* Part Keyboard Connections */
+    QObject::connect(ui->Ch1KeyFadeLowerBox,&QSpinBox::valueChanged,
+                     pI7d->pParts[0],&Integra7Part::setKeyboardFadeWidthLower);
+
+    QObject::connect(ui->Ch1KeyRangeLowerBox,&QSpinBox::valueChanged,
+                     pI7d->pParts[0],&Integra7Part::setKeyboardRangeLower);
+
+    QObject::connect(ui->Ch1KeyRangeUpperBox,&QSpinBox::valueChanged,
+                     pI7d->pParts[0],&Integra7Part::setKeyboardRangeUpper);
+
+    QObject::connect(ui->Ch1KeyFadeUpperBox,&QSpinBox::valueChanged,
+                     pI7d->pParts[0],&Integra7Part::setKeyboardFadeWidthUpper);
+
+    QObject::connect(ui->Ch1VeloFadeLowerBox,&QSpinBox::valueChanged,
+                     pI7d->pParts[0],&Integra7Part::setVelocityFadeWidthLower);
+
+    QObject::connect(ui->Ch1VeloRangeLower,&QSpinBox::valueChanged,
+                     pI7d->pParts[0],&Integra7Part::setVelocityRangeLower);
+
+    QObject::connect(ui->Ch1VeloRangeUpper,&QSpinBox::valueChanged,
+                     pI7d->pParts[0],&Integra7Part::setVelocityRangeUpper);
+
+    QObject::connect(ui->Ch1VeloFadeUpperBox,&QSpinBox::valueChanged,
+                     pI7d->pParts[0],&Integra7Part::setVelocityFadeWidthUpper);
+
+    QObject::connect(ui->Ch1VeloSensOffsetBox,&QSpinBox::valueChanged,
+                     pI7d->pParts[0],&Integra7Part::setPartVelocitySensOffset);
+
+    QObject::connect(ui->Ch2KeyFadeLowerBox,&QSpinBox::valueChanged,
+                     pI7d->pParts[1],&Integra7Part::setKeyboardFadeWidthLower);
+
+    QObject::connect(ui->Ch2KeyRangeLowerBox,&QSpinBox::valueChanged,
+                     pI7d->pParts[1],&Integra7Part::setKeyboardRangeLower);
+
+    QObject::connect(ui->Ch2KeyRangeUpperBox,&QSpinBox::valueChanged,
+                     pI7d->pParts[1],&Integra7Part::setKeyboardRangeUpper);
+
+    QObject::connect(ui->Ch2KeyFadeUpperBox,&QSpinBox::valueChanged,
+                     pI7d->pParts[1],&Integra7Part::setKeyboardFadeWidthUpper);
+
+    QObject::connect(ui->Ch2VeloFadeLowerBox,&QSpinBox::valueChanged,
+                     pI7d->pParts[1],&Integra7Part::setVelocityFadeWidthLower);
+
+    QObject::connect(ui->Ch2VeloRangeLower,&QSpinBox::valueChanged,
+                     pI7d->pParts[1],&Integra7Part::setVelocityRangeLower);
+
+    QObject::connect(ui->Ch2VeloRangeUpper,&QSpinBox::valueChanged,
+                     pI7d->pParts[1],&Integra7Part::setVelocityRangeUpper);
+
+    QObject::connect(ui->Ch2VeloFadeUpperBox,&QSpinBox::valueChanged,
+                     pI7d->pParts[1],&Integra7Part::setVelocityFadeWidthUpper);
+
+    QObject::connect(ui->Ch2VeloSensOffsetBox,&QSpinBox::valueChanged,
+                     pI7d->pParts[1],&Integra7Part::setPartVelocitySensOffset);
+
+    QObject::connect(ui->Ch3KeyFadeLowerBox,&QSpinBox::valueChanged,
+                     pI7d->pParts[2],&Integra7Part::setKeyboardFadeWidthLower);
+
+    QObject::connect(ui->Ch3KeyRangeLowerBox,&QSpinBox::valueChanged,
+                     pI7d->pParts[2],&Integra7Part::setKeyboardRangeLower);
+
+    QObject::connect(ui->Ch3KeyRangeUpperBox,&QSpinBox::valueChanged,
+                     pI7d->pParts[2],&Integra7Part::setKeyboardRangeUpper);
+
+    QObject::connect(ui->Ch3KeyFadeUpperBox,&QSpinBox::valueChanged,
+                     pI7d->pParts[2],&Integra7Part::setKeyboardFadeWidthUpper);
+
+    QObject::connect(ui->Ch3VeloFadeLowerBox,&QSpinBox::valueChanged,
+                     pI7d->pParts[2],&Integra7Part::setVelocityFadeWidthLower);
+
+    QObject::connect(ui->Ch3VeloRangeLower,&QSpinBox::valueChanged,
+                     pI7d->pParts[2],&Integra7Part::setVelocityRangeLower);
+
+    QObject::connect(ui->Ch3VeloRangeUpper,&QSpinBox::valueChanged,
+                     pI7d->pParts[2],&Integra7Part::setVelocityRangeUpper);
+
+    QObject::connect(ui->Ch3VeloFadeUpperBox,&QSpinBox::valueChanged,
+                     pI7d->pParts[2],&Integra7Part::setVelocityFadeWidthUpper);
+
+    QObject::connect(ui->Ch3VeloSensOffsetBox,&QSpinBox::valueChanged,
+                     pI7d->pParts[2],&Integra7Part::setPartVelocitySensOffset);
+
+    QObject::connect(ui->Ch4KeyFadeLowerBox,&QSpinBox::valueChanged,
+                     pI7d->pParts[3],&Integra7Part::setKeyboardFadeWidthLower);
+
+    QObject::connect(ui->Ch4KeyRangeLowerBox,&QSpinBox::valueChanged,
+                     pI7d->pParts[3],&Integra7Part::setKeyboardRangeLower);
+
+    QObject::connect(ui->Ch4KeyRangeUpperBox,&QSpinBox::valueChanged,
+                     pI7d->pParts[3],&Integra7Part::setKeyboardRangeUpper);
+
+    QObject::connect(ui->Ch4KeyFadeUpperBox,&QSpinBox::valueChanged,
+                     pI7d->pParts[3],&Integra7Part::setKeyboardFadeWidthUpper);
+
+    QObject::connect(ui->Ch4VeloFadeLowerBox,&QSpinBox::valueChanged,
+                     pI7d->pParts[3],&Integra7Part::setVelocityFadeWidthLower);
+
+    QObject::connect(ui->Ch4VeloRangeLower,&QSpinBox::valueChanged,
+                     pI7d->pParts[3],&Integra7Part::setVelocityRangeLower);
+
+    QObject::connect(ui->Ch4VeloRangeUpper,&QSpinBox::valueChanged,
+                     pI7d->pParts[3],&Integra7Part::setVelocityRangeUpper);
+
+    QObject::connect(ui->Ch4VeloFadeUpperBox,&QSpinBox::valueChanged,
+                     pI7d->pParts[3],&Integra7Part::setVelocityFadeWidthUpper);
+
+    QObject::connect(ui->Ch4VeloSensOffsetBox,&QSpinBox::valueChanged,
+                     pI7d->pParts[3],&Integra7Part::setPartVelocitySensOffset);
+
+    QObject::connect(ui->Ch5KeyFadeLowerBox,&QSpinBox::valueChanged,
+                     pI7d->pParts[4],&Integra7Part::setKeyboardFadeWidthLower);
+
+    QObject::connect(ui->Ch5KeyRangeLowerBox,&QSpinBox::valueChanged,
+                     pI7d->pParts[4],&Integra7Part::setKeyboardRangeLower);
+
+    QObject::connect(ui->Ch5KeyRangeUpperBox,&QSpinBox::valueChanged,
+                     pI7d->pParts[4],&Integra7Part::setKeyboardRangeUpper);
+
+    QObject::connect(ui->Ch5KeyFadeUpperBox,&QSpinBox::valueChanged,
+                     pI7d->pParts[4],&Integra7Part::setKeyboardFadeWidthUpper);
+
+    QObject::connect(ui->Ch5VeloFadeLowerBox,&QSpinBox::valueChanged,
+                     pI7d->pParts[4],&Integra7Part::setVelocityFadeWidthLower);
+
+    QObject::connect(ui->Ch5VeloRangeLower,&QSpinBox::valueChanged,
+                     pI7d->pParts[4],&Integra7Part::setVelocityRangeLower);
+
+    QObject::connect(ui->Ch5VeloRangeUpper,&QSpinBox::valueChanged,
+                     pI7d->pParts[4],&Integra7Part::setVelocityRangeUpper);
+
+    QObject::connect(ui->Ch5VeloFadeUpperBox,&QSpinBox::valueChanged,
+                     pI7d->pParts[4],&Integra7Part::setVelocityFadeWidthUpper);
+
+    QObject::connect(ui->Ch5VeloSensOffsetBox,&QSpinBox::valueChanged,
+                     pI7d->pParts[4],&Integra7Part::setPartVelocitySensOffset);
+
+    QObject::connect(ui->Ch6KeyFadeLowerBox,&QSpinBox::valueChanged,
+                     pI7d->pParts[5],&Integra7Part::setKeyboardFadeWidthLower);
+
+    QObject::connect(ui->Ch6KeyRangeLowerBox,&QSpinBox::valueChanged,
+                     pI7d->pParts[5],&Integra7Part::setKeyboardRangeLower);
+
+    QObject::connect(ui->Ch6KeyRangeUpperBox,&QSpinBox::valueChanged,
+                     pI7d->pParts[5],&Integra7Part::setKeyboardRangeUpper);
+
+    QObject::connect(ui->Ch6KeyFadeUpperBox,&QSpinBox::valueChanged,
+                     pI7d->pParts[5],&Integra7Part::setKeyboardFadeWidthUpper);
+
+    QObject::connect(ui->Ch6VeloFadeLowerBox,&QSpinBox::valueChanged,
+                     pI7d->pParts[5],&Integra7Part::setVelocityFadeWidthLower);
+
+    QObject::connect(ui->Ch6VeloRangeLower,&QSpinBox::valueChanged,
+                     pI7d->pParts[5],&Integra7Part::setVelocityRangeLower);
+
+    QObject::connect(ui->Ch6VeloRangeUpper,&QSpinBox::valueChanged,
+                     pI7d->pParts[5],&Integra7Part::setVelocityRangeUpper);
+
+    QObject::connect(ui->Ch6VeloFadeUpperBox,&QSpinBox::valueChanged,
+                     pI7d->pParts[5],&Integra7Part::setVelocityFadeWidthUpper);
+
+    QObject::connect(ui->Ch6VeloSensOffsetBox,&QSpinBox::valueChanged,
+                     pI7d->pParts[5],&Integra7Part::setPartVelocitySensOffset);
+
+    QObject::connect(ui->Ch7KeyFadeLowerBox,&QSpinBox::valueChanged,
+                     pI7d->pParts[6],&Integra7Part::setKeyboardFadeWidthLower);
+
+    QObject::connect(ui->Ch7KeyRangeLowerBox,&QSpinBox::valueChanged,
+                     pI7d->pParts[6],&Integra7Part::setKeyboardRangeLower);
+
+    QObject::connect(ui->Ch7KeyRangeUpperBox,&QSpinBox::valueChanged,
+                     pI7d->pParts[6],&Integra7Part::setKeyboardRangeUpper);
+
+    QObject::connect(ui->Ch7KeyFadeUpperBox,&QSpinBox::valueChanged,
+                     pI7d->pParts[6],&Integra7Part::setKeyboardFadeWidthUpper);
+
+    QObject::connect(ui->Ch7VeloFadeLowerBox,&QSpinBox::valueChanged,
+                     pI7d->pParts[6],&Integra7Part::setVelocityFadeWidthLower);
+
+    QObject::connect(ui->Ch7VeloRangeLower,&QSpinBox::valueChanged,
+                     pI7d->pParts[6],&Integra7Part::setVelocityRangeLower);
+
+    QObject::connect(ui->Ch7VeloRangeUpper,&QSpinBox::valueChanged,
+                     pI7d->pParts[6],&Integra7Part::setVelocityRangeUpper);
+
+    QObject::connect(ui->Ch7VeloFadeUpperBox,&QSpinBox::valueChanged,
+                     pI7d->pParts[6],&Integra7Part::setVelocityFadeWidthUpper);
+
+    QObject::connect(ui->Ch7VeloSensOffsetBox,&QSpinBox::valueChanged,
+                     pI7d->pParts[6],&Integra7Part::setPartVelocitySensOffset);
+
+    QObject::connect(ui->Ch8KeyFadeLowerBox,&QSpinBox::valueChanged,
+                     pI7d->pParts[7],&Integra7Part::setKeyboardFadeWidthLower);
+
+    QObject::connect(ui->Ch8KeyRangeLowerBox,&QSpinBox::valueChanged,
+                     pI7d->pParts[7],&Integra7Part::setKeyboardRangeLower);
+
+    QObject::connect(ui->Ch8KeyRangeUpperBox,&QSpinBox::valueChanged,
+                     pI7d->pParts[7],&Integra7Part::setKeyboardRangeUpper);
+
+    QObject::connect(ui->Ch8KeyFadeUpperBox,&QSpinBox::valueChanged,
+                     pI7d->pParts[7],&Integra7Part::setKeyboardFadeWidthUpper);
+
+    QObject::connect(ui->Ch8VeloFadeLowerBox,&QSpinBox::valueChanged,
+                     pI7d->pParts[7],&Integra7Part::setVelocityFadeWidthLower);
+
+    QObject::connect(ui->Ch8VeloRangeLower,&QSpinBox::valueChanged,
+                     pI7d->pParts[7],&Integra7Part::setVelocityRangeLower);
+
+    QObject::connect(ui->Ch8VeloRangeUpper,&QSpinBox::valueChanged,
+                     pI7d->pParts[7],&Integra7Part::setVelocityRangeUpper);
+
+    QObject::connect(ui->Ch8VeloFadeUpperBox,&QSpinBox::valueChanged,
+                     pI7d->pParts[7],&Integra7Part::setVelocityFadeWidthUpper);
+
+    QObject::connect(ui->Ch8VeloSensOffsetBox,&QSpinBox::valueChanged,
+                     pI7d->pParts[7],&Integra7Part::setPartVelocitySensOffset);
+
+    QObject::connect(ui->Ch9KeyFadeLowerBox,&QSpinBox::valueChanged,
+                     pI7d->pParts[8],&Integra7Part::setKeyboardFadeWidthLower);
+
+    QObject::connect(ui->Ch9KeyRangeLowerBox,&QSpinBox::valueChanged,
+                     pI7d->pParts[8],&Integra7Part::setKeyboardRangeLower);
+
+    QObject::connect(ui->Ch9KeyRangeUpperBox,&QSpinBox::valueChanged,
+                     pI7d->pParts[8],&Integra7Part::setKeyboardRangeUpper);
+
+    QObject::connect(ui->Ch9KeyFadeUpperBox,&QSpinBox::valueChanged,
+                     pI7d->pParts[8],&Integra7Part::setKeyboardFadeWidthUpper);
+
+    QObject::connect(ui->Ch9VeloFadeLowerBox,&QSpinBox::valueChanged,
+                     pI7d->pParts[8],&Integra7Part::setVelocityFadeWidthLower);
+
+    QObject::connect(ui->Ch9VeloRangeLower,&QSpinBox::valueChanged,
+                     pI7d->pParts[8],&Integra7Part::setVelocityRangeLower);
+
+    QObject::connect(ui->Ch9VeloRangeUpper,&QSpinBox::valueChanged,
+                     pI7d->pParts[8],&Integra7Part::setVelocityRangeUpper);
+
+    QObject::connect(ui->Ch9VeloFadeUpperBox,&QSpinBox::valueChanged,
+                     pI7d->pParts[8],&Integra7Part::setVelocityFadeWidthUpper);
+
+    QObject::connect(ui->Ch9VeloSensOffsetBox,&QSpinBox::valueChanged,
+                     pI7d->pParts[8],&Integra7Part::setPartVelocitySensOffset);
+
+    QObject::connect(ui->Ch10KeyFadeLowerBox,&QSpinBox::valueChanged,
+                     pI7d->pParts[9],&Integra7Part::setKeyboardFadeWidthLower);
+
+    QObject::connect(ui->Ch10KeyRangeLowerBox,&QSpinBox::valueChanged,
+                     pI7d->pParts[9],&Integra7Part::setKeyboardRangeLower);
+
+    QObject::connect(ui->Ch10KeyRangeUpperBox,&QSpinBox::valueChanged,
+                     pI7d->pParts[9],&Integra7Part::setKeyboardRangeUpper);
+
+    QObject::connect(ui->Ch10KeyFadeUpperBox,&QSpinBox::valueChanged,
+                     pI7d->pParts[9],&Integra7Part::setKeyboardFadeWidthUpper);
+
+    QObject::connect(ui->Ch10VeloFadeLowerBox,&QSpinBox::valueChanged,
+                     pI7d->pParts[9],&Integra7Part::setVelocityFadeWidthLower);
+
+    QObject::connect(ui->Ch10VeloRangeLower,&QSpinBox::valueChanged,
+                     pI7d->pParts[9],&Integra7Part::setVelocityRangeLower);
+
+    QObject::connect(ui->Ch10VeloRangeUpper,&QSpinBox::valueChanged,
+                     pI7d->pParts[9],&Integra7Part::setVelocityRangeUpper);
+
+    QObject::connect(ui->Ch10VeloFadeUpperBox,&QSpinBox::valueChanged,
+                     pI7d->pParts[9],&Integra7Part::setVelocityFadeWidthUpper);
+
+    QObject::connect(ui->Ch10VeloSensOffsetBox,&QSpinBox::valueChanged,
+                     pI7d->pParts[9],&Integra7Part::setPartVelocitySensOffset);
+
+    QObject::connect(ui->Ch11KeyFadeLowerBox,&QSpinBox::valueChanged,
+                     pI7d->pParts[10],&Integra7Part::setKeyboardFadeWidthLower);
+
+    QObject::connect(ui->Ch11KeyRangeLowerBox,&QSpinBox::valueChanged,
+                     pI7d->pParts[10],&Integra7Part::setKeyboardRangeLower);
+
+    QObject::connect(ui->Ch11KeyRangeUpperBox,&QSpinBox::valueChanged,
+                     pI7d->pParts[10],&Integra7Part::setKeyboardRangeUpper);
+
+    QObject::connect(ui->Ch11KeyFadeUpperBox,&QSpinBox::valueChanged,
+                     pI7d->pParts[10],&Integra7Part::setKeyboardFadeWidthUpper);
+
+    QObject::connect(ui->Ch11VeloFadeLowerBox,&QSpinBox::valueChanged,
+                     pI7d->pParts[10],&Integra7Part::setVelocityFadeWidthLower);
+
+    QObject::connect(ui->Ch11VeloRangeLower,&QSpinBox::valueChanged,
+                     pI7d->pParts[10],&Integra7Part::setVelocityRangeLower);
+
+    QObject::connect(ui->Ch11VeloRangeUpper,&QSpinBox::valueChanged,
+                     pI7d->pParts[10],&Integra7Part::setVelocityRangeUpper);
+
+    QObject::connect(ui->Ch11VeloFadeUpperBox,&QSpinBox::valueChanged,
+                     pI7d->pParts[10],&Integra7Part::setVelocityFadeWidthUpper);
+
+    QObject::connect(ui->Ch11VeloSensOffsetBox,&QSpinBox::valueChanged,
+                     pI7d->pParts[10],&Integra7Part::setPartVelocitySensOffset);
+
+    QObject::connect(ui->Ch12KeyFadeLowerBox,&QSpinBox::valueChanged,
+                     pI7d->pParts[11],&Integra7Part::setKeyboardFadeWidthLower);
+
+    QObject::connect(ui->Ch12KeyRangeLowerBox,&QSpinBox::valueChanged,
+                     pI7d->pParts[11],&Integra7Part::setKeyboardRangeLower);
+
+    QObject::connect(ui->Ch12KeyRangeUpperBox,&QSpinBox::valueChanged,
+                     pI7d->pParts[11],&Integra7Part::setKeyboardRangeUpper);
+
+    QObject::connect(ui->Ch12KeyFadeUpperBox,&QSpinBox::valueChanged,
+                     pI7d->pParts[11],&Integra7Part::setKeyboardFadeWidthUpper);
+
+    QObject::connect(ui->Ch12VeloFadeLowerBox,&QSpinBox::valueChanged,
+                     pI7d->pParts[11],&Integra7Part::setVelocityFadeWidthLower);
+
+    QObject::connect(ui->Ch12VeloRangeLower,&QSpinBox::valueChanged,
+                     pI7d->pParts[11],&Integra7Part::setVelocityRangeLower);
+
+    QObject::connect(ui->Ch12VeloRangeUpper,&QSpinBox::valueChanged,
+                     pI7d->pParts[11],&Integra7Part::setVelocityRangeUpper);
+
+    QObject::connect(ui->Ch12VeloFadeUpperBox,&QSpinBox::valueChanged,
+                     pI7d->pParts[11],&Integra7Part::setVelocityFadeWidthUpper);
+
+    QObject::connect(ui->Ch12VeloSensOffsetBox,&QSpinBox::valueChanged,
+                     pI7d->pParts[11],&Integra7Part::setPartVelocitySensOffset);
+
+    QObject::connect(ui->Ch13KeyFadeLowerBox,&QSpinBox::valueChanged,
+                     pI7d->pParts[12],&Integra7Part::setKeyboardFadeWidthLower);
+
+    QObject::connect(ui->Ch13KeyRangeLowerBox,&QSpinBox::valueChanged,
+                     pI7d->pParts[12],&Integra7Part::setKeyboardRangeLower);
+
+    QObject::connect(ui->Ch13KeyRangeUpperBox,&QSpinBox::valueChanged,
+                     pI7d->pParts[12],&Integra7Part::setKeyboardRangeUpper);
+
+    QObject::connect(ui->Ch13KeyFadeUpperBox,&QSpinBox::valueChanged,
+                     pI7d->pParts[12],&Integra7Part::setKeyboardFadeWidthUpper);
+
+    QObject::connect(ui->Ch13VeloFadeLowerBox,&QSpinBox::valueChanged,
+                     pI7d->pParts[12],&Integra7Part::setVelocityFadeWidthLower);
+
+    QObject::connect(ui->Ch13VeloRangeLower,&QSpinBox::valueChanged,
+                     pI7d->pParts[12],&Integra7Part::setVelocityRangeLower);
+
+    QObject::connect(ui->Ch13VeloRangeUpper,&QSpinBox::valueChanged,
+                     pI7d->pParts[12],&Integra7Part::setVelocityRangeUpper);
+
+    QObject::connect(ui->Ch13VeloFadeUpperBox,&QSpinBox::valueChanged,
+                     pI7d->pParts[12],&Integra7Part::setVelocityFadeWidthUpper);
+
+    QObject::connect(ui->Ch13VeloSensOffsetBox,&QSpinBox::valueChanged,
+                     pI7d->pParts[12],&Integra7Part::setPartVelocitySensOffset);
+
+    QObject::connect(ui->Ch14KeyFadeLowerBox,&QSpinBox::valueChanged,
+                     pI7d->pParts[13],&Integra7Part::setKeyboardFadeWidthLower);
+
+    QObject::connect(ui->Ch14KeyRangeLowerBox,&QSpinBox::valueChanged,
+                     pI7d->pParts[13],&Integra7Part::setKeyboardRangeLower);
+
+    QObject::connect(ui->Ch14KeyRangeUpperBox,&QSpinBox::valueChanged,
+                     pI7d->pParts[13],&Integra7Part::setKeyboardRangeUpper);
+
+    QObject::connect(ui->Ch14KeyFadeUpperBox,&QSpinBox::valueChanged,
+                     pI7d->pParts[13],&Integra7Part::setKeyboardFadeWidthUpper);
+
+    QObject::connect(ui->Ch14VeloFadeLowerBox,&QSpinBox::valueChanged,
+                     pI7d->pParts[13],&Integra7Part::setVelocityFadeWidthLower);
+
+    QObject::connect(ui->Ch14VeloRangeLower,&QSpinBox::valueChanged,
+                     pI7d->pParts[13],&Integra7Part::setVelocityRangeLower);
+
+    QObject::connect(ui->Ch14VeloRangeUpper,&QSpinBox::valueChanged,
+                     pI7d->pParts[13],&Integra7Part::setVelocityRangeUpper);
+
+    QObject::connect(ui->Ch14VeloFadeUpperBox,&QSpinBox::valueChanged,
+                     pI7d->pParts[13],&Integra7Part::setVelocityFadeWidthUpper);
+
+    QObject::connect(ui->Ch14VeloSensOffsetBox,&QSpinBox::valueChanged,
+                     pI7d->pParts[13],&Integra7Part::setPartVelocitySensOffset);
+
+    QObject::connect(ui->Ch15KeyFadeLowerBox,&QSpinBox::valueChanged,
+                     pI7d->pParts[14],&Integra7Part::setKeyboardFadeWidthLower);
+
+    QObject::connect(ui->Ch15KeyRangeLowerBox,&QSpinBox::valueChanged,
+                     pI7d->pParts[14],&Integra7Part::setKeyboardRangeLower);
+
+    QObject::connect(ui->Ch15KeyRangeUpperBox,&QSpinBox::valueChanged,
+                     pI7d->pParts[14],&Integra7Part::setKeyboardRangeUpper);
+
+    QObject::connect(ui->Ch15KeyFadeUpperBox,&QSpinBox::valueChanged,
+                     pI7d->pParts[14],&Integra7Part::setKeyboardFadeWidthUpper);
+
+    QObject::connect(ui->Ch15VeloFadeLowerBox,&QSpinBox::valueChanged,
+                     pI7d->pParts[14],&Integra7Part::setVelocityFadeWidthLower);
+
+    QObject::connect(ui->Ch15VeloRangeLower,&QSpinBox::valueChanged,
+                     pI7d->pParts[14],&Integra7Part::setVelocityRangeLower);
+
+    QObject::connect(ui->Ch15VeloRangeUpper,&QSpinBox::valueChanged,
+                     pI7d->pParts[14],&Integra7Part::setVelocityRangeUpper);
+
+    QObject::connect(ui->Ch15VeloFadeUpperBox,&QSpinBox::valueChanged,
+                     pI7d->pParts[14],&Integra7Part::setVelocityFadeWidthUpper);
+
+    QObject::connect(ui->Ch15VeloSensOffsetBox,&QSpinBox::valueChanged,
+                     pI7d->pParts[14],&Integra7Part::setPartVelocitySensOffset);
+
+    QObject::connect(ui->Ch16KeyFadeLowerBox,&QSpinBox::valueChanged,
+                     pI7d->pParts[15],&Integra7Part::setKeyboardFadeWidthLower);
+
+    QObject::connect(ui->Ch16KeyRangeLowerBox,&QSpinBox::valueChanged,
+                     pI7d->pParts[15],&Integra7Part::setKeyboardRangeLower);
+
+    QObject::connect(ui->Ch16KeyRangeUpperBox,&QSpinBox::valueChanged,
+                     pI7d->pParts[15],&Integra7Part::setKeyboardRangeUpper);
+
+    QObject::connect(ui->Ch16KeyFadeUpperBox,&QSpinBox::valueChanged,
+                     pI7d->pParts[15],&Integra7Part::setKeyboardFadeWidthUpper);
+
+    QObject::connect(ui->Ch16VeloFadeLowerBox,&QSpinBox::valueChanged,
+                     pI7d->pParts[15],&Integra7Part::setVelocityFadeWidthLower);
+
+    QObject::connect(ui->Ch16VeloRangeLower,&QSpinBox::valueChanged,
+                     pI7d->pParts[15],&Integra7Part::setVelocityRangeLower);
+
+    QObject::connect(ui->Ch16VeloRangeUpper,&QSpinBox::valueChanged,
+                     pI7d->pParts[15],&Integra7Part::setVelocityRangeUpper);
+
+    QObject::connect(ui->Ch16VeloFadeUpperBox,&QSpinBox::valueChanged,
+                     pI7d->pParts[15],&Integra7Part::setVelocityFadeWidthUpper);
+
+    QObject::connect(ui->Ch16VeloSensOffsetBox,&QSpinBox::valueChanged,
+                     pI7d->pParts[15],&Integra7Part::setPartVelocitySensOffset);
+
     ui->Ch1Btn->setChecked(true);
 
     ShowUtilityCard();
