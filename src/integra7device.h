@@ -452,6 +452,7 @@ public:
 
 public slots:
     void setDeviceId(uint8_t Id);
+    void SetPreview(uint8_t state);
 
 private:
     uint8_t cDeviceId = 0x10;

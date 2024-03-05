@@ -89,10 +89,8 @@ private slots:
     void ShowUtilityCard();
 
     void MidiConnectBtn_clicked();
-
     void VSlotBox_currentIndexChanged(int index);
-
-    void VSlotLoadBtn_clicked();    
+    void VSlotLoadBtn_clicked();
 
 };
 #endif // INTEGRA7MAINWINDOW_H

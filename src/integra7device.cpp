@@ -541,6 +541,13 @@ void Integra7Device::LoadVirtualSlots(uint8_t s1, uint8_t s2, uint8_t s3, uint8_
     DataRequest(VirtualSlots);
 }
 
+void Integra7Device::SetPreview(uint8_t state)
+{
+    uint8_t msg[5] {0x0F,0x00,0x20,0x00,0x01};
+    msg[4] = state;
+    DataSet(msg,5);
+}
+
 QStringList& Integra7Device::GetBankList(QString type)
 {
     if (type == "SN-A")

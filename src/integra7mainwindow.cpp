@@ -984,6 +984,14 @@ integra7MainWindow::integra7MainWindow(QWidget *parent)
                      &QComboBox::currentIndexChanged,pI7d,
                      &Integra7Device::setDeviceId);
 
+    QObject::connect(ui->PreviewBtn,
+                     &QAbstractButton::clicked,pI7d,
+                     &Integra7Device::SetPreview);
+
+    QObject::connect(ui->PreviewBtn,
+                     &QAbstractButton::toggled,this,
+                     [this](){BtnToggled(ui->PreviewBtn,ui->PreviewBtn->isChecked());});
+
     /* Master EQ Connections */
     QObject::connect(ui->MEQLFFreqBox,&QComboBox::currentIndexChanged,
                      pI7d->MasterEQ,&Integra7MasterEQ::setEQLowFreq);
