@@ -73,7 +73,7 @@ void MidiEngine::Init()
         }
     }
 
-    iAlsaClientPort = snd_seq_create_simple_port(pAlsaSeq,"I7 Frontend Out",
+    iAlsaClientPort = snd_seq_create_simple_port(pAlsaSeq,"Port-0",
                                                  SND_SEQ_PORT_CAP_READ | SND_SEQ_PORT_CAP_SUBS_READ |
                                                  SND_SEQ_PORT_CAP_WRITE | SND_SEQ_PORT_CAP_SUBS_WRITE |
                                                  SND_SEQ_PORT_CAP_DUPLEX,
