@@ -274,6 +274,12 @@ integra7MainWindow::integra7MainWindow(QWidget *parent)
     SoloPartBtnGrp1.setId(ui->Ch15SoloBtn1,15);
     SoloPartBtnGrp1.setId(ui->Ch16SoloBtn1,16);
 
+    QObject::connect(&SoloPartBtnGrp,&QButtonGroup::idToggled,this,
+                     [this](int id, bool checked){SoloPartBtnGrp1.button(id)->setChecked(checked);});
+
+    QObject::connect(&SoloPartBtnGrp1,&QButtonGroup::idToggled,this,
+                     [this](int id, bool checked){SoloPartBtnGrp.button(id)->setChecked(checked);});
+
     QObject::connect(&PartBtnGrp,
                      &QButtonGroup::idToggled,this,
                      &integra7MainWindow::PartBtnToggled);
