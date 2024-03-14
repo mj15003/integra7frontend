@@ -15,27 +15,18 @@
    along with this program. If not, see <https://www.gnu.org/licenses/>
 *************************************************************************/
 
+#ifndef ONOFFBUTTON_H
+#define ONOFFBUTTON_H
+
 #include "colorcheckbutton.h"
 
-ColorCheckButton::ColorCheckButton(QWidget *parent):
-    QPushButton(parent)
+class OnOffButton : public ColorCheckButton
 {
-    QBrush OffBrush(QColor(73, 73, 73));
-    OffBrush.setStyle(Qt::SolidPattern);
-    OffBtnPalette.setBrush(QPalette::Active, QPalette::Button, OffBrush);
+public:
+    OnOffButton(QWidget *parent = nullptr);
 
-    QBrush OnBrush(QColor(184, 38, 52));
-    OnBrush.setStyle(Qt::SolidPattern);
-    OnBtnPalette.setBrush(QPalette::Active, QPalette::Button, OnBrush);
+public slots:
+    void toggle(bool checked);
+};
 
-    QObject::connect(this,&QAbstractButton::toggled,
-                     this,&ColorCheckButton::toggle);
-}
-
-void ColorCheckButton::toggle(bool checked)
-{
-    if (checked)
-        setPalette(OnBtnPalette);
-    else
-        setPalette(OffBtnPalette);
-}
+#endif // ONOFFBUTTON_H

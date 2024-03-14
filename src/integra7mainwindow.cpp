@@ -1009,9 +1009,6 @@ integra7MainWindow::integra7MainWindow(QWidget *parent)
     QObject::connect(ui->Ch1MuteBtn,&QPushButton::toggled,
                      pI7d->pParts[0],&Integra7Part::setMuteSwitch);
 
-    QObject::connect(ui->Ch1MuteBtn,&QPushButton::toggled,this,
-                     [this](){OnOffBtnToggled(ui->Ch1MuteBtn);});
-
     QObject::connect(ui->Ch2LevelBox,&QSpinBox::valueChanged,
                      pI7d->pParts[1],&Integra7Part::setPartLevel);
 
@@ -1026,9 +1023,6 @@ integra7MainWindow::integra7MainWindow(QWidget *parent)
 
     QObject::connect(ui->Ch2MuteBtn,&QPushButton::toggled,
                      pI7d->pParts[1],&Integra7Part::setMuteSwitch);
-
-    QObject::connect(ui->Ch2MuteBtn,&QPushButton::toggled,this,
-                     [this](){OnOffBtnToggled(ui->Ch2MuteBtn);});
 
     QObject::connect(ui->Ch3LevelBox,&QSpinBox::valueChanged,
                      pI7d->pParts[2],&Integra7Part::setPartLevel);
@@ -1045,9 +1039,6 @@ integra7MainWindow::integra7MainWindow(QWidget *parent)
     QObject::connect(ui->Ch3MuteBtn,&QPushButton::toggled,
                      pI7d->pParts[2],&Integra7Part::setMuteSwitch);
 
-    QObject::connect(ui->Ch3MuteBtn,&QPushButton::toggled,this,
-                     [this](){OnOffBtnToggled(ui->Ch3MuteBtn);});
-
     QObject::connect(ui->Ch4LevelBox,&QSpinBox::valueChanged,
                      pI7d->pParts[3],&Integra7Part::setPartLevel);
 
@@ -1062,9 +1053,6 @@ integra7MainWindow::integra7MainWindow(QWidget *parent)
 
     QObject::connect(ui->Ch4MuteBtn,&QPushButton::toggled,
                      pI7d->pParts[3],&Integra7Part::setMuteSwitch);
-
-    QObject::connect(ui->Ch4MuteBtn,&QPushButton::toggled,this,
-                     [this](){OnOffBtnToggled(ui->Ch4MuteBtn);});
 
     QObject::connect(ui->Ch5LevelBox,&QSpinBox::valueChanged,
                      pI7d->pParts[4],&Integra7Part::setPartLevel);
@@ -1081,9 +1069,6 @@ integra7MainWindow::integra7MainWindow(QWidget *parent)
     QObject::connect(ui->Ch5MuteBtn,&QPushButton::toggled,
                      pI7d->pParts[4],&Integra7Part::setMuteSwitch);
 
-    QObject::connect(ui->Ch5MuteBtn,&QPushButton::toggled,this,
-                     [this](){OnOffBtnToggled(ui->Ch5MuteBtn);});
-
     QObject::connect(ui->Ch6LevelBox,&QSpinBox::valueChanged,
                      pI7d->pParts[5],&Integra7Part::setPartLevel);
 
@@ -1098,9 +1083,6 @@ integra7MainWindow::integra7MainWindow(QWidget *parent)
 
     QObject::connect(ui->Ch6MuteBtn,&QPushButton::toggled,
                      pI7d->pParts[5],&Integra7Part::setMuteSwitch);
-
-    QObject::connect(ui->Ch6MuteBtn,&QPushButton::toggled,this,
-                     [this](){OnOffBtnToggled(ui->Ch6MuteBtn);});
 
     QObject::connect(ui->Ch7LevelBox,&QSpinBox::valueChanged,
                      pI7d->pParts[6],&Integra7Part::setPartLevel);
@@ -1117,9 +1099,6 @@ integra7MainWindow::integra7MainWindow(QWidget *parent)
     QObject::connect(ui->Ch7MuteBtn,&QPushButton::toggled,
                      pI7d->pParts[6],&Integra7Part::setMuteSwitch);
 
-    QObject::connect(ui->Ch7MuteBtn,&QPushButton::toggled,this,
-                     [this](){OnOffBtnToggled(ui->Ch7MuteBtn);});
-
     QObject::connect(ui->Ch8LevelBox,&QSpinBox::valueChanged,
                      pI7d->pParts[7],&Integra7Part::setPartLevel);
 
@@ -1134,9 +1113,6 @@ integra7MainWindow::integra7MainWindow(QWidget *parent)
 
     QObject::connect(ui->Ch8MuteBtn,&QPushButton::toggled,
                      pI7d->pParts[7],&Integra7Part::setMuteSwitch);
-
-    QObject::connect(ui->Ch8MuteBtn,&QPushButton::toggled,this,
-                     [this](){OnOffBtnToggled(ui->Ch8MuteBtn);});
 
     QObject::connect(ui->Ch9LevelBox,&QSpinBox::valueChanged,
                      pI7d->pParts[8],&Integra7Part::setPartLevel);
@@ -1153,9 +1129,6 @@ integra7MainWindow::integra7MainWindow(QWidget *parent)
     QObject::connect(ui->Ch9MuteBtn,&QPushButton::toggled,
                      pI7d->pParts[8],&Integra7Part::setMuteSwitch);
 
-    QObject::connect(ui->Ch9MuteBtn,&QPushButton::toggled,this,
-                     [this](){OnOffBtnToggled(ui->Ch9MuteBtn);});
-
     QObject::connect(ui->Ch10LevelBox,&QSpinBox::valueChanged,
                      pI7d->pParts[9],&Integra7Part::setPartLevel);
 
@@ -1170,9 +1143,6 @@ integra7MainWindow::integra7MainWindow(QWidget *parent)
 
     QObject::connect(ui->Ch10MuteBtn,&QPushButton::toggled,
                      pI7d->pParts[9],&Integra7Part::setMuteSwitch);
-
-    QObject::connect(ui->Ch10MuteBtn,&QPushButton::toggled,this,
-                     [this](){OnOffBtnToggled(ui->Ch10MuteBtn);});
 
     QObject::connect(ui->Ch11LevelBox,&QSpinBox::valueChanged,
                      pI7d->pParts[10],&Integra7Part::setPartLevel);
@@ -1189,9 +1159,6 @@ integra7MainWindow::integra7MainWindow(QWidget *parent)
     QObject::connect(ui->Ch11MuteBtn,&QPushButton::toggled,
                      pI7d->pParts[10],&Integra7Part::setMuteSwitch);
 
-    QObject::connect(ui->Ch11MuteBtn,&QPushButton::toggled,this,
-                     [this](){OnOffBtnToggled(ui->Ch11MuteBtn);});
-
     QObject::connect(ui->Ch12LevelBox,&QSpinBox::valueChanged,
                      pI7d->pParts[11],&Integra7Part::setPartLevel);
 
@@ -1206,9 +1173,6 @@ integra7MainWindow::integra7MainWindow(QWidget *parent)
 
     QObject::connect(ui->Ch12MuteBtn,&QPushButton::toggled,
                      pI7d->pParts[11],&Integra7Part::setMuteSwitch);
-
-    QObject::connect(ui->Ch12MuteBtn,&QPushButton::toggled,this,
-                     [this](){OnOffBtnToggled(ui->Ch12MuteBtn);});
 
     QObject::connect(ui->Ch13LevelBox,&QSpinBox::valueChanged,
                      pI7d->pParts[12],&Integra7Part::setPartLevel);
@@ -1225,9 +1189,6 @@ integra7MainWindow::integra7MainWindow(QWidget *parent)
     QObject::connect(ui->Ch13MuteBtn,&QPushButton::toggled,
                      pI7d->pParts[12],&Integra7Part::setMuteSwitch);
 
-    QObject::connect(ui->Ch13MuteBtn,&QPushButton::toggled,this,
-                     [this](){OnOffBtnToggled(ui->Ch13MuteBtn);});
-
     QObject::connect(ui->Ch14LevelBox,&QSpinBox::valueChanged,
                      pI7d->pParts[13],&Integra7Part::setPartLevel);
 
@@ -1242,9 +1203,6 @@ integra7MainWindow::integra7MainWindow(QWidget *parent)
 
     QObject::connect(ui->Ch14MuteBtn,&QPushButton::toggled,
                      pI7d->pParts[13],&Integra7Part::setMuteSwitch);
-
-    QObject::connect(ui->Ch14MuteBtn,&QPushButton::toggled,this,
-                     [this](){OnOffBtnToggled(ui->Ch14MuteBtn);});
 
     QObject::connect(ui->Ch15LevelBox,&QSpinBox::valueChanged,
                      pI7d->pParts[14],&Integra7Part::setPartLevel);
@@ -1261,9 +1219,6 @@ integra7MainWindow::integra7MainWindow(QWidget *parent)
     QObject::connect(ui->Ch15MuteBtn,&QPushButton::toggled,
                      pI7d->pParts[14],&Integra7Part::setMuteSwitch);
 
-    QObject::connect(ui->Ch15MuteBtn,&QPushButton::toggled,this,
-                     [this](){OnOffBtnToggled(ui->Ch15MuteBtn);});
-
     QObject::connect(ui->Ch16LevelBox,&QSpinBox::valueChanged,
                      pI7d->pParts[15],&Integra7Part::setPartLevel);
 
@@ -1279,62 +1234,7 @@ integra7MainWindow::integra7MainWindow(QWidget *parent)
     QObject::connect(ui->Ch16MuteBtn,&QPushButton::toggled,
                      pI7d->pParts[15],&Integra7Part::setMuteSwitch);
 
-    QObject::connect(ui->Ch16MuteBtn,&QPushButton::toggled,this,
-                     [this](){OnOffBtnToggled(ui->Ch16MuteBtn);});
-
-    /* Part Tone connections */
-    QObject::connect(ui->Ch1MuteBtn1,&QPushButton::toggled,this,
-                     [this](){OnOffBtnToggled(ui->Ch1MuteBtn1);});
-
-    QObject::connect(ui->Ch2MuteBtn1,&QPushButton::toggled,this,
-                     [this](){OnOffBtnToggled(ui->Ch2MuteBtn1);});
-
-    QObject::connect(ui->Ch3MuteBtn1,&QPushButton::toggled,this,
-                     [this](){OnOffBtnToggled(ui->Ch3MuteBtn1);});
-
-    QObject::connect(ui->Ch4MuteBtn1,&QPushButton::toggled,this,
-                     [this](){OnOffBtnToggled(ui->Ch4MuteBtn1);});
-
-    QObject::connect(ui->Ch5MuteBtn1,&QPushButton::toggled,this,
-                     [this](){OnOffBtnToggled(ui->Ch5MuteBtn1);});
-
-    QObject::connect(ui->Ch6MuteBtn1,&QPushButton::toggled,this,
-                     [this](){OnOffBtnToggled(ui->Ch6MuteBtn1);});
-
-    QObject::connect(ui->Ch7MuteBtn1,&QPushButton::toggled,this,
-                     [this](){OnOffBtnToggled(ui->Ch7MuteBtn1);});
-
-    QObject::connect(ui->Ch8MuteBtn1,&QPushButton::toggled,this,
-                     [this](){OnOffBtnToggled(ui->Ch8MuteBtn1);});
-
-    QObject::connect(ui->Ch9MuteBtn1,&QPushButton::toggled,this,
-                     [this](){OnOffBtnToggled(ui->Ch9MuteBtn1);});
-
-    QObject::connect(ui->Ch10MuteBtn1,&QPushButton::toggled,this,
-                     [this](){OnOffBtnToggled(ui->Ch10MuteBtn1);});
-
-    QObject::connect(ui->Ch11MuteBtn1,&QPushButton::toggled,this,
-                     [this](){OnOffBtnToggled(ui->Ch11MuteBtn1);});
-
-    QObject::connect(ui->Ch12MuteBtn1,&QPushButton::toggled,this,
-                     [this](){OnOffBtnToggled(ui->Ch12MuteBtn1);});
-
-    QObject::connect(ui->Ch13MuteBtn1,&QPushButton::toggled,this,
-                     [this](){OnOffBtnToggled(ui->Ch13MuteBtn1);});
-
-    QObject::connect(ui->Ch14MuteBtn1,&QPushButton::toggled,this,
-                     [this](){OnOffBtnToggled(ui->Ch14MuteBtn1);});
-
-    QObject::connect(ui->Ch15MuteBtn1,&QPushButton::toggled,this,
-                     [this](){OnOffBtnToggled(ui->Ch15MuteBtn1);});
-
-    QObject::connect(ui->Ch16MuteBtn1,&QPushButton::toggled,this,
-                     [this](){OnOffBtnToggled(ui->Ch16MuteBtn1);});
-
     /* Part EQ connections */
-    QObject::connect(ui->Ch1EQSwBtn,&QPushButton::toggled,this,
-                     [this](){OnOffBtnToggled(ui->Ch1EQSwBtn);});
-
     QObject::connect(ui->Ch1EQSwBtn,&QPushButton::toggled,
                      pI7d->pPartsEQ[0],&Integra7PartEQ::setEQSwitch);
 
@@ -1358,9 +1258,6 @@ integra7MainWindow::integra7MainWindow(QWidget *parent)
 
     QObject::connect(ui->Ch1EQHFGainBox,&QSpinBox::valueChanged,
                      pI7d->pPartsEQ[0],&Integra7PartEQ::setEQHighGain);
-
-    QObject::connect(ui->Ch2EQSwBtn,&QPushButton::toggled,this,
-                     [this](){OnOffBtnToggled(ui->Ch2EQSwBtn);});
 
     QObject::connect(ui->Ch2EQSwBtn,&QPushButton::toggled,
                      pI7d->pPartsEQ[1],&Integra7PartEQ::setEQSwitch);
@@ -1386,9 +1283,6 @@ integra7MainWindow::integra7MainWindow(QWidget *parent)
     QObject::connect(ui->Ch2EQHFGainBox,&QSpinBox::valueChanged,
                      pI7d->pPartsEQ[1],&Integra7PartEQ::setEQHighGain);
 
-    QObject::connect(ui->Ch3EQSwBtn,&QPushButton::toggled,this,
-                     [this](){OnOffBtnToggled(ui->Ch3EQSwBtn);});
-
     QObject::connect(ui->Ch3EQSwBtn,&QPushButton::toggled,
                      pI7d->pPartsEQ[2],&Integra7PartEQ::setEQSwitch);
 
@@ -1412,9 +1306,6 @@ integra7MainWindow::integra7MainWindow(QWidget *parent)
 
     QObject::connect(ui->Ch3EQHFGainBox,&QSpinBox::valueChanged,
                      pI7d->pPartsEQ[2],&Integra7PartEQ::setEQHighGain);
-
-    QObject::connect(ui->Ch4EQSwBtn,&QPushButton::toggled,this,
-                     [this](){OnOffBtnToggled(ui->Ch4EQSwBtn);});
 
     QObject::connect(ui->Ch4EQSwBtn,&QPushButton::toggled,
                      pI7d->pPartsEQ[3],&Integra7PartEQ::setEQSwitch);
@@ -1440,9 +1331,6 @@ integra7MainWindow::integra7MainWindow(QWidget *parent)
     QObject::connect(ui->Ch4EQHFGainBox,&QSpinBox::valueChanged,
                      pI7d->pPartsEQ[3],&Integra7PartEQ::setEQHighGain);
 
-    QObject::connect(ui->Ch5EQSwBtn,&QPushButton::toggled,this,
-                     [this](){OnOffBtnToggled(ui->Ch5EQSwBtn);});
-
     QObject::connect(ui->Ch5EQSwBtn,&QPushButton::toggled,
                      pI7d->pPartsEQ[4],&Integra7PartEQ::setEQSwitch);
 
@@ -1466,9 +1354,6 @@ integra7MainWindow::integra7MainWindow(QWidget *parent)
 
     QObject::connect(ui->Ch5EQHFGainBox,&QSpinBox::valueChanged,
                      pI7d->pPartsEQ[4],&Integra7PartEQ::setEQHighGain);
-
-    QObject::connect(ui->Ch6EQSwBtn,&QPushButton::toggled,this,
-                     [this](){OnOffBtnToggled(ui->Ch6EQSwBtn);});
 
     QObject::connect(ui->Ch6EQSwBtn,&QPushButton::toggled,
                      pI7d->pPartsEQ[5],&Integra7PartEQ::setEQSwitch);
@@ -1494,9 +1379,6 @@ integra7MainWindow::integra7MainWindow(QWidget *parent)
     QObject::connect(ui->Ch6EQHFGainBox,&QSpinBox::valueChanged,
                      pI7d->pPartsEQ[5],&Integra7PartEQ::setEQHighGain);
 
-    QObject::connect(ui->Ch7EQSwBtn,&QPushButton::toggled,this,
-                     [this](){OnOffBtnToggled(ui->Ch7EQSwBtn);});
-
     QObject::connect(ui->Ch7EQSwBtn,&QPushButton::toggled,
                      pI7d->pPartsEQ[6],&Integra7PartEQ::setEQSwitch);
 
@@ -1520,9 +1402,6 @@ integra7MainWindow::integra7MainWindow(QWidget *parent)
 
     QObject::connect(ui->Ch7EQHFGainBox,&QSpinBox::valueChanged,
                      pI7d->pPartsEQ[6],&Integra7PartEQ::setEQHighGain);
-
-    QObject::connect(ui->Ch8EQSwBtn,&QPushButton::toggled,this,
-                     [this](){OnOffBtnToggled(ui->Ch8EQSwBtn);});
 
     QObject::connect(ui->Ch8EQSwBtn,&QPushButton::toggled,
                      pI7d->pPartsEQ[7],&Integra7PartEQ::setEQSwitch);
@@ -1548,9 +1427,6 @@ integra7MainWindow::integra7MainWindow(QWidget *parent)
     QObject::connect(ui->Ch8EQHFGainBox,&QSpinBox::valueChanged,
                      pI7d->pPartsEQ[7],&Integra7PartEQ::setEQHighGain);
 
-    QObject::connect(ui->Ch9EQSwBtn,&QPushButton::toggled,this,
-                     [this](){OnOffBtnToggled(ui->Ch9EQSwBtn);});
-
     QObject::connect(ui->Ch9EQSwBtn,&QPushButton::toggled,
                      pI7d->pPartsEQ[8],&Integra7PartEQ::setEQSwitch);
 
@@ -1574,9 +1450,6 @@ integra7MainWindow::integra7MainWindow(QWidget *parent)
 
     QObject::connect(ui->Ch9EQHFGainBox,&QSpinBox::valueChanged,
                      pI7d->pPartsEQ[8],&Integra7PartEQ::setEQHighGain);
-
-    QObject::connect(ui->Ch10EQSwBtn,&QPushButton::toggled,this,
-                     [this](){OnOffBtnToggled(ui->Ch10EQSwBtn);});
 
     QObject::connect(ui->Ch10EQSwBtn,&QPushButton::toggled,
                      pI7d->pPartsEQ[9],&Integra7PartEQ::setEQSwitch);
@@ -1602,9 +1475,6 @@ integra7MainWindow::integra7MainWindow(QWidget *parent)
     QObject::connect(ui->Ch10EQHFGainBox,&QSpinBox::valueChanged,
                      pI7d->pPartsEQ[9],&Integra7PartEQ::setEQHighGain);
 
-    QObject::connect(ui->Ch11EQSwBtn,&QPushButton::toggled,this,
-                     [this](){OnOffBtnToggled(ui->Ch11EQSwBtn);});
-
     QObject::connect(ui->Ch11EQSwBtn,&QPushButton::toggled,
                      pI7d->pPartsEQ[10],&Integra7PartEQ::setEQSwitch);
 
@@ -1628,9 +1498,6 @@ integra7MainWindow::integra7MainWindow(QWidget *parent)
 
     QObject::connect(ui->Ch11EQHFGainBox,&QSpinBox::valueChanged,
                      pI7d->pPartsEQ[10],&Integra7PartEQ::setEQHighGain);
-
-    QObject::connect(ui->Ch12EQSwBtn,&QPushButton::toggled,this,
-                     [this](){OnOffBtnToggled(ui->Ch12EQSwBtn);});
 
     QObject::connect(ui->Ch12EQSwBtn,&QPushButton::toggled,
                      pI7d->pPartsEQ[11],&Integra7PartEQ::setEQSwitch);
@@ -1656,9 +1523,6 @@ integra7MainWindow::integra7MainWindow(QWidget *parent)
     QObject::connect(ui->Ch12EQHFGainBox,&QSpinBox::valueChanged,
                      pI7d->pPartsEQ[11],&Integra7PartEQ::setEQHighGain);
 
-    QObject::connect(ui->Ch13EQSwBtn,&QPushButton::toggled,this,
-                     [this](){OnOffBtnToggled(ui->Ch13EQSwBtn);});
-
     QObject::connect(ui->Ch13EQSwBtn,&QPushButton::toggled,
                      pI7d->pPartsEQ[12],&Integra7PartEQ::setEQSwitch);
 
@@ -1682,9 +1546,6 @@ integra7MainWindow::integra7MainWindow(QWidget *parent)
 
     QObject::connect(ui->Ch13EQHFGainBox,&QSpinBox::valueChanged,
                      pI7d->pPartsEQ[12],&Integra7PartEQ::setEQHighGain);
-
-    QObject::connect(ui->Ch14EQSwBtn,&QPushButton::toggled,this,
-                     [this](){OnOffBtnToggled(ui->Ch14EQSwBtn);});
 
     QObject::connect(ui->Ch14EQSwBtn,&QPushButton::toggled,
                      pI7d->pPartsEQ[13],&Integra7PartEQ::setEQSwitch);
@@ -1710,9 +1571,6 @@ integra7MainWindow::integra7MainWindow(QWidget *parent)
     QObject::connect(ui->Ch14EQHFGainBox,&QSpinBox::valueChanged,
                      pI7d->pPartsEQ[13],&Integra7PartEQ::setEQHighGain);
 
-    QObject::connect(ui->Ch15EQSwBtn,&QPushButton::toggled,this,
-                     [this](){OnOffBtnToggled(ui->Ch15EQSwBtn);});
-
     QObject::connect(ui->Ch15EQSwBtn,&QPushButton::toggled,
                      pI7d->pPartsEQ[14],&Integra7PartEQ::setEQSwitch);
 
@@ -1736,9 +1594,6 @@ integra7MainWindow::integra7MainWindow(QWidget *parent)
 
     QObject::connect(ui->Ch15EQHFGainBox,&QSpinBox::valueChanged,
                      pI7d->pPartsEQ[14],&Integra7PartEQ::setEQHighGain);
-
-    QObject::connect(ui->Ch16EQSwBtn,&QPushButton::toggled,this,
-                     [this](){OnOffBtnToggled(ui->Ch16EQSwBtn);});
 
     QObject::connect(ui->Ch16EQSwBtn,&QPushButton::toggled,
                      pI7d->pPartsEQ[15],&Integra7PartEQ::setEQSwitch);
@@ -2551,17 +2406,6 @@ void integra7MainWindow::PartBtnToggled(int id, bool checked)
 
         QObject::disconnect(ToneBoxes[id][0],&QComboBox::currentIndexChanged,
                          ui->ToneBox,&QComboBox::setCurrentIndex);
-    }
-}
-
-void integra7MainWindow::OnOffBtnToggled(QAbstractButton *button)
-{
-    if (button->isChecked()) {
-        button->setPalette(OnBtnPalette);
-        button->setText("ON");
-    } else {
-        button->setPalette(OffBtnPalette);
-        button->setText("OFF");
     }
 }
 

@@ -68,8 +68,7 @@ private:
     void ToneBoxChange(int part);
 
 private slots:
-    void PartBtnToggled(int id, bool checked);
-    void OnOffBtnToggled(QAbstractButton *button);
+    void PartBtnToggled(int id, bool checked);    
     void ShowStudioSet();
     void ShowEffects();
     void ShowPartViewCard() {ui->RightContent->setCurrentWidget(ui->PartViewCard);}

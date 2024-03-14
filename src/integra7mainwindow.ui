@@ -962,7 +962,7 @@ COMMON</string>
        <item>
         <widget class="QStackedWidget" name="RightContent">
          <property name="currentIndex">
-          <number>0</number>
+          <number>3</number>
          </property>
          <widget class="QWidget" name="PartViewCard">
           <layout class="QGridLayout" name="PartViewCardLayout">
@@ -1239,7 +1239,7 @@ COMMON</string>
             </layout>
            </item>
            <item row="2" column="9">
-            <widget class="QPushButton" name="Ch1MuteBtn">
+            <widget class="OnOffButton" name="Ch1MuteBtn">
              <property name="text">
               <string>OFF</string>
              </property>
@@ -1396,7 +1396,7 @@ COMMON</string>
             </layout>
            </item>
            <item row="3" column="9">
-            <widget class="QPushButton" name="Ch2MuteBtn">
+            <widget class="OnOffButton" name="Ch2MuteBtn">
              <property name="text">
               <string>OFF</string>
              </property>
@@ -1553,7 +1553,7 @@ COMMON</string>
             </layout>
            </item>
            <item row="4" column="9">
-            <widget class="QPushButton" name="Ch3MuteBtn">
+            <widget class="OnOffButton" name="Ch3MuteBtn">
              <property name="text">
               <string>OFF</string>
              </property>
@@ -1710,7 +1710,7 @@ COMMON</string>
             </layout>
            </item>
            <item row="5" column="9">
-            <widget class="QPushButton" name="Ch4MuteBtn">
+            <widget class="OnOffButton" name="Ch4MuteBtn">
              <property name="text">
               <string>OFF</string>
              </property>
@@ -1867,7 +1867,7 @@ COMMON</string>
             </layout>
            </item>
            <item row="6" column="9">
-            <widget class="QPushButton" name="Ch5MuteBtn">
+            <widget class="OnOffButton" name="Ch5MuteBtn">
              <property name="text">
               <string>OFF</string>
              </property>
@@ -2024,7 +2024,7 @@ COMMON</string>
             </layout>
            </item>
            <item row="7" column="9">
-            <widget class="QPushButton" name="Ch6MuteBtn">
+            <widget class="OnOffButton" name="Ch6MuteBtn">
              <property name="text">
               <string>OFF</string>
              </property>
@@ -2181,7 +2181,7 @@ COMMON</string>
             </layout>
            </item>
            <item row="8" column="9">
-            <widget class="QPushButton" name="Ch7MuteBtn">
+            <widget class="OnOffButton" name="Ch7MuteBtn">
              <property name="text">
               <string>OFF</string>
              </property>
@@ -2338,7 +2338,7 @@ COMMON</string>
             </layout>
            </item>
            <item row="9" column="9">
-            <widget class="QPushButton" name="Ch8MuteBtn">
+            <widget class="OnOffButton" name="Ch8MuteBtn">
              <property name="text">
               <string>OFF</string>
              </property>
@@ -2495,7 +2495,7 @@ COMMON</string>
             </layout>
            </item>
            <item row="10" column="9">
-            <widget class="QPushButton" name="Ch9MuteBtn">
+            <widget class="OnOffButton" name="Ch9MuteBtn">
              <property name="text">
               <string>OFF</string>
              </property>
@@ -2652,7 +2652,7 @@ COMMON</string>
             </layout>
            </item>
            <item row="11" column="9">
-            <widget class="QPushButton" name="Ch10MuteBtn">
+            <widget class="OnOffButton" name="Ch10MuteBtn">
              <property name="text">
               <string>OFF</string>
              </property>
@@ -2809,7 +2809,7 @@ COMMON</string>
             </layout>
            </item>
            <item row="12" column="9">
-            <widget class="QPushButton" name="Ch11MuteBtn">
+            <widget class="OnOffButton" name="Ch11MuteBtn">
              <property name="text">
               <string>OFF</string>
              </property>
@@ -2966,7 +2966,7 @@ COMMON</string>
             </layout>
            </item>
            <item row="13" column="9">
-            <widget class="QPushButton" name="Ch12MuteBtn">
+            <widget class="OnOffButton" name="Ch12MuteBtn">
              <property name="text">
               <string>OFF</string>
              </property>
@@ -3123,7 +3123,7 @@ COMMON</string>
             </layout>
            </item>
            <item row="14" column="9">
-            <widget class="QPushButton" name="Ch13MuteBtn">
+            <widget class="OnOffButton" name="Ch13MuteBtn">
              <property name="text">
               <string>OFF</string>
              </property>
@@ -3280,7 +3280,7 @@ COMMON</string>
             </layout>
            </item>
            <item row="15" column="9">
-            <widget class="QPushButton" name="Ch14MuteBtn">
+            <widget class="OnOffButton" name="Ch14MuteBtn">
              <property name="text">
               <string>OFF</string>
              </property>
@@ -3437,7 +3437,7 @@ COMMON</string>
             </layout>
            </item>
            <item row="16" column="9">
-            <widget class="QPushButton" name="Ch15MuteBtn">
+            <widget class="OnOffButton" name="Ch15MuteBtn">
              <property name="text">
               <string>OFF</string>
              </property>
@@ -3594,7 +3594,7 @@ COMMON</string>
             </layout>
            </item>
            <item row="17" column="9">
-            <widget class="QPushButton" name="Ch16MuteBtn">
+            <widget class="OnOffButton" name="Ch16MuteBtn">
              <property name="text">
               <string>OFF</string>
              </property>
@@ -3677,7 +3677,7 @@ COMMON</string>
             </layout>
            </item>
            <item row="18" column="9">
-            <widget class="QPushButton" name="ExMuteBtn">
+            <widget class="OnOffButton" name="ExMuteBtn">
              <property name="text">
               <string>OFF</string>
              </property>
@@ -3769,7 +3769,7 @@ COMMON</string>
             </widget>
            </item>
            <item row="13" column="5">
-            <widget class="QPushButton" name="Ch12MuteBtn1">
+            <widget class="OnOffButton" name="Ch12MuteBtn1">
              <property name="sizePolicy">
               <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
                <horstretch>0</horstretch>
@@ -3830,7 +3830,7 @@ COMMON</string>
             </widget>
            </item>
            <item row="16" column="5">
-            <widget class="QPushButton" name="Ch15MuteBtn1">
+            <widget class="OnOffButton" name="Ch15MuteBtn1">
              <property name="sizePolicy">
               <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
                <horstretch>0</horstretch>
@@ -3881,7 +3881,7 @@ COMMON</string>
             <widget class="QComboBox" name="Ch6TypeBox1"/>
            </item>
            <item row="8" column="5">
-            <widget class="QPushButton" name="Ch7MuteBtn1">
+            <widget class="OnOffButton" name="Ch7MuteBtn1">
              <property name="sizePolicy">
               <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
                <horstretch>0</horstretch>
@@ -3907,7 +3907,7 @@ COMMON</string>
             <widget class="QComboBox" name="Ch16BankBox1"/>
            </item>
            <item row="5" column="5">
-            <widget class="QPushButton" name="Ch4MuteBtn1">
+            <widget class="OnOffButton" name="Ch4MuteBtn1">
              <property name="sizePolicy">
               <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
                <horstretch>0</horstretch>
@@ -4066,7 +4066,7 @@ COMMON</string>
             </widget>
            </item>
            <item row="6" column="5">
-            <widget class="QPushButton" name="Ch5MuteBtn1">
+            <widget class="OnOffButton" name="Ch5MuteBtn1">
              <property name="sizePolicy">
               <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
                <horstretch>0</horstretch>
@@ -4102,7 +4102,7 @@ COMMON</string>
             </widget>
            </item>
            <item row="3" column="5">
-            <widget class="QPushButton" name="Ch2MuteBtn1">
+            <widget class="OnOffButton" name="Ch2MuteBtn1">
              <property name="sizePolicy">
               <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
                <horstretch>0</horstretch>
@@ -4171,7 +4171,7 @@ COMMON</string>
             <widget class="QComboBox" name="Ch14TypeBox1"/>
            </item>
            <item row="7" column="5">
-            <widget class="QPushButton" name="Ch6MuteBtn1">
+            <widget class="OnOffButton" name="Ch6MuteBtn1">
              <property name="sizePolicy">
               <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
                <horstretch>0</horstretch>
@@ -4187,7 +4187,7 @@ COMMON</string>
             </widget>
            </item>
            <item row="4" column="5">
-            <widget class="QPushButton" name="Ch3MuteBtn1">
+            <widget class="OnOffButton" name="Ch3MuteBtn1">
              <property name="sizePolicy">
               <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
                <horstretch>0</horstretch>
@@ -4395,7 +4395,7 @@ COMMON</string>
             </widget>
            </item>
            <item row="17" column="5">
-            <widget class="QPushButton" name="Ch16MuteBtn1">
+            <widget class="OnOffButton" name="Ch16MuteBtn1">
              <property name="sizePolicy">
               <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
                <horstretch>0</horstretch>
@@ -4491,7 +4491,7 @@ COMMON</string>
             <widget class="QComboBox" name="Ch7TypeBox1"/>
            </item>
            <item row="11" column="5">
-            <widget class="QPushButton" name="Ch10MuteBtn1">
+            <widget class="OnOffButton" name="Ch10MuteBtn1">
              <property name="sizePolicy">
               <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
                <horstretch>0</horstretch>
@@ -4598,7 +4598,7 @@ COMMON</string>
             </widget>
            </item>
            <item row="2" column="5">
-            <widget class="QPushButton" name="Ch1MuteBtn1">
+            <widget class="OnOffButton" name="Ch1MuteBtn1">
              <property name="sizePolicy">
               <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
                <horstretch>0</horstretch>
@@ -4614,7 +4614,7 @@ COMMON</string>
             </widget>
            </item>
            <item row="14" column="5">
-            <widget class="QPushButton" name="Ch13MuteBtn1">
+            <widget class="OnOffButton" name="Ch13MuteBtn1">
              <property name="sizePolicy">
               <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
                <horstretch>0</horstretch>
@@ -4630,7 +4630,7 @@ COMMON</string>
             </widget>
            </item>
            <item row="15" column="5">
-            <widget class="QPushButton" name="Ch14MuteBtn1">
+            <widget class="OnOffButton" name="Ch14MuteBtn1">
              <property name="sizePolicy">
               <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
                <horstretch>0</horstretch>
@@ -4659,7 +4659,7 @@ COMMON</string>
             </widget>
            </item>
            <item row="10" column="5">
-            <widget class="QPushButton" name="Ch9MuteBtn1">
+            <widget class="OnOffButton" name="Ch9MuteBtn1">
              <property name="sizePolicy">
               <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
                <horstretch>0</horstretch>
@@ -4726,7 +4726,7 @@ COMMON</string>
             </widget>
            </item>
            <item row="9" column="5">
-            <widget class="QPushButton" name="Ch8MuteBtn1">
+            <widget class="OnOffButton" name="Ch8MuteBtn1">
              <property name="sizePolicy">
               <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
                <horstretch>0</horstretch>
@@ -4742,7 +4742,7 @@ COMMON</string>
             </widget>
            </item>
            <item row="12" column="5">
-            <widget class="QPushButton" name="Ch11MuteBtn1">
+            <widget class="OnOffButton" name="Ch11MuteBtn1">
              <property name="sizePolicy">
               <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
                <horstretch>0</horstretch>
@@ -7194,7 +7194,7 @@ COMMON</string>
             </widget>
            </item>
            <item row="2" column="1">
-            <widget class="QPushButton" name="Ch1EQSwBtn">
+            <widget class="OnOffButton" name="Ch1EQSwBtn">
              <property name="text">
               <string>OFF</string>
              </property>
@@ -7310,7 +7310,7 @@ COMMON</string>
             </widget>
            </item>
            <item row="3" column="1">
-            <widget class="QPushButton" name="Ch2EQSwBtn">
+            <widget class="OnOffButton" name="Ch2EQSwBtn">
              <property name="text">
               <string>OFF</string>
              </property>
@@ -7426,7 +7426,7 @@ COMMON</string>
             </widget>
            </item>
            <item row="4" column="1">
-            <widget class="QPushButton" name="Ch3EQSwBtn">
+            <widget class="OnOffButton" name="Ch3EQSwBtn">
              <property name="text">
               <string>OFF</string>
              </property>
@@ -7542,7 +7542,7 @@ COMMON</string>
             </widget>
            </item>
            <item row="5" column="1">
-            <widget class="QPushButton" name="Ch4EQSwBtn">
+            <widget class="OnOffButton" name="Ch4EQSwBtn">
              <property name="text">
               <string>OFF</string>
              </property>
@@ -7658,7 +7658,7 @@ COMMON</string>
             </widget>
            </item>
            <item row="6" column="1">
-            <widget class="QPushButton" name="Ch5EQSwBtn">
+            <widget class="OnOffButton" name="Ch5EQSwBtn">
              <property name="text">
               <string>OFF</string>
              </property>
@@ -7774,7 +7774,7 @@ COMMON</string>
             </widget>
            </item>
            <item row="7" column="1">
-            <widget class="QPushButton" name="Ch6EQSwBtn">
+            <widget class="OnOffButton" name="Ch6EQSwBtn">
              <property name="text">
               <string>OFF</string>
              </property>
@@ -7890,7 +7890,7 @@ COMMON</string>
             </widget>
            </item>
            <item row="8" column="1">
-            <widget class="QPushButton" name="Ch7EQSwBtn">
+            <widget class="OnOffButton" name="Ch7EQSwBtn">
              <property name="text">
               <string>OFF</string>
              </property>
@@ -8006,7 +8006,7 @@ COMMON</string>
             </widget>
            </item>
            <item row="9" column="1">
-            <widget class="QPushButton" name="Ch8EQSwBtn">
+            <widget class="OnOffButton" name="Ch8EQSwBtn">
              <property name="text">
               <string>OFF</string>
              </property>
@@ -8122,7 +8122,7 @@ COMMON</string>
             </widget>
            </item>
            <item row="10" column="1">
-            <widget class="QPushButton" name="Ch9EQSwBtn">
+            <widget class="OnOffButton" name="Ch9EQSwBtn">
              <property name="text">
               <string>OFF</string>
              </property>
@@ -8238,7 +8238,7 @@ COMMON</string>
             </widget>
            </item>
            <item row="11" column="1">
-            <widget class="QPushButton" name="Ch10EQSwBtn">
+            <widget class="OnOffButton" name="Ch10EQSwBtn">
              <property name="text">
               <string>OFF</string>
              </property>
@@ -8354,7 +8354,7 @@ COMMON</string>
             </widget>
            </item>
            <item row="12" column="1">
-            <widget class="QPushButton" name="Ch11EQSwBtn">
+            <widget class="OnOffButton" name="Ch11EQSwBtn">
              <property name="text">
               <string>OFF</string>
              </property>
@@ -8470,7 +8470,7 @@ COMMON</string>
             </widget>
            </item>
            <item row="13" column="1">
-            <widget class="QPushButton" name="Ch12EQSwBtn">
+            <widget class="OnOffButton" name="Ch12EQSwBtn">
              <property name="text">
               <string>OFF</string>
              </property>
@@ -8586,7 +8586,7 @@ COMMON</string>
             </widget>
            </item>
            <item row="14" column="1">
-            <widget class="QPushButton" name="Ch13EQSwBtn">
+            <widget class="OnOffButton" name="Ch13EQSwBtn">
              <property name="text">
               <string>OFF</string>
              </property>
@@ -8702,7 +8702,7 @@ COMMON</string>
             </widget>
            </item>
            <item row="15" column="1">
-            <widget class="QPushButton" name="Ch14EQSwBtn">
+            <widget class="OnOffButton" name="Ch14EQSwBtn">
              <property name="text">
               <string>OFF</string>
              </property>
@@ -8818,7 +8818,7 @@ COMMON</string>
             </widget>
            </item>
            <item row="16" column="1">
-            <widget class="QPushButton" name="Ch15EQSwBtn">
+            <widget class="OnOffButton" name="Ch15EQSwBtn">
              <property name="text">
               <string>OFF</string>
              </property>
@@ -8934,7 +8934,7 @@ COMMON</string>
             </widget>
            </item>
            <item row="17" column="1">
-            <widget class="QPushButton" name="Ch16EQSwBtn">
+            <widget class="OnOffButton" name="Ch16EQSwBtn">
              <property name="text">
               <string>OFF</string>
              </property>
@@ -15861,6 +15861,11 @@ LOWER UPPER</string>
    <class>ColorCheckButton</class>
    <extends>QPushButton</extends>
    <header>colorcheckbutton.h</header>
+  </customwidget>
+  <customwidget>
+   <class>OnOffButton</class>
+   <extends>QPushButton</extends>
+   <header>onoffbutton.h</header>
   </customwidget>
  </customwidgets>
  <resources>
