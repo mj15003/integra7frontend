@@ -274,33 +274,9 @@ integra7MainWindow::integra7MainWindow(QWidget *parent)
     SoloPartBtnGrp1.setId(ui->Ch15SoloBtn1,15);
     SoloPartBtnGrp1.setId(ui->Ch16SoloBtn1,16);
 
-    QBrush OffBrush(QColor(73, 73, 73));
-    OffBrush.setStyle(Qt::SolidPattern);
-    OffBtnPalette.setBrush(QPalette::Active, QPalette::Button, OffBrush);
-
-    QBrush OnBrush(QColor(184, 38, 52));
-    OnBrush.setStyle(Qt::SolidPattern);
-    OnBtnPalette.setBrush(QPalette::Active, QPalette::Button, OnBrush);
-
-    QObject::connect(&MainHeaderBtnGrp,
-                     &QButtonGroup::buttonToggled,this,
-                     &integra7MainWindow::BtnToggled);
-
-    QObject::connect(&PartBtnGrp,
-                     &QButtonGroup::buttonToggled,this,
-                     &integra7MainWindow::BtnToggled);
-
     QObject::connect(&PartBtnGrp,
                      &QButtonGroup::idToggled,this,
                      &integra7MainWindow::PartBtnToggled);
-
-    QObject::connect(&SoloPartBtnGrp,
-                     &QButtonGroup::buttonToggled,this,
-                     &integra7MainWindow::BtnToggled);
-
-    QObject::connect(&SoloPartBtnGrp1,
-                     &QButtonGroup::buttonToggled,this,
-                     &integra7MainWindow::BtnToggled);
 
     /* Setup UI buttons clicking logic*/
     QObject::connect(ui->StudioSetBtn,
@@ -987,10 +963,6 @@ integra7MainWindow::integra7MainWindow(QWidget *parent)
     QObject::connect(ui->PreviewBtn,
                      &QAbstractButton::clicked,pI7d,
                      &Integra7Device::SetPreview);
-
-    QObject::connect(ui->PreviewBtn,
-                     &QAbstractButton::toggled,this,
-                     [this](){BtnToggled(ui->PreviewBtn,ui->PreviewBtn->isChecked());});
 
     /* Master EQ Connections */
     QObject::connect(ui->MEQLFFreqBox,&QComboBox::currentIndexChanged,
@@ -2527,14 +2499,6 @@ void integra7MainWindow::ShowStatusValue(int val)
 {
     QString msg = QString::number(val);
     ui->statusbar->showMessage(msg);
-}
-
-void integra7MainWindow::BtnToggled(QAbstractButton *button, bool checked)
-{
-    if (checked)
-        button->setPalette(OnBtnPalette);
-    else
-        button->setPalette(OffBtnPalette);    
 }
 
 void integra7MainWindow::PartBtnToggled(int id, bool checked)

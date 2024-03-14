@@ -184,7 +184,7 @@
            </widget>
           </item>
           <item>
-           <widget class="QPushButton" name="StudioSetBtn">
+           <widget class="ColorCheckButton" name="StudioSetBtn">
             <property name="text">
              <string>STUDIO SET</string>
             </property>
@@ -194,7 +194,7 @@
            </widget>
           </item>
           <item>
-           <widget class="QPushButton" name="ToneBtn">
+           <widget class="ColorCheckButton" name="ToneBtn">
             <property name="text">
              <string>TONE</string>
             </property>
@@ -204,7 +204,7 @@
            </widget>
           </item>
           <item>
-           <widget class="QPushButton" name="MotionalSurroundBtn">
+           <widget class="ColorCheckButton" name="MotionalSurroundBtn">
             <property name="text">
              <string>MOTIONAL SURROUND</string>
             </property>
@@ -214,7 +214,7 @@
            </widget>
           </item>
           <item>
-           <widget class="QPushButton" name="EffectsBtn">
+           <widget class="ColorCheckButton" name="EffectsBtn">
             <property name="text">
              <string>EFFECTS</string>
             </property>
@@ -224,7 +224,7 @@
            </widget>
           </item>
           <item>
-           <widget class="QPushButton" name="SystemBtn">
+           <widget class="ColorCheckButton" name="SystemBtn">
             <property name="text">
              <string>SYSTEM</string>
             </property>
@@ -234,7 +234,7 @@
            </widget>
           </item>
           <item>
-           <widget class="QPushButton" name="ExpansionBtn">
+           <widget class="ColorCheckButton" name="ExpansionBtn">
             <property name="text">
              <string>EXPANSION</string>
             </property>
@@ -257,7 +257,7 @@
            </spacer>
           </item>
           <item>
-           <widget class="QPushButton" name="PreviewBtn">
+           <widget class="ColorCheckButton" name="PreviewBtn">
             <property name="text">
              <string>PREVIEW</string>
             </property>
@@ -379,7 +379,7 @@
         <widget class="QWidget" name="PartButtons" native="true">
          <layout class="QGridLayout" name="gridLayout_2">
           <item row="1" column="1">
-           <widget class="QPushButton" name="Ch2Btn">
+           <widget class="ColorCheckButton" name="Ch2Btn">
             <property name="text">
              <string>2</string>
             </property>
@@ -389,7 +389,7 @@
            </widget>
           </item>
           <item row="1" column="4">
-           <widget class="QPushButton" name="Ch5Btn">
+           <widget class="ColorCheckButton" name="Ch5Btn">
             <property name="text">
              <string>5</string>
             </property>
@@ -406,7 +406,7 @@
            </widget>
           </item>
           <item row="1" column="9">
-           <widget class="QPushButton" name="Ch10Btn">
+           <widget class="ColorCheckButton" name="Ch10Btn">
             <property name="text">
              <string>10</string>
             </property>
@@ -416,7 +416,7 @@
            </widget>
           </item>
           <item row="1" column="13">
-           <widget class="QPushButton" name="Ch14Btn">
+           <widget class="ColorCheckButton" name="Ch14Btn">
             <property name="text">
              <string>14</string>
             </property>
@@ -426,7 +426,7 @@
            </widget>
           </item>
           <item row="1" column="7">
-           <widget class="QPushButton" name="Ch8Btn">
+           <widget class="ColorCheckButton" name="Ch8Btn">
             <property name="text">
              <string>8</string>
             </property>
@@ -436,7 +436,7 @@
            </widget>
           </item>
           <item row="1" column="2">
-           <widget class="QPushButton" name="Ch3Btn">
+           <widget class="ColorCheckButton" name="Ch3Btn">
             <property name="text">
              <string>3</string>
             </property>
@@ -446,7 +446,7 @@
            </widget>
           </item>
           <item row="1" column="5">
-           <widget class="QPushButton" name="Ch6Btn">
+           <widget class="ColorCheckButton" name="Ch6Btn">
             <property name="text">
              <string>6</string>
             </property>
@@ -456,7 +456,7 @@
            </widget>
           </item>
           <item row="1" column="8">
-           <widget class="QPushButton" name="Ch9Btn">
+           <widget class="ColorCheckButton" name="Ch9Btn">
             <property name="text">
              <string>9</string>
             </property>
@@ -466,7 +466,7 @@
            </widget>
           </item>
           <item row="1" column="15">
-           <widget class="QPushButton" name="Ch16Btn">
+           <widget class="ColorCheckButton" name="Ch16Btn">
             <property name="text">
              <string>16</string>
             </property>
@@ -476,7 +476,7 @@
            </widget>
           </item>
           <item row="1" column="6">
-           <widget class="QPushButton" name="Ch7Btn">
+           <widget class="ColorCheckButton" name="Ch7Btn">
             <property name="text">
              <string>7</string>
             </property>
@@ -486,7 +486,7 @@
            </widget>
           </item>
           <item row="1" column="10">
-           <widget class="QPushButton" name="Ch11Btn">
+           <widget class="ColorCheckButton" name="Ch11Btn">
             <property name="text">
              <string>11</string>
             </property>
@@ -496,7 +496,7 @@
            </widget>
           </item>
           <item row="1" column="3">
-           <widget class="QPushButton" name="Ch4Btn">
+           <widget class="ColorCheckButton" name="Ch4Btn">
             <property name="text">
              <string>4</string>
             </property>
@@ -506,7 +506,7 @@
            </widget>
           </item>
           <item row="1" column="14">
-           <widget class="QPushButton" name="Ch15Btn">
+           <widget class="ColorCheckButton" name="Ch15Btn">
             <property name="text">
              <string>15</string>
             </property>
@@ -516,7 +516,7 @@
            </widget>
           </item>
           <item row="1" column="12">
-           <widget class="QPushButton" name="Ch13Btn">
+           <widget class="ColorCheckButton" name="Ch13Btn">
             <property name="text">
              <string>13</string>
             </property>
@@ -526,7 +526,7 @@
            </widget>
           </item>
           <item row="1" column="11">
-           <widget class="QPushButton" name="Ch12Btn">
+           <widget class="ColorCheckButton" name="Ch12Btn">
             <property name="text">
              <string>12</string>
             </property>
@@ -536,7 +536,7 @@
            </widget>
           </item>
           <item row="1" column="0">
-           <widget class="QPushButton" name="Ch1Btn">
+           <widget class="ColorCheckButton" name="Ch1Btn">
             <property name="text">
              <string>1</string>
             </property>
@@ -962,7 +962,7 @@ COMMON</string>
        <item>
         <widget class="QStackedWidget" name="RightContent">
          <property name="currentIndex">
-          <number>5</number>
+          <number>1</number>
          </property>
          <widget class="QWidget" name="PartViewCard">
           <layout class="QGridLayout" name="PartViewCardLayout">
@@ -1249,7 +1249,7 @@ COMMON</string>
             </widget>
            </item>
            <item row="2" column="10">
-            <widget class="QPushButton" name="Ch1SoloBtn">
+            <widget class="ColorCheckButton" name="Ch1SoloBtn">
              <property name="text">
               <string>SOLO</string>
              </property>
@@ -1406,7 +1406,7 @@ COMMON</string>
             </widget>
            </item>
            <item row="3" column="10">
-            <widget class="QPushButton" name="Ch2SoloBtn">
+            <widget class="ColorCheckButton" name="Ch2SoloBtn">
              <property name="text">
               <string>SOLO</string>
              </property>
@@ -1563,7 +1563,7 @@ COMMON</string>
             </widget>
            </item>
            <item row="4" column="10">
-            <widget class="QPushButton" name="Ch3SoloBtn">
+            <widget class="ColorCheckButton" name="Ch3SoloBtn">
              <property name="text">
               <string>SOLO</string>
              </property>
@@ -1720,7 +1720,7 @@ COMMON</string>
             </widget>
            </item>
            <item row="5" column="10">
-            <widget class="QPushButton" name="Ch4SoloBtn">
+            <widget class="ColorCheckButton" name="Ch4SoloBtn">
              <property name="text">
               <string>SOLO</string>
              </property>
@@ -1877,7 +1877,7 @@ COMMON</string>
             </widget>
            </item>
            <item row="6" column="10">
-            <widget class="QPushButton" name="Ch5SoloBtn">
+            <widget class="ColorCheckButton" name="Ch5SoloBtn">
              <property name="text">
               <string>SOLO</string>
              </property>
@@ -2034,7 +2034,7 @@ COMMON</string>
             </widget>
            </item>
            <item row="7" column="10">
-            <widget class="QPushButton" name="Ch6SoloBtn">
+            <widget class="ColorCheckButton" name="Ch6SoloBtn">
              <property name="text">
               <string>SOLO</string>
              </property>
@@ -2191,7 +2191,7 @@ COMMON</string>
             </widget>
            </item>
            <item row="8" column="10">
-            <widget class="QPushButton" name="Ch7SoloBtn">
+            <widget class="ColorCheckButton" name="Ch7SoloBtn">
              <property name="text">
               <string>SOLO</string>
              </property>
@@ -2348,7 +2348,7 @@ COMMON</string>
             </widget>
            </item>
            <item row="9" column="10">
-            <widget class="QPushButton" name="Ch8SoloBtn">
+            <widget class="ColorCheckButton" name="Ch8SoloBtn">
              <property name="text">
               <string>SOLO</string>
              </property>
@@ -2505,7 +2505,7 @@ COMMON</string>
             </widget>
            </item>
            <item row="10" column="10">
-            <widget class="QPushButton" name="Ch9SoloBtn">
+            <widget class="ColorCheckButton" name="Ch9SoloBtn">
              <property name="text">
               <string>SOLO</string>
              </property>
@@ -2662,7 +2662,7 @@ COMMON</string>
             </widget>
            </item>
            <item row="11" column="10">
-            <widget class="QPushButton" name="Ch10SoloBtn">
+            <widget class="ColorCheckButton" name="Ch10SoloBtn">
              <property name="text">
               <string>SOLO</string>
              </property>
@@ -2819,7 +2819,7 @@ COMMON</string>
             </widget>
            </item>
            <item row="12" column="10">
-            <widget class="QPushButton" name="Ch11SoloBtn">
+            <widget class="ColorCheckButton" name="Ch11SoloBtn">
              <property name="text">
               <string>SOLO</string>
              </property>
@@ -2976,7 +2976,7 @@ COMMON</string>
             </widget>
            </item>
            <item row="13" column="10">
-            <widget class="QPushButton" name="Ch12SoloBtn">
+            <widget class="ColorCheckButton" name="Ch12SoloBtn">
              <property name="text">
               <string>SOLO</string>
              </property>
@@ -3133,7 +3133,7 @@ COMMON</string>
             </widget>
            </item>
            <item row="14" column="10">
-            <widget class="QPushButton" name="Ch13SoloBtn">
+            <widget class="ColorCheckButton" name="Ch13SoloBtn">
              <property name="text">
               <string>SOLO</string>
              </property>
@@ -3290,7 +3290,7 @@ COMMON</string>
             </widget>
            </item>
            <item row="15" column="10">
-            <widget class="QPushButton" name="Ch14SoloBtn">
+            <widget class="ColorCheckButton" name="Ch14SoloBtn">
              <property name="text">
               <string>SOLO</string>
              </property>
@@ -3447,7 +3447,7 @@ COMMON</string>
             </widget>
            </item>
            <item row="16" column="10">
-            <widget class="QPushButton" name="Ch15SoloBtn">
+            <widget class="ColorCheckButton" name="Ch15SoloBtn">
              <property name="text">
               <string>SOLO</string>
              </property>
@@ -3604,7 +3604,7 @@ COMMON</string>
             </widget>
            </item>
            <item row="17" column="10">
-            <widget class="QPushButton" name="Ch16SoloBtn">
+            <widget class="ColorCheckButton" name="Ch16SoloBtn">
              <property name="text">
               <string>SOLO</string>
              </property>
@@ -3753,7 +3753,7 @@ COMMON</string>
             </widget>
            </item>
            <item row="14" column="6">
-            <widget class="QPushButton" name="Ch13SoloBtn1">
+            <widget class="ColorCheckButton" name="Ch13SoloBtn1">
              <property name="sizePolicy">
               <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
                <horstretch>0</horstretch>
@@ -3785,7 +3785,7 @@ COMMON</string>
             </widget>
            </item>
            <item row="2" column="6">
-            <widget class="QPushButton" name="Ch1SoloBtn1">
+            <widget class="ColorCheckButton" name="Ch1SoloBtn1">
              <property name="sizePolicy">
               <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
                <horstretch>0</horstretch>
@@ -3859,7 +3859,7 @@ COMMON</string>
             </widget>
            </item>
            <item row="9" column="6">
-            <widget class="QPushButton" name="Ch8SoloBtn1">
+            <widget class="ColorCheckButton" name="Ch8SoloBtn1">
              <property name="sizePolicy">
               <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
                <horstretch>0</horstretch>
@@ -3988,7 +3988,7 @@ COMMON</string>
             <widget class="QComboBox" name="Ch10BankBox1"/>
            </item>
            <item row="6" column="6">
-            <widget class="QPushButton" name="Ch5SoloBtn1">
+            <widget class="ColorCheckButton" name="Ch5SoloBtn1">
              <property name="sizePolicy">
               <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
                <horstretch>0</horstretch>
@@ -4021,7 +4021,7 @@ COMMON</string>
             </widget>
            </item>
            <item row="10" column="6">
-            <widget class="QPushButton" name="Ch9SoloBtn1">
+            <widget class="ColorCheckButton" name="Ch9SoloBtn1">
              <property name="sizePolicy">
               <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
                <horstretch>0</horstretch>
@@ -4037,7 +4037,7 @@ COMMON</string>
             </widget>
            </item>
            <item row="5" column="6">
-            <widget class="QPushButton" name="Ch4SoloBtn1">
+            <widget class="ColorCheckButton" name="Ch4SoloBtn1">
              <property name="sizePolicy">
               <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
                <horstretch>0</horstretch>
@@ -4152,7 +4152,7 @@ COMMON</string>
             <widget class="QComboBox" name="Ch9TypeBox1"/>
            </item>
            <item row="7" column="6">
-            <widget class="QPushButton" name="Ch6SoloBtn1">
+            <widget class="ColorCheckButton" name="Ch6SoloBtn1">
              <property name="sizePolicy">
               <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
                <horstretch>0</horstretch>
@@ -4203,7 +4203,7 @@ COMMON</string>
             </widget>
            </item>
            <item row="12" column="6">
-            <widget class="QPushButton" name="Ch11SoloBtn1">
+            <widget class="ColorCheckButton" name="Ch11SoloBtn1">
              <property name="sizePolicy">
               <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
                <horstretch>0</horstretch>
@@ -4271,7 +4271,7 @@ COMMON</string>
             </widget>
            </item>
            <item row="17" column="6">
-            <widget class="QPushButton" name="Ch16SoloBtn1">
+            <widget class="ColorCheckButton" name="Ch16SoloBtn1">
              <property name="sizePolicy">
               <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
                <horstretch>0</horstretch>
@@ -4333,7 +4333,7 @@ COMMON</string>
             </widget>
            </item>
            <item row="13" column="6">
-            <widget class="QPushButton" name="Ch12SoloBtn1">
+            <widget class="ColorCheckButton" name="Ch12SoloBtn1">
              <property name="sizePolicy">
               <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
                <horstretch>0</horstretch>
@@ -4366,7 +4366,7 @@ COMMON</string>
             <widget class="QComboBox" name="Ch11BankBox1"/>
            </item>
            <item row="11" column="6">
-            <widget class="QPushButton" name="Ch10SoloBtn1">
+            <widget class="ColorCheckButton" name="Ch10SoloBtn1">
              <property name="sizePolicy">
               <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
                <horstretch>0</horstretch>
@@ -4424,7 +4424,7 @@ COMMON</string>
             <widget class="QComboBox" name="Ch11ToneBox1"/>
            </item>
            <item row="15" column="6">
-            <widget class="QPushButton" name="Ch14SoloBtn1">
+            <widget class="ColorCheckButton" name="Ch14SoloBtn1">
              <property name="sizePolicy">
               <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
                <horstretch>0</horstretch>
@@ -4452,7 +4452,7 @@ COMMON</string>
             <widget class="QComboBox" name="Ch14ToneBox1"/>
            </item>
            <item row="4" column="6">
-            <widget class="QPushButton" name="Ch3SoloBtn1">
+            <widget class="ColorCheckButton" name="Ch3SoloBtn1">
              <property name="sizePolicy">
               <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
                <horstretch>0</horstretch>
@@ -4582,7 +4582,7 @@ COMMON</string>
             <widget class="QComboBox" name="Ch13ToneBox1"/>
            </item>
            <item row="8" column="6">
-            <widget class="QPushButton" name="Ch7SoloBtn1">
+            <widget class="ColorCheckButton" name="Ch7SoloBtn1">
              <property name="sizePolicy">
               <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
                <horstretch>0</horstretch>
@@ -4710,7 +4710,7 @@ COMMON</string>
             </widget>
            </item>
            <item row="3" column="6">
-            <widget class="QPushButton" name="Ch2SoloBtn1">
+            <widget class="ColorCheckButton" name="Ch2SoloBtn1">
              <property name="sizePolicy">
               <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
                <horstretch>0</horstretch>
@@ -4764,7 +4764,7 @@ COMMON</string>
             <widget class="QComboBox" name="Ch7BankBox1"/>
            </item>
            <item row="16" column="6">
-            <widget class="QPushButton" name="Ch15SoloBtn1">
+            <widget class="ColorCheckButton" name="Ch15SoloBtn1">
              <property name="sizePolicy">
               <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
                <horstretch>0</horstretch>
@@ -15856,6 +15856,11 @@ LOWER UPPER</string>
    <class>SpecialTextNumSelector</class>
    <extends>QSpinBox</extends>
    <header>specialtextnumselector.h</header>
+  </customwidget>
+  <customwidget>
+   <class>ColorCheckButton</class>
+   <extends>QPushButton</extends>
+   <header>colorcheckbutton.h</header>
   </customwidget>
  </customwidgets>
  <resources>

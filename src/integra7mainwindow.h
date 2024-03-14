@@ -68,7 +68,6 @@ private:
     void ToneBoxChange(int part);
 
 private slots:
-    void BtnToggled(QAbstractButton *button, bool checked);
     void PartBtnToggled(int id, bool checked);
     void OnOffBtnToggled(QAbstractButton *button);
     void ShowStudioSet();

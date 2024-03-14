@@ -53,6 +53,7 @@ if(${QT_VERSION_MAJOR} GREATER_EQUAL 6)
         integra7mastereq.h integra7mastereq.cpp
         integra7parteq.h integra7parteq.cpp
         integra7systemcommon.h integra7systemcommon.cpp
+        colorcheckbutton.h colorcheckbutton.cpp
     )
 # Define target properties for Android with Qt 6 as:
 #    set_property(TARGET Integra7Frontend APPEND PROPERTY QT_ANDROID_PACKAGE_SOURCE_DIR
