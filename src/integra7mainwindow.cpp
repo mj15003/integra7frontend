@@ -20,6 +20,7 @@
 #include "integra7part.h"
 #include "integra7parteq.h"
 #include "integra7mastereq.h"
+#include "integra7studiosetcommon.h"
 
 integra7MainWindow::integra7MainWindow(QWidget *parent)
     : QMainWindow(parent)
@@ -971,6 +972,9 @@ integra7MainWindow::integra7MainWindow(QWidget *parent)
                      &Integra7Device::SetPreview);
 
     /* Master EQ Connections */
+    QObject::connect(ui->MEQSwBtn,&QPushButton::toggled,
+                     pI7d->StudioSetCommon,&Integra7StudioSetCommon::setMasterEQSwitch);
+
     QObject::connect(ui->MEQLFFreqBox,&QComboBox::currentIndexChanged,
                      pI7d->MasterEQ,&Integra7MasterEQ::setEQLowFreq);
 
