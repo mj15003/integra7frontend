@@ -42,7 +42,7 @@ public slots:
     void setEQLowFreq(int v) {DataSet(0,v);}
     void setEQLowGain(int v) {DataSetOffset(1,v,15);}
     void setEQMidFreq(int v) {DataSet(2,v);}
-    void setEQMidGain(int v) {DataSetOffset(2,v,15);}
+    void setEQMidGain(int v) {DataSetOffset(3,v,15);}
     void setEQMidQ(int v) {DataSet(4,v);}
     void setEQHighFreq(int v) {DataSet(5,v);}
     void setEQHighGain(int v) {DataSetOffset(6,v,15);}
