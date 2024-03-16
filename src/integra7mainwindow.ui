@@ -962,7 +962,7 @@ COMMON</string>
        <item>
         <widget class="QStackedWidget" name="RightContent">
          <property name="currentIndex">
-          <number>10</number>
+          <number>2</number>
          </property>
          <widget class="QWidget" name="PartViewCard">
           <layout class="QGridLayout" name="PartViewCardLayout">
@@ -4904,10 +4904,10 @@ COMMON</string>
             </widget>
            </item>
            <item row="14" column="7">
-            <widget class="QComboBox" name="Ch13RxChBtn"/>
+            <widget class="QComboBox" name="Ch13RxChBox"/>
            </item>
            <item row="6" column="7">
-            <widget class="QComboBox" name="Ch5RxChBtn"/>
+            <widget class="QComboBox" name="Ch5RxChBox"/>
            </item>
            <item row="12" column="8">
             <widget class="QComboBox" name="Ch11MonoPolyBox"/>
@@ -4937,14 +4937,17 @@ COMMON</string>
             <widget class="QComboBox" name="Ch8VoiceReserveBox"/>
            </item>
            <item row="17" column="6">
-            <widget class="QPushButton" name="Ch16RxBtn">
+            <widget class="OnOffButton" name="Ch16RxBtn">
              <property name="text">
               <string>ON</string>
+             </property>
+             <property name="checkable">
+              <bool>true</bool>
              </property>
             </widget>
            </item>
            <item row="9" column="7">
-            <widget class="QComboBox" name="Ch8RxChBtn"/>
+            <widget class="QComboBox" name="Ch8RxChBox"/>
            </item>
            <item row="5" column="0">
             <widget class="QLabel" name="Ch4RowLbl2">
@@ -4982,9 +4985,12 @@ COMMON</string>
             </widget>
            </item>
            <item row="3" column="6">
-            <widget class="QPushButton" name="Ch2RxBtn">
+            <widget class="OnOffButton" name="Ch2RxBtn">
              <property name="text">
               <string>ON</string>
+             </property>
+             <property name="checkable">
+              <bool>true</bool>
              </property>
             </widget>
            </item>
@@ -5055,9 +5061,12 @@ COMMON</string>
             </layout>
            </item>
            <item row="4" column="6">
-            <widget class="QPushButton" name="Ch3RxBtn">
+            <widget class="OnOffButton" name="Ch3RxBtn">
              <property name="text">
               <string>ON</string>
+             </property>
+             <property name="checkable">
+              <bool>true</bool>
              </property>
             </widget>
            </item>
@@ -5140,9 +5149,12 @@ COMMON</string>
             </layout>
            </item>
            <item row="8" column="6">
-            <widget class="QPushButton" name="Ch7RxBtn">
+            <widget class="OnOffButton" name="Ch7RxBtn">
              <property name="text">
               <string>ON</string>
+             </property>
+             <property name="checkable">
+              <bool>true</bool>
              </property>
             </widget>
            </item>
@@ -5168,7 +5180,7 @@ COMMON</string>
             </widget>
            </item>
            <item row="2" column="7">
-            <widget class="QComboBox" name="Ch1RxChBtn"/>
+            <widget class="QComboBox" name="Ch1RxChBox"/>
            </item>
            <item row="1" column="10">
             <widget class="QLabel" name="label_47">
@@ -5230,9 +5242,12 @@ COMMON</string>
             </layout>
            </item>
            <item row="6" column="6">
-            <widget class="QPushButton" name="Ch5RxBtn">
+            <widget class="OnOffButton" name="Ch5RxBtn">
              <property name="text">
               <string>ON</string>
+             </property>
+             <property name="checkable">
+              <bool>true</bool>
              </property>
             </widget>
            </item>
@@ -5383,7 +5398,7 @@ COMMON</string>
             </widget>
            </item>
            <item row="15" column="7">
-            <widget class="QComboBox" name="Ch14RxChBtn"/>
+            <widget class="QComboBox" name="Ch14RxChBox"/>
            </item>
            <item row="17" column="5">
             <widget class="QComboBox" name="Ch16OutputBox"/>
@@ -5395,12 +5410,15 @@ COMMON</string>
             <widget class="QComboBox" name="Ch3OutputBox"/>
            </item>
            <item row="11" column="7">
-            <widget class="QComboBox" name="Ch10RxChBtn"/>
+            <widget class="QComboBox" name="Ch10RxChBox"/>
            </item>
            <item row="7" column="6">
-            <widget class="QPushButton" name="Ch6RxBtn">
+            <widget class="OnOffButton" name="Ch6RxBtn">
              <property name="text">
               <string>ON</string>
+             </property>
+             <property name="checkable">
+              <bool>true</bool>
              </property>
             </widget>
            </item>
@@ -5542,14 +5560,17 @@ COMMON</string>
             <widget class="QComboBox" name="Ch5OutputBox"/>
            </item>
            <item row="10" column="6">
-            <widget class="QPushButton" name="Ch9RxBtn">
+            <widget class="OnOffButton" name="Ch9RxBtn">
              <property name="text">
               <string>ON</string>
+             </property>
+             <property name="checkable">
+              <bool>true</bool>
              </property>
             </widget>
            </item>
            <item row="10" column="7">
-            <widget class="QComboBox" name="Ch9RxChBtn"/>
+            <widget class="QComboBox" name="Ch9RxChBox"/>
            </item>
            <item row="5" column="8">
             <widget class="QComboBox" name="Ch4MonoPolyBox"/>
@@ -5690,7 +5711,7 @@ COMMON</string>
             </widget>
            </item>
            <item row="7" column="7">
-            <widget class="QComboBox" name="Ch6RxChBtn"/>
+            <widget class="QComboBox" name="Ch6RxChBox"/>
            </item>
            <item row="5" column="5">
             <widget class="QComboBox" name="Ch4OutputBox"/>
@@ -5987,9 +6008,12 @@ COMMON</string>
             </layout>
            </item>
            <item row="9" column="6">
-            <widget class="QPushButton" name="Ch8RxBtn">
+            <widget class="OnOffButton" name="Ch8RxBtn">
              <property name="text">
               <string>ON</string>
+             </property>
+             <property name="checkable">
+              <bool>true</bool>
              </property>
             </widget>
            </item>
@@ -6141,9 +6165,12 @@ COMMON</string>
             <widget class="QComboBox" name="Ch14VoiceReserveBox"/>
            </item>
            <item row="5" column="6">
-            <widget class="QPushButton" name="Ch4RxBtn">
+            <widget class="OnOffButton" name="Ch4RxBtn">
              <property name="text">
               <string>ON</string>
+             </property>
+             <property name="checkable">
+              <bool>true</bool>
              </property>
             </widget>
            </item>
@@ -6212,9 +6239,12 @@ COMMON</string>
             <widget class="QComboBox" name="Ch2MonoPolyBox"/>
            </item>
            <item row="14" column="6">
-            <widget class="QPushButton" name="Ch13RxBtn">
+            <widget class="OnOffButton" name="Ch13RxBtn">
              <property name="text">
               <string>ON</string>
+             </property>
+             <property name="checkable">
+              <bool>true</bool>
              </property>
             </widget>
            </item>
@@ -6240,9 +6270,12 @@ COMMON</string>
             </layout>
            </item>
            <item row="12" column="6">
-            <widget class="QPushButton" name="Ch11RxBtn">
+            <widget class="OnOffButton" name="Ch11RxBtn">
              <property name="text">
               <string>ON</string>
+             </property>
+             <property name="checkable">
+              <bool>true</bool>
              </property>
             </widget>
            </item>
@@ -6268,9 +6301,12 @@ COMMON</string>
             </layout>
            </item>
            <item row="13" column="6">
-            <widget class="QPushButton" name="Ch12RxBtn">
+            <widget class="OnOffButton" name="Ch12RxBtn">
              <property name="text">
               <string>ON</string>
+             </property>
+             <property name="checkable">
+              <bool>true</bool>
              </property>
             </widget>
            </item>
@@ -6372,9 +6408,12 @@ COMMON</string>
             <widget class="QComboBox" name="Ch5LegatoBox"/>
            </item>
            <item row="11" column="6">
-            <widget class="QPushButton" name="Ch10RxBtn">
+            <widget class="OnOffButton" name="Ch10RxBtn">
              <property name="text">
               <string>ON</string>
+             </property>
+             <property name="checkable">
+              <bool>true</bool>
              </property>
             </widget>
            </item>
@@ -6421,10 +6460,10 @@ COMMON</string>
             </layout>
            </item>
            <item row="12" column="7">
-            <widget class="QComboBox" name="Ch11RxChBtn"/>
+            <widget class="QComboBox" name="Ch11RxChBox"/>
            </item>
            <item row="8" column="7">
-            <widget class="QComboBox" name="Ch7RxChBtn"/>
+            <widget class="QComboBox" name="Ch7RxChBox"/>
            </item>
            <item row="9" column="5">
             <widget class="QComboBox" name="Ch8OutputBox"/>
@@ -6475,7 +6514,7 @@ COMMON</string>
             </layout>
            </item>
            <item row="3" column="7">
-            <widget class="QComboBox" name="Ch2RxChBtn"/>
+            <widget class="QComboBox" name="Ch2RxChBox"/>
            </item>
            <item row="10" column="1">
             <layout class="QHBoxLayout" name="Ch9LevelLayout1">
@@ -6683,7 +6722,7 @@ COMMON</string>
             </layout>
            </item>
            <item row="17" column="7">
-            <widget class="QComboBox" name="Ch16RxChBtn"/>
+            <widget class="QComboBox" name="Ch16RxChBox"/>
            </item>
            <item row="11" column="4">
             <layout class="QHBoxLayout" name="Ch10ReverbLayout1">
@@ -6707,9 +6746,12 @@ COMMON</string>
             </layout>
            </item>
            <item row="16" column="6">
-            <widget class="QPushButton" name="Ch15RxBtn">
+            <widget class="OnOffButton" name="Ch15RxBtn">
              <property name="text">
               <string>ON</string>
+             </property>
+             <property name="checkable">
+              <bool>true</bool>
              </property>
             </widget>
            </item>
@@ -6798,7 +6840,7 @@ COMMON</string>
             </layout>
            </item>
            <item row="5" column="7">
-            <widget class="QComboBox" name="Ch4RxChBtn"/>
+            <widget class="QComboBox" name="Ch4RxChBox"/>
            </item>
            <item row="14" column="5">
             <widget class="QComboBox" name="Ch13OutputBox"/>
@@ -6843,7 +6885,7 @@ COMMON</string>
             <widget class="QComboBox" name="Ch11VoiceReserveBox"/>
            </item>
            <item row="4" column="7">
-            <widget class="QComboBox" name="Ch3RxChBtn"/>
+            <widget class="QComboBox" name="Ch3RxChBox"/>
            </item>
            <item row="10" column="5">
             <widget class="QComboBox" name="Ch9OutputBox"/>
@@ -6886,9 +6928,12 @@ COMMON</string>
             </layout>
            </item>
            <item row="2" column="6">
-            <widget class="QPushButton" name="Ch1RxBtn">
+            <widget class="OnOffButton" name="Ch1RxBtn">
              <property name="text">
               <string>ON</string>
+             </property>
+             <property name="checkable">
+              <bool>true</bool>
              </property>
             </widget>
            </item>
@@ -6941,9 +6986,12 @@ COMMON</string>
             </layout>
            </item>
            <item row="15" column="6">
-            <widget class="QPushButton" name="Ch14RxBtn">
+            <widget class="OnOffButton" name="Ch14RxBtn">
              <property name="text">
               <string>ON</string>
+             </property>
+             <property name="checkable">
+              <bool>true</bool>
              </property>
             </widget>
            </item>
@@ -6951,7 +6999,7 @@ COMMON</string>
             <widget class="QComboBox" name="Ch10MonoPolyBox"/>
            </item>
            <item row="16" column="7">
-            <widget class="QComboBox" name="Ch15RxChBtn"/>
+            <widget class="QComboBox" name="Ch15RxChBox"/>
            </item>
            <item row="11" column="5">
             <widget class="QComboBox" name="Ch10OutputBox"/>
@@ -6960,7 +7008,7 @@ COMMON</string>
             <widget class="QComboBox" name="Ch3MonoPolyBox"/>
            </item>
            <item row="13" column="7">
-            <widget class="QComboBox" name="Ch12RxChBtn"/>
+            <widget class="QComboBox" name="Ch12RxChBox"/>
            </item>
            <item row="13" column="5">
             <widget class="QComboBox" name="Ch12OutputBox"/>

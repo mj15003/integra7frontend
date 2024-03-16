@@ -506,6 +506,74 @@ integra7MainWindow::integra7MainWindow(QWidget *parent)
     ui->Ch15ToneBox1->addItems(Integra7Device::SNAcousticPresets());
     ui->Ch16ToneBox1->addItems(Integra7Device::SNAcousticPresets());
 
+    ui->Ch1OutputBox->addItems(Integra7Device::OutputList());
+    ui->Ch2OutputBox->addItems(Integra7Device::OutputList());
+    ui->Ch3OutputBox->addItems(Integra7Device::OutputList());
+    ui->Ch4OutputBox->addItems(Integra7Device::OutputList());
+    ui->Ch5OutputBox->addItems(Integra7Device::OutputList());
+    ui->Ch6OutputBox->addItems(Integra7Device::OutputList());
+    ui->Ch7OutputBox->addItems(Integra7Device::OutputList());
+    ui->Ch8OutputBox->addItems(Integra7Device::OutputList());
+    ui->Ch9OutputBox->addItems(Integra7Device::OutputList());
+    ui->Ch10OutputBox->addItems(Integra7Device::OutputList());
+    ui->Ch11OutputBox->addItems(Integra7Device::OutputList());
+    ui->Ch12OutputBox->addItems(Integra7Device::OutputList());
+    ui->Ch13OutputBox->addItems(Integra7Device::OutputList());
+    ui->Ch14OutputBox->addItems(Integra7Device::OutputList());
+    ui->Ch15OutputBox->addItems(Integra7Device::OutputList());
+    ui->Ch16OutputBox->addItems(Integra7Device::OutputList());
+
+    ui->Ch1RxChBox->addItems(Integra7Device::MIDIChList());
+    ui->Ch2RxChBox->addItems(Integra7Device::MIDIChList());
+    ui->Ch3RxChBox->addItems(Integra7Device::MIDIChList());
+    ui->Ch4RxChBox->addItems(Integra7Device::MIDIChList());
+    ui->Ch5RxChBox->addItems(Integra7Device::MIDIChList());
+    ui->Ch6RxChBox->addItems(Integra7Device::MIDIChList());
+    ui->Ch7RxChBox->addItems(Integra7Device::MIDIChList());
+    ui->Ch8RxChBox->addItems(Integra7Device::MIDIChList());
+    ui->Ch9RxChBox->addItems(Integra7Device::MIDIChList());
+    ui->Ch10RxChBox->addItems(Integra7Device::MIDIChList());
+    ui->Ch11RxChBox->addItems(Integra7Device::MIDIChList());
+    ui->Ch12RxChBox->addItems(Integra7Device::MIDIChList());
+    ui->Ch13RxChBox->addItems(Integra7Device::MIDIChList());
+    ui->Ch14RxChBox->addItems(Integra7Device::MIDIChList());
+    ui->Ch15RxChBox->addItems(Integra7Device::MIDIChList());
+    ui->Ch16RxChBox->addItems(Integra7Device::MIDIChList());
+
+    ui->Ch1MonoPolyBox->addItems(Integra7Device::MonoPolyList());
+    ui->Ch2MonoPolyBox->addItems(Integra7Device::MonoPolyList());
+    ui->Ch3MonoPolyBox->addItems(Integra7Device::MonoPolyList());
+    ui->Ch4MonoPolyBox->addItems(Integra7Device::MonoPolyList());
+    ui->Ch5MonoPolyBox->addItems(Integra7Device::MonoPolyList());
+    ui->Ch6MonoPolyBox->addItems(Integra7Device::MonoPolyList());
+    ui->Ch7MonoPolyBox->addItems(Integra7Device::MonoPolyList());
+    ui->Ch8MonoPolyBox->addItems(Integra7Device::MonoPolyList());
+    ui->Ch9MonoPolyBox->addItems(Integra7Device::MonoPolyList());
+    ui->Ch10MonoPolyBox->addItems(Integra7Device::MonoPolyList());
+    ui->Ch11MonoPolyBox->addItems(Integra7Device::MonoPolyList());
+    ui->Ch12MonoPolyBox->addItems(Integra7Device::MonoPolyList());
+    ui->Ch13MonoPolyBox->addItems(Integra7Device::MonoPolyList());
+    ui->Ch14MonoPolyBox->addItems(Integra7Device::MonoPolyList());
+    ui->Ch15MonoPolyBox->addItems(Integra7Device::MonoPolyList());
+    ui->Ch16MonoPolyBox->addItems(Integra7Device::MonoPolyList());
+
+    ui->Ch1LegatoBox->addItems(Integra7Device::LegatoSwitchList());
+    ui->Ch2LegatoBox->addItems(Integra7Device::LegatoSwitchList());
+    ui->Ch3LegatoBox->addItems(Integra7Device::LegatoSwitchList());
+    ui->Ch4LegatoBox->addItems(Integra7Device::LegatoSwitchList());
+    ui->Ch5LegatoBox->addItems(Integra7Device::LegatoSwitchList());
+    ui->Ch6LegatoBox->addItems(Integra7Device::LegatoSwitchList());
+    ui->Ch7LegatoBox->addItems(Integra7Device::LegatoSwitchList());
+    ui->Ch8LegatoBox->addItems(Integra7Device::LegatoSwitchList());
+    ui->Ch9LegatoBox->addItems(Integra7Device::LegatoSwitchList());
+    ui->Ch10LegatoBox->addItems(Integra7Device::LegatoSwitchList());
+    ui->Ch11LegatoBox->addItems(Integra7Device::LegatoSwitchList());
+    ui->Ch12LegatoBox->addItems(Integra7Device::LegatoSwitchList());
+    ui->Ch13LegatoBox->addItems(Integra7Device::LegatoSwitchList());
+    ui->Ch14LegatoBox->addItems(Integra7Device::LegatoSwitchList());
+    ui->Ch15LegatoBox->addItems(Integra7Device::LegatoSwitchList());
+    ui->Ch16LegatoBox->addItems(Integra7Device::LegatoSwitchList());
+
     ui->MEQLFFreqBox->addItems(Integra7Device::EQLowFreqList());
     ui->MEQMFFreqBox->addItems(Integra7Device::EQMidFreqList());
     ui->MEQMFQBox->addItems(Integra7Device::EQMidQList());
@@ -1246,6 +1314,246 @@ integra7MainWindow::integra7MainWindow(QWidget *parent)
 
     QObject::connect(ui->Ch16MuteBtn,&QPushButton::toggled,
                      pI7d->pParts[15],&Integra7Part::setMuteSwitch);
+
+    QObject::connect(ui->Ch1OutputBox,&QComboBox::currentIndexChanged,
+                     pI7d->pParts[0],&Integra7Part::setPartOutputAssign);
+
+    QObject::connect(ui->Ch1RxBtn,&QPushButton::toggled,
+                     pI7d->pParts[0],&Integra7Part::setReceiveSwitch);
+
+    QObject::connect(ui->Ch1RxChBox,&QComboBox::currentIndexChanged,
+                     pI7d->pParts[0],&Integra7Part::setReceiveChannel);
+
+    QObject::connect(ui->Ch1MonoPolyBox,&QComboBox::currentIndexChanged,
+                     pI7d->pParts[0],&Integra7Part::setPartMonoPoly);
+
+    QObject::connect(ui->Ch1LegatoBox,&QComboBox::currentIndexChanged,
+                     pI7d->pParts[0],&Integra7Part::setPartLegatoSwitch);
+
+    QObject::connect(ui->Ch2OutputBox,&QComboBox::currentIndexChanged,
+                     pI7d->pParts[1],&Integra7Part::setPartOutputAssign);
+
+    QObject::connect(ui->Ch2RxBtn,&QPushButton::toggled,
+                     pI7d->pParts[1],&Integra7Part::setReceiveSwitch);
+
+    QObject::connect(ui->Ch2RxChBox,&QComboBox::currentIndexChanged,
+                     pI7d->pParts[1],&Integra7Part::setReceiveChannel);
+
+    QObject::connect(ui->Ch2MonoPolyBox,&QComboBox::currentIndexChanged,
+                     pI7d->pParts[1],&Integra7Part::setPartMonoPoly);
+
+    QObject::connect(ui->Ch2LegatoBox,&QComboBox::currentIndexChanged,
+                     pI7d->pParts[1],&Integra7Part::setPartLegatoSwitch);
+
+    QObject::connect(ui->Ch3OutputBox,&QComboBox::currentIndexChanged,
+                     pI7d->pParts[2],&Integra7Part::setPartOutputAssign);
+
+    QObject::connect(ui->Ch3RxBtn,&QPushButton::toggled,
+                     pI7d->pParts[2],&Integra7Part::setReceiveSwitch);
+
+    QObject::connect(ui->Ch3RxChBox,&QComboBox::currentIndexChanged,
+                     pI7d->pParts[2],&Integra7Part::setReceiveChannel);
+
+    QObject::connect(ui->Ch3MonoPolyBox,&QComboBox::currentIndexChanged,
+                     pI7d->pParts[2],&Integra7Part::setPartMonoPoly);
+
+    QObject::connect(ui->Ch3LegatoBox,&QComboBox::currentIndexChanged,
+                     pI7d->pParts[2],&Integra7Part::setPartLegatoSwitch);
+
+    QObject::connect(ui->Ch4OutputBox,&QComboBox::currentIndexChanged,
+                     pI7d->pParts[3],&Integra7Part::setPartOutputAssign);
+
+    QObject::connect(ui->Ch4RxBtn,&QPushButton::toggled,
+                     pI7d->pParts[3],&Integra7Part::setReceiveSwitch);
+
+    QObject::connect(ui->Ch4RxChBox,&QComboBox::currentIndexChanged,
+                     pI7d->pParts[3],&Integra7Part::setReceiveChannel);
+
+    QObject::connect(ui->Ch4MonoPolyBox,&QComboBox::currentIndexChanged,
+                     pI7d->pParts[3],&Integra7Part::setPartMonoPoly);
+
+    QObject::connect(ui->Ch4LegatoBox,&QComboBox::currentIndexChanged,
+                     pI7d->pParts[3],&Integra7Part::setPartLegatoSwitch);
+
+    QObject::connect(ui->Ch5OutputBox,&QComboBox::currentIndexChanged,
+                     pI7d->pParts[4],&Integra7Part::setPartOutputAssign);
+
+    QObject::connect(ui->Ch5RxBtn,&QPushButton::toggled,
+                     pI7d->pParts[4],&Integra7Part::setReceiveSwitch);
+
+    QObject::connect(ui->Ch5RxChBox,&QComboBox::currentIndexChanged,
+                     pI7d->pParts[4],&Integra7Part::setReceiveChannel);
+
+    QObject::connect(ui->Ch5MonoPolyBox,&QComboBox::currentIndexChanged,
+                     pI7d->pParts[4],&Integra7Part::setPartMonoPoly);
+
+    QObject::connect(ui->Ch5LegatoBox,&QComboBox::currentIndexChanged,
+                     pI7d->pParts[4],&Integra7Part::setPartLegatoSwitch);
+
+    QObject::connect(ui->Ch6OutputBox,&QComboBox::currentIndexChanged,
+                     pI7d->pParts[5],&Integra7Part::setPartOutputAssign);
+
+    QObject::connect(ui->Ch6RxBtn,&QPushButton::toggled,
+                     pI7d->pParts[5],&Integra7Part::setReceiveSwitch);
+
+    QObject::connect(ui->Ch6RxChBox,&QComboBox::currentIndexChanged,
+                     pI7d->pParts[5],&Integra7Part::setReceiveChannel);
+
+    QObject::connect(ui->Ch6MonoPolyBox,&QComboBox::currentIndexChanged,
+                     pI7d->pParts[5],&Integra7Part::setPartMonoPoly);
+
+    QObject::connect(ui->Ch6LegatoBox,&QComboBox::currentIndexChanged,
+                     pI7d->pParts[5],&Integra7Part::setPartLegatoSwitch);
+
+    QObject::connect(ui->Ch7OutputBox,&QComboBox::currentIndexChanged,
+                     pI7d->pParts[6],&Integra7Part::setPartOutputAssign);
+
+    QObject::connect(ui->Ch7RxBtn,&QPushButton::toggled,
+                     pI7d->pParts[6],&Integra7Part::setReceiveSwitch);
+
+    QObject::connect(ui->Ch7RxChBox,&QComboBox::currentIndexChanged,
+                     pI7d->pParts[6],&Integra7Part::setReceiveChannel);
+
+    QObject::connect(ui->Ch7MonoPolyBox,&QComboBox::currentIndexChanged,
+                     pI7d->pParts[6],&Integra7Part::setPartMonoPoly);
+
+    QObject::connect(ui->Ch7LegatoBox,&QComboBox::currentIndexChanged,
+                     pI7d->pParts[6],&Integra7Part::setPartLegatoSwitch);
+
+    QObject::connect(ui->Ch8OutputBox,&QComboBox::currentIndexChanged,
+                     pI7d->pParts[7],&Integra7Part::setPartOutputAssign);
+
+    QObject::connect(ui->Ch8RxBtn,&QPushButton::toggled,
+                     pI7d->pParts[7],&Integra7Part::setReceiveSwitch);
+
+    QObject::connect(ui->Ch8RxChBox,&QComboBox::currentIndexChanged,
+                     pI7d->pParts[7],&Integra7Part::setReceiveChannel);
+
+    QObject::connect(ui->Ch8MonoPolyBox,&QComboBox::currentIndexChanged,
+                     pI7d->pParts[7],&Integra7Part::setPartMonoPoly);
+
+    QObject::connect(ui->Ch8LegatoBox,&QComboBox::currentIndexChanged,
+                     pI7d->pParts[7],&Integra7Part::setPartLegatoSwitch);
+
+    QObject::connect(ui->Ch9OutputBox,&QComboBox::currentIndexChanged,
+                     pI7d->pParts[8],&Integra7Part::setPartOutputAssign);
+
+    QObject::connect(ui->Ch9RxBtn,&QPushButton::toggled,
+                     pI7d->pParts[8],&Integra7Part::setReceiveSwitch);
+
+    QObject::connect(ui->Ch9RxChBox,&QComboBox::currentIndexChanged,
+                     pI7d->pParts[8],&Integra7Part::setReceiveChannel);
+
+    QObject::connect(ui->Ch9MonoPolyBox,&QComboBox::currentIndexChanged,
+                     pI7d->pParts[8],&Integra7Part::setPartMonoPoly);
+
+    QObject::connect(ui->Ch9LegatoBox,&QComboBox::currentIndexChanged,
+                     pI7d->pParts[8],&Integra7Part::setPartLegatoSwitch);
+
+    QObject::connect(ui->Ch10OutputBox,&QComboBox::currentIndexChanged,
+                     pI7d->pParts[9],&Integra7Part::setPartOutputAssign);
+
+    QObject::connect(ui->Ch10RxBtn,&QPushButton::toggled,
+                     pI7d->pParts[9],&Integra7Part::setReceiveSwitch);
+
+    QObject::connect(ui->Ch10RxChBox,&QComboBox::currentIndexChanged,
+                     pI7d->pParts[9],&Integra7Part::setReceiveChannel);
+
+    QObject::connect(ui->Ch10MonoPolyBox,&QComboBox::currentIndexChanged,
+                     pI7d->pParts[9],&Integra7Part::setPartMonoPoly);
+
+    QObject::connect(ui->Ch10LegatoBox,&QComboBox::currentIndexChanged,
+                     pI7d->pParts[9],&Integra7Part::setPartLegatoSwitch);
+
+    QObject::connect(ui->Ch11OutputBox,&QComboBox::currentIndexChanged,
+                     pI7d->pParts[10],&Integra7Part::setPartOutputAssign);
+
+    QObject::connect(ui->Ch11RxBtn,&QPushButton::toggled,
+                     pI7d->pParts[10],&Integra7Part::setReceiveSwitch);
+
+    QObject::connect(ui->Ch11RxChBox,&QComboBox::currentIndexChanged,
+                     pI7d->pParts[10],&Integra7Part::setReceiveChannel);
+
+    QObject::connect(ui->Ch11MonoPolyBox,&QComboBox::currentIndexChanged,
+                     pI7d->pParts[10],&Integra7Part::setPartMonoPoly);
+
+    QObject::connect(ui->Ch11LegatoBox,&QComboBox::currentIndexChanged,
+                     pI7d->pParts[10],&Integra7Part::setPartLegatoSwitch);
+
+    QObject::connect(ui->Ch12OutputBox,&QComboBox::currentIndexChanged,
+                     pI7d->pParts[11],&Integra7Part::setPartOutputAssign);
+
+    QObject::connect(ui->Ch12RxBtn,&QPushButton::toggled,
+                     pI7d->pParts[11],&Integra7Part::setReceiveSwitch);
+
+    QObject::connect(ui->Ch12RxChBox,&QComboBox::currentIndexChanged,
+                     pI7d->pParts[11],&Integra7Part::setReceiveChannel);
+
+    QObject::connect(ui->Ch12MonoPolyBox,&QComboBox::currentIndexChanged,
+                     pI7d->pParts[11],&Integra7Part::setPartMonoPoly);
+
+    QObject::connect(ui->Ch12LegatoBox,&QComboBox::currentIndexChanged,
+                     pI7d->pParts[11],&Integra7Part::setPartLegatoSwitch);
+
+    QObject::connect(ui->Ch13OutputBox,&QComboBox::currentIndexChanged,
+                     pI7d->pParts[12],&Integra7Part::setPartOutputAssign);
+
+    QObject::connect(ui->Ch13RxBtn,&QPushButton::toggled,
+                     pI7d->pParts[12],&Integra7Part::setReceiveSwitch);
+
+    QObject::connect(ui->Ch13RxChBox,&QComboBox::currentIndexChanged,
+                     pI7d->pParts[12],&Integra7Part::setReceiveChannel);
+
+    QObject::connect(ui->Ch13MonoPolyBox,&QComboBox::currentIndexChanged,
+                     pI7d->pParts[12],&Integra7Part::setPartMonoPoly);
+
+    QObject::connect(ui->Ch13LegatoBox,&QComboBox::currentIndexChanged,
+                     pI7d->pParts[12],&Integra7Part::setPartLegatoSwitch);
+
+    QObject::connect(ui->Ch14OutputBox,&QComboBox::currentIndexChanged,
+                     pI7d->pParts[13],&Integra7Part::setPartOutputAssign);
+
+    QObject::connect(ui->Ch14RxBtn,&QPushButton::toggled,
+                     pI7d->pParts[13],&Integra7Part::setReceiveSwitch);
+
+    QObject::connect(ui->Ch14RxChBox,&QComboBox::currentIndexChanged,
+                     pI7d->pParts[13],&Integra7Part::setReceiveChannel);
+
+    QObject::connect(ui->Ch14MonoPolyBox,&QComboBox::currentIndexChanged,
+                     pI7d->pParts[13],&Integra7Part::setPartMonoPoly);
+
+    QObject::connect(ui->Ch14LegatoBox,&QComboBox::currentIndexChanged,
+                     pI7d->pParts[13],&Integra7Part::setPartLegatoSwitch);
+
+    QObject::connect(ui->Ch15OutputBox,&QComboBox::currentIndexChanged,
+                     pI7d->pParts[14],&Integra7Part::setPartOutputAssign);
+
+    QObject::connect(ui->Ch15RxBtn,&QPushButton::toggled,
+                     pI7d->pParts[14],&Integra7Part::setReceiveSwitch);
+
+    QObject::connect(ui->Ch15RxChBox,&QComboBox::currentIndexChanged,
+                     pI7d->pParts[14],&Integra7Part::setReceiveChannel);
+
+    QObject::connect(ui->Ch15MonoPolyBox,&QComboBox::currentIndexChanged,
+                     pI7d->pParts[14],&Integra7Part::setPartMonoPoly);
+
+    QObject::connect(ui->Ch15LegatoBox,&QComboBox::currentIndexChanged,
+                     pI7d->pParts[14],&Integra7Part::setPartLegatoSwitch);
+
+    QObject::connect(ui->Ch16OutputBox,&QComboBox::currentIndexChanged,
+                     pI7d->pParts[15],&Integra7Part::setPartOutputAssign);
+
+    QObject::connect(ui->Ch16RxBtn,&QPushButton::toggled,
+                     pI7d->pParts[15],&Integra7Part::setReceiveSwitch);
+
+    QObject::connect(ui->Ch16RxChBox,&QComboBox::currentIndexChanged,
+                     pI7d->pParts[15],&Integra7Part::setReceiveChannel);
+
+    QObject::connect(ui->Ch16MonoPolyBox,&QComboBox::currentIndexChanged,
+                     pI7d->pParts[15],&Integra7Part::setPartMonoPoly);
+
+    QObject::connect(ui->Ch16LegatoBox,&QComboBox::currentIndexChanged,
+                     pI7d->pParts[15],&Integra7Part::setPartLegatoSwitch);
 
     /* Part EQ connections */
     QObject::connect(ui->Ch1EQSwBtn,&QPushButton::toggled,
