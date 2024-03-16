@@ -86,6 +86,8 @@ private slots:
     void ShowVirtualSlotsCard();
     void ShowUtilityCard();
 
+    void SoloButtonsLogic(int id, bool checked);
+
     void MidiConnectBtn_clicked();
     void VSlotBox_currentIndexChanged(int index);
     void VSlotLoadBtn_clicked();

@@ -241,6 +241,8 @@ integra7MainWindow::integra7MainWindow(QWidget *parent)
     SoloPartBtnGrp.setId(ui->Ch15SoloBtn,15);
     SoloPartBtnGrp.setId(ui->Ch16SoloBtn,16);
 
+    SoloPartBtnGrp.setExclusive(false);
+
     SoloPartBtnGrp1.addButton(ui->Ch1SoloBtn1);
     SoloPartBtnGrp1.addButton(ui->Ch2SoloBtn1);
     SoloPartBtnGrp1.addButton(ui->Ch3SoloBtn1);
@@ -275,11 +277,18 @@ integra7MainWindow::integra7MainWindow(QWidget *parent)
     SoloPartBtnGrp1.setId(ui->Ch15SoloBtn1,15);
     SoloPartBtnGrp1.setId(ui->Ch16SoloBtn1,16);
 
+    SoloPartBtnGrp1.setExclusive(false);
+
+    QObject::connect(&SoloPartBtnGrp,&QButtonGroup::idToggled,
+                     this,&integra7MainWindow::SoloButtonsLogic);
+
     QObject::connect(&SoloPartBtnGrp,&QButtonGroup::idToggled,this,
-                     [this](int id, bool checked){SoloPartBtnGrp1.button(id)->setChecked(checked);});
+                     [this](int id, bool checked)
+                     {SoloPartBtnGrp1.button(id)->setChecked(checked);});
 
     QObject::connect(&SoloPartBtnGrp1,&QButtonGroup::idToggled,this,
-                     [this](int id, bool checked){SoloPartBtnGrp.button(id)->setChecked(checked);});
+                     [this](int id, bool checked)
+                     {SoloPartBtnGrp.button(id)->setChecked(checked);});
 
     QObject::connect(&PartBtnGrp,
                      &QButtonGroup::idToggled,this,
@@ -2435,6 +2444,20 @@ void integra7MainWindow::ShowUtilityCard()
 {
     ui->LeftMenu->setCurrentWidget(ui->EmptyMenu);
     ui->RightContent->setCurrentWidget(ui->UtilityCard);
+}
+
+void integra7MainWindow::SoloButtonsLogic(int id, bool checked)
+{
+    if (SoloPartBtnGrp.checkedId() < 0) {
+        //no solo channel selected
+        pI7d->StudioSetCommon->setSoloPart(0);
+    } else if (checked) {
+        pI7d->StudioSetCommon->setSoloPart(id);
+        for (int i=1;i<17;i++) {
+            if (i != id && SoloPartBtnGrp.button(i)->isChecked())
+                SoloPartBtnGrp.button(i)->setChecked(false);
+        }
+    }
 }
 
 void integra7MainWindow::MidiConnectBtn_clicked()
