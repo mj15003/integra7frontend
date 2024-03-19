@@ -22,6 +22,7 @@
 
 class Integra7Chorus : public Integra7ParameterSet
 {
+    Q_OBJECT
 public:
     explicit Integra7Chorus(Integra7Device *parent, uint8_t o1, uint8_t o2, uint8_t o3);
 
@@ -66,6 +67,21 @@ public:
     uint8_t getGM2ChorusDelay() {return data[0x12]<<4|data[0x13];}
     uint8_t getGM2ChorusRate() {return data[0x16]<<4|data[0x17];}
     uint8_t getGM2ChorusDepth() {return data[0x0A]<<4|data[0x0B];}
+
+    static QStringList& TypeList() {
+        static QStringList list = {"OFF","Chorus","Delay","GM2 Chorus"};
+        return list;
+    }
+
+    static QStringList& OutputSelectList() {
+        static QStringList list = {"MAIN","REV","MAIN+REV"};
+        return list;
+    }
+
+    static QStringList& FilterTypeList() {
+        static QStringList list = {"OFF","HPF","LPF"};
+        return list;
+    }
 
 public slots:
     void setChorusType(int v) { DataSet(0x00,v); }

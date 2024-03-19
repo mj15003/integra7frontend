@@ -22,6 +22,7 @@
 #include "integra7mastereq.h"
 #include "integra7studiosetcommon.h"
 #include "integra7chorus.h"
+#include "integra7reverb.h"
 #include "integra7mainwindow.h"
 #include "integra7device.h"
 
@@ -35,7 +36,7 @@ Integra7Device::Integra7Device(integra7MainWindow *parent,const MidiEngine *midi
     SysExData[3] = 0x0;//INTEGRA7 Model ID number
     SysExData[4] = 0x0;//INTEGRA7 Model ID number
     SysExData[5] = 0x64;//INTEGRA7 Model ID number
-    SysExData[SYSEX_SIZE-1] = 0xF7;//correcly ended SysEx
+    SysExData[SYSEX_SIZE-1] = 0xF7;//correctly ended SysEx
 
     pMidiEngine = midi;
 
@@ -44,6 +45,7 @@ Integra7Device::Integra7Device(integra7MainWindow *parent,const MidiEngine *midi
     StudioSetCommon = new Integra7StudioSetCommon(this,0x18,0,0);
     MasterEQ = new Integra7MasterEQ(this,0x18,0,0x9);
     Chorus = new Integra7Chorus(this,0x18,0,0x4);
+    Reverb = new Integra7Reverb(this,0x18,0,0x6);
 
     uint8_t offset = 0x20;
     uint8_t eqoffset = 0x50;
@@ -60,6 +62,7 @@ Integra7Device::~Integra7Device()
         delete pPartsEQ[i];
     }
 
+    delete Reverb;
     delete Chorus;
     delete MasterEQ;
     delete StudioSetCommon;

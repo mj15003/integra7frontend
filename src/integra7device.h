@@ -34,6 +34,7 @@ class Integra7SystemCommon;
 class Integra7MasterEQ;
 class Integra7PartEQ;
 class Integra7Chorus;
+class Integra7Reverb;
 
 class Integra7Device : public QObject
 {
@@ -55,6 +56,8 @@ public:
     Integra7MasterEQ *MasterEQ;
 
     Integra7Chorus *Chorus;
+
+    Integra7Reverb *Reverb;
 
     Integra7Part *pParts[16];
     Integra7PartEQ *pPartsEQ[16];
@@ -448,6 +451,11 @@ public:
 
     static QStringList& OutputList() {
         static QStringList list = { "A","B","C","D","1","2","3","4","5","6","7","8" };
+        return list;
+    }
+
+    static QStringList& OutputAssignList() {
+        static QStringList list = { "A","B","C","D" };
         return list;
     }
 
