@@ -33,6 +33,7 @@ class Integra7StudioSetCommon;
 class Integra7SystemCommon;
 class Integra7MasterEQ;
 class Integra7PartEQ;
+class Integra7Chorus;
 
 class Integra7Device : public QObject
 {
@@ -52,6 +53,8 @@ public:
     Integra7StudioSetCommon *StudioSetCommon;
 
     Integra7MasterEQ *MasterEQ;
+
+    Integra7Chorus *Chorus;
 
     Integra7Part *pParts[16];
     Integra7PartEQ *pPartsEQ[16];

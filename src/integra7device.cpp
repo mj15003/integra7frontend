@@ -21,6 +21,7 @@
 #include "integra7parteq.h"
 #include "integra7mastereq.h"
 #include "integra7studiosetcommon.h"
+#include "integra7chorus.h"
 #include "integra7mainwindow.h"
 #include "integra7device.h"
 
@@ -42,6 +43,7 @@ Integra7Device::Integra7Device(integra7MainWindow *parent,const MidiEngine *midi
     SystemCommon = new Integra7SystemCommon(this,0x2,0,0);
     StudioSetCommon = new Integra7StudioSetCommon(this,0x18,0,0);
     MasterEQ = new Integra7MasterEQ(this,0x18,0,0x9);
+    Chorus = new Integra7Chorus(this,0x18,0,0x4);
 
     uint8_t offset = 0x20;
     uint8_t eqoffset = 0x50;
@@ -58,6 +60,7 @@ Integra7Device::~Integra7Device()
         delete pPartsEQ[i];
     }
 
+    delete Chorus;
     delete MasterEQ;
     delete StudioSetCommon;
     delete SystemCommon;
