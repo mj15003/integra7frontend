@@ -35,7 +35,7 @@ public:
 
     //Room,Hall,Plate section
     uint8_t getPreDelay() {return data[0x09]<<4|data[0x0A];}
-    uint8_t getTime() {return data[0x0D]<<4|data[0x0E];}
+    uint8_t getTime() {return (data[0x0D]<<4|data[0x0E])-1;}
     uint8_t getDensity() {return data[0x11]<<4|data[0x12];}
     uint8_t getDiffusion() {return data[0x15]<<4|data[0x16];}
     uint8_t getLFDamp() {return data[0x19]<<4|data[0x1A];}
@@ -52,6 +52,13 @@ public:
         return list;
     }
 
+    static QStringList& TimeList();
+
+    static QStringList& GM2CharacterList() {
+        static QStringList list = {"0","1","2","3","4","5"};
+        return list;
+    }
+
 public slots:
     void setType(int v) {DataSet(0x00,v);}
     void setLevel(int v) {DataSet(0x01,v);}
@@ -59,7 +66,7 @@ public slots:
 
     //Room,Hall,Plate section
     void setPreDelay(int v) {DataSet4x4B(0x07,v);}
-    void setTime(int v) {DataSet4x4B(0x0B,v);}
+    void setTime(int v) {DataSet4x4B(0x0B,v+1);}
     void setDensity(int v) {DataSet4x4B(0x0F,v);}
     void setDiffusion(int v) {DataSet4x4B(0x13,v);}
     void setLFDamp(int v) {DataSet4x4B(0x17,v);}

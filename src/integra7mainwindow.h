@@ -81,8 +81,10 @@ private slots:
     void ShowPartScaleCard(){ui->RightContent->setCurrentWidget(ui->PartScaleCard);}
     void ShowPartToneCard() {ui->RightContent->setCurrentWidget(ui->PartToneCard);}
     void ShowMasterEQCard() {ui->RightContent->setCurrentWidget(ui->MasterEQCard);}
-    void ShowChorusCard() {ui->RightContent->setCurrentWidget(ui->ChorusCard);
-                           ui->ChorusParams->setCurrentWidget(ui->ChorusParamCard);}
+    void ShowChorusCard() {ui->RightContent->setCurrentWidget(ui->ChorusCard);}
+    void ShowChorusParams(QString tp);
+    void ShowReverbCard() {ui->RightContent->setCurrentWidget(ui->ReverbCard);}
+    void ShowReverbParams(int tp);
     void ShowVirtualSlotsCard();
     void ShowUtilityCard();
 

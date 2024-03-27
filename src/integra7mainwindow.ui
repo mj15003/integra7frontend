@@ -643,7 +643,7 @@
              </sizepolicy>
             </property>
             <property name="currentIndex">
-             <number>0</number>
+             <number>1</number>
             </property>
             <widget class="QWidget" name="StudioSetMenu">
              <property name="maximumSize">
@@ -962,7 +962,7 @@ COMMON</string>
        <item>
         <widget class="QStackedWidget" name="RightContent">
          <property name="currentIndex">
-          <number>2</number>
+          <number>11</number>
          </property>
          <widget class="QWidget" name="PartViewCard">
           <layout class="QGridLayout" name="PartViewCardLayout">
@@ -15503,7 +15503,7 @@ LOWER UPPER</string>
             </widget>
            </item>
            <item row="1" column="1">
-            <widget class="QPushButton" name="ChorusSwBtn">
+            <widget class="OnOffButton" name="ChorusSwBtn">
              <property name="maximumSize">
               <size>
                <width>80</width>
@@ -15574,7 +15574,7 @@ LOWER UPPER</string>
             <widget class="QComboBox" name="ChorusOutAssignBox">
              <property name="maximumSize">
               <size>
-               <width>160</width>
+               <width>60</width>
                <height>16777215</height>
               </size>
              </property>
@@ -15599,6 +15599,9 @@ LOWER UPPER</string>
            </item>
            <item row="6" column="0" colspan="2">
             <widget class="QStackedWidget" name="ChorusParams">
+             <property name="currentIndex">
+              <number>2</number>
+             </property>
              <widget class="QWidget" name="ChorusParamCard">
               <layout class="QFormLayout" name="formLayout_4">
                <item row="0" column="0">
@@ -15612,7 +15615,7 @@ LOWER UPPER</string>
                 <widget class="QComboBox" name="ChorusFilterTypeBox">
                  <property name="maximumSize">
                   <size>
-                   <width>160</width>
+                   <width>80</width>
                    <height>16777215</height>
                   </size>
                  </property>
@@ -15629,7 +15632,7 @@ LOWER UPPER</string>
                 <widget class="QComboBox" name="ChorusFilterCutoffBox">
                  <property name="maximumSize">
                   <size>
-                   <width>160</width>
+                   <width>80</width>
                    <height>16777215</height>
                   </size>
                  </property>
@@ -15645,14 +15648,14 @@ LOWER UPPER</string>
                <item row="2" column="1">
                 <layout class="QHBoxLayout" name="horizontalLayout_7">
                  <item>
-                  <widget class="QSlider" name="ChorusPreDelaySld">
-                   <property name="orientation">
-                    <enum>Qt::Horizontal</enum>
+                  <widget class="QComboBox" name="ChorusPreDelayBox">
+                   <property name="maximumSize">
+                    <size>
+                     <width>80</width>
+                     <height>16777215</height>
+                    </size>
                    </property>
                   </widget>
-                 </item>
-                 <item>
-                  <widget class="QDoubleSpinBox" name="ChorusPreDelayBox"/>
                  </item>
                  <item>
                   <widget class="QLabel" name="label_97">
@@ -15663,24 +15666,24 @@ LOWER UPPER</string>
                  </item>
                 </layout>
                </item>
-               <item row="3" column="0">
+               <item row="4" column="0">
                 <widget class="QLabel" name="label_94">
                  <property name="text">
                   <string>Rate</string>
                  </property>
                 </widget>
                </item>
-               <item row="3" column="1">
+               <item row="4" column="1">
                 <layout class="QHBoxLayout" name="horizontalLayout_8">
                  <item>
-                  <widget class="QSlider" name="ChorusRateSld">
-                   <property name="orientation">
-                    <enum>Qt::Horizontal</enum>
+                  <widget class="QComboBox" name="ChorusHzRateBox">
+                   <property name="maximumSize">
+                    <size>
+                     <width>80</width>
+                     <height>16777215</height>
+                    </size>
                    </property>
                   </widget>
-                 </item>
-                 <item>
-                  <widget class="QDoubleSpinBox" name="ChorusRateBox"/>
                  </item>
                  <item>
                   <widget class="QLabel" name="label_98">
@@ -15691,14 +15694,14 @@ LOWER UPPER</string>
                  </item>
                 </layout>
                </item>
-               <item row="4" column="0">
+               <item row="6" column="0">
                 <widget class="QLabel" name="label_96">
                  <property name="text">
                   <string>Depth</string>
                  </property>
                 </widget>
                </item>
-               <item row="4" column="1">
+               <item row="6" column="1">
                 <layout class="QHBoxLayout" name="horizontalLayout_9">
                  <item>
                   <widget class="QSlider" name="ChorusDepthSld">
@@ -15719,24 +15722,54 @@ LOWER UPPER</string>
                  </item>
                 </layout>
                </item>
-               <item row="5" column="0">
+               <item row="7" column="0">
                 <widget class="QLabel" name="label_99">
                  <property name="text">
                   <string>Phase</string>
                  </property>
                 </widget>
                </item>
-               <item row="6" column="0">
+               <item row="7" column="1">
+                <layout class="QHBoxLayout" name="horizontalLayout_11">
+                 <item>
+                  <widget class="QSlider" name="ChorusPhaseSld">
+                   <property name="maximum">
+                    <number>180</number>
+                   </property>
+                   <property name="singleStep">
+                    <number>2</number>
+                   </property>
+                   <property name="orientation">
+                    <enum>Qt::Horizontal</enum>
+                   </property>
+                  </widget>
+                 </item>
+                 <item>
+                  <widget class="QSpinBox" name="ChorusPhaseBox">
+                   <property name="maximum">
+                    <number>180</number>
+                   </property>
+                   <property name="singleStep">
+                    <number>2</number>
+                   </property>
+                  </widget>
+                 </item>
+                </layout>
+               </item>
+               <item row="8" column="0">
                 <widget class="QLabel" name="label_100">
                  <property name="text">
                   <string>Feedback</string>
                  </property>
                 </widget>
                </item>
-               <item row="6" column="1">
+               <item row="8" column="1">
                 <layout class="QHBoxLayout" name="horizontalLayout_10">
                  <item>
                   <widget class="QSlider" name="ChorusFbSld">
+                   <property name="maximum">
+                    <number>127</number>
+                   </property>
                    <property name="orientation">
                     <enum>Qt::Horizontal</enum>
                    </property>
@@ -15751,19 +15784,894 @@ LOWER UPPER</string>
                  </item>
                 </layout>
                </item>
+               <item row="3" column="0">
+                <widget class="QLabel" name="label_134">
+                 <property name="text">
+                  <string>RateType</string>
+                 </property>
+                </widget>
+               </item>
+               <item row="3" column="1">
+                <widget class="QComboBox" name="ChorusRateTypeBox">
+                 <property name="maximumSize">
+                  <size>
+                   <width>80</width>
+                   <height>16777215</height>
+                  </size>
+                 </property>
+                </widget>
+               </item>
+               <item row="5" column="0">
+                <widget class="QLabel" name="label_135">
+                 <property name="text">
+                  <string>Rate Note</string>
+                 </property>
+                </widget>
+               </item>
                <item row="5" column="1">
-                <layout class="QHBoxLayout" name="horizontalLayout_11">
+                <widget class="QComboBox" name="ChorusNoteRateBox">
+                 <property name="maximumSize">
+                  <size>
+                   <width>80</width>
+                   <height>16777215</height>
+                  </size>
+                 </property>
+                </widget>
+               </item>
+              </layout>
+             </widget>
+             <widget class="QWidget" name="DelayParamCard">
+              <layout class="QFormLayout" name="formLayout_5">
+               <item row="1" column="0">
+                <widget class="QLabel" name="label_101">
+                 <property name="text">
+                  <string>Delay Left</string>
+                 </property>
+                </widget>
+               </item>
+               <item row="4" column="0">
+                <widget class="QLabel" name="label_102">
+                 <property name="text">
+                  <string>Delay Right</string>
+                 </property>
+                </widget>
+               </item>
+               <item row="7" column="0">
+                <widget class="QLabel" name="label_103">
+                 <property name="text">
+                  <string>Delay Center</string>
+                 </property>
+                </widget>
+               </item>
+               <item row="1" column="1">
+                <layout class="QHBoxLayout" name="horizontalLayout_12">
                  <item>
-                  <widget class="QSlider" name="ChorusPhaseSld">
+                  <widget class="QSlider" name="DelayLeftSld">
+                   <property name="maximum">
+                    <number>1000</number>
+                   </property>
                    <property name="orientation">
                     <enum>Qt::Horizontal</enum>
                    </property>
                   </widget>
                  </item>
                  <item>
-                  <widget class="QSpinBox" name="ChorusPhaseBox">
+                  <widget class="QSpinBox" name="DelayLeftBox">
                    <property name="maximum">
-                    <number>180</number>
+                    <number>1000</number>
+                   </property>
+                  </widget>
+                 </item>
+                 <item>
+                  <widget class="QLabel" name="label_110">
+                   <property name="text">
+                    <string>ms</string>
+                   </property>
+                  </widget>
+                 </item>
+                </layout>
+               </item>
+               <item row="4" column="1">
+                <layout class="QHBoxLayout" name="horizontalLayout_13">
+                 <item>
+                  <widget class="QSlider" name="DelayRightSld">
+                   <property name="maximum">
+                    <number>1000</number>
+                   </property>
+                   <property name="orientation">
+                    <enum>Qt::Horizontal</enum>
+                   </property>
+                  </widget>
+                 </item>
+                 <item>
+                  <widget class="QSpinBox" name="DelayRightBox">
+                   <property name="maximum">
+                    <number>1000</number>
+                   </property>
+                  </widget>
+                 </item>
+                 <item>
+                  <widget class="QLabel" name="label_111">
+                   <property name="text">
+                    <string>ms</string>
+                   </property>
+                  </widget>
+                 </item>
+                </layout>
+               </item>
+               <item row="7" column="1">
+                <layout class="QHBoxLayout" name="horizontalLayout_14">
+                 <item>
+                  <widget class="QSlider" name="DelayCenterSld">
+                   <property name="maximum">
+                    <number>1000</number>
+                   </property>
+                   <property name="orientation">
+                    <enum>Qt::Horizontal</enum>
+                   </property>
+                  </widget>
+                 </item>
+                 <item>
+                  <widget class="QSpinBox" name="DelayCenterBox">
+                   <property name="maximum">
+                    <number>1000</number>
+                   </property>
+                  </widget>
+                 </item>
+                 <item>
+                  <widget class="QLabel" name="label_112">
+                   <property name="text">
+                    <string>ms</string>
+                   </property>
+                  </widget>
+                 </item>
+                </layout>
+               </item>
+               <item row="9" column="0">
+                <widget class="QLabel" name="label_104">
+                 <property name="text">
+                  <string>Feedback</string>
+                 </property>
+                </widget>
+               </item>
+               <item row="10" column="0">
+                <widget class="QLabel" name="label_105">
+                 <property name="text">
+                  <string>HF Damp</string>
+                 </property>
+                </widget>
+               </item>
+               <item row="11" column="0">
+                <widget class="QLabel" name="label_106">
+                 <property name="text">
+                  <string>Left Level</string>
+                 </property>
+                </widget>
+               </item>
+               <item row="12" column="0">
+                <widget class="QLabel" name="label_107">
+                 <property name="text">
+                  <string>Right Level</string>
+                 </property>
+                </widget>
+               </item>
+               <item row="13" column="0">
+                <widget class="QLabel" name="label_108">
+                 <property name="text">
+                  <string>Center Level</string>
+                 </property>
+                </widget>
+               </item>
+               <item row="9" column="1">
+                <layout class="QHBoxLayout" name="horizontalLayout_15">
+                 <item>
+                  <widget class="QSlider" name="DelayFBSld">
+                   <property name="minimum">
+                    <number>-98</number>
+                   </property>
+                   <property name="maximum">
+                    <number>98</number>
+                   </property>
+                   <property name="singleStep">
+                    <number>2</number>
+                   </property>
+                   <property name="orientation">
+                    <enum>Qt::Horizontal</enum>
+                   </property>
+                  </widget>
+                 </item>
+                 <item>
+                  <widget class="QSpinBox" name="DelayFBBox">
+                   <property name="minimum">
+                    <number>-98</number>
+                   </property>
+                   <property name="maximum">
+                    <number>98</number>
+                   </property>
+                   <property name="singleStep">
+                    <number>2</number>
+                   </property>
+                  </widget>
+                 </item>
+                 <item>
+                  <widget class="QLabel" name="label_109">
+                   <property name="text">
+                    <string>%</string>
+                   </property>
+                  </widget>
+                 </item>
+                </layout>
+               </item>
+               <item row="11" column="1">
+                <layout class="QHBoxLayout" name="horizontalLayout_17">
+                 <item>
+                  <widget class="QSlider" name="DelayLeftLvlSld">
+                   <property name="maximum">
+                    <number>127</number>
+                   </property>
+                   <property name="orientation">
+                    <enum>Qt::Horizontal</enum>
+                   </property>
+                  </widget>
+                 </item>
+                 <item>
+                  <widget class="QSpinBox" name="DelayLeftLvlBox">
+                   <property name="maximum">
+                    <number>127</number>
+                   </property>
+                  </widget>
+                 </item>
+                </layout>
+               </item>
+               <item row="12" column="1">
+                <layout class="QHBoxLayout" name="horizontalLayout_18">
+                 <item>
+                  <widget class="QSlider" name="DelayRightLvlSld">
+                   <property name="maximum">
+                    <number>127</number>
+                   </property>
+                   <property name="orientation">
+                    <enum>Qt::Horizontal</enum>
+                   </property>
+                  </widget>
+                 </item>
+                 <item>
+                  <widget class="QSpinBox" name="DelayRightLvlBox">
+                   <property name="maximum">
+                    <number>127</number>
+                   </property>
+                  </widget>
+                 </item>
+                </layout>
+               </item>
+               <item row="13" column="1">
+                <layout class="QHBoxLayout" name="horizontalLayout_19">
+                 <item>
+                  <widget class="QSlider" name="DelayCenterLvlSld">
+                   <property name="maximum">
+                    <number>127</number>
+                   </property>
+                   <property name="orientation">
+                    <enum>Qt::Horizontal</enum>
+                   </property>
+                  </widget>
+                 </item>
+                 <item>
+                  <widget class="QSpinBox" name="DelayCenterLvlBox">
+                   <property name="maximum">
+                    <number>127</number>
+                   </property>
+                  </widget>
+                 </item>
+                </layout>
+               </item>
+               <item row="10" column="1">
+                <widget class="QComboBox" name="DelayHFDampBox">
+                 <property name="maximumSize">
+                  <size>
+                   <width>160</width>
+                   <height>16777215</height>
+                  </size>
+                 </property>
+                </widget>
+               </item>
+               <item row="0" column="1">
+                <widget class="QComboBox" name="DelayLeftTypeBox">
+                 <property name="maximumSize">
+                  <size>
+                   <width>100</width>
+                   <height>16777215</height>
+                  </size>
+                 </property>
+                </widget>
+               </item>
+               <item row="3" column="1">
+                <widget class="QComboBox" name="DelayRightTypeBox">
+                 <property name="maximumSize">
+                  <size>
+                   <width>100</width>
+                   <height>16777215</height>
+                  </size>
+                 </property>
+                </widget>
+               </item>
+               <item row="6" column="1">
+                <widget class="QComboBox" name="DelayCenterTypeBox">
+                 <property name="maximumSize">
+                  <size>
+                   <width>100</width>
+                   <height>16777215</height>
+                  </size>
+                 </property>
+                </widget>
+               </item>
+               <item row="2" column="1">
+                <widget class="QComboBox" name="DelayLeftNoteBox">
+                 <property name="maximumSize">
+                  <size>
+                   <width>200</width>
+                   <height>16777215</height>
+                  </size>
+                 </property>
+                </widget>
+               </item>
+               <item row="5" column="1">
+                <widget class="QComboBox" name="DelayRightNoteBox">
+                 <property name="maximumSize">
+                  <size>
+                   <width>200</width>
+                   <height>16777215</height>
+                  </size>
+                 </property>
+                </widget>
+               </item>
+               <item row="8" column="1">
+                <widget class="QComboBox" name="DelayCenterNoteBox">
+                 <property name="maximumSize">
+                  <size>
+                   <width>200</width>
+                   <height>16777215</height>
+                  </size>
+                 </property>
+                </widget>
+               </item>
+              </layout>
+             </widget>
+             <widget class="QWidget" name="GM2ChorusParamCard">
+              <layout class="QFormLayout" name="formLayout_9">
+               <item row="0" column="0">
+                <widget class="QLabel" name="label_128">
+                 <property name="text">
+                  <string>Pre-LPF</string>
+                 </property>
+                </widget>
+               </item>
+               <item row="1" column="0">
+                <widget class="QLabel" name="label_129">
+                 <property name="text">
+                  <string>Level</string>
+                 </property>
+                </widget>
+               </item>
+               <item row="2" column="0">
+                <widget class="QLabel" name="label_130">
+                 <property name="text">
+                  <string>Feedback</string>
+                 </property>
+                </widget>
+               </item>
+               <item row="3" column="0">
+                <widget class="QLabel" name="label_131">
+                 <property name="text">
+                  <string>Delay</string>
+                 </property>
+                </widget>
+               </item>
+               <item row="4" column="0">
+                <widget class="QLabel" name="label_132">
+                 <property name="text">
+                  <string>Rate</string>
+                 </property>
+                </widget>
+               </item>
+               <item row="5" column="0">
+                <widget class="QLabel" name="label_133">
+                 <property name="text">
+                  <string>Depth</string>
+                 </property>
+                </widget>
+               </item>
+               <item row="1" column="1">
+                <layout class="QHBoxLayout" name="horizontalLayout_30">
+                 <item>
+                  <widget class="QSlider" name="ChorusGM2LevelSld">
+                   <property name="maximum">
+                    <number>127</number>
+                   </property>
+                   <property name="orientation">
+                    <enum>Qt::Horizontal</enum>
+                   </property>
+                  </widget>
+                 </item>
+                 <item>
+                  <widget class="QSpinBox" name="ChorusGM2LevelBox">
+                   <property name="maximum">
+                    <number>127</number>
+                   </property>
+                  </widget>
+                 </item>
+                </layout>
+               </item>
+               <item row="2" column="1">
+                <layout class="QHBoxLayout" name="horizontalLayout_31">
+                 <item>
+                  <widget class="QSlider" name="ChorusGM2FBSld">
+                   <property name="maximum">
+                    <number>127</number>
+                   </property>
+                   <property name="orientation">
+                    <enum>Qt::Horizontal</enum>
+                   </property>
+                  </widget>
+                 </item>
+                 <item>
+                  <widget class="QSpinBox" name="ChorusGM2FBBox">
+                   <property name="maximum">
+                    <number>127</number>
+                   </property>
+                  </widget>
+                 </item>
+                </layout>
+               </item>
+               <item row="3" column="1">
+                <layout class="QHBoxLayout" name="horizontalLayout_32">
+                 <item>
+                  <widget class="QSlider" name="ChorusGM2DelaySld">
+                   <property name="maximum">
+                    <number>127</number>
+                   </property>
+                   <property name="orientation">
+                    <enum>Qt::Horizontal</enum>
+                   </property>
+                  </widget>
+                 </item>
+                 <item>
+                  <widget class="QSpinBox" name="ChorusGM2DelayBox">
+                   <property name="maximum">
+                    <number>127</number>
+                   </property>
+                  </widget>
+                 </item>
+                </layout>
+               </item>
+               <item row="4" column="1">
+                <layout class="QHBoxLayout" name="horizontalLayout_33">
+                 <item>
+                  <widget class="QSlider" name="ChorusGM2RateSld">
+                   <property name="maximum">
+                    <number>127</number>
+                   </property>
+                   <property name="orientation">
+                    <enum>Qt::Horizontal</enum>
+                   </property>
+                  </widget>
+                 </item>
+                 <item>
+                  <widget class="QSpinBox" name="ChorusGM2RateBox">
+                   <property name="maximum">
+                    <number>127</number>
+                   </property>
+                  </widget>
+                 </item>
+                </layout>
+               </item>
+               <item row="5" column="1">
+                <layout class="QHBoxLayout" name="horizontalLayout_34">
+                 <item>
+                  <widget class="QSlider" name="ChorusGM2DepthSld">
+                   <property name="maximum">
+                    <number>127</number>
+                   </property>
+                   <property name="orientation">
+                    <enum>Qt::Horizontal</enum>
+                   </property>
+                  </widget>
+                 </item>
+                 <item>
+                  <widget class="QSpinBox" name="ChorusGM2DepthBox">
+                   <property name="maximum">
+                    <number>127</number>
+                   </property>
+                  </widget>
+                 </item>
+                </layout>
+               </item>
+               <item row="0" column="1">
+                <widget class="QComboBox" name="ChorusGM2PreLPFBox">
+                 <property name="maximumSize">
+                  <size>
+                   <width>60</width>
+                   <height>16777215</height>
+                  </size>
+                 </property>
+                </widget>
+               </item>
+              </layout>
+             </widget>
+             <widget class="QWidget" name="ChorusEmptyPage"/>
+            </widget>
+           </item>
+          </layout>
+         </widget>
+         <widget class="QWidget" name="ReverbCard">
+          <property name="maximumSize">
+           <size>
+            <width>600</width>
+            <height>16777215</height>
+           </size>
+          </property>
+          <layout class="QFormLayout" name="formLayout_6">
+           <property name="leftMargin">
+            <number>50</number>
+           </property>
+           <item row="2" column="0">
+            <widget class="QLabel" name="label_114">
+             <property name="text">
+              <string>Type</string>
+             </property>
+            </widget>
+           </item>
+           <item row="2" column="1">
+            <widget class="QComboBox" name="ReverbTypeBox">
+             <property name="maximumSize">
+              <size>
+               <width>200</width>
+               <height>16777215</height>
+              </size>
+             </property>
+            </widget>
+           </item>
+           <item row="3" column="0">
+            <widget class="QLabel" name="label_115">
+             <property name="text">
+              <string>Level</string>
+             </property>
+            </widget>
+           </item>
+           <item row="4" column="0">
+            <widget class="QLabel" name="label_116">
+             <property name="text">
+              <string>Output Assign</string>
+             </property>
+            </widget>
+           </item>
+           <item row="0" column="0" colspan="2">
+            <widget class="QLabel" name="label_113">
+             <property name="palette">
+              <palette>
+               <active>
+                <colorrole role="WindowText">
+                 <brush brushstyle="SolidPattern">
+                  <color alpha="255">
+                   <red>154</red>
+                   <green>153</green>
+                   <blue>150</blue>
+                  </color>
+                 </brush>
+                </colorrole>
+               </active>
+               <inactive>
+                <colorrole role="WindowText">
+                 <brush brushstyle="SolidPattern">
+                  <color alpha="255">
+                   <red>154</red>
+                   <green>153</green>
+                   <blue>150</blue>
+                  </color>
+                 </brush>
+                </colorrole>
+               </inactive>
+               <disabled/>
+              </palette>
+             </property>
+             <property name="font">
+              <font>
+               <pointsize>16</pointsize>
+               <bold>true</bold>
+              </font>
+             </property>
+             <property name="text">
+              <string>REVERB</string>
+             </property>
+            </widget>
+           </item>
+           <item row="3" column="1">
+            <layout class="QHBoxLayout" name="horizontalLayout_16">
+             <item>
+              <widget class="QSlider" name="ReverbLevelSld">
+               <property name="maximum">
+                <number>127</number>
+               </property>
+               <property name="orientation">
+                <enum>Qt::Horizontal</enum>
+               </property>
+              </widget>
+             </item>
+             <item>
+              <widget class="QSpinBox" name="ReverbLevelBox">
+               <property name="maximum">
+                <number>127</number>
+               </property>
+              </widget>
+             </item>
+            </layout>
+           </item>
+           <item row="4" column="1">
+            <widget class="QComboBox" name="ReverbOutputAssignBox">
+             <property name="maximumSize">
+              <size>
+               <width>80</width>
+               <height>16777215</height>
+              </size>
+             </property>
+            </widget>
+           </item>
+           <item row="1" column="0">
+            <widget class="QLabel" name="label_117">
+             <property name="text">
+              <string>Switch</string>
+             </property>
+            </widget>
+           </item>
+           <item row="1" column="1">
+            <widget class="OnOffButton" name="ReverbSwBtn">
+             <property name="maximumSize">
+              <size>
+               <width>80</width>
+               <height>16777215</height>
+              </size>
+             </property>
+             <property name="text">
+              <string>ON</string>
+             </property>
+             <property name="checkable">
+              <bool>true</bool>
+             </property>
+            </widget>
+           </item>
+           <item row="5" column="0" colspan="2">
+            <widget class="QStackedWidget" name="ReverbParams">
+             <property name="currentIndex">
+              <number>0</number>
+             </property>
+             <widget class="QWidget" name="RoomHallPlate">
+              <layout class="QFormLayout" name="formLayout_7">
+               <item row="0" column="0">
+                <widget class="QLabel" name="label_118">
+                 <property name="text">
+                  <string>PreDelay</string>
+                 </property>
+                </widget>
+               </item>
+               <item row="0" column="1">
+                <layout class="QHBoxLayout" name="horizontalLayout_20">
+                 <item>
+                  <widget class="QSlider" name="ReverbPreDelaySld">
+                   <property name="maximum">
+                    <number>100</number>
+                   </property>
+                   <property name="orientation">
+                    <enum>Qt::Horizontal</enum>
+                   </property>
+                  </widget>
+                 </item>
+                 <item>
+                  <widget class="QSpinBox" name="ReverbPreDelayBox">
+                   <property name="maximum">
+                    <number>100</number>
+                   </property>
+                  </widget>
+                 </item>
+                 <item>
+                  <widget class="QLabel" name="label_136">
+                   <property name="text">
+                    <string>ms</string>
+                   </property>
+                  </widget>
+                 </item>
+                </layout>
+               </item>
+               <item row="1" column="0">
+                <widget class="QLabel" name="label_119">
+                 <property name="text">
+                  <string>Time</string>
+                 </property>
+                </widget>
+               </item>
+               <item row="2" column="0">
+                <widget class="QLabel" name="label_120">
+                 <property name="text">
+                  <string>Density</string>
+                 </property>
+                </widget>
+               </item>
+               <item row="3" column="0">
+                <widget class="QLabel" name="label_121">
+                 <property name="text">
+                  <string>Diffusion</string>
+                 </property>
+                </widget>
+               </item>
+               <item row="4" column="0">
+                <widget class="QLabel" name="label_122">
+                 <property name="text">
+                  <string>LF Damp</string>
+                 </property>
+                </widget>
+               </item>
+               <item row="5" column="0">
+                <widget class="QLabel" name="label_123">
+                 <property name="text">
+                  <string>HF Damp</string>
+                 </property>
+                </widget>
+               </item>
+               <item row="6" column="0">
+                <widget class="QLabel" name="label_124">
+                 <property name="text">
+                  <string>Spread</string>
+                 </property>
+                </widget>
+               </item>
+               <item row="7" column="0">
+                <widget class="QLabel" name="label_125">
+                 <property name="text">
+                  <string>Tone</string>
+                 </property>
+                </widget>
+               </item>
+               <item row="1" column="1">
+                <layout class="QHBoxLayout" name="horizontalLayout_21">
+                 <item>
+                  <widget class="QComboBox" name="ReverbTimeBox">
+                   <property name="maximumSize">
+                    <size>
+                     <width>80</width>
+                     <height>16777215</height>
+                    </size>
+                   </property>
+                  </widget>
+                 </item>
+                 <item>
+                  <widget class="QLabel" name="label_137">
+                   <property name="text">
+                    <string>seconds</string>
+                   </property>
+                  </widget>
+                 </item>
+                </layout>
+               </item>
+               <item row="2" column="1">
+                <layout class="QHBoxLayout" name="horizontalLayout_22">
+                 <item>
+                  <widget class="QSlider" name="ReverbDensitySld">
+                   <property name="maximum">
+                    <number>127</number>
+                   </property>
+                   <property name="orientation">
+                    <enum>Qt::Horizontal</enum>
+                   </property>
+                  </widget>
+                 </item>
+                 <item>
+                  <widget class="QSpinBox" name="ReverbDensityBox">
+                   <property name="maximum">
+                    <number>127</number>
+                   </property>
+                  </widget>
+                 </item>
+                </layout>
+               </item>
+               <item row="3" column="1">
+                <layout class="QHBoxLayout" name="horizontalLayout_23">
+                 <item>
+                  <widget class="QSlider" name="ReverbDiffusionSld">
+                   <property name="maximum">
+                    <number>127</number>
+                   </property>
+                   <property name="orientation">
+                    <enum>Qt::Horizontal</enum>
+                   </property>
+                  </widget>
+                 </item>
+                 <item>
+                  <widget class="QSpinBox" name="ReverbDiffusionBox">
+                   <property name="maximum">
+                    <number>127</number>
+                   </property>
+                  </widget>
+                 </item>
+                </layout>
+               </item>
+               <item row="4" column="1">
+                <layout class="QHBoxLayout" name="horizontalLayout_24">
+                 <item>
+                  <widget class="QSlider" name="ReverbLFDampSld">
+                   <property name="maximum">
+                    <number>100</number>
+                   </property>
+                   <property name="orientation">
+                    <enum>Qt::Horizontal</enum>
+                   </property>
+                  </widget>
+                 </item>
+                 <item>
+                  <widget class="QSpinBox" name="ReverbLFDampBox">
+                   <property name="maximum">
+                    <number>100</number>
+                   </property>
+                  </widget>
+                 </item>
+                </layout>
+               </item>
+               <item row="5" column="1">
+                <layout class="QHBoxLayout" name="horizontalLayout_25">
+                 <item>
+                  <widget class="QSlider" name="ReverbHFDampSld">
+                   <property name="maximum">
+                    <number>100</number>
+                   </property>
+                   <property name="orientation">
+                    <enum>Qt::Horizontal</enum>
+                   </property>
+                  </widget>
+                 </item>
+                 <item>
+                  <widget class="QSpinBox" name="ReverbHFDampBox">
+                   <property name="maximum">
+                    <number>100</number>
+                   </property>
+                  </widget>
+                 </item>
+                </layout>
+               </item>
+               <item row="6" column="1">
+                <layout class="QHBoxLayout" name="horizontalLayout_26">
+                 <item>
+                  <widget class="QSlider" name="ReverbSpreadSld">
+                   <property name="maximum">
+                    <number>127</number>
+                   </property>
+                   <property name="orientation">
+                    <enum>Qt::Horizontal</enum>
+                   </property>
+                  </widget>
+                 </item>
+                 <item>
+                  <widget class="QSpinBox" name="ReverbSpreadBox">
+                   <property name="maximum">
+                    <number>127</number>
+                   </property>
+                  </widget>
+                 </item>
+                </layout>
+               </item>
+               <item row="7" column="1">
+                <layout class="QHBoxLayout" name="horizontalLayout_27">
+                 <item>
+                  <widget class="QSlider" name="ReverbToneSld">
+                   <property name="maximum">
+                    <number>127</number>
+                   </property>
+                   <property name="orientation">
+                    <enum>Qt::Horizontal</enum>
+                   </property>
+                  </widget>
+                 </item>
+                 <item>
+                  <widget class="QSpinBox" name="ReverbToneBox">
+                   <property name="maximum">
+                    <number>127</number>
                    </property>
                   </widget>
                  </item>
@@ -15771,12 +16679,60 @@ LOWER UPPER</string>
                </item>
               </layout>
              </widget>
-             <widget class="QWidget" name="page_2"/>
+             <widget class="QWidget" name="GM2Reverb">
+              <layout class="QFormLayout" name="formLayout_8">
+               <item row="0" column="0">
+                <widget class="QLabel" name="label_126">
+                 <property name="text">
+                  <string>Character</string>
+                 </property>
+                </widget>
+               </item>
+               <item row="0" column="1">
+                <widget class="QComboBox" name="ReverbGM2CharBox">
+                 <property name="maximumSize">
+                  <size>
+                   <width>80</width>
+                   <height>16777215</height>
+                  </size>
+                 </property>
+                </widget>
+               </item>
+               <item row="1" column="0">
+                <widget class="QLabel" name="label_127">
+                 <property name="text">
+                  <string>Time</string>
+                 </property>
+                </widget>
+               </item>
+               <item row="1" column="1">
+                <layout class="QHBoxLayout" name="horizontalLayout_28">
+                 <item>
+                  <widget class="QSlider" name="ReverbGM2TimeSld">
+                   <property name="maximum">
+                    <number>127</number>
+                   </property>
+                   <property name="orientation">
+                    <enum>Qt::Horizontal</enum>
+                   </property>
+                  </widget>
+                 </item>
+                 <item>
+                  <widget class="QSpinBox" name="ReverbGM2TimeBox">
+                   <property name="maximum">
+                    <number>127</number>
+                   </property>
+                  </widget>
+                 </item>
+                </layout>
+               </item>
+              </layout>
+             </widget>
+             <widget class="QWidget" name="ReverbEmptyPage"/>
             </widget>
            </item>
           </layout>
          </widget>
-         <widget class="QWidget" name="ReverbCard"/>
          <widget class="QWidget" name="UtilityCard">
           <property name="maximumSize">
            <size>
@@ -30657,102 +31613,6 @@ LOWER UPPER</string>
    </hints>
   </connection>
   <connection>
-   <sender>ChorusDepthSld</sender>
-   <signal>valueChanged(int)</signal>
-   <receiver>ChorusDepthBox</receiver>
-   <slot>setValue(int)</slot>
-   <hints>
-    <hint type="sourcelabel">
-     <x>489</x>
-     <y>621</y>
-    </hint>
-    <hint type="destinationlabel">
-     <x>708</x>
-     <y>621</y>
-    </hint>
-   </hints>
-  </connection>
-  <connection>
-   <sender>ChorusPhaseSld</sender>
-   <signal>valueChanged(int)</signal>
-   <receiver>ChorusPhaseBox</receiver>
-   <slot>setValue(int)</slot>
-   <hints>
-    <hint type="sourcelabel">
-     <x>489</x>
-     <y>657</y>
-    </hint>
-    <hint type="destinationlabel">
-     <x>708</x>
-     <y>657</y>
-    </hint>
-   </hints>
-  </connection>
-  <connection>
-   <sender>ChorusFbSld</sender>
-   <signal>valueChanged(int)</signal>
-   <receiver>ChorusFbBox</receiver>
-   <slot>setValue(int)</slot>
-   <hints>
-    <hint type="sourcelabel">
-     <x>489</x>
-     <y>693</y>
-    </hint>
-    <hint type="destinationlabel">
-     <x>708</x>
-     <y>693</y>
-    </hint>
-   </hints>
-  </connection>
-  <connection>
-   <sender>ChorusFbBox</sender>
-   <signal>valueChanged(int)</signal>
-   <receiver>ChorusFbSld</receiver>
-   <slot>setValue(int)</slot>
-   <hints>
-    <hint type="sourcelabel">
-     <x>708</x>
-     <y>693</y>
-    </hint>
-    <hint type="destinationlabel">
-     <x>489</x>
-     <y>693</y>
-    </hint>
-   </hints>
-  </connection>
-  <connection>
-   <sender>ChorusPhaseBox</sender>
-   <signal>valueChanged(int)</signal>
-   <receiver>ChorusPhaseSld</receiver>
-   <slot>setValue(int)</slot>
-   <hints>
-    <hint type="sourcelabel">
-     <x>708</x>
-     <y>657</y>
-    </hint>
-    <hint type="destinationlabel">
-     <x>489</x>
-     <y>657</y>
-    </hint>
-   </hints>
-  </connection>
-  <connection>
-   <sender>ChorusDepthBox</sender>
-   <signal>valueChanged(int)</signal>
-   <receiver>ChorusDepthSld</receiver>
-   <slot>setValue(int)</slot>
-   <hints>
-    <hint type="sourcelabel">
-     <x>708</x>
-     <y>621</y>
-    </hint>
-    <hint type="destinationlabel">
-     <x>489</x>
-     <y>621</y>
-    </hint>
-   </hints>
-  </connection>
-  <connection>
    <sender>ChorusLvlBox</sender>
    <signal>valueChanged(int)</signal>
    <receiver>ChorusLvlSld</receiver>
@@ -31277,6 +32137,774 @@ LOWER UPPER</string>
     <hint type="destinationlabel">
      <x>20</x>
      <y>20</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>ReverbPreDelaySld</sender>
+   <signal>valueChanged(int)</signal>
+   <receiver>ReverbPreDelayBox</receiver>
+   <slot>setValue(int)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>491</x>
+     <y>450</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>714</x>
+     <y>450</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>ReverbDensitySld</sender>
+   <signal>valueChanged(int)</signal>
+   <receiver>ReverbDensityBox</receiver>
+   <slot>setValue(int)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>491</x>
+     <y>522</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>714</x>
+     <y>522</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>ReverbDiffusionSld</sender>
+   <signal>valueChanged(int)</signal>
+   <receiver>ReverbDiffusionBox</receiver>
+   <slot>setValue(int)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>491</x>
+     <y>558</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>714</x>
+     <y>558</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>ReverbLFDampSld</sender>
+   <signal>valueChanged(int)</signal>
+   <receiver>ReverbLFDampBox</receiver>
+   <slot>setValue(int)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>491</x>
+     <y>594</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>714</x>
+     <y>594</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>ReverbHFDampSld</sender>
+   <signal>valueChanged(int)</signal>
+   <receiver>ReverbHFDampBox</receiver>
+   <slot>setValue(int)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>491</x>
+     <y>630</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>714</x>
+     <y>630</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>ReverbSpreadSld</sender>
+   <signal>valueChanged(int)</signal>
+   <receiver>ReverbSpreadBox</receiver>
+   <slot>setValue(int)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>491</x>
+     <y>666</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>714</x>
+     <y>666</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>ReverbToneSld</sender>
+   <signal>valueChanged(int)</signal>
+   <receiver>ReverbToneBox</receiver>
+   <slot>setValue(int)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>491</x>
+     <y>702</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>714</x>
+     <y>702</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>ReverbPreDelayBox</sender>
+   <signal>valueChanged(int)</signal>
+   <receiver>ReverbPreDelaySld</receiver>
+   <slot>setValue(int)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>714</x>
+     <y>450</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>491</x>
+     <y>450</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>ReverbDensityBox</sender>
+   <signal>valueChanged(int)</signal>
+   <receiver>ReverbDensitySld</receiver>
+   <slot>setValue(int)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>714</x>
+     <y>522</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>491</x>
+     <y>522</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>ReverbDiffusionBox</sender>
+   <signal>valueChanged(int)</signal>
+   <receiver>ReverbDiffusionSld</receiver>
+   <slot>setValue(int)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>714</x>
+     <y>558</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>491</x>
+     <y>558</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>ReverbLFDampBox</sender>
+   <signal>valueChanged(int)</signal>
+   <receiver>ReverbLFDampSld</receiver>
+   <slot>setValue(int)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>714</x>
+     <y>594</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>491</x>
+     <y>594</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>ReverbHFDampBox</sender>
+   <signal>valueChanged(int)</signal>
+   <receiver>ReverbHFDampSld</receiver>
+   <slot>setValue(int)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>714</x>
+     <y>630</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>491</x>
+     <y>630</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>ReverbSpreadBox</sender>
+   <signal>valueChanged(int)</signal>
+   <receiver>ReverbSpreadSld</receiver>
+   <slot>setValue(int)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>714</x>
+     <y>666</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>491</x>
+     <y>666</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>ReverbToneBox</sender>
+   <signal>valueChanged(int)</signal>
+   <receiver>ReverbToneSld</receiver>
+   <slot>setValue(int)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>714</x>
+     <y>702</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>491</x>
+     <y>702</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>ReverbLevelSld</sender>
+   <signal>valueChanged(int)</signal>
+   <receiver>ReverbLevelBox</receiver>
+   <slot>setValue(int)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>504</x>
+     <y>372</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>717</x>
+     <y>372</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>ReverbLevelBox</sender>
+   <signal>valueChanged(int)</signal>
+   <receiver>ReverbLevelSld</receiver>
+   <slot>setValue(int)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>717</x>
+     <y>372</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>504</x>
+     <y>372</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>ReverbGM2TimeSld</sender>
+   <signal>valueChanged(int)</signal>
+   <receiver>ReverbGM2TimeBox</receiver>
+   <slot>setValue(int)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>487</x>
+     <y>483</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>708</x>
+     <y>483</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>ReverbGM2TimeBox</sender>
+   <signal>valueChanged(int)</signal>
+   <receiver>ReverbGM2TimeSld</receiver>
+   <slot>setValue(int)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>708</x>
+     <y>483</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>487</x>
+     <y>483</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>DelayRightBox</sender>
+   <signal>valueChanged(int)</signal>
+   <receiver>DelayRightSld</receiver>
+   <slot>setValue(int)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>673</x>
+     <y>620</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>480</x>
+     <y>621</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>DelayLeftBox</sender>
+   <signal>valueChanged(int)</signal>
+   <receiver>DelayLeftSld</receiver>
+   <slot>setValue(int)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>673</x>
+     <y>517</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>480</x>
+     <y>517</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>ChorusPhaseBox</sender>
+   <signal>valueChanged(int)</signal>
+   <receiver>ChorusPhaseSld</receiver>
+   <slot>setValue(int)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>708</x>
+     <y>657</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>489</x>
+     <y>657</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>ChorusDepthSld</sender>
+   <signal>valueChanged(int)</signal>
+   <receiver>ChorusDepthBox</receiver>
+   <slot>setValue(int)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>489</x>
+     <y>621</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>708</x>
+     <y>621</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>DelayCenterBox</sender>
+   <signal>valueChanged(int)</signal>
+   <receiver>DelayCenterSld</receiver>
+   <slot>setValue(int)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>257</x>
+     <y>474</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>480</x>
+     <y>724</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>DelayCenterLvlSld</sender>
+   <signal>valueChanged(int)</signal>
+   <receiver>DelayCenterLvlBox</receiver>
+   <slot>setValue(int)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>500</x>
+     <y>941</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>708</x>
+     <y>941</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>DelayRightSld</sender>
+   <signal>valueChanged(int)</signal>
+   <receiver>DelayRightBox</receiver>
+   <slot>setValue(int)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>480</x>
+     <y>621</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>673</x>
+     <y>620</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>ChorusDepthBox</sender>
+   <signal>valueChanged(int)</signal>
+   <receiver>ChorusDepthSld</receiver>
+   <slot>setValue(int)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>708</x>
+     <y>621</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>489</x>
+     <y>621</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>DelayLeftLvlBox</sender>
+   <signal>valueChanged(int)</signal>
+   <receiver>DelayLeftLvlSld</receiver>
+   <slot>setValue(int)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>708</x>
+     <y>866</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>500</x>
+     <y>866</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>DelayRightLvlBox</sender>
+   <signal>valueChanged(int)</signal>
+   <receiver>DelayRightLvlSld</receiver>
+   <slot>setValue(int)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>708</x>
+     <y>903</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>500</x>
+     <y>904</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>DelayCenterSld</sender>
+   <signal>valueChanged(int)</signal>
+   <receiver>DelayCenterBox</receiver>
+   <slot>setValue(int)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>480</x>
+     <y>724</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>673</x>
+     <y>724</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>DelayRightLvlSld</sender>
+   <signal>valueChanged(int)</signal>
+   <receiver>DelayRightLvlBox</receiver>
+   <slot>setValue(int)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>500</x>
+     <y>904</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>708</x>
+     <y>903</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>ChorusPhaseSld</sender>
+   <signal>valueChanged(int)</signal>
+   <receiver>ChorusPhaseBox</receiver>
+   <slot>setValue(int)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>489</x>
+     <y>657</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>708</x>
+     <y>657</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>ChorusFbBox</sender>
+   <signal>valueChanged(int)</signal>
+   <receiver>ChorusFbSld</receiver>
+   <slot>setValue(int)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>708</x>
+     <y>693</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>489</x>
+     <y>693</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>DelayCenterLvlBox</sender>
+   <signal>valueChanged(int)</signal>
+   <receiver>DelayCenterLvlSld</receiver>
+   <slot>setValue(int)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>708</x>
+     <y>941</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>500</x>
+     <y>941</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>DelayLeftLvlSld</sender>
+   <signal>valueChanged(int)</signal>
+   <receiver>DelayLeftLvlBox</receiver>
+   <slot>setValue(int)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>500</x>
+     <y>866</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>708</x>
+     <y>866</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>DelayLeftSld</sender>
+   <signal>valueChanged(int)</signal>
+   <receiver>DelayLeftBox</receiver>
+   <slot>setValue(int)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>480</x>
+     <y>517</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>673</x>
+     <y>517</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>DelayFBSld</sender>
+   <signal>valueChanged(int)</signal>
+   <receiver>DelayFBBox</receiver>
+   <slot>setValue(int)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>492</x>
+     <y>795</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>689</x>
+     <y>795</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>ChorusFbSld</sender>
+   <signal>valueChanged(int)</signal>
+   <receiver>ChorusFbBox</receiver>
+   <slot>setValue(int)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>489</x>
+     <y>693</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>708</x>
+     <y>693</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>DelayFBBox</sender>
+   <signal>valueChanged(int)</signal>
+   <receiver>DelayFBSld</receiver>
+   <slot>setValue(int)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>689</x>
+     <y>795</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>492</x>
+     <y>795</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>ChorusGM2LevelSld</sender>
+   <signal>valueChanged(int)</signal>
+   <receiver>ChorusGM2LevelBox</receiver>
+   <slot>setValue(int)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>487</x>
+     <y>519</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>708</x>
+     <y>519</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>ChorusGM2FBSld</sender>
+   <signal>valueChanged(int)</signal>
+   <receiver>ChorusGM2FBBox</receiver>
+   <slot>setValue(int)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>487</x>
+     <y>555</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>708</x>
+     <y>555</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>ChorusGM2DelaySld</sender>
+   <signal>valueChanged(int)</signal>
+   <receiver>ChorusGM2DelayBox</receiver>
+   <slot>setValue(int)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>487</x>
+     <y>591</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>708</x>
+     <y>591</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>ChorusGM2RateSld</sender>
+   <signal>valueChanged(int)</signal>
+   <receiver>ChorusGM2RateBox</receiver>
+   <slot>setValue(int)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>487</x>
+     <y>627</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>708</x>
+     <y>627</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>ChorusGM2DepthSld</sender>
+   <signal>valueChanged(int)</signal>
+   <receiver>ChorusGM2DepthBox</receiver>
+   <slot>setValue(int)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>487</x>
+     <y>663</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>708</x>
+     <y>663</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>ChorusGM2LevelBox</sender>
+   <signal>valueChanged(int)</signal>
+   <receiver>ChorusGM2LevelSld</receiver>
+   <slot>setValue(int)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>708</x>
+     <y>519</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>487</x>
+     <y>519</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>ChorusGM2FBBox</sender>
+   <signal>valueChanged(int)</signal>
+   <receiver>ChorusGM2FBSld</receiver>
+   <slot>setValue(int)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>708</x>
+     <y>555</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>487</x>
+     <y>555</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>ChorusGM2DelayBox</sender>
+   <signal>valueChanged(int)</signal>
+   <receiver>ChorusGM2DelaySld</receiver>
+   <slot>setValue(int)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>708</x>
+     <y>591</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>487</x>
+     <y>591</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>ChorusGM2RateBox</sender>
+   <signal>valueChanged(int)</signal>
+   <receiver>ChorusGM2RateSld</receiver>
+   <slot>setValue(int)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>708</x>
+     <y>627</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>487</x>
+     <y>627</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>ChorusGM2DepthBox</sender>
+   <signal>valueChanged(int)</signal>
+   <receiver>ChorusGM2DepthSld</receiver>
+   <slot>setValue(int)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>708</x>
+     <y>663</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>487</x>
+     <y>663</y>
     </hint>
    </hints>
   </connection>

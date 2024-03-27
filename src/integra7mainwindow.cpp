@@ -21,6 +21,8 @@
 #include "integra7parteq.h"
 #include "integra7mastereq.h"
 #include "integra7studiosetcommon.h"
+#include "integra7chorus.h"
+#include "integra7reverb.h"
 
 integra7MainWindow::integra7MainWindow(QWidget *parent)
     : QMainWindow(parent)
@@ -363,6 +365,10 @@ integra7MainWindow::integra7MainWindow(QWidget *parent)
                      &QAbstractButton::clicked,this,
                      &integra7MainWindow::ShowChorusCard);
 
+    QObject::connect(ui->ReverbBtn,
+                     &QAbstractButton::clicked,this,
+                     &integra7MainWindow::ShowReverbCard);
+
     /* Setup Main Combo box lists*/
     ui->TypeBox->addItems(Integra7Device::TypeLabels());
     ui->BankBox->addItems(Integra7Device::SNAcousticBanks());
@@ -658,6 +664,35 @@ integra7MainWindow::integra7MainWindow(QWidget *parent)
     ui->Ch16EQMFFreqBox->addItems(Integra7Device::EQMidFreqList());
     ui->Ch16EQMFQBox->addItems(Integra7Device::EQMidQList());
     ui->Ch16EQHFFreqBox->addItems(Integra7Device::EQHighFreqList());
+
+    /* Chorus and Reverb Combo boxes */
+    ui->ChorusTypeBox->addItems(Integra7Chorus::TypeList());
+    ui->ChorusOutSelectBox->addItems(Integra7Chorus::OutputSelectList());
+    ui->ChorusOutAssignBox->addItems(Integra7Device::OutputAssignList());
+
+    ui->ChorusFilterTypeBox->addItems(Integra7Chorus::FilterTypeList());
+    ui->ChorusFilterCutoffBox->addItems(Integra7Chorus::FilterFreqList());
+    ui->ChorusPreDelayBox->addItems(Integra7Chorus::PreDelayList());
+    ui->ChorusRateTypeBox->addItems(Integra7Chorus::RateTypeList());
+    ui->ChorusHzRateBox->addItems(Integra7Chorus::RateHzList());
+    ui->ChorusNoteRateBox->addItems(Integra7Chorus::NoteList());
+    ui->ChorusGM2PreLPFBox->addItems(Integra7Chorus::GM2PreLPFList());
+
+    ui->DelayLeftTypeBox->addItems(Integra7Chorus::DelayTypeList());
+    ui->DelayLeftNoteBox->addItems(Integra7Chorus::NoteList());
+    ui->DelayRightTypeBox->addItems(Integra7Chorus::DelayTypeList());
+    ui->DelayRightNoteBox->addItems(Integra7Chorus::NoteList());
+    ui->DelayCenterTypeBox->addItems(Integra7Chorus::DelayTypeList());
+    ui->DelayCenterNoteBox->addItems(Integra7Chorus::NoteList());
+    ui->DelayHFDampBox->addItems(Integra7Chorus::HFDumpList());
+
+    ui->ReverbTypeBox->addItems(Integra7Reverb::TypeList());
+    ui->ReverbOutputAssignBox->addItems(Integra7Device::OutputAssignList());
+    ui->ReverbTimeBox->addItems(Integra7Reverb::TimeList());
+    ui->ReverbGM2CharBox->addItems(Integra7Reverb::GM2CharacterList());
+
+    ui->ChorusParams->setCurrentWidget(ui->ChorusEmptyPage);
+    ui->ReverbParams->setCurrentWidget(ui->ReverbEmptyPage);
 
     /* ComboBoxes change value logic connections */
     QObject::connect(ui->Ch1TypeBox,&QComboBox::currentIndexChanged,this,
@@ -2662,6 +2697,156 @@ integra7MainWindow::integra7MainWindow(QWidget *parent)
     QObject::connect(ui->Ch16PortaTimeBox,&QSpinBox::valueChanged,
                      pI7d->pParts[15],&Integra7Part::setPartPortamentoTime);
 
+    /* Chorus and Reverb connections */
+    QObject::connect(ui->ChorusSwBtn,&QAbstractButton::toggled,
+                     pI7d->StudioSetCommon,&Integra7StudioSetCommon::setChorusSwitch);
+
+    QObject::connect(ui->ChorusTypeBox,&QComboBox::currentTextChanged,
+                     this,&integra7MainWindow::ShowChorusParams);
+
+    QObject::connect(ui->ChorusTypeBox,&QComboBox::currentIndexChanged,
+                     pI7d->Chorus,&Integra7Chorus::setChorusType);
+
+    QObject::connect(ui->ChorusLvlBox,&QSpinBox::valueChanged,
+                     pI7d->Chorus,&Integra7Chorus::setChorusLevel);
+
+    QObject::connect(ui->ChorusOutSelectBox,&QComboBox::currentIndexChanged,
+                     pI7d->Chorus,&Integra7Chorus::setChorusOutputSelect);
+
+    QObject::connect(ui->ChorusFilterTypeBox,&QComboBox::currentIndexChanged,
+                     pI7d->Chorus,&Integra7Chorus::setChorusFilterType);
+
+    QObject::connect(ui->ChorusFilterCutoffBox,&QComboBox::currentIndexChanged,
+                     pI7d->Chorus,&Integra7Chorus::setChorusCutoffFreq);
+
+    QObject::connect(ui->ChorusPreDelayBox,&QComboBox::currentIndexChanged,
+                     pI7d->Chorus,&Integra7Chorus::setChorusPreDelay);
+
+    QObject::connect(ui->ChorusRateTypeBox,&QComboBox::currentIndexChanged,
+                     pI7d->Chorus,&Integra7Chorus::setChorusRateType);
+
+    QObject::connect(ui->ChorusHzRateBox,&QComboBox::currentIndexChanged,
+                     pI7d->Chorus,&Integra7Chorus::setChorusRateHz);
+
+    QObject::connect(ui->ChorusNoteRateBox,&QComboBox::currentIndexChanged,
+                     pI7d->Chorus,&Integra7Chorus::setChorusRateNote);
+
+    QObject::connect(ui->ChorusDepthBox,&QSpinBox::valueChanged,
+                     pI7d->Chorus,&Integra7Chorus::setChorusDepth);
+
+    QObject::connect(ui->ChorusPhaseBox,&QSpinBox::valueChanged,
+                     pI7d->Chorus,&Integra7Chorus::setChorusPhase);
+
+    QObject::connect(ui->ChorusFbBox,&QSpinBox::valueChanged,
+                     pI7d->Chorus,&Integra7Chorus::setChorusFeedback);
+
+    QObject::connect(ui->DelayLeftTypeBox,&QComboBox::currentIndexChanged,
+                     pI7d->Chorus,&Integra7Chorus::setDelayDelayLeft);
+
+    QObject::connect(ui->DelayLeftBox,&QSpinBox::valueChanged,
+                     pI7d->Chorus,&Integra7Chorus::setDelayDelayLeftMS);
+
+    QObject::connect(ui->DelayLeftNoteBox,&QComboBox::currentIndexChanged,
+                     pI7d->Chorus,&Integra7Chorus::setDelayDelayLeftNote);
+
+    QObject::connect(ui->DelayRightTypeBox,&QComboBox::currentIndexChanged,
+                     pI7d->Chorus,&Integra7Chorus::setDelayDelayRight);
+
+    QObject::connect(ui->DelayRightBox,&QSpinBox::valueChanged,
+                     pI7d->Chorus,&Integra7Chorus::setDelayDelayRightMS);
+
+    QObject::connect(ui->DelayRightNoteBox,&QComboBox::currentIndexChanged,
+                     pI7d->Chorus,&Integra7Chorus::setDelayDelayRightNote);
+
+    QObject::connect(ui->DelayCenterTypeBox,&QComboBox::currentIndexChanged,
+                     pI7d->Chorus,&Integra7Chorus::setDelayDelayCenter);
+
+    QObject::connect(ui->DelayCenterBox,&QSpinBox::valueChanged,
+                     pI7d->Chorus,&Integra7Chorus::setDelayDelayCenterMS);
+
+    QObject::connect(ui->DelayCenterNoteBox,&QComboBox::currentIndexChanged,
+                     pI7d->Chorus,&Integra7Chorus::setDelayDelayCenterNote);
+
+    QObject::connect(ui->DelayFBBox,&QSpinBox::valueChanged,
+                     pI7d->Chorus,&Integra7Chorus::setDelayFeedback);
+
+    QObject::connect(ui->DelayHFDampBox,&QComboBox::currentIndexChanged,
+                     pI7d->Chorus,&Integra7Chorus::setDelayHFDamp);
+
+    QObject::connect(ui->DelayLeftLvlBox,&QSpinBox::valueChanged,
+                     pI7d->Chorus,&Integra7Chorus::setDelayLeftLevel);
+
+    QObject::connect(ui->DelayRightLvlBox,&QSpinBox::valueChanged,
+                     pI7d->Chorus,&Integra7Chorus::setDelayRightLevel);
+
+    QObject::connect(ui->DelayCenterLvlBox,&QSpinBox::valueChanged,
+                     pI7d->Chorus,&Integra7Chorus::setDelayCenterLevel);
+
+    QObject::connect(ui->ChorusGM2PreLPFBox,&QComboBox::currentIndexChanged,
+                     pI7d->Chorus,&Integra7Chorus::setGM2ChorusPreLPF);
+
+    QObject::connect(ui->ChorusGM2LevelBox,&QSpinBox::valueChanged,
+                     pI7d->Chorus,&Integra7Chorus::setGM2ChorusLevel);
+
+    QObject::connect(ui->ChorusGM2FBBox,&QSpinBox::valueChanged,
+                     pI7d->Chorus,&Integra7Chorus::setGM2ChorusFeedback);
+
+    QObject::connect(ui->ChorusGM2DelayBox,&QSpinBox::valueChanged,
+                     pI7d->Chorus,&Integra7Chorus::setGM2ChorusDelay);
+
+    QObject::connect(ui->ChorusGM2RateBox,&QSpinBox::valueChanged,
+                     pI7d->Chorus,&Integra7Chorus::setGM2ChorusRate);
+
+    QObject::connect(ui->ChorusGM2DepthBox,&QSpinBox::valueChanged,
+                     pI7d->Chorus,&Integra7Chorus::setGM2ChorusDepth);
+
+    /*************************************************************/
+
+    QObject::connect(ui->ReverbSwBtn,&QAbstractButton::toggled,
+                     pI7d->StudioSetCommon,&Integra7StudioSetCommon::setReverbSwitch);
+
+    QObject::connect(ui->ReverbTypeBox,&QComboBox::currentIndexChanged,
+                     this,&integra7MainWindow::ShowReverbParams);
+
+    QObject::connect(ui->ReverbTypeBox,&QComboBox::currentIndexChanged,
+                     pI7d->Reverb,&Integra7Reverb::setType);
+
+    QObject::connect(ui->ReverbLevelBox,&QSpinBox::valueChanged,
+                     pI7d->Reverb,&Integra7Reverb::setLevel);
+
+    QObject::connect(ui->ReverbOutputAssignBox,&QComboBox::currentIndexChanged,
+                     pI7d->Reverb,&Integra7Reverb::setOutputAssign);
+
+    QObject::connect(ui->ReverbPreDelayBox,&QSpinBox::valueChanged,
+                     pI7d->Reverb,&Integra7Reverb::setPreDelay);
+
+    QObject::connect(ui->ReverbTimeBox,&QComboBox::currentIndexChanged,
+                     pI7d->Reverb,&Integra7Reverb::setTime);
+
+    QObject::connect(ui->ReverbDensityBox,&QSpinBox::valueChanged,
+                     pI7d->Reverb,&Integra7Reverb::setDensity);
+
+    QObject::connect(ui->ReverbDiffusionBox,&QSpinBox::valueChanged,
+                     pI7d->Reverb,&Integra7Reverb::setDiffusion);
+
+    QObject::connect(ui->ReverbLFDampBox,&QSpinBox::valueChanged,
+                     pI7d->Reverb,&Integra7Reverb::setLFDamp);
+
+    QObject::connect(ui->ReverbHFDampBox,&QSpinBox::valueChanged,
+                     pI7d->Reverb,&Integra7Reverb::setHFDamp);
+
+    QObject::connect(ui->ReverbSpreadBox,&QSpinBox::valueChanged,
+                     pI7d->Reverb,&Integra7Reverb::setSpread);
+
+    QObject::connect(ui->ReverbToneBox,&QSpinBox::valueChanged,
+                     pI7d->Reverb,&Integra7Reverb::setTone);
+
+    QObject::connect(ui->ReverbGM2CharBox,&QComboBox::currentIndexChanged,
+                     pI7d->Reverb,&Integra7Reverb::setGM2Character);
+
+    QObject::connect(ui->ReverbGM2TimeBox,&QSpinBox::valueChanged,
+                     pI7d->Reverb,&Integra7Reverb::setGM2Time);
+
     ui->Ch1Btn->setChecked(true);
 
     ShowUtilityCard();
@@ -2740,6 +2925,45 @@ void integra7MainWindow::ShowEffects()
 {
     ui->LeftMenu->setCurrentWidget(ui->EffectsMenu);
     ui->RightContent->setCurrentWidget(ui->MasterEQCard);
+}
+
+void integra7MainWindow::ShowChorusParams(QString tp)
+{
+    if (tp == "Chorus") {
+        ui->ChorusParams->setCurrentWidget(ui->ChorusParamCard);
+    } else if (tp == "Delay") {
+        ui->ChorusParams->setCurrentWidget(ui->DelayParamCard);
+    } else if (tp == "GM2 Chorus") {
+        ui->ChorusParams->setCurrentWidget(ui->GM2ChorusParamCard);
+    } else
+        ui->ChorusParams->setCurrentWidget(ui->ChorusEmptyPage);
+}
+
+void integra7MainWindow::ShowReverbParams(int tp)
+{
+    switch (tp) {
+    case 1:
+        ui->ReverbParams->setCurrentWidget(ui->RoomHallPlate);
+        break;
+    case 2:
+        ui->ReverbParams->setCurrentWidget(ui->RoomHallPlate);
+        break;
+    case 3:
+        ui->ReverbParams->setCurrentWidget(ui->RoomHallPlate);
+        break;
+    case 4:
+        ui->ReverbParams->setCurrentWidget(ui->RoomHallPlate);
+        break;
+    case 5:
+        ui->ReverbParams->setCurrentWidget(ui->RoomHallPlate);
+        break;
+    case 6:
+        ui->ReverbParams->setCurrentWidget(ui->GM2Reverb);
+        break;
+    default:
+        ui->ReverbParams->setCurrentWidget(ui->ReverbEmptyPage);
+        break;
+    }
 }
 
 void integra7MainWindow::ShowVirtualSlotsCard()

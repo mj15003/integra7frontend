@@ -20,6 +20,18 @@
 Integra7Chorus::Integra7Chorus(Integra7Device *parent, uint8_t o1, uint8_t o2, uint8_t o3)
     : Integra7ParameterSet{parent,o1,o2,o3}{}
 
+QStringList &Integra7Chorus::RateHzList()
+{
+    static QList<QString> list(200);
+    double v1 = 0.0;
+
+    if (list.at(0).isEmpty()) {
+        for (int i=0;i<list.size();i++) list[i] = QString::number(v1+=0.05,'f',2);
+    }
+
+    return list;
+}
+
 void Integra7Chorus::EmitSignal(uint8_t a, int v)
 {
     if (a < 0x3) {
@@ -53,7 +65,7 @@ void Integra7Chorus::EmitSignal(uint8_t a, int v)
             emit ChorusRateType(v);
             break;
         case 0x14:
-            emit ChorusRateHz(v);
+            emit ChorusRateHz(v-1);
             break;
         case 0x18:
             emit ChorusRateNote(v);
@@ -62,7 +74,7 @@ void Integra7Chorus::EmitSignal(uint8_t a, int v)
             emit ChorusDepth(v);
             break;
         case 0x20:
-            emit ChorusPhase(v);
+            emit ChorusPhase(v*2);
             break;
         case 0x24:
             emit ChorusFeedback(v);
@@ -101,7 +113,7 @@ void Integra7Chorus::EmitSignal(uint8_t a, int v)
             emit DelayDelayCenterNote(v);
             break;
         case 0x28:
-            emit DelayFeedback(v);
+            emit DelayFeedback(v*2-98);
             break;
         case 0x2C:
             emit DelayHFDamp(v);

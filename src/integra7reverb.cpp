@@ -20,6 +20,18 @@
 Integra7Reverb::Integra7Reverb(Integra7Device *parent, uint8_t o1, uint8_t o2, uint8_t o3)
     : Integra7ParameterSet{parent,o1,o2,o3}{}
 
+QStringList &Integra7Reverb::TimeList()
+{
+    static QList<QString> list(100);
+    double v1 = 0.0;
+
+    if (list.at(0).isEmpty()) {
+        for (int i=0;i<list.size();i++) list[i] = QString::number(v1+=0.1,'f',1);
+    }
+
+    return list;
+}
+
 void Integra7Reverb::EmitSignal(uint8_t a, int v)
 {
     if (a < 0x3) {
@@ -44,7 +56,7 @@ void Integra7Reverb::EmitSignal(uint8_t a, int v)
             emit PreDelay(v);
             break;
         case 0x0B:
-            emit Time(v);
+            emit Time(v-1);
             break;
         case 0x0F:
             emit Density(v);

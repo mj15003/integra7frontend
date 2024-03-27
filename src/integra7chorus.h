@@ -29,44 +29,44 @@ public:
     uint16_t GetLength() {return 0x54;}
     uint16_t GetItemsNumber() {return 24;}
 
-    uint8_t getChorusType() {return data[0x0];}
-    uint8_t getChorusLevel() {return data[0x1];}
-    uint8_t getChorusOutputSelect() {return data[0x3];}
+    int getChorusType() {return data[0x0];}
+    int getChorusLevel() {return data[0x1];}
+    int getChorusOutputSelect() {return data[0x3];}
 
     //Chorus Section
-    uint8_t getChorusFilterType() {return data[0x07];}
-    uint8_t getChorusCutoffFreq() {return data[0x0A]<<4|data[0x0B];}
-    uint8_t getChorusPreDelay() {return data[0x0E]<<4|data[0x0F];}
-    uint8_t getChorusRateType() {return data[0x07];}
-    uint8_t getChorusRateHz() {return data[0x16]<<4|data[0x17];}
-    uint8_t getChorusRateNote() {return data[0x1A]<<4|data[0x1B];}
-    uint8_t getChorusDepth() {return data[0x1E]<<4|data[0x1F];}
-    uint8_t getChorusPhase() {return data[0x22]<<4|data[0x23];}
-    uint8_t getChorusFeedback() {return data[0x26]<<4|data[0x27];}
+    int getChorusFilterType() {return data[0x07];}
+    int getChorusCutoffFreq() {return data[0x0A]<<4|data[0x0B];}
+    int getChorusPreDelay() {return data[0x0E]<<4|data[0x0F];}
+    int getChorusRateType() {return data[0x07];}
+    int getChorusRateHz() {return (data[0x16]<<4|data[0x17])-1;}
+    int getChorusRateNote() {return data[0x1A]<<4|data[0x1B];}
+    int getChorusDepth() {return data[0x1E]<<4|data[0x1F];}
+    int getChorusPhase() {return (data[0x22]<<4|data[0x23])*2;}
+    int getChorusFeedback() {return data[0x26]<<4|data[0x27];}
 
     //Delay Section
-    uint8_t getDelayDelayLeft() {return data[0x07];}
-    uint16_t getDelayDelayLeftMS() {return data[0x09]<<8|data[0x0A]<<4|data[0x0B];}
-    uint8_t getDelayDelayLeftNote() {return data[0x0E]<<4|data[0x0F];}
-    uint8_t getDelayDelayRight() {return data[0x13];}
-    uint16_t getDelayDelayRightMS() {return data[0x15]<<8|data[0x16]<<4|data[0x17];}
-    uint8_t getDelayDelayRightNote() {return data[0x0A]<<4|data[0x0B];}
-    uint8_t getDelayDelayCenter() {return data[0x1F];}
-    uint16_t getDelayDelayCenterMS() {return data[0x21]<<8|data[0x22]<<4|data[0x23];}
-    uint8_t getDelayDelayCenterNote() {return data[0x26]<<4|data[0x27];}
-    uint8_t getDelayFeedback() {return data[0x2A]<<4|data[0x2B];}
-    uint8_t getDelayHFDamp() {return data[0x2E]<<4|data[0x2F];}
-    uint8_t getDelayLeftLevel() {return data[0x32]<<4|data[0x33];}
-    uint8_t getDelayRightLevel() {return data[0x36]<<4|data[0x37];}
-    uint8_t getDelayCenterLevel() {return data[0x3A]<<4|data[0x3B];}
+    int getDelayDelayLeft() {return data[0x07];}
+    int getDelayDelayLeftMS() {return data[0x09]<<8|data[0x0A]<<4|data[0x0B];}
+    int getDelayDelayLeftNote() {return data[0x0E]<<4|data[0x0F];}
+    int getDelayDelayRight() {return data[0x13];}
+    int getDelayDelayRightMS() {return data[0x15]<<8|data[0x16]<<4|data[0x17];}
+    int getDelayDelayRightNote() {return data[0x0A]<<4|data[0x0B];}
+    int getDelayDelayCenter() {return data[0x1F];}
+    int getDelayDelayCenterMS() {return data[0x21]<<8|data[0x22]<<4|data[0x23];}
+    int getDelayDelayCenterNote() {return data[0x26]<<4|data[0x27];}
+    int getDelayFeedback() {return (data[0x2A]<<4|data[0x2B])*2-98;}
+    int getDelayHFDamp() {return data[0x2E]<<4|data[0x2F];}
+    int getDelayLeftLevel() {return data[0x32]<<4|data[0x33];}
+    int getDelayRightLevel() {return data[0x36]<<4|data[0x37];}
+    int getDelayCenterLevel() {return data[0x3A]<<4|data[0x3B];}
 
     //GM2 Chorus
-    uint8_t getGM2ChorusPreLPF() {return data[0x07];}
-    uint8_t getGM2ChorusLevel() {return data[0x0A]<<4|data[0x0B];}
-    uint8_t getGM2ChorusFeedback() {return data[0x0E]<<4|data[0x0F];}
-    uint8_t getGM2ChorusDelay() {return data[0x12]<<4|data[0x13];}
-    uint8_t getGM2ChorusRate() {return data[0x16]<<4|data[0x17];}
-    uint8_t getGM2ChorusDepth() {return data[0x0A]<<4|data[0x0B];}
+    int getGM2ChorusPreLPF() {return data[0x07];}
+    int getGM2ChorusLevel() {return data[0x0A]<<4|data[0x0B];}
+    int getGM2ChorusFeedback() {return data[0x0E]<<4|data[0x0F];}
+    int getGM2ChorusDelay() {return data[0x12]<<4|data[0x13];}
+    int getGM2ChorusRate() {return data[0x16]<<4|data[0x17];}
+    int getGM2ChorusDepth() {return data[0x0A]<<4|data[0x0B];}
 
     static QStringList& TypeList() {
         static QStringList list = {"OFF","Chorus","Delay","GM2 Chorus"};
@@ -83,6 +83,58 @@ public:
         return list;
     }
 
+    static QStringList& RateTypeList() {
+        static QStringList list = {"Hz","Note"};
+        return list;
+    }
+
+    static QStringList& DelayTypeList() {
+        static QStringList list = {"msec","Note"};
+        return list;
+    }
+
+    static QStringList& FilterFreqList() {
+        static QStringList list = {"200","250","315","400","500","630","800","1000","1250","1600",
+                                   "2000","2500","3150","4000","5000","6300","8000"};
+        return list;
+    }
+
+    static QStringList& HFDumpList() {
+        static QStringList list = {"200","250","315","400","500","630","800","1000","1250","1600",
+                                   "2000","2500","3150","4000","5000","6300","8000","BYPASS"};
+        return list;
+    }
+
+    static QStringList& NoteList() {
+        static QStringList list = {"1/64T","1/64","1/32T","1/32","1/16T","1/32.","1/16","1/8T","1/16.","1/8","1/4T",
+                                    "1/8.","1/4","1/2T","1/4.","1/2","1/1T","1/2.","1/1","2/1T","1/1.","2/1"};
+        return list;
+    }
+
+    static QStringList& PreDelayList() {
+        static QStringList list = {"0.0","0.1","0.2","0.3","0.4","0.5","0.6","0.7","0.8","0.9",
+                                    "1.0","1.1","1.2","1.3","1.4","1.5","1.6","1.7","1.8","1.9",
+                                    "2.0","2.1","2.2","2.3","2.4","2.5","2.6","2.7","2.8","2.9",
+                                    "3.0","3.1","3.2","3.3","3.4","3.5","3.6","3.7","3.8","3.9",
+                                    "4.0","4.1","4.2","4.3","4.4","4.5","4.6","4.7","4.8","4.9",
+                                    "5.0","5.5","6.0","6.5","7.0","7.5","8.0","8.5","9.0","9.5",
+                                    "10","11","12","13","14","15","16","17","18","19",
+                                    "20","21","22","23","24","25","26","27","28","29",
+                                    "30","31","32","33","34","35","36","37","38","39",
+                                    "40","41","42","43","44","45","46","47","48","49",
+                                    "50","52","54","56","58","60","62","64","68",
+                                    "70","72","74","76","78","80","82","84","88",
+                                    "90","92","94","96","98","100"};
+        return list;
+    }
+
+    static QStringList& RateHzList();
+
+    static QStringList& GM2PreLPFList() {
+        static QStringList list = {"0","1","2","3","4","5","6","7"};
+        return list;
+    }
+
 public slots:
     void setChorusType(int v) { DataSet(0x00,v); }
     void setChorusLevel(int v) { DataSet(0x01,v); }
@@ -93,10 +145,10 @@ public slots:
     void setChorusCutoffFreq(int v) { DataSet4x4B(0x08,v); }
     void setChorusPreDelay(int v) { DataSet4x4B(0x0C,v); }
     void setChorusRateType(int v) { DataSet4x4B(0x10,v); }
-    void setChorusRateHz(int v) { DataSet4x4B(0x14,v); }
+    void setChorusRateHz(int v) { DataSet4x4B(0x14,v+1); }
     void setChorusRateNote(int v) { DataSet4x4B(0x18,v); }
     void setChorusDepth(int v) { DataSet4x4B(0x1C,v); }
-    void setChorusPhase(int v) { DataSet4x4B(0x20,v); }
+    void setChorusPhase(int v) { DataSet4x4B(0x20,v/2); }
     void setChorusFeedback(int v) { DataSet4x4B(0x24,v); }
 
     //Delay Section
@@ -109,7 +161,7 @@ public slots:
     void setDelayDelayCenter(int v) { DataSet4x4B(0x1C,v); }
     void setDelayDelayCenterMS(int v) { DataSet4x4B(0x20,v); }
     void setDelayDelayCenterNote(int v) { DataSet4x4B(0x24,v); }
-    void setDelayFeedback(int v) { DataSet4x4B(0x28,v); }
+    void setDelayFeedback(int v) { DataSet4x4B(0x28,(v+98)/2); }
     void setDelayHFDamp(int v) { DataSet4x4B(0x2C,v); }
     void setDelayLeftLevel(int v) { DataSet4x4B(0x30,v); }
     void setDelayRightLevel(int v) { DataSet4x4B(0x34,v); }

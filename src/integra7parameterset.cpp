@@ -117,7 +117,7 @@ void Integra7ParameterSet::DataSet4x4B(uint8_t a, int v)
 
     if (b2 == data[a+1] && b1 == data[a+2] && b0 == data[a+3]) return;
 
-    data[a] = 0x80;
+    data[a] = 0x08;
     data[a+1] = b2;
     data[a+2] = b1;
     data[a+3] = b0;
