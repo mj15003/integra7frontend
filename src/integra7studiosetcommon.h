@@ -30,45 +30,47 @@ public:
     uint16_t GetLength() {return 0x54;}
     uint16_t GetItemsNumber() {return 37;}
 
+    void DataReceive(const uint8_t *rdata, uint8_t a, int len);
+
     QLatin1StringView getStudioSetName();
 
-    uint8_t getVoiceReserve1() {return data[0x18];}
-    uint8_t getVoiceReserve2() {return data[0x19];}
-    uint8_t getVoiceReserve3() {return data[0x1A];}
-    uint8_t getVoiceReserve4() {return data[0x1B];}
-    uint8_t getVoiceReserve5() {return data[0x1C];}
-    uint8_t getVoiceReserve6() {return data[0x1D];}
-    uint8_t getVoiceReserve7() {return data[0x1E];}
-    uint8_t getVoiceReserve8() {return data[0x1F];}
-    uint8_t getVoiceReserve9() {return data[0x20];}
-    uint8_t getVoiceReserve10() {return data[0x21];}
-    uint8_t getVoiceReserve11() {return data[0x22];}
-    uint8_t getVoiceReserve12() {return data[0x23];}
-    uint8_t getVoiceReserve13() {return data[0x24];}
-    uint8_t getVoiceReserve14() {return data[0x25];}
-    uint8_t getVoiceReserve15() {return data[0x26];}
-    uint8_t getVoiceReserve16() {return data[0x27];}
-    uint8_t getToneControl1Source() {return data[0x39];}
-    uint8_t getToneControl2Source() {return data[0x3A];}
-    uint8_t getToneControl3Source() {return data[0x3B];}
-    uint8_t getToneControl4Source() {return data[0x3C];}
-    uint8_t getStudioSetTempo() {return (data[0x3D]<<4)+data[0x3E];}
-    uint8_t getSoloPart() {return data[0x3F];}
-    uint8_t getReverbSwitch() {return data[0x40];}
-    uint8_t getChorusSwitch() {return data[0x41];}
-    uint8_t getMasterEQSwitch() {return data[0x42];}
-    uint8_t getDrumCompEQSwitch() {return data[0x43];}
-    uint8_t getDrumCompEQPart() {return data[0x44];}
-    uint8_t getDrumCompEQ1OutputAssign() {return data[0x45];}
-    uint8_t getDrumCompEQ2OutputAssign() {return data[0x46];}
-    uint8_t getDrumCompEQ3OutputAssign() {return data[0x47];}
-    uint8_t getDrumCompEQ4OutputAssign() {return data[0x48];}
-    uint8_t getDrumCompEQ5OutputAssign() {return data[0x49];}
-    uint8_t getDrumCompEQ6OutputAssign() {return data[0x4A];}
-    uint8_t getExtPartLevel() {return data[0x4C];}
-    uint8_t getExtPartChorusSendLevel() {return data[0x4D];}
-    uint8_t getExtPartReverbSendLevel() {return data[0x4E];}
-    uint8_t getExtPartMuteSwitch() {return data[0x4F];}
+    int getVoiceReserve1() {return data[0x18];}
+    int getVoiceReserve2() {return data[0x19];}
+    int getVoiceReserve3() {return data[0x1A];}
+    int getVoiceReserve4() {return data[0x1B];}
+    int getVoiceReserve5() {return data[0x1C];}
+    int getVoiceReserve6() {return data[0x1D];}
+    int getVoiceReserve7() {return data[0x1E];}
+    int getVoiceReserve8() {return data[0x1F];}
+    int getVoiceReserve9() {return data[0x20];}
+    int getVoiceReserve10() {return data[0x21];}
+    int getVoiceReserve11() {return data[0x22];}
+    int getVoiceReserve12() {return data[0x23];}
+    int getVoiceReserve13() {return data[0x24];}
+    int getVoiceReserve14() {return data[0x25];}
+    int getVoiceReserve15() {return data[0x26];}
+    int getVoiceReserve16() {return data[0x27];}
+    int getToneControl1Source() {return data[0x39];}
+    int getToneControl2Source() {return data[0x3A];}
+    int getToneControl3Source() {return data[0x3B];}
+    int getToneControl4Source() {return data[0x3C];}
+    int getStudioSetTempo() {return data[0x3D]<<4|data[0x3E];}
+    int getSoloPart() {return data[0x3F];}
+    int getReverbSwitch() {return data[0x40];}
+    int getChorusSwitch() {return data[0x41];}
+    int getMasterEQSwitch() {return data[0x42];}
+    int getDrumCompEQSwitch() {return data[0x43];}
+    int getDrumCompEQPart() {return data[0x44];}
+    int getDrumCompEQ1OutputAssign() {return data[0x45];}
+    int getDrumCompEQ2OutputAssign() {return data[0x46];}
+    int getDrumCompEQ3OutputAssign() {return data[0x47];}
+    int getDrumCompEQ4OutputAssign() {return data[0x48];}
+    int getDrumCompEQ5OutputAssign() {return data[0x49];}
+    int getDrumCompEQ6OutputAssign() {return data[0x4A];}
+    int getExtPartLevel() {return data[0x4C];}
+    int getExtPartChorusSendLevel() {return data[0x4D];}
+    int getExtPartReverbSendLevel() {return data[0x4E];}
+    int getExtPartMuteSwitch() {return data[0x4F];}
 
 public slots:
     void setStudioSetName(const QString name);
@@ -112,46 +114,46 @@ public slots:
 
 signals:
     void StudioSetName(const QString name);
-    void VoiceReserve1(uint8_t v);
-    void VoiceReserve2(uint8_t v);
-    void VoiceReserve3(uint8_t v);
-    void VoiceReserve4(uint8_t v);
-    void VoiceReserve5(uint8_t v);
-    void VoiceReserve6(uint8_t v);
-    void VoiceReserve7(uint8_t v);
-    void VoiceReserve8(uint8_t v);
-    void VoiceReserve9(uint8_t v);
-    void VoiceReserve10(uint8_t v);
-    void VoiceReserve11(uint8_t v);
-    void VoiceReserve12(uint8_t v);
-    void VoiceReserve13(uint8_t v);
-    void VoiceReserve14(uint8_t v);
-    void VoiceReserve15(uint8_t v);
-    void VoiceReserve16(uint8_t v);
-    void ToneControl1Source(uint8_t v);
-    void ToneControl2Source(uint8_t v);
-    void ToneControl3Source(uint8_t v);
-    void ToneControl4Source(uint8_t v);
-    void StudioSetTempo(uint8_t v);
-    void SoloPart(uint8_t v);
-    void ReverbSwitch(uint8_t v);
-    void ChorusSwitch(uint8_t v);
-    void MasterEQSwitch(uint8_t v);
-    void DrumCompEQSwitch(uint8_t v);
-    void DrumCompEQPart(uint8_t v);
-    void DrumCompEQ1OutputAssign(uint8_t v);
-    void DrumCompEQ2OutputAssign(uint8_t v);
-    void DrumCompEQ3OutputAssign(uint8_t v);
-    void DrumCompEQ4OutputAssign(uint8_t v);
-    void DrumCompEQ5OutputAssign(uint8_t v);
-    void DrumCompEQ6OutputAssign(uint8_t v);
-    void ExtPartLevel(uint8_t v);
-    void ExtPartChorusSendLevel(uint8_t v);
-    void ExtPartReverbSendLevel(uint8_t v);
-    void ExtPartMuteSwitch(uint8_t v);
+    void VoiceReserve1(int v);
+    void VoiceReserve2(int v);
+    void VoiceReserve3(int v);
+    void VoiceReserve4(int v);
+    void VoiceReserve5(int v);
+    void VoiceReserve6(int v);
+    void VoiceReserve7(int v);
+    void VoiceReserve8(int v);
+    void VoiceReserve9(int v);
+    void VoiceReserve10(int v);
+    void VoiceReserve11(int v);
+    void VoiceReserve12(int v);
+    void VoiceReserve13(int v);
+    void VoiceReserve14(int v);
+    void VoiceReserve15(int v);
+    void VoiceReserve16(int v);
+    void ToneControl1Source(int v);
+    void ToneControl2Source(int v);
+    void ToneControl3Source(int v);
+    void ToneControl4Source(int v);
+    void StudioSetTempo(int v);
+    void SoloPart(int v);
+    void ReverbSwitch(int v);
+    void ChorusSwitch(int v);
+    void MasterEQSwitch(int v);
+    void DrumCompEQSwitch(int v);
+    void DrumCompEQPart(int v);
+    void DrumCompEQ1OutputAssign(int v);
+    void DrumCompEQ2OutputAssign(int v);
+    void DrumCompEQ3OutputAssign(int v);
+    void DrumCompEQ4OutputAssign(int v);
+    void DrumCompEQ5OutputAssign(int v);
+    void DrumCompEQ6OutputAssign(int v);
+    void ExtPartLevel(int v);
+    void ExtPartChorusSendLevel(int v);
+    void ExtPartReverbSendLevel(int v);
+    void ExtPartMuteSwitch(int v);
 
 private:
-    void EmitSignal(uint8_t a, int v);    
+    void EmitSignal(uint8_t a, int v);
 };
 
 #endif // INTEGRA7STUDIOSETCOMMON_H

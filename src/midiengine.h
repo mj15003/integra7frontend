@@ -21,21 +21,41 @@
 #include <alsa/asoundlib.h>
 
 #include <QList>
+#include <QThread>
+
+class MidiInputThread : public QThread
+{
+    Q_OBJECT
+public:
+    explicit MidiInputThread(snd_seq_t *seq) { pAlsaSeq = seq; }
+
+signals:
+    void dataReady(const uint8_t *data, uint16_t len);
+
+private:
+    snd_seq_t *pAlsaSeq;
+    snd_seq_event_t *ev;
+
+    void run() override;
+};
 
 class MidiEngine
 {
 
 public:
     MidiEngine();
+    ~MidiEngine();
     void Init();
-    void Clean();
+    void Stop();
 
     bool IsInitialized() const {return initOK;}
 
     const QStringList& getSeqPortNames() const {return SeqPortNames;}
 
     void SelectALSAClient(int cId);
-    void SendSysEx(uint8_t *data,uint8_t len) const;
+    void SendSysEx(uint8_t *data,uint8_t len);
+
+    MidiInputThread *pMidiInputThread;
 
 private:
     // Device instance variables.
@@ -47,7 +67,6 @@ private:
 
     QStringList SeqPortNames;
     QList<snd_seq_addr_t> SeqDest;
-
 };
 
 #endif // MIDIENGINE_H

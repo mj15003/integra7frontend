@@ -156,3 +156,8 @@ void Integra7Chorus::EmitSignal(uint8_t a, int v)
         }
     }
 }
+
+void Integra7Chorus::DataReceive(const uint8_t *rdata, uint8_t a, int len)
+{
+
+}

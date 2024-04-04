@@ -84,3 +84,8 @@ void Integra7SystemCommon::EmitSignal(uint8_t a, int v)
         break;
     }
 }
+
+void Integra7SystemCommon::DataReceive(const uint8_t *rdata, uint8_t a, int len)
+{
+
+}

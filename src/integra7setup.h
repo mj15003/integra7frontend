@@ -41,6 +41,8 @@ public:
         return list;
     }
 
+    void DataReceive(const uint8_t *rdata, uint8_t a, int len);
+
 public slots:
     void setSoundMode(int v) { DataSet(0,v);}
     void setStudioSet_BS(int v) { DataSet2x7B(4,v); }

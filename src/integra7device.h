@@ -40,12 +40,14 @@ class Integra7Device : public QObject
 {
     Q_OBJECT
 public:
-    explicit Integra7Device(integra7MainWindow *parent,const MidiEngine *midi);
+    explicit Integra7Device(integra7MainWindow *parent, MidiEngine *midi);
     ~Integra7Device();
 
     void DataSet(const uint8_t *data,uint16_t len);
     void DataRequest(const uint8_t *data);
     void SendIdentityRequest();
+
+    integra7MainWindow *uiWin;
 
     Integra7Setup *Setup;
 
@@ -59,8 +61,8 @@ public:
 
     Integra7Reverb *Reverb;
 
-    Integra7Part *pParts[16];
-    Integra7PartEQ *pPartsEQ[16];
+    Integra7Part *Parts[16];
+    Integra7PartEQ *PartsEQ[16];
 
     static QStringList& DeviceIdList() {
         static QStringList list = {"17","18","19","20","21","22","23","24","25","26","27","28","29","30","31","32"};
@@ -485,16 +487,23 @@ public:
 public slots:
     void setDeviceId(uint8_t Id);
     void SetPreview(uint8_t state);
+    void ReceiveIntegraSysEx(const uint8_t *data, int len);
 
 private:
     uint8_t cDeviceId = 0x10;
     uint8_t SysExData[SYSEX_SIZE];
     uint8_t VirtualSlots[8] = {0x0F, 0x00, 0x30, 0x00, 0, 0, 0, 0};
 
-    const MidiEngine *pMidiEngine;        
+    int ReceivedSysExCounter = 0;
+    int SendSysExCounter = 0;
 
-    void getChecksum();
-    void SendIntegraSysEx(const uint8_t *data, uint16_t len);
+    int ReceivedBytesCounter = 0;
+    int SentBytesCounter = 0;
+
+    MidiEngine *pMidiEngine;
+
+    uint8_t Checksum(const uint8_t *msg);
+    void SendIntegraSysEx(const uint8_t *data, int len);
 };
 
 #endif // INTEGRA7DEVICE_H

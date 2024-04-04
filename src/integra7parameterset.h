@@ -29,6 +29,7 @@ public:
     virtual uint16_t GetLength() = 0;
     virtual uint16_t GetItemsNumber() = 0;
     uint8_t GetAddress(uint8_t i) const { return address[i]; };
+    virtual void DataReceive(const uint8_t *rdata, uint8_t a, int len) = 0;
 
 protected:    
     Integra7Device *pIntegraDev;
@@ -39,7 +40,7 @@ protected:
     void DataSetOffset(uint8_t a, int v, int offset);
     void DataSet2x7B(uint8_t a, int v);
     void DataSet2x4B(uint8_t a, int v);
-    void DataSet4x4B(uint8_t a, int v);
+    void DataSet4x4B(uint8_t a, int v);    
     virtual void EmitSignal(uint8_t a, int v) = 0;
 };
 

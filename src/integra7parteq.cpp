@@ -55,3 +55,15 @@ void Integra7PartEQ::EmitSignal(uint8_t a, int v)
     }
 
 }
+
+void Integra7PartEQ::DataReceive(const uint8_t *rdata, uint8_t a, int len)
+{
+    uint8_t a2 = a + len;
+    uint8_t r = 0;
+
+    while (a < a2) {
+        data[a] = rdata[r++];
+        EmitSignal(a,data[a]);
+        ++a;
+    }
+}

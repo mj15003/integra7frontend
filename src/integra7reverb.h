@@ -59,6 +59,8 @@ public:
         return list;
     }
 
+    void DataReceive(const uint8_t *rdata, uint8_t a, int len);
+
 public slots:
     void setType(int v) {DataSet(0x00,v);}
     void setLevel(int v) {DataSet(0x01,v);}

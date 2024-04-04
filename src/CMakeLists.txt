@@ -47,7 +47,6 @@ if(${QT_VERSION_MAJOR} GREATER_EQUAL 6)
         integra7part.h integra7part.cpp
         integra7parameterset.h integra7parameterset.cpp
         notenameselector.h notenameselector.cpp
-        portamentoselector.h portamentoselector.cpp
         specialtextnumselector.h specialtextnumselector.cpp
         integra7studiosetcommon.h integra7studiosetcommon.cpp
         integra7mastereq.h integra7mastereq.cpp

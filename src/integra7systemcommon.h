@@ -29,6 +29,8 @@ public:
     uint16_t GetLength() {return 0x2F;}
     uint16_t GetItemsNumber() {return 19;}
 
+    void DataReceive(const uint8_t *rdata, uint8_t a, int len);
+
     uint8_t getMasterTune() {return data[0x0];}
     uint8_t getMasterKeyShift() {return data[0x04];}
     uint8_t getMasterLevel() {return data[0x05];}

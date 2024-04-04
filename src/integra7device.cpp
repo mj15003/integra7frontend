@@ -26,7 +26,9 @@
 #include "integra7mainwindow.h"
 #include "integra7device.h"
 
-Integra7Device::Integra7Device(integra7MainWindow *parent,const MidiEngine *midi)
+#include <QStringBuilder>
+
+Integra7Device::Integra7Device(integra7MainWindow *parent, MidiEngine *midi)
     : QObject{parent}
 {
     /* SysEx fixed data initialization */
@@ -38,6 +40,7 @@ Integra7Device::Integra7Device(integra7MainWindow *parent,const MidiEngine *midi
     SysExData[5] = 0x64;//INTEGRA7 Model ID number
     SysExData[SYSEX_SIZE-1] = 0xF7;//correctly ended SysEx
 
+    uiWin = parent;
     pMidiEngine = midi;
 
     Setup = new Integra7Setup(this,0x1,0x0,0x0);
@@ -50,16 +53,16 @@ Integra7Device::Integra7Device(integra7MainWindow *parent,const MidiEngine *midi
     uint8_t offset = 0x20;
     uint8_t eqoffset = 0x50;
     for (uint8_t i=0;i<16;i++){
-        pParts[i] = new Integra7Part(this,0x18,0x00,offset++);
-        pPartsEQ[i] = new Integra7PartEQ(this,0x18,0x00,eqoffset++);
+        Parts[i] = new Integra7Part(this,0x18,0x00,offset++);
+        PartsEQ[i] = new Integra7PartEQ(this,0x18,0x00,eqoffset++);
     }
 }
 
 Integra7Device::~Integra7Device()
 {
     for (uint8_t i=0;i<16;i++) {
-        delete pParts[i];
-        delete pPartsEQ[i];
+        delete Parts[i];
+        delete PartsEQ[i];
     }
 
     delete Reverb;
@@ -554,6 +557,58 @@ void Integra7Device::SetPreview(uint8_t state)
     DataSet(msg,5);
 }
 
+void Integra7Device::ReceiveIntegraSysEx(const uint8_t *data, int len)
+{
+    if (data[0] != 0xF0) return;
+    if (data[len-1] != 0xF7) return;
+    if (data[2] != cDeviceId) return;
+
+    if (data[1] == 0x41) {
+        //ROLAND specific SysEx
+        if (len < 14) return;
+        if (data[3] != 0x00) return;
+        if (data[4] != 0x00) return;
+        if (data[5] != 0x64) return;//INTEGRA-7 ID
+        if (data[6] != 0x12) return;//Command Id DT1
+
+        if (data[len-2] == Checksum(data+7)) {
+            ++ReceivedSysExCounter;
+            ReceivedBytesCounter += len;
+            uiWin->ShowStatusMsg(QString("Received SysEx : %1...Checksum is correct!").arg(ReceivedSysExCounter));
+
+            if (data[7] == 0x01) Setup->DataReceive(data+11,data[10],len-13);
+            else if (data[7] == 0x01) SystemCommon->DataReceive(data+11,data[10],len-13);
+            else if (data[7] == 0x18) {
+                if (data[9] == 0x00) StudioSetCommon->DataReceive(data+11,data[10],len-13);
+                else if (data[9] == 0x04) Chorus->DataReceive(data+11,data[10],len-13);
+                else if (data[9] == 0x06) Reverb->DataReceive(data+11,data[10],len-13);
+                else if (data[9] == 0x09) MasterEQ->DataReceive(data+11,data[10],len-13);
+                else if (data[9] < 0x50) Parts[data[9]-0x20]->DataReceive(data+11,data[10],len-13);
+                else if (data[9] < 0x60) PartsEQ[data[9]-0x50]->DataReceive(data+11,data[10],len-13);
+            }
+        }
+
+    } else if (data[1] == 0x7E) {
+        //Universal Non-Realtime
+        //Identity Reply Only
+        if (len < 15) return;
+        if (data[3] != 0x06) return;
+        if (data[4] != 0x02) return;
+        if (data[5] != 0x41) return;
+
+        QString msg = QString("Identity reply received! ") %
+                      QString(" Device family code : 0x%1 0x%2").arg(data[6],0,16).arg(data[7],0,16) %
+                      QString(" Software revision : 0x%1 0x%2 0x%3 0x%4").arg(data[10],0,16)
+                                                                         .arg(data[11],0,16)
+                                                                         .arg(data[12],0,16)
+                                                                         .arg(data[13],0,16);
+
+        uiWin->ShowStatusMsg(msg);        
+        ReceivedBytesCounter += len;
+
+    }
+}
+
 QStringList& Integra7Device::GetBankList(QString type)
 {
     if (type == "SN-A")
@@ -687,31 +742,29 @@ QStringList& Integra7Device::GetToneList(QString type, QString bank)
     return Integra7Device::GM2Presets();
 }
 
-void Integra7Device::getChecksum()
+uint8_t Integra7Device::Checksum(const uint8_t *msg)
 {
-    uint8_t i = 7;//start index of address bytes in SysEx array
-    uint16_t sum = 0;
+    int i = 0;
+    int sum = 0;
 
     while (i <= SYSEX_SIZE-1) {
-        if (SysExData[i] == 0xF7)
+        if (msg[i+1] == 0xF7)
             break;
         else
-            sum += SysExData[i++];
+            sum += msg[i++];
     }
 
-    uint8_t rem = sum & 0x7F;
-
-    SysExData[i-1] = 128 - rem;
+    return 128 - (sum & 0x7F);
 }
 
-void Integra7Device::SendIntegraSysEx(const uint8_t *data, uint16_t len)
+void Integra7Device::SendIntegraSysEx(const uint8_t *data, int len)
 {
     /* Put message to the SysEx frame and forward to the midiengine*/
     /*TODO: Enable sending more data than SYSEX_SIZE in multiple packets*/
 
-    uint8_t t = 7; //target counter = start index of address bytes in SysEx array
+    int t = 7; //target counter = start index of address bytes in SysEx array
 
-    for (uint16_t s=0; s<len; s++)
+    for (int s=0; s<len; s++)
     {
         SysExData[t++] = data[s];
     }
@@ -722,7 +775,10 @@ void Integra7Device::SendIntegraSysEx(const uint8_t *data, uint16_t len)
     //Add end of SysEx
     SysExData[t] = 0xF7;
 
-    getChecksum();
+    SysExData[t-1] = Checksum(SysExData+7);
 
     pMidiEngine->SendSysEx(SysExData,t+1);
+
+    SendSysExCounter++;
+    SentBytesCounter += t+1;
 }

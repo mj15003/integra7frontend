@@ -28,6 +28,8 @@ class Integra7Part : public Integra7ParameterSet
 public:
     explicit Integra7Part(Integra7Device *parent, uint8_t o1, uint8_t o2, uint8_t o3);
 
+    void DataReceive(const uint8_t *rdata, uint8_t a, int len);
+
     uint16_t GetLength() {return 0x4D;}
 
     uint16_t GetItemsNumber() {return 65;}

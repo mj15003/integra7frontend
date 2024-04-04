@@ -25,6 +25,11 @@ MidiEngine::MidiEngine()
     iSelectedAlsaPort = -1;
 }
 
+MidiEngine::~MidiEngine()
+{
+    if (pMidiInputThread) delete pMidiInputThread;
+}
+
 void MidiEngine::Init()
 {
     initOK = false;
@@ -80,11 +85,15 @@ void MidiEngine::Init()
                                                  SND_SEQ_PORT_TYPE_MIDI_GENERIC | SND_SEQ_PORT_TYPE_SOFTWARE |
                                                  SND_SEQ_PORT_TYPE_MIDI_GS);
 
+    pMidiInputThread = new MidiInputThread(pAlsaSeq);
+
     initOK = true;
 }
 
-void MidiEngine::Clean()
+void MidiEngine::Stop()
 {
+    pMidiInputThread->terminate();
+    pMidiInputThread->wait(100);
     snd_seq_close(pAlsaSeq);
 }
 
@@ -109,7 +118,7 @@ void MidiEngine::SelectALSAClient(int cId)
     snd_seq_connect_from(pAlsaSeq,iAlsaClientPort,dest.client,dest.port);    
 }
 
-void MidiEngine::SendSysEx(uint8_t *data, uint8_t len) const
+void MidiEngine::SendSysEx(uint8_t *data, uint8_t len)
 {
     snd_seq_event_t ev;
 
@@ -121,5 +130,13 @@ void MidiEngine::SendSysEx(uint8_t *data, uint8_t len) const
     snd_seq_ev_set_sysex(&ev,len,data);
 
     snd_seq_event_output(pAlsaSeq, &ev);
-    snd_seq_drain_output(pAlsaSeq);
+    snd_seq_drain_output(pAlsaSeq);    
+}
+
+void MidiInputThread::run() {
+
+    while (snd_seq_event_input(pAlsaSeq, &ev) >= 0) {
+        if (ev->type == SND_SEQ_EVENT_SYSEX)
+            emit dataReady((uint8_t *)ev->data.ext.ptr,ev->data.ext.len);
+    }
 }

@@ -27,6 +27,8 @@ class Integra7MasterEQ : public Integra7ParameterSet
 public:
     explicit Integra7MasterEQ(Integra7Device *parent, uint8_t o1, uint8_t o2, uint8_t o3);
 
+    void DataReceive(const uint8_t *rdata, uint8_t a, int len);
+
     uint16_t GetLength() {return 7;}
     uint16_t GetItemsNumber() {return 7;}
 
@@ -58,7 +60,6 @@ signals:
 
 private:    
     void EmitSignal(uint8_t a, int v);
-
 };
 
 #endif // INTEGRA7MASTEREQ_H

@@ -92,3 +92,8 @@ void Integra7Reverb::EmitSignal(uint8_t a, int v)
         }
     }
 }
+
+void Integra7Reverb::DataReceive(const uint8_t *rdata, uint8_t a, int len)
+{
+
+}

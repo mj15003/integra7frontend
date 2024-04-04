@@ -257,3 +257,8 @@ void Integra7Part::EmitSignal(uint8_t a, int v)
         break;
     }
 }
+
+void Integra7Part::DataReceive(const uint8_t *rdata, uint8_t a, int len)
+{
+
+}

@@ -40,3 +40,8 @@ void Integra7Setup::EmitSignal(uint8_t a, int v)
     }
 }
 
+void Integra7Setup::DataReceive(const uint8_t *rdata, uint8_t a, int len)
+{
+
+}
+

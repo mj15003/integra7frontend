@@ -113,7 +113,7 @@ void Integra7ParameterSet::DataSet4x4B(uint8_t a, int v)
     uint8_t b1 = v >> 4 & 0xF;
     uint8_t b0 = v & 0xF;
 
-    //At address 'a' should always be 0x80
+    //At address 'a' should always be 0x08
 
     if (b2 == data[a+1] && b1 == data[a+2] && b0 == data[a+3]) return;
 

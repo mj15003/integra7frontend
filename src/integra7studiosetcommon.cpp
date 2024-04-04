@@ -40,6 +40,9 @@ void Integra7StudioSetCommon::setStudioSetName(const QString name)
 void Integra7StudioSetCommon::EmitSignal(uint8_t a, int v)
 {
     switch (a) {
+    case 0x0:
+        emit StudioSetName(getStudioSetName());
+        break;
     case 0x18:
         emit VoiceReserve1(v);
         break;
@@ -153,5 +156,26 @@ void Integra7StudioSetCommon::EmitSignal(uint8_t a, int v)
         break;
     default:
         break;
+    }
+}
+
+void Integra7StudioSetCommon::DataReceive(const uint8_t *rdata, uint8_t a, int len)
+{
+    uint8_t a2 = a + len;
+    uint8_t r = 0;
+
+    while (a < a2) {
+        if (a == 0x0){
+            while (r<0x10) data[a++] = rdata[r++];
+            emit StudioSetName(getStudioSetName());
+        } else if (a == 0x3D){
+            data[a++] = rdata[r++];
+            data[a++] = rdata[r++];
+            EmitSignal(0x3D,getStudioSetTempo());
+        } else {
+            data[a] = rdata[r++];
+            EmitSignal(a,data[a]);
+            ++a;
+        }
     }
 }

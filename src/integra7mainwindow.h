@@ -52,9 +52,6 @@ private:
     QButtonGroup SoloPartBtnGrp;
     QButtonGroup SoloPartBtnGrp1;
 
-    QPalette OnBtnPalette;
-    QPalette OffBtnPalette;
-
     QComboBox *TypeBoxes[16][2];
     QComboBox *BankBoxes[16][2];
     QComboBox *ToneBoxes[16][2];
