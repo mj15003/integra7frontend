@@ -28,12 +28,12 @@ class Integra7Setup : public Integra7ParameterSet
 public:
     explicit Integra7Setup(Integra7Device *parent, uint8_t o1, uint8_t o2, uint8_t o3);
 
-    uint16_t GetLength() {return 0x38;}
+    int GetLength() {return 0x38;}
 
-    uint16_t GetItemsNumber() {return 3;}
+    int GetItemsNumber() {return 3;}
 
     uint8_t getSoundMode() const { return data[0]; }
-    uint16_t getStudioSet_BS() const { return data[4] << 7 | data[5]; }
+    int getStudioSet_BS() const { return data[4] << 7 | data[5]; }
     uint8_t getStudioSet_PC() const { return data[6]; }
 
     static QStringList& SoundModeLabels() {
@@ -50,7 +50,7 @@ public slots:
 
 signals:
     void SoundMode(uint8_t v);
-    void StudioSet_BS(uint16_t v);
+    void StudioSet_BS(int v);
     void StudioSet_PC(uint8_t v);
 
 private:

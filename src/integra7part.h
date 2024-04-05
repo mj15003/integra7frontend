@@ -30,9 +30,9 @@ public:
 
     void DataReceive(const uint8_t *rdata, uint8_t a, int len);
 
-    uint16_t GetLength() {return 0x4D;}
+    int GetLength() {return 0x4D;}
 
-    uint16_t GetItemsNumber() {return 65;}
+    int GetItemsNumber() {return 65;}
 
     int getReceiveChannel() {return data[0x00];}
     int getReceiveSwitch() {return data[0x01];}

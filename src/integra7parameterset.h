@@ -26,9 +26,10 @@ class Integra7ParameterSet : public QObject
 
 public:
     explicit Integra7ParameterSet(Integra7Device *parent, uint8_t o1, uint8_t o2, uint8_t o3);
-    virtual uint16_t GetLength() = 0;
-    virtual uint16_t GetItemsNumber() = 0;
+    virtual int GetLength() = 0;
+    virtual int GetItemsNumber() = 0;
     uint8_t GetAddress(uint8_t i) const { return address[i]; };
+    void GetRequestArray(uint8_t *req);
     virtual void DataReceive(const uint8_t *rdata, uint8_t a, int len) = 0;
 
 protected:    

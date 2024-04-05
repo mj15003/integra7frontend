@@ -34,7 +34,7 @@ QStringList &Integra7Chorus::RateHzList()
 
 void Integra7Chorus::EmitSignal(uint8_t a, int v)
 {
-    if (a < 0x3) {
+    if (a < 0x4) {
         //General parameters
         switch (a) {
         case 0x0:
@@ -56,28 +56,28 @@ void Integra7Chorus::EmitSignal(uint8_t a, int v)
             emit ChorusFilterType(v);
             break;
         case 0x08:
-            emit ChorusCutoffFreq(v);
+            emit ChorusCutoffFreq(getChorusCutoffFreq());
             break;
         case 0x0C:
-            emit ChorusPreDelay(v);
+            emit ChorusPreDelay(getChorusPreDelay());
             break;
         case 0x10:
             emit ChorusRateType(v);
             break;
         case 0x14:
-            emit ChorusRateHz(v-1);
+            emit ChorusRateHz(getChorusRateHz());
             break;
         case 0x18:
-            emit ChorusRateNote(v);
+            emit ChorusRateNote(getChorusRateNote());
             break;
         case 0x1C:
-            emit ChorusDepth(v);
+            emit ChorusDepth(getChorusDepth());
             break;
         case 0x20:
-            emit ChorusPhase(v*2);
+            emit ChorusPhase(getChorusPhase());
             break;
         case 0x24:
-            emit ChorusFeedback(v);
+            emit ChorusFeedback(getChorusFeedback());
             break;
         default:
             break;
@@ -89,43 +89,43 @@ void Integra7Chorus::EmitSignal(uint8_t a, int v)
             emit DelayDelayLeft(v);
             break;
         case 0x08:
-            emit DelayDelayLeftMS(v);
+            emit DelayDelayLeftMS(getDelayDelayLeftMS());
             break;
         case 0x0C:
-            emit DelayDelayLeftNote(v);
+            emit DelayDelayLeftNote(getDelayDelayLeftNote());
             break;
         case 0x10:
             emit DelayDelayRight(v);
             break;
         case 0x14:
-            emit DelayDelayRightMS(v);
+            emit DelayDelayRightMS(getDelayDelayRightMS());
             break;
         case 0x18:
-            emit DelayDelayRightNote(v);
+            emit DelayDelayRightNote(getDelayDelayRightNote());
             break;
         case 0x1C:
             emit DelayDelayCenter(v);
             break;
         case 0x20:
-            emit DelayDelayCenterMS(v);
+            emit DelayDelayCenterMS(getDelayDelayCenterMS());
             break;
         case 0x24:
-            emit DelayDelayCenterNote(v);
+            emit DelayDelayCenterNote(getDelayDelayCenterNote());
             break;
         case 0x28:
-            emit DelayFeedback(v*2-98);
+            emit DelayFeedback(getDelayFeedback());
             break;
         case 0x2C:
-            emit DelayHFDamp(v);
+            emit DelayHFDamp(getDelayHFDamp());
             break;
         case 0x30:
-            emit DelayLeftLevel(v);
+            emit DelayLeftLevel(getDelayLeftLevel());
             break;
         case 0x34:
-            emit DelayRightLevel(v);
+            emit DelayRightLevel(getDelayRightLevel());
             break;
         case 0x38:
-            emit DelayCenterLevel(v);
+            emit DelayCenterLevel(getDelayCenterLevel());
             break;
         default:
             break;
@@ -137,19 +137,19 @@ void Integra7Chorus::EmitSignal(uint8_t a, int v)
             emit GM2ChorusPreLPF(v);
             break;
         case 0x08:
-            emit GM2ChorusLevel(v);
+            emit GM2ChorusLevel(getGM2ChorusLevel());
             break;
         case 0x0C:
-            emit GM2ChorusFeedback(v);
+            emit GM2ChorusFeedback(getGM2ChorusFeedback());
             break;
         case 0x10:
-            emit GM2ChorusDelay(v);
+            emit GM2ChorusDelay(getGM2ChorusDelay());
             break;
         case 0x14:
-            emit GM2ChorusRate(v);
+            emit GM2ChorusRate(getGM2ChorusRate());
             break;
         case 0x18:
-            emit GM2ChorusDepth(v);
+            emit GM2ChorusDepth(getChorusDepth());
             break;
         default:
             break;
@@ -159,5 +159,21 @@ void Integra7Chorus::EmitSignal(uint8_t a, int v)
 
 void Integra7Chorus::DataReceive(const uint8_t *rdata, uint8_t a, int len)
 {
+    uint8_t a2 = a + len;
+    uint8_t r = 0;
 
+    while (a < a2) {
+        if (a < 0x04){
+            data[a] = rdata[r++];
+            EmitSignal(a,data[a]);
+            ++a;
+        } else {
+            data[a] = rdata[r++];
+            data[a+1] = rdata[r++];
+            data[a+2] = rdata[r++];
+            data[a+3] = rdata[r++];
+            EmitSignal(a,data[a+3]);
+            a+=4;
+        }
+    }
 }

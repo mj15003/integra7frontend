@@ -260,5 +260,18 @@ void Integra7Part::EmitSignal(uint8_t a, int v)
 
 void Integra7Part::DataReceive(const uint8_t *rdata, uint8_t a, int len)
 {
+    uint8_t a2 = a + len;
+    uint8_t r = 0;
 
+    while (a < a2) {
+        if (a == 0x11){
+            data[a++] = rdata[r++];
+            data[a++] = rdata[r++];
+            EmitSignal(0x11,getPartPortamentoTime());
+        } else {
+            data[a] = rdata[r++];
+            EmitSignal(a,data[a]);
+            ++a;
+        }
+    }
 }

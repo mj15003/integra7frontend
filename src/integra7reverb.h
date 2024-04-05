@@ -26,8 +26,8 @@ class Integra7Reverb : public Integra7ParameterSet
 public:
     explicit Integra7Reverb(Integra7Device *parent, uint8_t o1, uint8_t o2, uint8_t o3);
 
-    uint16_t GetLength() {return 0x63;}
-    uint16_t GetItemsNumber() {return 11;}
+    int GetLength() {return 0x63;}
+    int GetItemsNumber() {return 11;}
 
     uint8_t getType() {return data[0x0];}
     uint8_t getLevel() {return data[0x1];}

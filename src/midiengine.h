@@ -30,7 +30,7 @@ public:
     explicit MidiInputThread(snd_seq_t *seq) { pAlsaSeq = seq; }
 
 signals:
-    void dataReady(const uint8_t *data, uint16_t len);
+    void dataReady(const uint8_t *data, int len);
 
 private:
     snd_seq_t *pAlsaSeq;

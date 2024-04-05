@@ -25,6 +25,19 @@ Integra7ParameterSet::Integra7ParameterSet(Integra7Device *parent, uint8_t o1, u
     address[2]=o3;
 }
 
+void Integra7ParameterSet::GetRequestArray(uint8_t *req)
+{
+    req[0] = address[0];
+    req[1] = address[1];
+    req[2] = address[2];
+    req[3] = 0;
+
+    req[4] = 0;
+    req[5] = 0;
+    req[6] = GetLength() >> 7;
+    req[7] = GetLength() & 0x7F;
+}
+
 void Integra7ParameterSet::DataSet(uint8_t a, int v)
 {
     if (v == data[a]) return;

@@ -1076,6 +1076,10 @@ integra7MainWindow::integra7MainWindow(QWidget *parent)
                      &QAbstractButton::clicked,pI7d,
                      &Integra7Device::SetPreview);
 
+    QObject::connect(ui->ReadBtn,
+                     &QAbstractButton::clicked,pI7d,
+                     &Integra7Device::BulkDumpRequest);
+
     /* Master EQ Connections */
     QObject::connect(ui->MEQSwBtn,&QPushButton::toggled,
                      pI7d->StudioSetCommon,&Integra7StudioSetCommon::setMasterEQSwitch);
@@ -2839,6 +2843,1756 @@ integra7MainWindow::integra7MainWindow(QWidget *parent)
 
     QObject::connect(ui->ReverbGM2TimeBox,&QSpinBox::valueChanged,
                      pI7d->Reverb,&Integra7Reverb::setGM2Time);
+
+    /* Reverse connections */
+    QObject::connect(pI7d->StudioSetCommon,&Integra7StudioSetCommon::MasterEQSwitch,
+                     ui->MEQSwBtn,&QPushButton::setChecked);
+
+    QObject::connect(pI7d->MasterEQ,&Integra7MasterEQ::EQLowFreq,
+                     ui->MEQLFFreqBox,&QComboBox::setCurrentIndex);
+
+    QObject::connect(pI7d->MasterEQ,&Integra7MasterEQ::EQLowGain,
+                     ui->MEQLFGainBox,&QSpinBox::setValue);
+
+    QObject::connect(pI7d->MasterEQ,&Integra7MasterEQ::EQMidFreq,
+                     ui->MEQMFFreqBox,&QComboBox::setCurrentIndex);
+
+    QObject::connect(pI7d->MasterEQ,&Integra7MasterEQ::EQMidGain,
+                     ui->MEQMFGainBox,&QSpinBox::setValue);
+
+    QObject::connect(pI7d->MasterEQ,&Integra7MasterEQ::EQMidQ,
+                     ui->MEQMFQBox,&QComboBox::setCurrentIndex);
+
+    QObject::connect(pI7d->MasterEQ,&Integra7MasterEQ::EQHighFreq,
+                     ui->MEQHFFreqBox,&QComboBox::setCurrentIndex);
+
+    QObject::connect(pI7d->MasterEQ,&Integra7MasterEQ::EQHighGain,
+                     ui->MEQHFGainBox,&QSpinBox::setValue);
+
+    QObject::connect(pI7d->Parts[0],&Integra7Part::PartLevel,
+                     ui->Ch1LevelBox,&QSpinBox::setValue);
+
+    QObject::connect(pI7d->Parts[0],&Integra7Part::PartPan,
+                     ui->Ch1PanBox,&QSpinBox::setValue);
+
+    QObject::connect(pI7d->Parts[0],&Integra7Part::PartChorusSendLevel,
+                     ui->Ch1ChorusBox,&QSpinBox::setValue);
+
+    QObject::connect(pI7d->Parts[0],&Integra7Part::PartReverbSendLevel,
+                     ui->Ch1ReverbBox,&QSpinBox::setValue);
+
+    QObject::connect(pI7d->Parts[0],&Integra7Part::MuteSwitch,
+                     ui->Ch1MuteBtn,&QPushButton::setChecked);
+
+    QObject::connect(pI7d->Parts[1],&Integra7Part::PartLevel,
+                     ui->Ch2LevelBox,&QSpinBox::setValue);
+
+    QObject::connect(pI7d->Parts[1],&Integra7Part::PartPan,
+                     ui->Ch2PanBox,&QSpinBox::setValue);
+
+    QObject::connect(pI7d->Parts[1],&Integra7Part::PartChorusSendLevel,
+                     ui->Ch2ChorusBox,&QSpinBox::setValue);
+
+    QObject::connect(pI7d->Parts[1],&Integra7Part::PartReverbSendLevel,
+                     ui->Ch2ReverbBox,&QSpinBox::setValue);
+
+    QObject::connect(pI7d->Parts[1],&Integra7Part::MuteSwitch,
+                     ui->Ch2MuteBtn,&QPushButton::setChecked);
+
+    QObject::connect(pI7d->Parts[2],&Integra7Part::PartLevel,
+                     ui->Ch3LevelBox,&QSpinBox::setValue);
+
+    QObject::connect(pI7d->Parts[2],&Integra7Part::PartPan,
+                     ui->Ch3PanBox,&QSpinBox::setValue);
+
+    QObject::connect(pI7d->Parts[2],&Integra7Part::PartChorusSendLevel,
+                     ui->Ch3ChorusBox,&QSpinBox::setValue);
+
+    QObject::connect(pI7d->Parts[2],&Integra7Part::PartReverbSendLevel,
+                     ui->Ch3ReverbBox,&QSpinBox::setValue);
+
+    QObject::connect(pI7d->Parts[2],&Integra7Part::MuteSwitch,
+                     ui->Ch3MuteBtn,&QPushButton::setChecked);
+
+    QObject::connect(pI7d->Parts[3],&Integra7Part::PartLevel,
+                     ui->Ch4LevelBox,&QSpinBox::setValue);
+
+    QObject::connect(pI7d->Parts[3],&Integra7Part::PartPan,
+                     ui->Ch4PanBox,&QSpinBox::setValue);
+
+    QObject::connect(pI7d->Parts[3],&Integra7Part::PartChorusSendLevel,
+                     ui->Ch4ChorusBox,&QSpinBox::setValue);
+
+    QObject::connect(pI7d->Parts[3],&Integra7Part::PartReverbSendLevel,
+                     ui->Ch4ReverbBox,&QSpinBox::setValue);
+
+    QObject::connect(pI7d->Parts[3],&Integra7Part::MuteSwitch,
+                     ui->Ch4MuteBtn,&QPushButton::setChecked);
+
+    QObject::connect(pI7d->Parts[4],&Integra7Part::PartLevel,
+                     ui->Ch5LevelBox,&QSpinBox::setValue);
+
+    QObject::connect(pI7d->Parts[4],&Integra7Part::PartPan,
+                     ui->Ch5PanBox,&QSpinBox::setValue);
+
+    QObject::connect(pI7d->Parts[4],&Integra7Part::PartChorusSendLevel,
+                     ui->Ch5ChorusBox,&QSpinBox::setValue);
+
+    QObject::connect(pI7d->Parts[4],&Integra7Part::PartReverbSendLevel,
+                     ui->Ch5ReverbBox,&QSpinBox::setValue);
+
+    QObject::connect(pI7d->Parts[4],&Integra7Part::MuteSwitch,
+                     ui->Ch5MuteBtn,&QPushButton::setChecked);
+
+    QObject::connect(pI7d->Parts[5],&Integra7Part::PartLevel,
+                     ui->Ch6LevelBox,&QSpinBox::setValue);
+
+    QObject::connect(pI7d->Parts[5],&Integra7Part::PartPan,
+                     ui->Ch6PanBox,&QSpinBox::setValue);
+
+    QObject::connect(pI7d->Parts[5],&Integra7Part::PartChorusSendLevel,
+                     ui->Ch6ChorusBox,&QSpinBox::setValue);
+
+    QObject::connect(pI7d->Parts[5],&Integra7Part::PartReverbSendLevel,
+                     ui->Ch6ReverbBox,&QSpinBox::setValue);
+
+    QObject::connect(pI7d->Parts[5],&Integra7Part::MuteSwitch,
+                     ui->Ch6MuteBtn,&QPushButton::setChecked);
+
+    QObject::connect(pI7d->Parts[6],&Integra7Part::PartLevel,
+                     ui->Ch7LevelBox,&QSpinBox::setValue);
+
+    QObject::connect(pI7d->Parts[6],&Integra7Part::PartPan,
+                     ui->Ch7PanBox,&QSpinBox::setValue);
+
+    QObject::connect(pI7d->Parts[6],&Integra7Part::PartChorusSendLevel,
+                     ui->Ch7ChorusBox,&QSpinBox::setValue);
+
+    QObject::connect(pI7d->Parts[6],&Integra7Part::PartReverbSendLevel,
+                     ui->Ch7ReverbBox,&QSpinBox::setValue);
+
+    QObject::connect(pI7d->Parts[6],&Integra7Part::MuteSwitch,
+                     ui->Ch7MuteBtn,&QPushButton::setChecked);
+
+    QObject::connect(pI7d->Parts[7],&Integra7Part::PartLevel,
+                     ui->Ch8LevelBox,&QSpinBox::setValue);
+
+    QObject::connect(pI7d->Parts[7],&Integra7Part::PartPan,
+                     ui->Ch8PanBox,&QSpinBox::setValue);
+
+    QObject::connect(pI7d->Parts[7],&Integra7Part::PartChorusSendLevel,
+                     ui->Ch8ChorusBox,&QSpinBox::setValue);
+
+    QObject::connect(pI7d->Parts[7],&Integra7Part::PartReverbSendLevel,
+                     ui->Ch8ReverbBox,&QSpinBox::setValue);
+
+    QObject::connect(pI7d->Parts[7],&Integra7Part::MuteSwitch,
+                     ui->Ch8MuteBtn,&QPushButton::setChecked);
+
+    QObject::connect(pI7d->Parts[8],&Integra7Part::PartLevel,
+                     ui->Ch9LevelBox,&QSpinBox::setValue);
+
+    QObject::connect(pI7d->Parts[8],&Integra7Part::PartPan,
+                     ui->Ch9PanBox,&QSpinBox::setValue);
+
+    QObject::connect(pI7d->Parts[8],&Integra7Part::PartChorusSendLevel,
+                     ui->Ch9ChorusBox,&QSpinBox::setValue);
+
+    QObject::connect(pI7d->Parts[8],&Integra7Part::PartReverbSendLevel,
+                     ui->Ch9ReverbBox,&QSpinBox::setValue);
+
+    QObject::connect(pI7d->Parts[8],&Integra7Part::MuteSwitch,
+                     ui->Ch9MuteBtn,&QPushButton::setChecked);
+
+    QObject::connect(pI7d->Parts[9],&Integra7Part::PartLevel,
+                     ui->Ch10LevelBox,&QSpinBox::setValue);
+
+    QObject::connect(pI7d->Parts[9],&Integra7Part::PartPan,
+                     ui->Ch10PanBox,&QSpinBox::setValue);
+
+    QObject::connect(pI7d->Parts[9],&Integra7Part::PartChorusSendLevel,
+                     ui->Ch10ChorusBox,&QSpinBox::setValue);
+
+    QObject::connect(pI7d->Parts[9],&Integra7Part::PartReverbSendLevel,
+                     ui->Ch10ReverbBox,&QSpinBox::setValue);
+
+    QObject::connect(pI7d->Parts[9],&Integra7Part::MuteSwitch,
+                     ui->Ch10MuteBtn,&QPushButton::setChecked);
+
+    QObject::connect(pI7d->Parts[10],&Integra7Part::PartLevel,
+                     ui->Ch11LevelBox,&QSpinBox::setValue);
+
+    QObject::connect(pI7d->Parts[10],&Integra7Part::PartPan,
+                     ui->Ch11PanBox,&QSpinBox::setValue);
+
+    QObject::connect(pI7d->Parts[10],&Integra7Part::PartChorusSendLevel,
+                     ui->Ch11ChorusBox,&QSpinBox::setValue);
+
+    QObject::connect(pI7d->Parts[10],&Integra7Part::PartReverbSendLevel,
+                     ui->Ch11ReverbBox,&QSpinBox::setValue);
+
+    QObject::connect(pI7d->Parts[10],&Integra7Part::MuteSwitch,
+                     ui->Ch11MuteBtn,&QPushButton::setChecked);
+
+    QObject::connect(pI7d->Parts[11],&Integra7Part::PartLevel,
+                     ui->Ch12LevelBox,&QSpinBox::setValue);
+
+    QObject::connect(pI7d->Parts[11],&Integra7Part::PartPan,
+                     ui->Ch12PanBox,&QSpinBox::setValue);
+
+    QObject::connect(pI7d->Parts[11],&Integra7Part::PartChorusSendLevel,
+                     ui->Ch12ChorusBox,&QSpinBox::setValue);
+
+    QObject::connect(pI7d->Parts[11],&Integra7Part::PartReverbSendLevel,
+                     ui->Ch12ReverbBox,&QSpinBox::setValue);
+
+    QObject::connect(pI7d->Parts[11],&Integra7Part::MuteSwitch,
+                     ui->Ch12MuteBtn,&QPushButton::setChecked);
+
+    QObject::connect(pI7d->Parts[12],&Integra7Part::PartLevel,
+                     ui->Ch13LevelBox,&QSpinBox::setValue);
+
+    QObject::connect(pI7d->Parts[12],&Integra7Part::PartPan,
+                     ui->Ch13PanBox,&QSpinBox::setValue);
+
+    QObject::connect(pI7d->Parts[12],&Integra7Part::PartChorusSendLevel,
+                     ui->Ch13ChorusBox,&QSpinBox::setValue);
+
+    QObject::connect(pI7d->Parts[12],&Integra7Part::PartReverbSendLevel,
+                     ui->Ch13ReverbBox,&QSpinBox::setValue);
+
+    QObject::connect(pI7d->Parts[12],&Integra7Part::MuteSwitch,
+                     ui->Ch13MuteBtn,&QPushButton::setChecked);
+
+    QObject::connect(pI7d->Parts[13],&Integra7Part::PartLevel,
+                     ui->Ch14LevelBox,&QSpinBox::setValue);
+
+    QObject::connect(pI7d->Parts[13],&Integra7Part::PartPan,
+                     ui->Ch14PanBox,&QSpinBox::setValue);
+
+    QObject::connect(pI7d->Parts[13],&Integra7Part::PartChorusSendLevel,
+                     ui->Ch14ChorusBox,&QSpinBox::setValue);
+
+    QObject::connect(pI7d->Parts[13],&Integra7Part::PartReverbSendLevel,
+                     ui->Ch14ReverbBox,&QSpinBox::setValue);
+
+    QObject::connect(pI7d->Parts[13],&Integra7Part::MuteSwitch,
+                     ui->Ch14MuteBtn,&QPushButton::setChecked);
+
+    QObject::connect(pI7d->Parts[14],&Integra7Part::PartLevel,
+                     ui->Ch15LevelBox,&QSpinBox::setValue);
+
+    QObject::connect(pI7d->Parts[14],&Integra7Part::PartPan,
+                     ui->Ch15PanBox,&QSpinBox::setValue);
+
+    QObject::connect(pI7d->Parts[14],&Integra7Part::PartChorusSendLevel,
+                     ui->Ch15ChorusBox,&QSpinBox::setValue);
+
+    QObject::connect(pI7d->Parts[14],&Integra7Part::PartReverbSendLevel,
+                     ui->Ch15ReverbBox,&QSpinBox::setValue);
+
+    QObject::connect(pI7d->Parts[14],&Integra7Part::MuteSwitch,
+                     ui->Ch15MuteBtn,&QPushButton::setChecked);
+
+    QObject::connect(pI7d->Parts[15],&Integra7Part::PartLevel,
+                     ui->Ch16LevelBox,&QSpinBox::setValue);
+
+    QObject::connect(pI7d->Parts[15],&Integra7Part::PartPan,
+                     ui->Ch16PanBox,&QSpinBox::setValue);
+
+    QObject::connect(pI7d->Parts[15],&Integra7Part::PartChorusSendLevel,
+                     ui->Ch16ChorusBox,&QSpinBox::setValue);
+
+    QObject::connect(pI7d->Parts[15],&Integra7Part::PartReverbSendLevel,
+                     ui->Ch16ReverbBox,&QSpinBox::setValue);
+
+    QObject::connect(pI7d->Parts[15],&Integra7Part::MuteSwitch,
+                     ui->Ch16MuteBtn,&QPushButton::setChecked);
+
+    QObject::connect(pI7d->Parts[0],&Integra7Part::PartOutputAssign,
+                     ui->Ch1OutputBox,&QComboBox::setCurrentIndex);
+
+    QObject::connect(pI7d->Parts[0],&Integra7Part::ReceiveSwitch,
+                     ui->Ch1RxBtn,&QPushButton::setChecked);
+
+    QObject::connect(pI7d->Parts[0],&Integra7Part::ReceiveChannel,
+                     ui->Ch1RxChBox,&QComboBox::setCurrentIndex);
+
+    QObject::connect(pI7d->Parts[0],&Integra7Part::PartMonoPoly,
+                     ui->Ch1MonoPolyBox,&QComboBox::setCurrentIndex);
+
+    QObject::connect(pI7d->Parts[0],&Integra7Part::PartLegatoSwitch,
+                     ui->Ch1LegatoBox,&QComboBox::setCurrentIndex);
+
+    QObject::connect(pI7d->Parts[1],&Integra7Part::PartOutputAssign,
+                     ui->Ch2OutputBox,&QComboBox::setCurrentIndex);
+
+    QObject::connect(pI7d->Parts[1],&Integra7Part::ReceiveSwitch,
+                     ui->Ch2RxBtn,&QPushButton::setChecked);
+
+    QObject::connect(pI7d->Parts[1],&Integra7Part::ReceiveChannel,
+                     ui->Ch2RxChBox,&QComboBox::setCurrentIndex);
+
+    QObject::connect(pI7d->Parts[1],&Integra7Part::PartMonoPoly,
+                     ui->Ch2MonoPolyBox,&QComboBox::setCurrentIndex);
+
+    QObject::connect(pI7d->Parts[1],&Integra7Part::PartLegatoSwitch,
+                     ui->Ch2LegatoBox,&QComboBox::setCurrentIndex);
+
+    QObject::connect(pI7d->Parts[2],&Integra7Part::PartOutputAssign,
+                     ui->Ch3OutputBox,&QComboBox::setCurrentIndex);
+
+    QObject::connect(pI7d->Parts[2],&Integra7Part::ReceiveSwitch,
+                     ui->Ch3RxBtn,&QPushButton::setChecked);
+
+    QObject::connect(pI7d->Parts[2],&Integra7Part::ReceiveChannel,
+                     ui->Ch3RxChBox,&QComboBox::setCurrentIndex);
+
+    QObject::connect(pI7d->Parts[2],&Integra7Part::PartMonoPoly,
+                     ui->Ch3MonoPolyBox,&QComboBox::setCurrentIndex);
+
+    QObject::connect(pI7d->Parts[2],&Integra7Part::PartLegatoSwitch,
+                     ui->Ch3LegatoBox,&QComboBox::setCurrentIndex);
+
+    QObject::connect(pI7d->Parts[3],&Integra7Part::PartOutputAssign,
+                     ui->Ch4OutputBox,&QComboBox::setCurrentIndex);
+
+    QObject::connect(pI7d->Parts[3],&Integra7Part::ReceiveSwitch,
+                     ui->Ch4RxBtn,&QPushButton::setChecked);
+
+    QObject::connect(pI7d->Parts[3],&Integra7Part::ReceiveChannel,
+                     ui->Ch4RxChBox,&QComboBox::setCurrentIndex);
+
+    QObject::connect(pI7d->Parts[3],&Integra7Part::PartMonoPoly,
+                     ui->Ch4MonoPolyBox,&QComboBox::setCurrentIndex);
+
+    QObject::connect(pI7d->Parts[3],&Integra7Part::PartLegatoSwitch,
+                     ui->Ch4LegatoBox,&QComboBox::setCurrentIndex);
+
+    QObject::connect(pI7d->Parts[4],&Integra7Part::PartOutputAssign,
+                     ui->Ch5OutputBox,&QComboBox::setCurrentIndex);
+
+    QObject::connect(pI7d->Parts[4],&Integra7Part::ReceiveSwitch,
+                     ui->Ch5RxBtn,&QPushButton::setChecked);
+
+    QObject::connect(pI7d->Parts[4],&Integra7Part::ReceiveChannel,
+                     ui->Ch5RxChBox,&QComboBox::setCurrentIndex);
+
+    QObject::connect(pI7d->Parts[4],&Integra7Part::PartMonoPoly,
+                     ui->Ch5MonoPolyBox,&QComboBox::setCurrentIndex);
+
+    QObject::connect(pI7d->Parts[4],&Integra7Part::PartLegatoSwitch,
+                     ui->Ch5LegatoBox,&QComboBox::setCurrentIndex);
+
+    QObject::connect(pI7d->Parts[5],&Integra7Part::PartOutputAssign,
+                     ui->Ch6OutputBox,&QComboBox::setCurrentIndex);
+
+    QObject::connect(pI7d->Parts[5],&Integra7Part::ReceiveSwitch,
+                     ui->Ch6RxBtn,&QPushButton::setChecked);
+
+    QObject::connect(pI7d->Parts[5],&Integra7Part::ReceiveChannel,
+                     ui->Ch6RxChBox,&QComboBox::setCurrentIndex);
+
+    QObject::connect(pI7d->Parts[5],&Integra7Part::PartMonoPoly,
+                     ui->Ch6MonoPolyBox,&QComboBox::setCurrentIndex);
+
+    QObject::connect(pI7d->Parts[5],&Integra7Part::PartLegatoSwitch,
+                     ui->Ch6LegatoBox,&QComboBox::setCurrentIndex);
+
+    QObject::connect(pI7d->Parts[6],&Integra7Part::PartOutputAssign,
+                     ui->Ch7OutputBox,&QComboBox::setCurrentIndex);
+
+    QObject::connect(pI7d->Parts[6],&Integra7Part::ReceiveSwitch,
+                     ui->Ch7RxBtn,&QPushButton::setChecked);
+
+    QObject::connect(pI7d->Parts[6],&Integra7Part::ReceiveChannel,
+                     ui->Ch7RxChBox,&QComboBox::setCurrentIndex);
+
+    QObject::connect(pI7d->Parts[6],&Integra7Part::PartMonoPoly,
+                     ui->Ch7MonoPolyBox,&QComboBox::setCurrentIndex);
+
+    QObject::connect(pI7d->Parts[6],&Integra7Part::PartLegatoSwitch,
+                     ui->Ch7LegatoBox,&QComboBox::setCurrentIndex);
+
+    QObject::connect(pI7d->Parts[7],&Integra7Part::PartOutputAssign,
+                     ui->Ch8OutputBox,&QComboBox::setCurrentIndex);
+
+    QObject::connect(pI7d->Parts[7],&Integra7Part::ReceiveSwitch,
+                     ui->Ch8RxBtn,&QPushButton::setChecked);
+
+    QObject::connect(pI7d->Parts[7],&Integra7Part::ReceiveChannel,
+                     ui->Ch8RxChBox,&QComboBox::setCurrentIndex);
+
+    QObject::connect(pI7d->Parts[7],&Integra7Part::PartMonoPoly,
+                     ui->Ch8MonoPolyBox,&QComboBox::setCurrentIndex);
+
+    QObject::connect(pI7d->Parts[7],&Integra7Part::PartLegatoSwitch,
+                     ui->Ch8LegatoBox,&QComboBox::setCurrentIndex);
+
+    QObject::connect(pI7d->Parts[8],&Integra7Part::PartOutputAssign,
+                     ui->Ch9OutputBox,&QComboBox::setCurrentIndex);
+
+    QObject::connect(pI7d->Parts[8],&Integra7Part::ReceiveSwitch,
+                     ui->Ch9RxBtn,&QPushButton::setChecked);
+
+    QObject::connect(pI7d->Parts[8],&Integra7Part::ReceiveChannel,
+                     ui->Ch9RxChBox,&QComboBox::setCurrentIndex);
+
+    QObject::connect(pI7d->Parts[8],&Integra7Part::PartMonoPoly,
+                     ui->Ch9MonoPolyBox,&QComboBox::setCurrentIndex);
+
+    QObject::connect(pI7d->Parts[8],&Integra7Part::PartLegatoSwitch,
+                     ui->Ch9LegatoBox,&QComboBox::setCurrentIndex);
+
+    QObject::connect(pI7d->Parts[9],&Integra7Part::PartOutputAssign,
+                     ui->Ch10OutputBox,&QComboBox::setCurrentIndex);
+
+    QObject::connect(pI7d->Parts[9],&Integra7Part::ReceiveSwitch,
+                     ui->Ch10RxBtn,&QPushButton::setChecked);
+
+    QObject::connect(pI7d->Parts[9],&Integra7Part::ReceiveChannel,
+                     ui->Ch10RxChBox,&QComboBox::setCurrentIndex);
+
+    QObject::connect(pI7d->Parts[9],&Integra7Part::PartMonoPoly,
+                     ui->Ch10MonoPolyBox,&QComboBox::setCurrentIndex);
+
+    QObject::connect(pI7d->Parts[9],&Integra7Part::PartLegatoSwitch,
+                     ui->Ch10LegatoBox,&QComboBox::setCurrentIndex);
+
+    QObject::connect(pI7d->Parts[10],&Integra7Part::PartOutputAssign,
+                     ui->Ch11OutputBox,&QComboBox::setCurrentIndex);
+
+    QObject::connect(pI7d->Parts[10],&Integra7Part::ReceiveSwitch,
+                     ui->Ch11RxBtn,&QPushButton::setChecked);
+
+    QObject::connect(pI7d->Parts[10],&Integra7Part::ReceiveChannel,
+                     ui->Ch11RxChBox,&QComboBox::setCurrentIndex);
+
+    QObject::connect(pI7d->Parts[10],&Integra7Part::PartMonoPoly,
+                     ui->Ch11MonoPolyBox,&QComboBox::setCurrentIndex);
+
+    QObject::connect(pI7d->Parts[10],&Integra7Part::PartLegatoSwitch,
+                     ui->Ch11LegatoBox,&QComboBox::setCurrentIndex);
+
+    QObject::connect(pI7d->Parts[11],&Integra7Part::PartOutputAssign,
+                     ui->Ch12OutputBox,&QComboBox::setCurrentIndex);
+
+    QObject::connect(pI7d->Parts[11],&Integra7Part::ReceiveSwitch,
+                     ui->Ch12RxBtn,&QPushButton::setChecked);
+
+    QObject::connect(pI7d->Parts[11],&Integra7Part::ReceiveChannel,
+                     ui->Ch12RxChBox,&QComboBox::setCurrentIndex);
+
+    QObject::connect(pI7d->Parts[11],&Integra7Part::PartMonoPoly,
+                     ui->Ch12MonoPolyBox,&QComboBox::setCurrentIndex);
+
+    QObject::connect(pI7d->Parts[11],&Integra7Part::PartLegatoSwitch,
+                     ui->Ch12LegatoBox,&QComboBox::setCurrentIndex);
+
+    QObject::connect(pI7d->Parts[12],&Integra7Part::PartOutputAssign,
+                     ui->Ch13OutputBox,&QComboBox::setCurrentIndex);
+
+    QObject::connect(pI7d->Parts[12],&Integra7Part::ReceiveSwitch,
+                     ui->Ch13RxBtn,&QPushButton::setChecked);
+
+    QObject::connect(pI7d->Parts[12],&Integra7Part::ReceiveChannel,
+                     ui->Ch13RxChBox,&QComboBox::setCurrentIndex);
+
+    QObject::connect(pI7d->Parts[12],&Integra7Part::PartMonoPoly,
+                     ui->Ch13MonoPolyBox,&QComboBox::setCurrentIndex);
+
+    QObject::connect(pI7d->Parts[12],&Integra7Part::PartLegatoSwitch,
+                     ui->Ch13LegatoBox,&QComboBox::setCurrentIndex);
+
+    QObject::connect(pI7d->Parts[13],&Integra7Part::PartOutputAssign,
+                     ui->Ch14OutputBox,&QComboBox::setCurrentIndex);
+
+    QObject::connect(pI7d->Parts[13],&Integra7Part::ReceiveSwitch,
+                     ui->Ch14RxBtn,&QPushButton::setChecked);
+
+    QObject::connect(pI7d->Parts[13],&Integra7Part::ReceiveChannel,
+                     ui->Ch14RxChBox,&QComboBox::setCurrentIndex);
+
+    QObject::connect(pI7d->Parts[13],&Integra7Part::PartMonoPoly,
+                     ui->Ch14MonoPolyBox,&QComboBox::setCurrentIndex);
+
+    QObject::connect(pI7d->Parts[13],&Integra7Part::PartLegatoSwitch,
+                     ui->Ch14LegatoBox,&QComboBox::setCurrentIndex);
+
+    QObject::connect(pI7d->Parts[14],&Integra7Part::PartOutputAssign,
+                     ui->Ch15OutputBox,&QComboBox::setCurrentIndex);
+
+    QObject::connect(pI7d->Parts[14],&Integra7Part::ReceiveSwitch,
+                     ui->Ch15RxBtn,&QPushButton::setChecked);
+
+    QObject::connect(pI7d->Parts[14],&Integra7Part::ReceiveChannel,
+                     ui->Ch15RxChBox,&QComboBox::setCurrentIndex);
+
+    QObject::connect(pI7d->Parts[14],&Integra7Part::PartMonoPoly,
+                     ui->Ch15MonoPolyBox,&QComboBox::setCurrentIndex);
+
+    QObject::connect(pI7d->Parts[14],&Integra7Part::PartLegatoSwitch,
+                     ui->Ch15LegatoBox,&QComboBox::setCurrentIndex);
+
+    QObject::connect(pI7d->Parts[15],&Integra7Part::PartOutputAssign,
+                     ui->Ch16OutputBox,&QComboBox::setCurrentIndex);
+
+    QObject::connect(pI7d->Parts[15],&Integra7Part::ReceiveSwitch,
+                     ui->Ch16RxBtn,&QPushButton::setChecked);
+
+    QObject::connect(pI7d->Parts[15],&Integra7Part::ReceiveChannel,
+                     ui->Ch16RxChBox,&QComboBox::setCurrentIndex);
+
+    QObject::connect(pI7d->Parts[15],&Integra7Part::PartMonoPoly,
+                     ui->Ch16MonoPolyBox,&QComboBox::setCurrentIndex);
+
+    QObject::connect(pI7d->Parts[15],&Integra7Part::PartLegatoSwitch,
+                     ui->Ch16LegatoBox,&QComboBox::setCurrentIndex);
+
+    QObject::connect(pI7d->PartsEQ[0],&Integra7PartEQ::EQSwitch,
+                     ui->Ch1EQSwBtn,&QPushButton::setChecked);
+
+    QObject::connect(pI7d->PartsEQ[0],&Integra7PartEQ::EQLowFreq,
+                     ui->Ch1EQLFFreqBox,&QComboBox::setCurrentIndex);
+
+    QObject::connect(pI7d->PartsEQ[0],&Integra7PartEQ::EQLowGain,
+                     ui->Ch1EQLFGainBox,&QSpinBox::setValue);
+
+    QObject::connect(pI7d->PartsEQ[0],&Integra7PartEQ::EQMidFreq,
+                     ui->Ch1EQMFFreqBox,&QComboBox::setCurrentIndex);
+
+    QObject::connect(pI7d->PartsEQ[0],&Integra7PartEQ::EQMidGain,
+                     ui->Ch1EQMFGainBox,&QSpinBox::setValue);
+
+    QObject::connect(pI7d->PartsEQ[0],&Integra7PartEQ::EQMidQ,
+                     ui->Ch1EQMFQBox,&QComboBox::setCurrentIndex);
+
+    QObject::connect(pI7d->PartsEQ[0],&Integra7PartEQ::EQHighFreq,
+                     ui->Ch1EQHFFreqBox,&QComboBox::setCurrentIndex);
+
+    QObject::connect(pI7d->PartsEQ[0],&Integra7PartEQ::EQHighGain,
+                     ui->Ch1EQHFGainBox,&QSpinBox::setValue);
+
+    QObject::connect(pI7d->PartsEQ[1],&Integra7PartEQ::EQSwitch,
+                     ui->Ch2EQSwBtn,&QPushButton::setChecked);
+
+    QObject::connect(pI7d->PartsEQ[1],&Integra7PartEQ::EQLowFreq,
+                     ui->Ch2EQLFFreqBox,&QComboBox::setCurrentIndex);
+
+    QObject::connect(pI7d->PartsEQ[1],&Integra7PartEQ::EQLowGain,
+                     ui->Ch2EQLFGainBox,&QSpinBox::setValue);
+
+    QObject::connect(pI7d->PartsEQ[1],&Integra7PartEQ::EQMidFreq,
+                     ui->Ch2EQMFFreqBox,&QComboBox::setCurrentIndex);
+
+    QObject::connect(pI7d->PartsEQ[1],&Integra7PartEQ::EQMidGain,
+                     ui->Ch2EQMFGainBox,&QSpinBox::setValue);
+
+    QObject::connect(pI7d->PartsEQ[1],&Integra7PartEQ::EQMidQ,
+                     ui->Ch2EQMFQBox,&QComboBox::setCurrentIndex);
+
+    QObject::connect(pI7d->PartsEQ[1],&Integra7PartEQ::EQHighFreq,
+                     ui->Ch2EQHFFreqBox,&QComboBox::setCurrentIndex);
+
+    QObject::connect(pI7d->PartsEQ[1],&Integra7PartEQ::EQHighGain,
+                     ui->Ch2EQHFGainBox,&QSpinBox::setValue);
+
+    QObject::connect(pI7d->PartsEQ[2],&Integra7PartEQ::EQSwitch,
+                     ui->Ch3EQSwBtn,&QPushButton::setChecked);
+
+    QObject::connect(pI7d->PartsEQ[2],&Integra7PartEQ::EQLowFreq,
+                     ui->Ch3EQLFFreqBox,&QComboBox::setCurrentIndex);
+
+    QObject::connect(pI7d->PartsEQ[2],&Integra7PartEQ::EQLowGain,
+                     ui->Ch3EQLFGainBox,&QSpinBox::setValue);
+
+    QObject::connect(pI7d->PartsEQ[2],&Integra7PartEQ::EQMidFreq,
+                     ui->Ch3EQMFFreqBox,&QComboBox::setCurrentIndex);
+
+    QObject::connect(pI7d->PartsEQ[2],&Integra7PartEQ::EQMidGain,
+                     ui->Ch3EQMFGainBox,&QSpinBox::setValue);
+
+    QObject::connect(pI7d->PartsEQ[2],&Integra7PartEQ::EQMidQ,
+                     ui->Ch3EQMFQBox,&QComboBox::setCurrentIndex);
+
+    QObject::connect(pI7d->PartsEQ[2],&Integra7PartEQ::EQHighFreq,
+                     ui->Ch3EQHFFreqBox,&QComboBox::setCurrentIndex);
+
+    QObject::connect(pI7d->PartsEQ[2],&Integra7PartEQ::EQHighGain,
+                     ui->Ch3EQHFGainBox,&QSpinBox::setValue);
+
+    QObject::connect(pI7d->PartsEQ[3],&Integra7PartEQ::EQSwitch,
+                     ui->Ch4EQSwBtn,&QPushButton::setChecked);
+
+    QObject::connect(pI7d->PartsEQ[3],&Integra7PartEQ::EQLowFreq,
+                     ui->Ch4EQLFFreqBox,&QComboBox::setCurrentIndex);
+
+    QObject::connect(pI7d->PartsEQ[3],&Integra7PartEQ::EQLowGain,
+                     ui->Ch4EQLFGainBox,&QSpinBox::setValue);
+
+    QObject::connect(pI7d->PartsEQ[3],&Integra7PartEQ::EQMidFreq,
+                     ui->Ch4EQMFFreqBox,&QComboBox::setCurrentIndex);
+
+    QObject::connect(pI7d->PartsEQ[3],&Integra7PartEQ::EQMidGain,
+                     ui->Ch4EQMFGainBox,&QSpinBox::setValue);
+
+    QObject::connect(pI7d->PartsEQ[3],&Integra7PartEQ::EQMidQ,
+                     ui->Ch4EQMFQBox,&QComboBox::setCurrentIndex);
+
+    QObject::connect(pI7d->PartsEQ[3],&Integra7PartEQ::EQHighFreq,
+                     ui->Ch4EQHFFreqBox,&QComboBox::setCurrentIndex);
+
+    QObject::connect(pI7d->PartsEQ[3],&Integra7PartEQ::EQHighGain,
+                     ui->Ch4EQHFGainBox,&QSpinBox::setValue);
+
+    QObject::connect(pI7d->PartsEQ[4],&Integra7PartEQ::EQSwitch,
+                     ui->Ch5EQSwBtn,&QPushButton::setChecked);
+
+    QObject::connect(pI7d->PartsEQ[4],&Integra7PartEQ::EQLowFreq,
+                     ui->Ch5EQLFFreqBox,&QComboBox::setCurrentIndex);
+
+    QObject::connect(pI7d->PartsEQ[4],&Integra7PartEQ::EQLowGain,
+                     ui->Ch5EQLFGainBox,&QSpinBox::setValue);
+
+    QObject::connect(pI7d->PartsEQ[4],&Integra7PartEQ::EQMidFreq,
+                     ui->Ch5EQMFFreqBox,&QComboBox::setCurrentIndex);
+
+    QObject::connect(pI7d->PartsEQ[4],&Integra7PartEQ::EQMidGain,
+                     ui->Ch5EQMFGainBox,&QSpinBox::setValue);
+
+    QObject::connect(pI7d->PartsEQ[4],&Integra7PartEQ::EQMidQ,
+                     ui->Ch5EQMFQBox,&QComboBox::setCurrentIndex);
+
+    QObject::connect(pI7d->PartsEQ[4],&Integra7PartEQ::EQHighFreq,
+                     ui->Ch5EQHFFreqBox,&QComboBox::setCurrentIndex);
+
+    QObject::connect(pI7d->PartsEQ[4],&Integra7PartEQ::EQHighGain,
+                     ui->Ch5EQHFGainBox,&QSpinBox::setValue);
+
+    QObject::connect(pI7d->PartsEQ[5],&Integra7PartEQ::EQSwitch,
+                     ui->Ch6EQSwBtn,&QPushButton::setChecked);
+
+    QObject::connect(pI7d->PartsEQ[5],&Integra7PartEQ::EQLowFreq,
+                     ui->Ch6EQLFFreqBox,&QComboBox::setCurrentIndex);
+
+    QObject::connect(pI7d->PartsEQ[5],&Integra7PartEQ::EQLowGain,
+                     ui->Ch6EQLFGainBox,&QSpinBox::setValue);
+
+    QObject::connect(pI7d->PartsEQ[5],&Integra7PartEQ::EQMidFreq,
+                     ui->Ch6EQMFFreqBox,&QComboBox::setCurrentIndex);
+
+    QObject::connect(pI7d->PartsEQ[5],&Integra7PartEQ::EQMidGain,
+                     ui->Ch6EQMFGainBox,&QSpinBox::setValue);
+
+    QObject::connect(pI7d->PartsEQ[5],&Integra7PartEQ::EQMidQ,
+                     ui->Ch6EQMFQBox,&QComboBox::setCurrentIndex);
+
+    QObject::connect(pI7d->PartsEQ[5],&Integra7PartEQ::EQHighFreq,
+                     ui->Ch6EQHFFreqBox,&QComboBox::setCurrentIndex);
+
+    QObject::connect(pI7d->PartsEQ[5],&Integra7PartEQ::EQHighGain,
+                     ui->Ch6EQHFGainBox,&QSpinBox::setValue);
+
+    QObject::connect(pI7d->PartsEQ[6],&Integra7PartEQ::EQSwitch,
+                     ui->Ch7EQSwBtn,&QPushButton::setChecked);
+
+    QObject::connect(pI7d->PartsEQ[6],&Integra7PartEQ::EQLowFreq,
+                     ui->Ch7EQLFFreqBox,&QComboBox::setCurrentIndex);
+
+    QObject::connect(pI7d->PartsEQ[6],&Integra7PartEQ::EQLowGain,
+                     ui->Ch7EQLFGainBox,&QSpinBox::setValue);
+
+    QObject::connect(pI7d->PartsEQ[6],&Integra7PartEQ::EQMidFreq,
+                     ui->Ch7EQMFFreqBox,&QComboBox::setCurrentIndex);
+
+    QObject::connect(pI7d->PartsEQ[6],&Integra7PartEQ::EQMidGain,
+                     ui->Ch7EQMFGainBox,&QSpinBox::setValue);
+
+    QObject::connect(pI7d->PartsEQ[6],&Integra7PartEQ::EQMidQ,
+                     ui->Ch7EQMFQBox,&QComboBox::setCurrentIndex);
+
+    QObject::connect(pI7d->PartsEQ[6],&Integra7PartEQ::EQHighFreq,
+                     ui->Ch7EQHFFreqBox,&QComboBox::setCurrentIndex);
+
+    QObject::connect(pI7d->PartsEQ[6],&Integra7PartEQ::EQHighGain,
+                     ui->Ch7EQHFGainBox,&QSpinBox::setValue);
+
+    QObject::connect(pI7d->PartsEQ[7],&Integra7PartEQ::EQSwitch,
+                     ui->Ch8EQSwBtn,&QPushButton::setChecked);
+
+    QObject::connect(pI7d->PartsEQ[7],&Integra7PartEQ::EQLowFreq,
+                     ui->Ch8EQLFFreqBox,&QComboBox::setCurrentIndex);
+
+    QObject::connect(pI7d->PartsEQ[7],&Integra7PartEQ::EQLowGain,
+                     ui->Ch8EQLFGainBox,&QSpinBox::setValue);
+
+    QObject::connect(pI7d->PartsEQ[7],&Integra7PartEQ::EQMidFreq,
+                     ui->Ch8EQMFFreqBox,&QComboBox::setCurrentIndex);
+
+    QObject::connect(pI7d->PartsEQ[7],&Integra7PartEQ::EQMidGain,
+                     ui->Ch8EQMFGainBox,&QSpinBox::setValue);
+
+    QObject::connect(pI7d->PartsEQ[7],&Integra7PartEQ::EQMidQ,
+                     ui->Ch8EQMFQBox,&QComboBox::setCurrentIndex);
+
+    QObject::connect(pI7d->PartsEQ[7],&Integra7PartEQ::EQHighFreq,
+                     ui->Ch8EQHFFreqBox,&QComboBox::setCurrentIndex);
+
+    QObject::connect(pI7d->PartsEQ[7],&Integra7PartEQ::EQHighGain,
+                     ui->Ch8EQHFGainBox,&QSpinBox::setValue);
+
+    QObject::connect(pI7d->PartsEQ[8],&Integra7PartEQ::EQSwitch,
+                     ui->Ch9EQSwBtn,&QPushButton::setChecked);
+
+    QObject::connect(pI7d->PartsEQ[8],&Integra7PartEQ::EQLowFreq,
+                     ui->Ch9EQLFFreqBox,&QComboBox::setCurrentIndex);
+
+    QObject::connect(pI7d->PartsEQ[8],&Integra7PartEQ::EQLowGain,
+                     ui->Ch9EQLFGainBox,&QSpinBox::setValue);
+
+    QObject::connect(pI7d->PartsEQ[8],&Integra7PartEQ::EQMidFreq,
+                     ui->Ch9EQMFFreqBox,&QComboBox::setCurrentIndex);
+
+    QObject::connect(pI7d->PartsEQ[8],&Integra7PartEQ::EQMidGain,
+                     ui->Ch9EQMFGainBox,&QSpinBox::setValue);
+
+    QObject::connect(pI7d->PartsEQ[8],&Integra7PartEQ::EQMidQ,
+                     ui->Ch9EQMFQBox,&QComboBox::setCurrentIndex);
+
+    QObject::connect(pI7d->PartsEQ[8],&Integra7PartEQ::EQHighFreq,
+                     ui->Ch9EQHFFreqBox,&QComboBox::setCurrentIndex);
+
+    QObject::connect(pI7d->PartsEQ[8],&Integra7PartEQ::EQHighGain,
+                     ui->Ch9EQHFGainBox,&QSpinBox::setValue);
+
+    QObject::connect(pI7d->PartsEQ[9],&Integra7PartEQ::EQSwitch,
+                     ui->Ch10EQSwBtn,&QPushButton::setChecked);
+
+    QObject::connect(pI7d->PartsEQ[9],&Integra7PartEQ::EQLowFreq,
+                     ui->Ch10EQLFFreqBox,&QComboBox::setCurrentIndex);
+
+    QObject::connect(pI7d->PartsEQ[9],&Integra7PartEQ::EQLowGain,
+                     ui->Ch10EQLFGainBox,&QSpinBox::setValue);
+
+    QObject::connect(pI7d->PartsEQ[9],&Integra7PartEQ::EQMidFreq,
+                     ui->Ch10EQMFFreqBox,&QComboBox::setCurrentIndex);
+
+    QObject::connect(pI7d->PartsEQ[9],&Integra7PartEQ::EQMidGain,
+                     ui->Ch10EQMFGainBox,&QSpinBox::setValue);
+
+    QObject::connect(pI7d->PartsEQ[9],&Integra7PartEQ::EQMidQ,
+                     ui->Ch10EQMFQBox,&QComboBox::setCurrentIndex);
+
+    QObject::connect(pI7d->PartsEQ[9],&Integra7PartEQ::EQHighFreq,
+                     ui->Ch10EQHFFreqBox,&QComboBox::setCurrentIndex);
+
+    QObject::connect(pI7d->PartsEQ[9],&Integra7PartEQ::EQHighGain,
+                     ui->Ch10EQHFGainBox,&QSpinBox::setValue);
+
+    QObject::connect(pI7d->PartsEQ[10],&Integra7PartEQ::EQSwitch,
+                     ui->Ch11EQSwBtn,&QPushButton::setChecked);
+
+    QObject::connect(pI7d->PartsEQ[10],&Integra7PartEQ::EQLowFreq,
+                     ui->Ch11EQLFFreqBox,&QComboBox::setCurrentIndex);
+
+    QObject::connect(pI7d->PartsEQ[10],&Integra7PartEQ::EQLowGain,
+                     ui->Ch11EQLFGainBox,&QSpinBox::setValue);
+
+    QObject::connect(pI7d->PartsEQ[10],&Integra7PartEQ::EQMidFreq,
+                     ui->Ch11EQMFFreqBox,&QComboBox::setCurrentIndex);
+
+    QObject::connect(pI7d->PartsEQ[10],&Integra7PartEQ::EQMidGain,
+                     ui->Ch11EQMFGainBox,&QSpinBox::setValue);
+
+    QObject::connect(pI7d->PartsEQ[10],&Integra7PartEQ::EQMidQ,
+                     ui->Ch11EQMFQBox,&QComboBox::setCurrentIndex);
+
+    QObject::connect(pI7d->PartsEQ[10],&Integra7PartEQ::EQHighFreq,
+                     ui->Ch11EQHFFreqBox,&QComboBox::setCurrentIndex);
+
+    QObject::connect(pI7d->PartsEQ[10],&Integra7PartEQ::EQHighGain,
+                     ui->Ch11EQHFGainBox,&QSpinBox::setValue);
+
+    QObject::connect(pI7d->PartsEQ[11],&Integra7PartEQ::EQSwitch,
+                     ui->Ch12EQSwBtn,&QPushButton::setChecked);
+
+    QObject::connect(pI7d->PartsEQ[11],&Integra7PartEQ::EQLowFreq,
+                     ui->Ch12EQLFFreqBox,&QComboBox::setCurrentIndex);
+
+    QObject::connect(pI7d->PartsEQ[11],&Integra7PartEQ::EQLowGain,
+                     ui->Ch12EQLFGainBox,&QSpinBox::setValue);
+
+    QObject::connect(pI7d->PartsEQ[11],&Integra7PartEQ::EQMidFreq,
+                     ui->Ch12EQMFFreqBox,&QComboBox::setCurrentIndex);
+
+    QObject::connect(pI7d->PartsEQ[11],&Integra7PartEQ::EQMidGain,
+                     ui->Ch12EQMFGainBox,&QSpinBox::setValue);
+
+    QObject::connect(pI7d->PartsEQ[11],&Integra7PartEQ::EQMidQ,
+                     ui->Ch12EQMFQBox,&QComboBox::setCurrentIndex);
+
+    QObject::connect(pI7d->PartsEQ[11],&Integra7PartEQ::EQHighFreq,
+                     ui->Ch12EQHFFreqBox,&QComboBox::setCurrentIndex);
+
+    QObject::connect(pI7d->PartsEQ[11],&Integra7PartEQ::EQHighGain,
+                     ui->Ch12EQHFGainBox,&QSpinBox::setValue);
+
+    QObject::connect(pI7d->PartsEQ[12],&Integra7PartEQ::EQSwitch,
+                     ui->Ch13EQSwBtn,&QPushButton::setChecked);
+
+    QObject::connect(pI7d->PartsEQ[12],&Integra7PartEQ::EQLowFreq,
+                     ui->Ch13EQLFFreqBox,&QComboBox::setCurrentIndex);
+
+    QObject::connect(pI7d->PartsEQ[12],&Integra7PartEQ::EQLowGain,
+                     ui->Ch13EQLFGainBox,&QSpinBox::setValue);
+
+    QObject::connect(pI7d->PartsEQ[12],&Integra7PartEQ::EQMidFreq,
+                     ui->Ch13EQMFFreqBox,&QComboBox::setCurrentIndex);
+
+    QObject::connect(pI7d->PartsEQ[12],&Integra7PartEQ::EQMidGain,
+                     ui->Ch13EQMFGainBox,&QSpinBox::setValue);
+
+    QObject::connect(pI7d->PartsEQ[12],&Integra7PartEQ::EQMidQ,
+                     ui->Ch13EQMFQBox,&QComboBox::setCurrentIndex);
+
+    QObject::connect(pI7d->PartsEQ[12],&Integra7PartEQ::EQHighFreq,
+                     ui->Ch13EQHFFreqBox,&QComboBox::setCurrentIndex);
+
+    QObject::connect(pI7d->PartsEQ[12],&Integra7PartEQ::EQHighGain,
+                     ui->Ch13EQHFGainBox,&QSpinBox::setValue);
+
+    QObject::connect(pI7d->PartsEQ[13],&Integra7PartEQ::EQSwitch,
+                     ui->Ch14EQSwBtn,&QPushButton::setChecked);
+
+    QObject::connect(pI7d->PartsEQ[13],&Integra7PartEQ::EQLowFreq,
+                     ui->Ch14EQLFFreqBox,&QComboBox::setCurrentIndex);
+
+    QObject::connect(pI7d->PartsEQ[13],&Integra7PartEQ::EQLowGain,
+                     ui->Ch14EQLFGainBox,&QSpinBox::setValue);
+
+    QObject::connect(pI7d->PartsEQ[13],&Integra7PartEQ::EQMidFreq,
+                     ui->Ch14EQMFFreqBox,&QComboBox::setCurrentIndex);
+
+    QObject::connect(pI7d->PartsEQ[13],&Integra7PartEQ::EQMidGain,
+                     ui->Ch14EQMFGainBox,&QSpinBox::setValue);
+
+    QObject::connect(pI7d->PartsEQ[13],&Integra7PartEQ::EQMidQ,
+                     ui->Ch14EQMFQBox,&QComboBox::setCurrentIndex);
+
+    QObject::connect(pI7d->PartsEQ[13],&Integra7PartEQ::EQHighFreq,
+                     ui->Ch14EQHFFreqBox,&QComboBox::setCurrentIndex);
+
+    QObject::connect(pI7d->PartsEQ[13],&Integra7PartEQ::EQHighGain,
+                     ui->Ch14EQHFGainBox,&QSpinBox::setValue);
+
+    QObject::connect(pI7d->PartsEQ[14],&Integra7PartEQ::EQSwitch,
+                     ui->Ch15EQSwBtn,&QPushButton::setChecked);
+
+    QObject::connect(pI7d->PartsEQ[14],&Integra7PartEQ::EQLowFreq,
+                     ui->Ch15EQLFFreqBox,&QComboBox::setCurrentIndex);
+
+    QObject::connect(pI7d->PartsEQ[14],&Integra7PartEQ::EQLowGain,
+                     ui->Ch15EQLFGainBox,&QSpinBox::setValue);
+
+    QObject::connect(pI7d->PartsEQ[14],&Integra7PartEQ::EQMidFreq,
+                     ui->Ch15EQMFFreqBox,&QComboBox::setCurrentIndex);
+
+    QObject::connect(pI7d->PartsEQ[14],&Integra7PartEQ::EQMidGain,
+                     ui->Ch15EQMFGainBox,&QSpinBox::setValue);
+
+    QObject::connect(pI7d->PartsEQ[14],&Integra7PartEQ::EQMidQ,
+                     ui->Ch15EQMFQBox,&QComboBox::setCurrentIndex);
+
+    QObject::connect(pI7d->PartsEQ[14],&Integra7PartEQ::EQHighFreq,
+                     ui->Ch15EQHFFreqBox,&QComboBox::setCurrentIndex);
+
+    QObject::connect(pI7d->PartsEQ[14],&Integra7PartEQ::EQHighGain,
+                     ui->Ch15EQHFGainBox,&QSpinBox::setValue);
+
+    QObject::connect(pI7d->PartsEQ[15],&Integra7PartEQ::EQSwitch,
+                     ui->Ch16EQSwBtn,&QPushButton::setChecked);
+
+    QObject::connect(pI7d->PartsEQ[15],&Integra7PartEQ::EQLowFreq,
+                     ui->Ch16EQLFFreqBox,&QComboBox::setCurrentIndex);
+
+    QObject::connect(pI7d->PartsEQ[15],&Integra7PartEQ::EQLowGain,
+                     ui->Ch16EQLFGainBox,&QSpinBox::setValue);
+
+    QObject::connect(pI7d->PartsEQ[15],&Integra7PartEQ::EQMidFreq,
+                     ui->Ch16EQMFFreqBox,&QComboBox::setCurrentIndex);
+
+    QObject::connect(pI7d->PartsEQ[15],&Integra7PartEQ::EQMidGain,
+                     ui->Ch16EQMFGainBox,&QSpinBox::setValue);
+
+    QObject::connect(pI7d->PartsEQ[15],&Integra7PartEQ::EQMidQ,
+                     ui->Ch16EQMFQBox,&QComboBox::setCurrentIndex);
+
+    QObject::connect(pI7d->PartsEQ[15],&Integra7PartEQ::EQHighFreq,
+                     ui->Ch16EQHFFreqBox,&QComboBox::setCurrentIndex);
+
+    QObject::connect(pI7d->PartsEQ[15],&Integra7PartEQ::EQHighGain,
+                     ui->Ch16EQHFGainBox,&QSpinBox::setValue);
+
+    QObject::connect(pI7d->Parts[0],&Integra7Part::KeyboardFadeWidthLower,
+                     ui->Ch1KeyFadeLowerBox,&QSpinBox::setValue);
+
+    QObject::connect(pI7d->Parts[0],&Integra7Part::KeyboardRangeLower,
+                     ui->Ch1KeyRangeLowerBox,&QSpinBox::setValue);
+
+    QObject::connect(pI7d->Parts[0],&Integra7Part::KeyboardRangeUpper,
+                     ui->Ch1KeyRangeUpperBox,&QSpinBox::setValue);
+
+    QObject::connect(pI7d->Parts[0],&Integra7Part::KeyboardFadeWidthUpper,
+                     ui->Ch1KeyFadeUpperBox,&QSpinBox::setValue);
+
+    QObject::connect(pI7d->Parts[0],&Integra7Part::VelocityFadeWidthLower,
+                     ui->Ch1VeloFadeLowerBox,&QSpinBox::setValue);
+
+    QObject::connect(pI7d->Parts[0],&Integra7Part::VelocityRangeLower,
+                     ui->Ch1VeloRangeLower,&QSpinBox::setValue);
+
+    QObject::connect(pI7d->Parts[0],&Integra7Part::VelocityRangeUpper,
+                     ui->Ch1VeloRangeUpper,&QSpinBox::setValue);
+
+    QObject::connect(pI7d->Parts[0],&Integra7Part::VelocityFadeWidthUpper,
+                     ui->Ch1VeloFadeUpperBox,&QSpinBox::setValue);
+
+    QObject::connect(pI7d->Parts[0],&Integra7Part::PartVelocitySensOffset,
+                     ui->Ch1VeloSensOffsetBox,&QSpinBox::setValue);
+
+    QObject::connect(pI7d->Parts[1],&Integra7Part::KeyboardFadeWidthLower,
+                     ui->Ch2KeyFadeLowerBox,&QSpinBox::setValue);
+
+    QObject::connect(pI7d->Parts[1],&Integra7Part::KeyboardRangeLower,
+                     ui->Ch2KeyRangeLowerBox,&QSpinBox::setValue);
+
+    QObject::connect(pI7d->Parts[1],&Integra7Part::KeyboardRangeUpper,
+                     ui->Ch2KeyRangeUpperBox,&QSpinBox::setValue);
+
+    QObject::connect(pI7d->Parts[1],&Integra7Part::KeyboardFadeWidthUpper,
+                     ui->Ch2KeyFadeUpperBox,&QSpinBox::setValue);
+
+    QObject::connect(pI7d->Parts[1],&Integra7Part::VelocityFadeWidthLower,
+                     ui->Ch2VeloFadeLowerBox,&QSpinBox::setValue);
+
+    QObject::connect(pI7d->Parts[1],&Integra7Part::VelocityRangeLower,
+                     ui->Ch2VeloRangeLower,&QSpinBox::setValue);
+
+    QObject::connect(pI7d->Parts[1],&Integra7Part::VelocityRangeUpper,
+                     ui->Ch2VeloRangeUpper,&QSpinBox::setValue);
+
+    QObject::connect(pI7d->Parts[1],&Integra7Part::VelocityFadeWidthUpper,
+                     ui->Ch2VeloFadeUpperBox,&QSpinBox::setValue);
+
+    QObject::connect(pI7d->Parts[1],&Integra7Part::PartVelocitySensOffset,
+                     ui->Ch2VeloSensOffsetBox,&QSpinBox::setValue);
+
+    QObject::connect(pI7d->Parts[2],&Integra7Part::KeyboardFadeWidthLower,
+                     ui->Ch3KeyFadeLowerBox,&QSpinBox::setValue);
+
+    QObject::connect(pI7d->Parts[2],&Integra7Part::KeyboardRangeLower,
+                     ui->Ch3KeyRangeLowerBox,&QSpinBox::setValue);
+
+    QObject::connect(pI7d->Parts[2],&Integra7Part::KeyboardRangeUpper,
+                     ui->Ch3KeyRangeUpperBox,&QSpinBox::setValue);
+
+    QObject::connect(pI7d->Parts[2],&Integra7Part::KeyboardFadeWidthUpper,
+                     ui->Ch3KeyFadeUpperBox,&QSpinBox::setValue);
+
+    QObject::connect(pI7d->Parts[2],&Integra7Part::VelocityFadeWidthLower,
+                     ui->Ch3VeloFadeLowerBox,&QSpinBox::setValue);
+
+    QObject::connect(pI7d->Parts[2],&Integra7Part::VelocityRangeLower,
+                     ui->Ch3VeloRangeLower,&QSpinBox::setValue);
+
+    QObject::connect(pI7d->Parts[2],&Integra7Part::VelocityRangeUpper,
+                     ui->Ch3VeloRangeUpper,&QSpinBox::setValue);
+
+    QObject::connect(pI7d->Parts[2],&Integra7Part::VelocityFadeWidthUpper,
+                     ui->Ch3VeloFadeUpperBox,&QSpinBox::setValue);
+
+    QObject::connect(pI7d->Parts[2],&Integra7Part::PartVelocitySensOffset,
+                     ui->Ch3VeloSensOffsetBox,&QSpinBox::setValue);
+
+    QObject::connect(pI7d->Parts[3],&Integra7Part::KeyboardFadeWidthLower,
+                     ui->Ch4KeyFadeLowerBox,&QSpinBox::setValue);
+
+    QObject::connect(pI7d->Parts[3],&Integra7Part::KeyboardRangeLower,
+                     ui->Ch4KeyRangeLowerBox,&QSpinBox::setValue);
+
+    QObject::connect(pI7d->Parts[3],&Integra7Part::KeyboardRangeUpper,
+                     ui->Ch4KeyRangeUpperBox,&QSpinBox::setValue);
+
+    QObject::connect(pI7d->Parts[3],&Integra7Part::KeyboardFadeWidthUpper,
+                     ui->Ch4KeyFadeUpperBox,&QSpinBox::setValue);
+
+    QObject::connect(pI7d->Parts[3],&Integra7Part::VelocityFadeWidthLower,
+                     ui->Ch4VeloFadeLowerBox,&QSpinBox::setValue);
+
+    QObject::connect(pI7d->Parts[3],&Integra7Part::VelocityRangeLower,
+                     ui->Ch4VeloRangeLower,&QSpinBox::setValue);
+
+    QObject::connect(pI7d->Parts[3],&Integra7Part::VelocityRangeUpper,
+                     ui->Ch4VeloRangeUpper,&QSpinBox::setValue);
+
+    QObject::connect(pI7d->Parts[3],&Integra7Part::VelocityFadeWidthUpper,
+                     ui->Ch4VeloFadeUpperBox,&QSpinBox::setValue);
+
+    QObject::connect(pI7d->Parts[3],&Integra7Part::PartVelocitySensOffset,
+                     ui->Ch4VeloSensOffsetBox,&QSpinBox::setValue);
+
+    QObject::connect(pI7d->Parts[4],&Integra7Part::KeyboardFadeWidthLower,
+                     ui->Ch5KeyFadeLowerBox,&QSpinBox::setValue);
+
+    QObject::connect(pI7d->Parts[4],&Integra7Part::KeyboardRangeLower,
+                     ui->Ch5KeyRangeLowerBox,&QSpinBox::setValue);
+
+    QObject::connect(pI7d->Parts[4],&Integra7Part::KeyboardRangeUpper,
+                     ui->Ch5KeyRangeUpperBox,&QSpinBox::setValue);
+
+    QObject::connect(pI7d->Parts[4],&Integra7Part::KeyboardFadeWidthUpper,
+                     ui->Ch5KeyFadeUpperBox,&QSpinBox::setValue);
+
+    QObject::connect(pI7d->Parts[4],&Integra7Part::VelocityFadeWidthLower,
+                     ui->Ch5VeloFadeLowerBox,&QSpinBox::setValue);
+
+    QObject::connect(pI7d->Parts[4],&Integra7Part::VelocityRangeLower,
+                     ui->Ch5VeloRangeLower,&QSpinBox::setValue);
+
+    QObject::connect(pI7d->Parts[4],&Integra7Part::VelocityRangeUpper,
+                     ui->Ch5VeloRangeUpper,&QSpinBox::setValue);
+
+    QObject::connect(pI7d->Parts[4],&Integra7Part::VelocityFadeWidthUpper,
+                     ui->Ch5VeloFadeUpperBox,&QSpinBox::setValue);
+
+    QObject::connect(pI7d->Parts[4],&Integra7Part::PartVelocitySensOffset,
+                     ui->Ch5VeloSensOffsetBox,&QSpinBox::setValue);
+
+    QObject::connect(pI7d->Parts[5],&Integra7Part::KeyboardFadeWidthLower,
+                     ui->Ch6KeyFadeLowerBox,&QSpinBox::setValue);
+
+    QObject::connect(pI7d->Parts[5],&Integra7Part::KeyboardRangeLower,
+                     ui->Ch6KeyRangeLowerBox,&QSpinBox::setValue);
+
+    QObject::connect(pI7d->Parts[5],&Integra7Part::KeyboardRangeUpper,
+                     ui->Ch6KeyRangeUpperBox,&QSpinBox::setValue);
+
+    QObject::connect(pI7d->Parts[5],&Integra7Part::KeyboardFadeWidthUpper,
+                     ui->Ch6KeyFadeUpperBox,&QSpinBox::setValue);
+
+    QObject::connect(pI7d->Parts[5],&Integra7Part::VelocityFadeWidthLower,
+                     ui->Ch6VeloFadeLowerBox,&QSpinBox::setValue);
+
+    QObject::connect(pI7d->Parts[5],&Integra7Part::VelocityRangeLower,
+                     ui->Ch6VeloRangeLower,&QSpinBox::setValue);
+
+    QObject::connect(pI7d->Parts[5],&Integra7Part::VelocityRangeUpper,
+                     ui->Ch6VeloRangeUpper,&QSpinBox::setValue);
+
+    QObject::connect(pI7d->Parts[5],&Integra7Part::VelocityFadeWidthUpper,
+                     ui->Ch6VeloFadeUpperBox,&QSpinBox::setValue);
+
+    QObject::connect(pI7d->Parts[5],&Integra7Part::PartVelocitySensOffset,
+                     ui->Ch6VeloSensOffsetBox,&QSpinBox::setValue);
+
+    QObject::connect(pI7d->Parts[6],&Integra7Part::KeyboardFadeWidthLower,
+                     ui->Ch7KeyFadeLowerBox,&QSpinBox::setValue);
+
+    QObject::connect(pI7d->Parts[6],&Integra7Part::KeyboardRangeLower,
+                     ui->Ch7KeyRangeLowerBox,&QSpinBox::setValue);
+
+    QObject::connect(pI7d->Parts[6],&Integra7Part::KeyboardRangeUpper,
+                     ui->Ch7KeyRangeUpperBox,&QSpinBox::setValue);
+
+    QObject::connect(pI7d->Parts[6],&Integra7Part::KeyboardFadeWidthUpper,
+                     ui->Ch7KeyFadeUpperBox,&QSpinBox::setValue);
+
+    QObject::connect(pI7d->Parts[6],&Integra7Part::VelocityFadeWidthLower,
+                     ui->Ch7VeloFadeLowerBox,&QSpinBox::setValue);
+
+    QObject::connect(pI7d->Parts[6],&Integra7Part::VelocityRangeLower,
+                     ui->Ch7VeloRangeLower,&QSpinBox::setValue);
+
+    QObject::connect(pI7d->Parts[6],&Integra7Part::VelocityRangeUpper,
+                     ui->Ch7VeloRangeUpper,&QSpinBox::setValue);
+
+    QObject::connect(pI7d->Parts[6],&Integra7Part::VelocityFadeWidthUpper,
+                     ui->Ch7VeloFadeUpperBox,&QSpinBox::setValue);
+
+    QObject::connect(pI7d->Parts[6],&Integra7Part::PartVelocitySensOffset,
+                     ui->Ch7VeloSensOffsetBox,&QSpinBox::setValue);
+
+    QObject::connect(pI7d->Parts[7],&Integra7Part::KeyboardFadeWidthLower,
+                     ui->Ch8KeyFadeLowerBox,&QSpinBox::setValue);
+
+    QObject::connect(pI7d->Parts[7],&Integra7Part::KeyboardRangeLower,
+                     ui->Ch8KeyRangeLowerBox,&QSpinBox::setValue);
+
+    QObject::connect(pI7d->Parts[7],&Integra7Part::KeyboardRangeUpper,
+                     ui->Ch8KeyRangeUpperBox,&QSpinBox::setValue);
+
+    QObject::connect(pI7d->Parts[7],&Integra7Part::KeyboardFadeWidthUpper,
+                     ui->Ch8KeyFadeUpperBox,&QSpinBox::setValue);
+
+    QObject::connect(pI7d->Parts[7],&Integra7Part::VelocityFadeWidthLower,
+                     ui->Ch8VeloFadeLowerBox,&QSpinBox::setValue);
+
+    QObject::connect(pI7d->Parts[7],&Integra7Part::VelocityRangeLower,
+                     ui->Ch8VeloRangeLower,&QSpinBox::setValue);
+
+    QObject::connect(pI7d->Parts[7],&Integra7Part::VelocityRangeUpper,
+                     ui->Ch8VeloRangeUpper,&QSpinBox::setValue);
+
+    QObject::connect(pI7d->Parts[7],&Integra7Part::VelocityFadeWidthUpper,
+                     ui->Ch8VeloFadeUpperBox,&QSpinBox::setValue);
+
+    QObject::connect(pI7d->Parts[7],&Integra7Part::PartVelocitySensOffset,
+                     ui->Ch8VeloSensOffsetBox,&QSpinBox::setValue);
+
+    QObject::connect(pI7d->Parts[8],&Integra7Part::KeyboardFadeWidthLower,
+                     ui->Ch9KeyFadeLowerBox,&QSpinBox::setValue);
+
+    QObject::connect(pI7d->Parts[8],&Integra7Part::KeyboardRangeLower,
+                     ui->Ch9KeyRangeLowerBox,&QSpinBox::setValue);
+
+    QObject::connect(pI7d->Parts[8],&Integra7Part::KeyboardRangeUpper,
+                     ui->Ch9KeyRangeUpperBox,&QSpinBox::setValue);
+
+    QObject::connect(pI7d->Parts[8],&Integra7Part::KeyboardFadeWidthUpper,
+                     ui->Ch9KeyFadeUpperBox,&QSpinBox::setValue);
+
+    QObject::connect(pI7d->Parts[8],&Integra7Part::VelocityFadeWidthLower,
+                     ui->Ch9VeloFadeLowerBox,&QSpinBox::setValue);
+
+    QObject::connect(pI7d->Parts[8],&Integra7Part::VelocityRangeLower,
+                     ui->Ch9VeloRangeLower,&QSpinBox::setValue);
+
+    QObject::connect(pI7d->Parts[8],&Integra7Part::VelocityRangeUpper,
+                     ui->Ch9VeloRangeUpper,&QSpinBox::setValue);
+
+    QObject::connect(pI7d->Parts[8],&Integra7Part::VelocityFadeWidthUpper,
+                     ui->Ch9VeloFadeUpperBox,&QSpinBox::setValue);
+
+    QObject::connect(pI7d->Parts[8],&Integra7Part::PartVelocitySensOffset,
+                     ui->Ch9VeloSensOffsetBox,&QSpinBox::setValue);
+
+    QObject::connect(pI7d->Parts[9],&Integra7Part::KeyboardFadeWidthLower,
+                     ui->Ch10KeyFadeLowerBox,&QSpinBox::setValue);
+
+    QObject::connect(pI7d->Parts[9],&Integra7Part::KeyboardRangeLower,
+                     ui->Ch10KeyRangeLowerBox,&QSpinBox::setValue);
+
+    QObject::connect(pI7d->Parts[9],&Integra7Part::KeyboardRangeUpper,
+                     ui->Ch10KeyRangeUpperBox,&QSpinBox::setValue);
+
+    QObject::connect(pI7d->Parts[9],&Integra7Part::KeyboardFadeWidthUpper,
+                     ui->Ch10KeyFadeUpperBox,&QSpinBox::setValue);
+
+    QObject::connect(pI7d->Parts[9],&Integra7Part::VelocityFadeWidthLower,
+                     ui->Ch10VeloFadeLowerBox,&QSpinBox::setValue);
+
+    QObject::connect(pI7d->Parts[9],&Integra7Part::VelocityRangeLower,
+                     ui->Ch10VeloRangeLower,&QSpinBox::setValue);
+
+    QObject::connect(pI7d->Parts[9],&Integra7Part::VelocityRangeUpper,
+                     ui->Ch10VeloRangeUpper,&QSpinBox::setValue);
+
+    QObject::connect(pI7d->Parts[9],&Integra7Part::VelocityFadeWidthUpper,
+                     ui->Ch10VeloFadeUpperBox,&QSpinBox::setValue);
+
+    QObject::connect(pI7d->Parts[9],&Integra7Part::PartVelocitySensOffset,
+                     ui->Ch10VeloSensOffsetBox,&QSpinBox::setValue);
+
+    QObject::connect(pI7d->Parts[10],&Integra7Part::KeyboardFadeWidthLower,
+                     ui->Ch11KeyFadeLowerBox,&QSpinBox::setValue);
+
+    QObject::connect(pI7d->Parts[10],&Integra7Part::KeyboardRangeLower,
+                     ui->Ch11KeyRangeLowerBox,&QSpinBox::setValue);
+
+    QObject::connect(pI7d->Parts[10],&Integra7Part::KeyboardRangeUpper,
+                     ui->Ch11KeyRangeUpperBox,&QSpinBox::setValue);
+
+    QObject::connect(pI7d->Parts[10],&Integra7Part::KeyboardFadeWidthUpper,
+                     ui->Ch11KeyFadeUpperBox,&QSpinBox::setValue);
+
+    QObject::connect(pI7d->Parts[10],&Integra7Part::VelocityFadeWidthLower,
+                     ui->Ch11VeloFadeLowerBox,&QSpinBox::setValue);
+
+    QObject::connect(pI7d->Parts[10],&Integra7Part::VelocityRangeLower,
+                     ui->Ch11VeloRangeLower,&QSpinBox::setValue);
+
+    QObject::connect(pI7d->Parts[10],&Integra7Part::VelocityRangeUpper,
+                     ui->Ch11VeloRangeUpper,&QSpinBox::setValue);
+
+    QObject::connect(pI7d->Parts[10],&Integra7Part::VelocityFadeWidthUpper,
+                     ui->Ch11VeloFadeUpperBox,&QSpinBox::setValue);
+
+    QObject::connect(pI7d->Parts[10],&Integra7Part::PartVelocitySensOffset,
+                     ui->Ch11VeloSensOffsetBox,&QSpinBox::setValue);
+
+    QObject::connect(pI7d->Parts[11],&Integra7Part::KeyboardFadeWidthLower,
+                     ui->Ch12KeyFadeLowerBox,&QSpinBox::setValue);
+
+    QObject::connect(pI7d->Parts[11],&Integra7Part::KeyboardRangeLower,
+                     ui->Ch12KeyRangeLowerBox,&QSpinBox::setValue);
+
+    QObject::connect(pI7d->Parts[11],&Integra7Part::KeyboardRangeUpper,
+                     ui->Ch12KeyRangeUpperBox,&QSpinBox::setValue);
+
+    QObject::connect(pI7d->Parts[11],&Integra7Part::KeyboardFadeWidthUpper,
+                     ui->Ch12KeyFadeUpperBox,&QSpinBox::setValue);
+
+    QObject::connect(pI7d->Parts[11],&Integra7Part::VelocityFadeWidthLower,
+                     ui->Ch12VeloFadeLowerBox,&QSpinBox::setValue);
+
+    QObject::connect(pI7d->Parts[11],&Integra7Part::VelocityRangeLower,
+                     ui->Ch12VeloRangeLower,&QSpinBox::setValue);
+
+    QObject::connect(pI7d->Parts[11],&Integra7Part::VelocityRangeUpper,
+                     ui->Ch12VeloRangeUpper,&QSpinBox::setValue);
+
+    QObject::connect(pI7d->Parts[11],&Integra7Part::VelocityFadeWidthUpper,
+                     ui->Ch12VeloFadeUpperBox,&QSpinBox::setValue);
+
+    QObject::connect(pI7d->Parts[11],&Integra7Part::PartVelocitySensOffset,
+                     ui->Ch12VeloSensOffsetBox,&QSpinBox::setValue);
+
+    QObject::connect(pI7d->Parts[12],&Integra7Part::KeyboardFadeWidthLower,
+                     ui->Ch13KeyFadeLowerBox,&QSpinBox::setValue);
+
+    QObject::connect(pI7d->Parts[12],&Integra7Part::KeyboardRangeLower,
+                     ui->Ch13KeyRangeLowerBox,&QSpinBox::setValue);
+
+    QObject::connect(pI7d->Parts[12],&Integra7Part::KeyboardRangeUpper,
+                     ui->Ch13KeyRangeUpperBox,&QSpinBox::setValue);
+
+    QObject::connect(pI7d->Parts[12],&Integra7Part::KeyboardFadeWidthUpper,
+                     ui->Ch13KeyFadeUpperBox,&QSpinBox::setValue);
+
+    QObject::connect(pI7d->Parts[12],&Integra7Part::VelocityFadeWidthLower,
+                     ui->Ch13VeloFadeLowerBox,&QSpinBox::setValue);
+
+    QObject::connect(pI7d->Parts[12],&Integra7Part::VelocityRangeLower,
+                     ui->Ch13VeloRangeLower,&QSpinBox::setValue);
+
+    QObject::connect(pI7d->Parts[12],&Integra7Part::VelocityRangeUpper,
+                     ui->Ch13VeloRangeUpper,&QSpinBox::setValue);
+
+    QObject::connect(pI7d->Parts[12],&Integra7Part::VelocityFadeWidthUpper,
+                     ui->Ch13VeloFadeUpperBox,&QSpinBox::setValue);
+
+    QObject::connect(pI7d->Parts[12],&Integra7Part::PartVelocitySensOffset,
+                     ui->Ch13VeloSensOffsetBox,&QSpinBox::setValue);
+
+    QObject::connect(pI7d->Parts[13],&Integra7Part::KeyboardFadeWidthLower,
+                     ui->Ch14KeyFadeLowerBox,&QSpinBox::setValue);
+
+    QObject::connect(pI7d->Parts[13],&Integra7Part::KeyboardRangeLower,
+                     ui->Ch14KeyRangeLowerBox,&QSpinBox::setValue);
+
+    QObject::connect(pI7d->Parts[13],&Integra7Part::KeyboardRangeUpper,
+                     ui->Ch14KeyRangeUpperBox,&QSpinBox::setValue);
+
+    QObject::connect(pI7d->Parts[13],&Integra7Part::KeyboardFadeWidthUpper,
+                     ui->Ch14KeyFadeUpperBox,&QSpinBox::setValue);
+
+    QObject::connect(pI7d->Parts[13],&Integra7Part::VelocityFadeWidthLower,
+                     ui->Ch14VeloFadeLowerBox,&QSpinBox::setValue);
+
+    QObject::connect(pI7d->Parts[13],&Integra7Part::VelocityRangeLower,
+                     ui->Ch14VeloRangeLower,&QSpinBox::setValue);
+
+    QObject::connect(pI7d->Parts[13],&Integra7Part::VelocityRangeUpper,
+                     ui->Ch14VeloRangeUpper,&QSpinBox::setValue);
+
+    QObject::connect(pI7d->Parts[13],&Integra7Part::VelocityFadeWidthUpper,
+                     ui->Ch14VeloFadeUpperBox,&QSpinBox::setValue);
+
+    QObject::connect(pI7d->Parts[13],&Integra7Part::PartVelocitySensOffset,
+                     ui->Ch14VeloSensOffsetBox,&QSpinBox::setValue);
+
+    QObject::connect(pI7d->Parts[14],&Integra7Part::KeyboardFadeWidthLower,
+                     ui->Ch15KeyFadeLowerBox,&QSpinBox::setValue);
+
+    QObject::connect(pI7d->Parts[14],&Integra7Part::KeyboardRangeLower,
+                     ui->Ch15KeyRangeLowerBox,&QSpinBox::setValue);
+
+    QObject::connect(pI7d->Parts[14],&Integra7Part::KeyboardRangeUpper,
+                     ui->Ch15KeyRangeUpperBox,&QSpinBox::setValue);
+
+    QObject::connect(pI7d->Parts[14],&Integra7Part::KeyboardFadeWidthUpper,
+                     ui->Ch15KeyFadeUpperBox,&QSpinBox::setValue);
+
+    QObject::connect(pI7d->Parts[14],&Integra7Part::VelocityFadeWidthLower,
+                     ui->Ch15VeloFadeLowerBox,&QSpinBox::setValue);
+
+    QObject::connect(pI7d->Parts[14],&Integra7Part::VelocityRangeLower,
+                     ui->Ch15VeloRangeLower,&QSpinBox::setValue);
+
+    QObject::connect(pI7d->Parts[14],&Integra7Part::VelocityRangeUpper,
+                     ui->Ch15VeloRangeUpper,&QSpinBox::setValue);
+
+    QObject::connect(pI7d->Parts[14],&Integra7Part::VelocityFadeWidthUpper,
+                     ui->Ch15VeloFadeUpperBox,&QSpinBox::setValue);
+
+    QObject::connect(pI7d->Parts[14],&Integra7Part::PartVelocitySensOffset,
+                     ui->Ch15VeloSensOffsetBox,&QSpinBox::setValue);
+
+    QObject::connect(pI7d->Parts[15],&Integra7Part::KeyboardFadeWidthLower,
+                     ui->Ch16KeyFadeLowerBox,&QSpinBox::setValue);
+
+    QObject::connect(pI7d->Parts[15],&Integra7Part::KeyboardRangeLower,
+                     ui->Ch16KeyRangeLowerBox,&QSpinBox::setValue);
+
+    QObject::connect(pI7d->Parts[15],&Integra7Part::KeyboardRangeUpper,
+                     ui->Ch16KeyRangeUpperBox,&QSpinBox::setValue);
+
+    QObject::connect(pI7d->Parts[15],&Integra7Part::KeyboardFadeWidthUpper,
+                     ui->Ch16KeyFadeUpperBox,&QSpinBox::setValue);
+
+    QObject::connect(pI7d->Parts[15],&Integra7Part::VelocityFadeWidthLower,
+                     ui->Ch16VeloFadeLowerBox,&QSpinBox::setValue);
+
+    QObject::connect(pI7d->Parts[15],&Integra7Part::VelocityRangeLower,
+                     ui->Ch16VeloRangeLower,&QSpinBox::setValue);
+
+    QObject::connect(pI7d->Parts[15],&Integra7Part::VelocityRangeUpper,
+                     ui->Ch16VeloRangeUpper,&QSpinBox::setValue);
+
+    QObject::connect(pI7d->Parts[15],&Integra7Part::VelocityFadeWidthUpper,
+                     ui->Ch16VeloFadeUpperBox,&QSpinBox::setValue);
+
+    QObject::connect(pI7d->Parts[15],&Integra7Part::PartVelocitySensOffset,
+                     ui->Ch16VeloSensOffsetBox,&QSpinBox::setValue);
+
+    QObject::connect(pI7d->Parts[0],&Integra7Part::PartOctaveShift,
+                     ui->Ch1OctaveShiftBox,&QSpinBox::setValue);
+
+    QObject::connect(pI7d->Parts[0],&Integra7Part::PartCoarseTune,
+                     ui->Ch1CoarseTuneBox,&QSpinBox::setValue);
+
+    QObject::connect(pI7d->Parts[0],&Integra7Part::PartFineTune,
+                     ui->Ch1FineTuneBox,&QSpinBox::setValue);
+
+    QObject::connect(pI7d->Parts[0],&Integra7Part::PartPitchBendRange,
+                     ui->Ch1BendRangeBox,&QSpinBox::setValue);
+
+    QObject::connect(pI7d->Parts[0],&Integra7Part::PartPortamentoSwitch,
+                     ui->Ch1PortaSwitchBox,&QComboBox::setCurrentIndex);
+
+    QObject::connect(pI7d->Parts[0],&Integra7Part::PartPortamentoTime,
+                     ui->Ch1PortaTimeBox,&QSpinBox::setValue);
+
+    QObject::connect(pI7d->Parts[1],&Integra7Part::PartOctaveShift,
+                     ui->Ch2OctaveShiftBox,&QSpinBox::setValue);
+
+    QObject::connect(pI7d->Parts[1],&Integra7Part::PartCoarseTune,
+                     ui->Ch2CoarseTuneBox,&QSpinBox::setValue);
+
+    QObject::connect(pI7d->Parts[1],&Integra7Part::PartFineTune,
+                     ui->Ch2FineTuneBox,&QSpinBox::setValue);
+
+    QObject::connect(pI7d->Parts[1],&Integra7Part::PartPitchBendRange,
+                     ui->Ch2BendRangeBox,&QSpinBox::setValue);
+
+    QObject::connect(pI7d->Parts[1],&Integra7Part::PartPortamentoSwitch,
+                     ui->Ch2PortaSwitchBox,&QComboBox::setCurrentIndex);
+
+    QObject::connect(pI7d->Parts[1],&Integra7Part::PartPortamentoTime,
+                     ui->Ch2PortaTimeBox,&QSpinBox::setValue);
+
+    QObject::connect(pI7d->Parts[2],&Integra7Part::PartOctaveShift,
+                     ui->Ch3OctaveShiftBox,&QSpinBox::setValue);
+
+    QObject::connect(pI7d->Parts[2],&Integra7Part::PartCoarseTune,
+                     ui->Ch3CoarseTuneBox,&QSpinBox::setValue);
+
+    QObject::connect(pI7d->Parts[2],&Integra7Part::PartFineTune,
+                     ui->Ch3FineTuneBox,&QSpinBox::setValue);
+
+    QObject::connect(pI7d->Parts[2],&Integra7Part::PartPitchBendRange,
+                     ui->Ch3BendRangeBox,&QSpinBox::setValue);
+
+    QObject::connect(pI7d->Parts[2],&Integra7Part::PartPortamentoSwitch,
+                     ui->Ch3PortaSwitchBox,&QComboBox::setCurrentIndex);
+
+    QObject::connect(pI7d->Parts[2],&Integra7Part::PartPortamentoTime,
+                     ui->Ch3PortaTimeBox,&QSpinBox::setValue);
+
+    QObject::connect(pI7d->Parts[3],&Integra7Part::PartOctaveShift,
+                     ui->Ch4OctaveShiftBox,&QSpinBox::setValue);
+
+    QObject::connect(pI7d->Parts[3],&Integra7Part::PartCoarseTune,
+                     ui->Ch4CoarseTuneBox,&QSpinBox::setValue);
+
+    QObject::connect(pI7d->Parts[3],&Integra7Part::PartFineTune,
+                     ui->Ch4FineTuneBox,&QSpinBox::setValue);
+
+    QObject::connect(pI7d->Parts[3],&Integra7Part::PartPitchBendRange,
+                     ui->Ch4BendRangeBox,&QSpinBox::setValue);
+
+    QObject::connect(pI7d->Parts[3],&Integra7Part::PartPortamentoSwitch,
+                     ui->Ch4PortaSwitchBox,&QComboBox::setCurrentIndex);
+
+    QObject::connect(pI7d->Parts[3],&Integra7Part::PartPortamentoTime,
+                     ui->Ch4PortaTimeBox,&QSpinBox::setValue);
+
+    QObject::connect(pI7d->Parts[4],&Integra7Part::PartOctaveShift,
+                     ui->Ch5OctaveShiftBox,&QSpinBox::setValue);
+
+    QObject::connect(pI7d->Parts[4],&Integra7Part::PartCoarseTune,
+                     ui->Ch5CoarseTuneBox,&QSpinBox::setValue);
+
+    QObject::connect(pI7d->Parts[4],&Integra7Part::PartFineTune,
+                     ui->Ch5FineTuneBox,&QSpinBox::setValue);
+
+    QObject::connect(pI7d->Parts[4],&Integra7Part::PartPitchBendRange,
+                     ui->Ch5BendRangeBox,&QSpinBox::setValue);
+
+    QObject::connect(pI7d->Parts[4],&Integra7Part::PartPortamentoSwitch,
+                     ui->Ch5PortaSwitchBox,&QComboBox::setCurrentIndex);
+
+    QObject::connect(pI7d->Parts[4],&Integra7Part::PartPortamentoTime,
+                     ui->Ch5PortaTimeBox,&QSpinBox::setValue);
+
+    QObject::connect(pI7d->Parts[5],&Integra7Part::PartOctaveShift,
+                     ui->Ch6OctaveShiftBox,&QSpinBox::setValue);
+
+    QObject::connect(pI7d->Parts[5],&Integra7Part::PartCoarseTune,
+                     ui->Ch6CoarseTuneBox,&QSpinBox::setValue);
+
+    QObject::connect(pI7d->Parts[5],&Integra7Part::PartFineTune,
+                     ui->Ch6FineTuneBox,&QSpinBox::setValue);
+
+    QObject::connect(pI7d->Parts[5],&Integra7Part::PartPitchBendRange,
+                     ui->Ch6BendRangeBox,&QSpinBox::setValue);
+
+    QObject::connect(pI7d->Parts[5],&Integra7Part::PartPortamentoSwitch,
+                     ui->Ch6PortaSwitchBox,&QComboBox::setCurrentIndex);
+
+    QObject::connect(pI7d->Parts[5],&Integra7Part::PartPortamentoTime,
+                     ui->Ch6PortaTimeBox,&QSpinBox::setValue);
+
+    QObject::connect(pI7d->Parts[6],&Integra7Part::PartOctaveShift,
+                     ui->Ch7OctaveShiftBox,&QSpinBox::setValue);
+
+    QObject::connect(pI7d->Parts[6],&Integra7Part::PartCoarseTune,
+                     ui->Ch7CoarseTuneBox,&QSpinBox::setValue);
+
+    QObject::connect(pI7d->Parts[6],&Integra7Part::PartFineTune,
+                     ui->Ch7FineTuneBox,&QSpinBox::setValue);
+
+    QObject::connect(pI7d->Parts[6],&Integra7Part::PartPitchBendRange,
+                     ui->Ch7BendRangeBox,&QSpinBox::setValue);
+
+    QObject::connect(pI7d->Parts[6],&Integra7Part::PartPortamentoSwitch,
+                     ui->Ch7PortaSwitchBox,&QComboBox::setCurrentIndex);
+
+    QObject::connect(pI7d->Parts[6],&Integra7Part::PartPortamentoTime,
+                     ui->Ch7PortaTimeBox,&QSpinBox::setValue);
+
+    QObject::connect(pI7d->Parts[7],&Integra7Part::PartOctaveShift,
+                     ui->Ch8OctaveShiftBox,&QSpinBox::setValue);
+
+    QObject::connect(pI7d->Parts[7],&Integra7Part::PartCoarseTune,
+                     ui->Ch8CoarseTuneBox,&QSpinBox::setValue);
+
+    QObject::connect(pI7d->Parts[7],&Integra7Part::PartFineTune,
+                     ui->Ch8FineTuneBox,&QSpinBox::setValue);
+
+    QObject::connect(pI7d->Parts[7],&Integra7Part::PartPitchBendRange,
+                     ui->Ch8BendRangeBox,&QSpinBox::setValue);
+
+    QObject::connect(pI7d->Parts[7],&Integra7Part::PartPortamentoSwitch,
+                     ui->Ch8PortaSwitchBox,&QComboBox::setCurrentIndex);
+
+    QObject::connect(pI7d->Parts[7],&Integra7Part::PartPortamentoTime,
+                     ui->Ch8PortaTimeBox,&QSpinBox::setValue);
+
+    QObject::connect(pI7d->Parts[8],&Integra7Part::PartOctaveShift,
+                     ui->Ch9OctaveShiftBox,&QSpinBox::setValue);
+
+    QObject::connect(pI7d->Parts[8],&Integra7Part::PartCoarseTune,
+                     ui->Ch9CoarseTuneBox,&QSpinBox::setValue);
+
+    QObject::connect(pI7d->Parts[8],&Integra7Part::PartFineTune,
+                     ui->Ch9FineTuneBox,&QSpinBox::setValue);
+
+    QObject::connect(pI7d->Parts[8],&Integra7Part::PartPitchBendRange,
+                     ui->Ch9BendRangeBox,&QSpinBox::setValue);
+
+    QObject::connect(pI7d->Parts[8],&Integra7Part::PartPortamentoSwitch,
+                     ui->Ch9PortaSwitchBox,&QComboBox::setCurrentIndex);
+
+    QObject::connect(pI7d->Parts[8],&Integra7Part::PartPortamentoTime,
+                     ui->Ch9PortaTimeBox,&QSpinBox::setValue);
+
+    QObject::connect(pI7d->Parts[9],&Integra7Part::PartOctaveShift,
+                     ui->Ch10OctaveShiftBox,&QSpinBox::setValue);
+
+    QObject::connect(pI7d->Parts[9],&Integra7Part::PartCoarseTune,
+                     ui->Ch10CoarseTuneBox,&QSpinBox::setValue);
+
+    QObject::connect(pI7d->Parts[9],&Integra7Part::PartFineTune,
+                     ui->Ch10FineTuneBox,&QSpinBox::setValue);
+
+    QObject::connect(pI7d->Parts[9],&Integra7Part::PartPitchBendRange,
+                     ui->Ch10BendRangeBox,&QSpinBox::setValue);
+
+    QObject::connect(pI7d->Parts[9],&Integra7Part::PartPortamentoSwitch,
+                     ui->Ch10PortaSwitchBox,&QComboBox::setCurrentIndex);
+
+    QObject::connect(pI7d->Parts[9],&Integra7Part::PartPortamentoTime,
+                     ui->Ch10PortaTimeBox,&QSpinBox::setValue);
+
+    QObject::connect(pI7d->Parts[10],&Integra7Part::PartOctaveShift,
+                     ui->Ch11OctaveShiftBox,&QSpinBox::setValue);
+
+    QObject::connect(pI7d->Parts[10],&Integra7Part::PartCoarseTune,
+                     ui->Ch11CoarseTuneBox,&QSpinBox::setValue);
+
+    QObject::connect(pI7d->Parts[10],&Integra7Part::PartFineTune,
+                     ui->Ch11FineTuneBox,&QSpinBox::setValue);
+
+    QObject::connect(pI7d->Parts[10],&Integra7Part::PartPitchBendRange,
+                     ui->Ch11BendRangeBox,&QSpinBox::setValue);
+
+    QObject::connect(pI7d->Parts[10],&Integra7Part::PartPortamentoSwitch,
+                     ui->Ch11PortaSwitchBox,&QComboBox::setCurrentIndex);
+
+    QObject::connect(pI7d->Parts[10],&Integra7Part::PartPortamentoTime,
+                     ui->Ch11PortaTimeBox,&QSpinBox::setValue);
+
+    QObject::connect(pI7d->Parts[11],&Integra7Part::PartOctaveShift,
+                     ui->Ch12OctaveShiftBox,&QSpinBox::setValue);
+
+    QObject::connect(pI7d->Parts[11],&Integra7Part::PartCoarseTune,
+                     ui->Ch12CoarseTuneBox,&QSpinBox::setValue);
+
+    QObject::connect(pI7d->Parts[11],&Integra7Part::PartFineTune,
+                     ui->Ch12FineTuneBox,&QSpinBox::setValue);
+
+    QObject::connect(pI7d->Parts[11],&Integra7Part::PartPitchBendRange,
+                     ui->Ch12BendRangeBox,&QSpinBox::setValue);
+
+    QObject::connect(pI7d->Parts[11],&Integra7Part::PartPortamentoSwitch,
+                     ui->Ch12PortaSwitchBox,&QComboBox::setCurrentIndex);
+
+    QObject::connect(pI7d->Parts[11],&Integra7Part::PartPortamentoTime,
+                     ui->Ch12PortaTimeBox,&QSpinBox::setValue);
+
+    QObject::connect(pI7d->Parts[12],&Integra7Part::PartOctaveShift,
+                     ui->Ch13OctaveShiftBox,&QSpinBox::setValue);
+
+    QObject::connect(pI7d->Parts[12],&Integra7Part::PartCoarseTune,
+                     ui->Ch13CoarseTuneBox,&QSpinBox::setValue);
+
+    QObject::connect(pI7d->Parts[12],&Integra7Part::PartFineTune,
+                     ui->Ch13FineTuneBox,&QSpinBox::setValue);
+
+    QObject::connect(pI7d->Parts[12],&Integra7Part::PartPitchBendRange,
+                     ui->Ch13BendRangeBox,&QSpinBox::setValue);
+
+    QObject::connect(pI7d->Parts[12],&Integra7Part::PartPortamentoSwitch,
+                     ui->Ch13PortaSwitchBox,&QComboBox::setCurrentIndex);
+
+    QObject::connect(pI7d->Parts[12],&Integra7Part::PartPortamentoTime,
+                     ui->Ch13PortaTimeBox,&QSpinBox::setValue);
+
+    QObject::connect(pI7d->Parts[13],&Integra7Part::PartOctaveShift,
+                     ui->Ch14OctaveShiftBox,&QSpinBox::setValue);
+
+    QObject::connect(pI7d->Parts[13],&Integra7Part::PartCoarseTune,
+                     ui->Ch14CoarseTuneBox,&QSpinBox::setValue);
+
+    QObject::connect(pI7d->Parts[13],&Integra7Part::PartFineTune,
+                     ui->Ch14FineTuneBox,&QSpinBox::setValue);
+
+    QObject::connect(pI7d->Parts[13],&Integra7Part::PartPitchBendRange,
+                     ui->Ch14BendRangeBox,&QSpinBox::setValue);
+
+    QObject::connect(pI7d->Parts[13],&Integra7Part::PartPortamentoSwitch,
+                     ui->Ch14PortaSwitchBox,&QComboBox::setCurrentIndex);
+
+    QObject::connect(pI7d->Parts[13],&Integra7Part::PartPortamentoTime,
+                     ui->Ch14PortaTimeBox,&QSpinBox::setValue);
+
+    QObject::connect(pI7d->Parts[14],&Integra7Part::PartOctaveShift,
+                     ui->Ch15OctaveShiftBox,&QSpinBox::setValue);
+
+    QObject::connect(pI7d->Parts[14],&Integra7Part::PartCoarseTune,
+                     ui->Ch15CoarseTuneBox,&QSpinBox::setValue);
+
+    QObject::connect(pI7d->Parts[14],&Integra7Part::PartFineTune,
+                     ui->Ch15FineTuneBox,&QSpinBox::setValue);
+
+    QObject::connect(pI7d->Parts[14],&Integra7Part::PartPitchBendRange,
+                     ui->Ch15BendRangeBox,&QSpinBox::setValue);
+
+    QObject::connect(pI7d->Parts[14],&Integra7Part::PartPortamentoSwitch,
+                     ui->Ch15PortaSwitchBox,&QComboBox::setCurrentIndex);
+
+    QObject::connect(pI7d->Parts[14],&Integra7Part::PartPortamentoTime,
+                     ui->Ch15PortaTimeBox,&QSpinBox::setValue);
+
+    QObject::connect(pI7d->Parts[15],&Integra7Part::PartOctaveShift,
+                     ui->Ch16OctaveShiftBox,&QSpinBox::setValue);
+
+    QObject::connect(pI7d->Parts[15],&Integra7Part::PartCoarseTune,
+                     ui->Ch16CoarseTuneBox,&QSpinBox::setValue);
+
+    QObject::connect(pI7d->Parts[15],&Integra7Part::PartFineTune,
+                     ui->Ch16FineTuneBox,&QSpinBox::setValue);
+
+    QObject::connect(pI7d->Parts[15],&Integra7Part::PartPitchBendRange,
+                     ui->Ch16BendRangeBox,&QSpinBox::setValue);
+
+    QObject::connect(pI7d->Parts[15],&Integra7Part::PartPortamentoSwitch,
+                     ui->Ch16PortaSwitchBox,&QComboBox::setCurrentIndex);
+
+    QObject::connect(pI7d->Parts[15],&Integra7Part::PartPortamentoTime,
+                     ui->Ch16PortaTimeBox,&QSpinBox::setValue);
+
+    QObject::connect(pI7d->StudioSetCommon,&Integra7StudioSetCommon::ChorusSwitch,
+                     ui->ChorusSwBtn,&QAbstractButton::setChecked);
+
+    QObject::connect(pI7d->Chorus,&Integra7Chorus::ChorusType,
+                     ui->ChorusTypeBox,&QComboBox::setCurrentIndex);
+
+    QObject::connect(pI7d->Chorus,&Integra7Chorus::ChorusLevel,
+                     ui->ChorusLvlBox,&QSpinBox::setValue);
+
+    QObject::connect(pI7d->Chorus,&Integra7Chorus::ChorusOutputSelect,
+                     ui->ChorusOutSelectBox,&QComboBox::setCurrentIndex);
+
+    QObject::connect(pI7d->Chorus,&Integra7Chorus::ChorusFilterType,
+                     ui->ChorusFilterTypeBox,&QComboBox::setCurrentIndex);
+
+    QObject::connect(pI7d->Chorus,&Integra7Chorus::ChorusCutoffFreq,
+                     ui->ChorusFilterCutoffBox,&QComboBox::setCurrentIndex);
+
+    QObject::connect(pI7d->Chorus,&Integra7Chorus::ChorusPreDelay,
+                     ui->ChorusPreDelayBox,&QComboBox::setCurrentIndex);
+
+    QObject::connect(pI7d->Chorus,&Integra7Chorus::ChorusRateType,
+                     ui->ChorusRateTypeBox,&QComboBox::setCurrentIndex);
+
+    QObject::connect(pI7d->Chorus,&Integra7Chorus::ChorusRateHz,
+                     ui->ChorusHzRateBox,&QComboBox::setCurrentIndex);
+
+    QObject::connect(pI7d->Chorus,&Integra7Chorus::ChorusRateNote,
+                     ui->ChorusNoteRateBox,&QComboBox::setCurrentIndex);
+
+    QObject::connect(pI7d->Chorus,&Integra7Chorus::ChorusDepth,
+                     ui->ChorusDepthBox,&QSpinBox::setValue);
+
+    QObject::connect(pI7d->Chorus,&Integra7Chorus::ChorusPhase,
+                     ui->ChorusPhaseBox,&QSpinBox::setValue);
+
+    QObject::connect(pI7d->Chorus,&Integra7Chorus::ChorusFeedback,
+                     ui->ChorusFbBox,&QSpinBox::setValue);
+
+    QObject::connect(pI7d->Chorus,&Integra7Chorus::DelayDelayLeft,
+                     ui->DelayLeftTypeBox,&QComboBox::setCurrentIndex);
+
+    QObject::connect(pI7d->Chorus,&Integra7Chorus::DelayDelayLeftMS,
+                     ui->DelayLeftBox,&QSpinBox::setValue);
+
+    QObject::connect(pI7d->Chorus,&Integra7Chorus::DelayDelayLeftNote,
+                     ui->DelayLeftNoteBox,&QComboBox::setCurrentIndex);
+
+    QObject::connect(pI7d->Chorus,&Integra7Chorus::DelayDelayRight,
+                     ui->DelayRightTypeBox,&QComboBox::setCurrentIndex);
+
+    QObject::connect(pI7d->Chorus,&Integra7Chorus::DelayDelayRightMS,
+                     ui->DelayRightBox,&QSpinBox::setValue);
+
+    QObject::connect(pI7d->Chorus,&Integra7Chorus::DelayDelayRightNote,
+                     ui->DelayRightNoteBox,&QComboBox::setCurrentIndex);
+
+    QObject::connect(pI7d->Chorus,&Integra7Chorus::DelayDelayCenter,
+                     ui->DelayCenterTypeBox,&QComboBox::setCurrentIndex);
+
+    QObject::connect(pI7d->Chorus,&Integra7Chorus::DelayDelayCenterMS,
+                     ui->DelayCenterBox,&QSpinBox::setValue);
+
+    QObject::connect(pI7d->Chorus,&Integra7Chorus::DelayDelayCenterNote,
+                     ui->DelayCenterNoteBox,&QComboBox::setCurrentIndex);
+
+    QObject::connect(pI7d->Chorus,&Integra7Chorus::DelayFeedback,
+                     ui->DelayFBBox,&QSpinBox::setValue);
+
+    QObject::connect(pI7d->Chorus,&Integra7Chorus::DelayHFDamp,
+                     ui->DelayHFDampBox,&QComboBox::setCurrentIndex);
+
+    QObject::connect(pI7d->Chorus,&Integra7Chorus::DelayLeftLevel,
+                     ui->DelayLeftLvlBox,&QSpinBox::setValue);
+
+    QObject::connect(pI7d->Chorus,&Integra7Chorus::DelayRightLevel,
+                     ui->DelayRightLvlBox,&QSpinBox::setValue);
+
+    QObject::connect(pI7d->Chorus,&Integra7Chorus::DelayCenterLevel,
+                     ui->DelayCenterLvlBox,&QSpinBox::setValue);
+
+    QObject::connect(pI7d->Chorus,&Integra7Chorus::GM2ChorusPreLPF,
+                     ui->ChorusGM2PreLPFBox,&QComboBox::setCurrentIndex);
+
+    QObject::connect(pI7d->Chorus,&Integra7Chorus::GM2ChorusLevel,
+                     ui->ChorusGM2LevelBox,&QSpinBox::setValue);
+
+    QObject::connect(pI7d->Chorus,&Integra7Chorus::GM2ChorusFeedback,
+                     ui->ChorusGM2FBBox,&QSpinBox::setValue);
+
+    QObject::connect(pI7d->Chorus,&Integra7Chorus::GM2ChorusDelay,
+                     ui->ChorusGM2DelayBox,&QSpinBox::setValue);
+
+    QObject::connect(pI7d->Chorus,&Integra7Chorus::GM2ChorusRate,
+                     ui->ChorusGM2RateBox,&QSpinBox::setValue);
+
+    QObject::connect(pI7d->Chorus,&Integra7Chorus::GM2ChorusDepth,
+                     ui->ChorusGM2DepthBox,&QSpinBox::setValue);
+
+    QObject::connect(pI7d->StudioSetCommon,&Integra7StudioSetCommon::ReverbSwitch,
+                     ui->ReverbSwBtn,&QAbstractButton::setChecked);
+
+    QObject::connect(pI7d->Reverb,&Integra7Reverb::Type,
+                     ui->ReverbTypeBox,&QComboBox::setCurrentIndex);
+
+    QObject::connect(pI7d->Reverb,&Integra7Reverb::Level,
+                     ui->ReverbLevelBox,&QSpinBox::setValue);
+
+    QObject::connect(pI7d->Reverb,&Integra7Reverb::OutputAssign,
+                     ui->ReverbOutputAssignBox,&QComboBox::setCurrentIndex);
+
+    QObject::connect(pI7d->Reverb,&Integra7Reverb::PreDelay,
+                     ui->ReverbPreDelayBox,&QSpinBox::setValue);
+
+    QObject::connect(pI7d->Reverb,&Integra7Reverb::Time,
+                     ui->ReverbTimeBox,&QComboBox::setCurrentIndex);
+
+    QObject::connect(pI7d->Reverb,&Integra7Reverb::Density,
+                     ui->ReverbDensityBox,&QSpinBox::setValue);
+
+    QObject::connect(pI7d->Reverb,&Integra7Reverb::Diffusion,
+                     ui->ReverbDiffusionBox,&QSpinBox::setValue);
+
+    QObject::connect(pI7d->Reverb,&Integra7Reverb::LFDamp,
+                     ui->ReverbLFDampBox,&QSpinBox::setValue);
+
+    QObject::connect(pI7d->Reverb,&Integra7Reverb::HFDamp,
+                     ui->ReverbHFDampBox,&QSpinBox::setValue);
+
+    QObject::connect(pI7d->Reverb,&Integra7Reverb::Spread,
+                     ui->ReverbSpreadBox,&QSpinBox::setValue);
+
+    QObject::connect(pI7d->Reverb,&Integra7Reverb::Tone,
+                     ui->ReverbToneBox,&QSpinBox::setValue);
+
+    QObject::connect(pI7d->Reverb,&Integra7Reverb::GM2Character,
+                     ui->ReverbGM2CharBox,&QComboBox::setCurrentIndex);
+
+    QObject::connect(pI7d->Reverb,&Integra7Reverb::GM2Time,
+                     ui->ReverbGM2TimeBox,&QSpinBox::setValue);
 
     ui->Ch1Btn->setChecked(true);
 

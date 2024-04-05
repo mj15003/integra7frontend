@@ -53,28 +53,28 @@ void Integra7Reverb::EmitSignal(uint8_t a, int v)
         //Room,Hall,Plate section
         switch (a) {
         case 0x07:
-            emit PreDelay(v);
+            emit PreDelay(getPreDelay());
             break;
         case 0x0B:
-            emit Time(v-1);
+            emit Time(getTime());
             break;
         case 0x0F:
-            emit Density(v);
+            emit Density(getDensity());
             break;
         case 0x13:
-            emit Diffusion(v);
+            emit Diffusion(getDiffusion());
             break;
         case 0x17:
-            emit LFDamp(v);
+            emit LFDamp(getLFDamp());
             break;
         case 0x1B:
-            emit HFDamp(v);
+            emit HFDamp(getHFDamp());
             break;
         case 0x1F:
-            emit Spread(v);
+            emit Spread(getSpread());
             break;
         case 0x23:
-            emit Tone(v);
+            emit Tone(getTone());
             break;
         default:
             break;
@@ -85,7 +85,7 @@ void Integra7Reverb::EmitSignal(uint8_t a, int v)
             emit GM2Character(v);
             break;
         case 0x0F:
-            emit GM2Time(v);
+            emit GM2Time(getGM2Time());
             break;
         default:
             break;
@@ -95,5 +95,21 @@ void Integra7Reverb::EmitSignal(uint8_t a, int v)
 
 void Integra7Reverb::DataReceive(const uint8_t *rdata, uint8_t a, int len)
 {
+    uint8_t a2 = a + len;
+    uint8_t r = 0;
 
+    while (a < a2) {
+        if (a < 0x03){
+            data[a] = rdata[r++];
+            EmitSignal(a,data[a]);
+            ++a;
+        } else {
+            data[a] = rdata[r++];
+            data[a+1] = rdata[r++];
+            data[a+2] = rdata[r++];
+            data[a+3] = rdata[r++];
+            EmitSignal(a,data[a+3]);
+            a+=4;
+        }
+    }
 }

@@ -28,8 +28,8 @@ public:
 
     void DataReceive(const uint8_t *rdata, uint8_t a, int len);
 
-    uint16_t GetLength() {return 0x54;}
-    uint16_t GetItemsNumber() {return 24;}
+    int GetLength() {return 0x54;}
+    int GetItemsNumber() {return 24;}
 
     int getChorusType() {return data[0x0];}
     int getChorusLevel() {return data[0x1];}

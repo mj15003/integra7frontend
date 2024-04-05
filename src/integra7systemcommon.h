@@ -26,8 +26,8 @@ class Integra7SystemCommon : public Integra7ParameterSet
     Q_OBJECT
 public:
     explicit Integra7SystemCommon(Integra7Device *parent, uint8_t o1, uint8_t o2, uint8_t o3);
-    uint16_t GetLength() {return 0x2F;}
-    uint16_t GetItemsNumber() {return 19;}
+    int GetLength() {return 0x2F;}
+    int GetItemsNumber() {return 19;}
 
     void DataReceive(const uint8_t *rdata, uint8_t a, int len);
 

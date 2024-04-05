@@ -43,7 +43,7 @@ public:
     explicit Integra7Device(integra7MainWindow *parent, MidiEngine *midi);
     ~Integra7Device();
 
-    void DataSet(const uint8_t *data,uint16_t len);
+    void DataSet(const uint8_t *data,int len);
     void DataRequest(const uint8_t *data);
     void SendIdentityRequest();
     void DisplayStatsMsg();
@@ -486,6 +486,7 @@ public:
     static QStringList& GetToneList(QString type, QString bank);
 
 public slots:
+    void BulkDumpRequest();
     void setDeviceId(uint8_t Id);
     void SetPreview(uint8_t state);
     void ReceiveIntegraSysEx(const uint8_t *data, int len);

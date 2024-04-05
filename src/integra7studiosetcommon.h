@@ -27,8 +27,8 @@ class Integra7StudioSetCommon : public Integra7ParameterSet
     Q_OBJECT
 public:
     explicit Integra7StudioSetCommon(Integra7Device *parent, uint8_t o1, uint8_t o2, uint8_t o3);
-    uint16_t GetLength() {return 0x54;}
-    uint16_t GetItemsNumber() {return 37;}
+    int GetLength() {return 0x54;}
+    int GetItemsNumber() {return 37;}
 
     void DataReceive(const uint8_t *rdata, uint8_t a, int len);
 

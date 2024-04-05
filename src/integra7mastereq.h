@@ -29,8 +29,8 @@ public:
 
     void DataReceive(const uint8_t *rdata, uint8_t a, int len);
 
-    uint16_t GetLength() {return 7;}
-    uint16_t GetItemsNumber() {return 7;}
+    int GetLength() {return 7;}
+    int GetItemsNumber() {return 7;}
 
     int GetEQLowFreq() {return data[0];}
     int GetEQLowGain() {return data[1]-15;}

@@ -81,7 +81,7 @@ void Integra7Device::setDeviceId(uint8_t Id)
     }
 }
 
-void Integra7Device::DataSet(const uint8_t *data, uint16_t len)
+void Integra7Device::DataSet(const uint8_t *data, int len)
 {
     SysExData[6] = 0x12;//INTEGRA7 DataSet Command
     SendIntegraSysEx(data,len);
@@ -752,6 +752,30 @@ QStringList& Integra7Device::GetToneList(QString type, QString bank)
         return Integra7Device::GM2Presets9();
 
     return Integra7Device::GM2Presets();
+}
+
+void Integra7Device::BulkDumpRequest()
+{
+    uint8_t req[8];
+
+    Setup->GetRequestArray(req);
+    DataRequest(req);
+
+    SystemCommon->GetRequestArray(req);
+    DataRequest(req);
+
+    //Request whole StudioSet in single call
+    req[0] = 0x18;
+    req[1] = 0;
+    req[2] = 0;
+    req[3] = 0;
+
+    req[4] = 0;
+    req[5] = 0;
+    req[6] = 0x60;
+    req[7] = 0;
+
+    DataRequest(req);
 }
 
 uint8_t Integra7Device::Checksum(const uint8_t *msg)
