@@ -1347,6 +1347,18 @@ integra7MainWindow::integra7MainWindow(QWidget *parent)
     QObject::connect(ui->Ch16MuteBtn,&QPushButton::toggled,
                      pI7d->Parts[15],&Integra7Part::setMuteSwitch);
 
+    QObject::connect(ui->ExMuteBtn,&QPushButton::toggled,
+                     pI7d->StudioSetCommon,&Integra7StudioSetCommon::setExtPartMuteSwitch);
+
+    QObject::connect(ui->ExLevelBox,&QSpinBox::valueChanged,
+                     pI7d->StudioSetCommon,&Integra7StudioSetCommon::setExtPartLevel);
+
+    QObject::connect(ui->ExChorusBox,&QSpinBox::valueChanged,
+                     pI7d->StudioSetCommon,&Integra7StudioSetCommon::setExtPartChorusSendLevel);
+
+    QObject::connect(ui->ExReverbBox,&QSpinBox::valueChanged,
+                     pI7d->StudioSetCommon,&Integra7StudioSetCommon::setExtPartReverbSendLevel);
+
     QObject::connect(ui->Ch1OutputBox,&QComboBox::currentIndexChanged,
                      pI7d->Parts[0],&Integra7Part::setPartOutputAssign);
 
@@ -3108,6 +3120,18 @@ integra7MainWindow::integra7MainWindow(QWidget *parent)
 
     QObject::connect(pI7d->Parts[15],&Integra7Part::MuteSwitch,
                      ui->Ch16MuteBtn,&QPushButton::setChecked);
+
+    QObject::connect(pI7d->StudioSetCommon,&Integra7StudioSetCommon::ExtPartMuteSwitch,
+                     ui->ExMuteBtn,&QPushButton::setChecked);
+
+    QObject::connect(pI7d->StudioSetCommon,&Integra7StudioSetCommon::ExtPartLevel,
+                     ui->ExLevelBox,&QSpinBox::setValue);
+
+    QObject::connect(pI7d->StudioSetCommon,&Integra7StudioSetCommon::ExtPartChorusSendLevel,
+                     ui->ExChorusBox,&QSpinBox::setValue);
+
+    QObject::connect(pI7d->StudioSetCommon,&Integra7StudioSetCommon::ExtPartReverbSendLevel,
+                     ui->ExReverbBox,&QSpinBox::setValue);
 
     QObject::connect(pI7d->Parts[0],&Integra7Part::PartOutputAssign,
                      ui->Ch1OutputBox,&QComboBox::setCurrentIndex);
