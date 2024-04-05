@@ -100,6 +100,14 @@ void Integra7Device::SendIdentityRequest()
     pMidiEngine->SendSysEx(msg,6);
 }
 
+void Integra7Device::DisplayStatsMsg()
+{
+    QString msg = QString("Received SysEx number : %1 | Sent SysEx number : %2 | Received bytes : %3 | Sent bytes : %4")
+                      .arg(ReceivedSysExCounter).arg(SentSysExCounter)
+                      .arg(ReceivedBytesCounter).arg(SentBytesCounter);
+    uiWin->ShowStatusMsg(msg);
+}
+
 int Integra7Device::getBankIndex(QString& type,QString& bank)
 {
     if (type == "SN-A") {
@@ -572,19 +580,23 @@ void Integra7Device::ReceiveIntegraSysEx(const uint8_t *data, int len)
         if (data[6] != 0x12) return;//Command Id DT1
 
         if (data[len-2] == Checksum(data+7)) {
+
             ++ReceivedSysExCounter;
             ReceivedBytesCounter += len;
-            uiWin->ShowStatusMsg(QString("Received SysEx : %1...Checksum is correct!").arg(ReceivedSysExCounter));
+
+            DisplayStatsMsg();
 
             if (data[7] == 0x01) Setup->DataReceive(data+11,data[10],len-13);
-            else if (data[7] == 0x01) SystemCommon->DataReceive(data+11,data[10],len-13);
-            else if (data[7] == 0x18) {
+            else if (data[7] == 0x02) SystemCommon->DataReceive(data+11,data[10],len-13);
+            else if (data[7] == 0x18) {                
                 if (data[9] == 0x00) StudioSetCommon->DataReceive(data+11,data[10],len-13);
                 else if (data[9] == 0x04) Chorus->DataReceive(data+11,data[10],len-13);
                 else if (data[9] == 0x06) Reverb->DataReceive(data+11,data[10],len-13);
                 else if (data[9] == 0x09) MasterEQ->DataReceive(data+11,data[10],len-13);
-                else if (data[9] < 0x50) Parts[data[9]-0x20]->DataReceive(data+11,data[10],len-13);
-                else if (data[9] < 0x60) PartsEQ[data[9]-0x50]->DataReceive(data+11,data[10],len-13);
+                else if (data[9] >= 0x20 && data[9] <= 0x2F)
+                    Parts[data[9]-0x20]->DataReceive(data+11,data[10],len-13);
+                else if (data[9] >= 0x50 && data[9] <= 0x5F)
+                    PartsEQ[data[9]-0x50]->DataReceive(data+11,data[10],len-13);
             }
         }
 
@@ -779,6 +791,8 @@ void Integra7Device::SendIntegraSysEx(const uint8_t *data, int len)
 
     pMidiEngine->SendSysEx(SysExData,t+1);
 
-    SendSysExCounter++;
+    SentSysExCounter++;
     SentBytesCounter += t+1;
+
+    DisplayStatsMsg();
 }

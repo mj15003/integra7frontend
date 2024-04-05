@@ -46,6 +46,7 @@ public:
     void DataSet(const uint8_t *data,uint16_t len);
     void DataRequest(const uint8_t *data);
     void SendIdentityRequest();
+    void DisplayStatsMsg();
 
     integra7MainWindow *uiWin;
 
@@ -495,7 +496,7 @@ private:
     uint8_t VirtualSlots[8] = {0x0F, 0x00, 0x30, 0x00, 0, 0, 0, 0};
 
     int ReceivedSysExCounter = 0;
-    int SendSysExCounter = 0;
+    int SentSysExCounter = 0;
 
     int ReceivedBytesCounter = 0;
     int SentBytesCounter = 0;
