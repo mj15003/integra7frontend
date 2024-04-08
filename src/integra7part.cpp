@@ -77,13 +77,13 @@ void Integra7Part::EmitSignal(uint8_t a, int v)
         emit PartLevel(v);
         break;
     case 0x0A:
-        emit PartPan(v);
+        emit PartPan(getPartPan());
         break;
     case 0x0B:
-        emit PartCoarseTune(v);
+        emit PartCoarseTune(getPartCoarseTune());
         break;
     case 0x0C:
-        emit PartFineTune(v);
+        emit PartFineTune(getPartFineTune());
         break;
     case 0x0D:
         emit PartMonoPoly(v);
@@ -101,34 +101,34 @@ void Integra7Part::EmitSignal(uint8_t a, int v)
         emit PartPortamentoTime(v);
         break;
     case 0x13:
-        emit PartCutoffOffset(v);
+        emit PartCutoffOffset(getPartCutoffOffset());
         break;
     case 0x14:
-        emit PartResonanceOffset(v);
+        emit PartResonanceOffset(getPartResonanceOffset());
         break;
     case 0x15:
-        emit PartAttackTimeOffset(v);
+        emit PartAttackTimeOffset(getPartAttackTimeOffset());
         break;
     case 0x16:
-        emit PartDecayTimeOffset(v);
+        emit PartDecayTimeOffset(getPartDecayTimeOffset());
         break;
     case 0x17:
-        emit PartReleaseTimeOffset(v);
+        emit PartReleaseTimeOffset(getPartReleaseTimeOffset());
         break;
     case 0x18:
-        emit PartVibratoRate(v);
+        emit PartVibratoRate(getPartVibratoRate());
         break;
     case 0x19:
-        emit PartVibratoDepth(v);
+        emit PartVibratoDepth(getPartVibratoDepth());
         break;
     case 0x1A:
-        emit PartVibratoDelay(v);
+        emit PartVibratoDelay(getPartVibratoDelay());
         break;
     case 0x1B:
-        emit PartOctaveShift(v);
+        emit PartOctaveShift(getPartOctaveShift());
         break;
     case 0x1C:
-        emit PartVelocitySensOffset(v);
+        emit PartVelocitySensOffset(getPartVelocitySensOffset());
         break;
     case 0x1D:
         emit KeyboardRangeLower(v);
@@ -173,40 +173,40 @@ void Integra7Part::EmitSignal(uint8_t a, int v)
         emit PartScaleTuneKey(v);
         break;
     case 0x2D:
-        emit PartScaleTuneforC(v);
+        emit PartScaleTuneforC(getPartScaleTuneforC());
         break;
     case 0x2E:
-        emit PartScaleTuneforCs(v);
+        emit PartScaleTuneforCs(getPartScaleTuneforCs());
         break;
     case 0x2F:
-        emit PartScaleTuneforD(v);
+        emit PartScaleTuneforD(getPartScaleTuneforD());
         break;
     case 0x30:
-        emit PartScaleTuneforDs(v);
+        emit PartScaleTuneforDs(getPartScaleTuneforDs());
         break;
     case 0x31:
-        emit PartScaleTuneforE(v);
+        emit PartScaleTuneforE(getPartScaleTuneforE());
         break;
     case 0x32:
-        emit PartScaleTuneforF(v);
+        emit PartScaleTuneforF(getPartScaleTuneforF());
         break;
     case 0x33:
-        emit PartScaleTuneforFs(v);
+        emit PartScaleTuneforFs(getPartScaleTuneforFs());
         break;
     case 0x34:
-        emit PartScaleTuneforG(v);
+        emit PartScaleTuneforG(getPartScaleTuneforG());
         break;
     case 0x35:
-        emit PartScaleTuneforGs(v);
+        emit PartScaleTuneforGs(getPartScaleTuneforGs());
         break;
     case 0x36:
-        emit PartScaleTuneforA(v);
+        emit PartScaleTuneforA(getPartScaleTuneforA());
         break;
     case 0x37:
-        emit PartScaleTuneforAs(v);
+        emit PartScaleTuneforAs(getPartScaleTuneforAs());
         break;
     case 0x38:
-        emit PartScaleTuneforB(v);
+        emit PartScaleTuneforB(getPartScaleTuneforB());
         break;
     case 0x39:
         emit ReceiveProgramChange(v);
@@ -242,10 +242,10 @@ void Integra7Part::EmitSignal(uint8_t a, int v)
         emit VelocityCurveType(v);
         break;
     case 0x44:
-        emit MotionalSurroundLR(v);
+        emit MotionalSurroundLR(getMotionalSurroundLR());
         break;
     case 0x46:
-        emit MotionalSurroundFB(v);
+        emit MotionalSurroundFB(getMotionalSurroundFB());
         break;
     case 0x48:
         emit MotionalSurroundWidth(v);

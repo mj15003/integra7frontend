@@ -33,13 +33,13 @@ void Integra7PartEQ::EmitSignal(uint8_t a, int v)
         emit EQLowFreq(v);
         break;
     case 2:
-        emit EQLowGain(v);
+        emit EQLowGain(GetEQLowGain());
         break;
     case 3:
         emit EQMidFreq(v);
         break;
     case 4:
-        emit EQMidGain(v);
+        emit EQMidGain(GetEQMidGain());
         break;
     case 5:
         emit EQMidQ(v);
@@ -48,7 +48,7 @@ void Integra7PartEQ::EmitSignal(uint8_t a, int v)
         emit EQHighFreq(v);
         break;
     case 7:
-        emit EQHighGain(v);
+        emit EQHighGain(GetEQHighGain());
         break;
     default:
         break;
