@@ -52,7 +52,7 @@ public:
     int getDelayDelayLeftNote() {return data[0x0E]<<4|data[0x0F];}
     int getDelayDelayRight() {return data[0x13];}
     int getDelayDelayRightMS() {return data[0x15]<<8|data[0x16]<<4|data[0x17];}
-    int getDelayDelayRightNote() {return data[0x0A]<<4|data[0x0B];}
+    int getDelayDelayRightNote() {return data[0x1A]<<4|data[0x1B];}
     int getDelayDelayCenter() {return data[0x1F];}
     int getDelayDelayCenterMS() {return data[0x21]<<8|data[0x22]<<4|data[0x23];}
     int getDelayDelayCenterNote() {return data[0x26]<<4|data[0x27];}
@@ -68,7 +68,7 @@ public:
     int getGM2ChorusFeedback() {return data[0x0E]<<4|data[0x0F];}
     int getGM2ChorusDelay() {return data[0x12]<<4|data[0x13];}
     int getGM2ChorusRate() {return data[0x16]<<4|data[0x17];}
-    int getGM2ChorusDepth() {return data[0x0A]<<4|data[0x0B];}
+    int getGM2ChorusDepth() {return data[0x1A]<<4|data[0x1B];}
 
     static QStringList& TypeList() {
         static QStringList list = {"OFF","Chorus","Delay","GM2 Chorus"};

@@ -135,8 +135,22 @@ void MidiEngine::SendSysEx(uint8_t *data, uint8_t len)
 
 void MidiInputThread::run() {
 
-    while (snd_seq_event_input(pAlsaSeq, &ev) >= 0) {
-        if (ev->type == SND_SEQ_EVENT_SYSEX)
-            emit dataReady((uint8_t *)ev->data.ext.ptr,ev->data.ext.len);
+    struct pollfd *pfds;
+    int npfds;
+
+    npfds = snd_seq_poll_descriptors_count(pAlsaSeq, POLLIN);
+    pfds = (struct pollfd *)alloca(sizeof(*pfds) * npfds);
+
+    for (;;) {
+        snd_seq_poll_descriptors(pAlsaSeq, pfds, npfds, POLLIN);
+        if (poll(pfds, npfds, -1) < 0)
+            break;
+        for (;;) {
+
+            snd_seq_event_input(pAlsaSeq, &ev);
+
+            if (ev->type == SND_SEQ_EVENT_SYSEX)
+                emit dataReady((uint8_t *)ev->data.ext.ptr,ev->data.ext.len);
+        }
     }
 }
