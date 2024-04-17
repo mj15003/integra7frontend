@@ -18,8 +18,6 @@
 #ifndef INTEGRA7DEVICE_H
 #define INTEGRA7DEVICE_H
 
-#define SYSEX_SIZE 255
-
 #include "midiengine.h"
 
 #include <QObject>
@@ -493,19 +491,19 @@ public slots:
 
 private:
     uint8_t cDeviceId = 0x10;
-    uint8_t SysExData[SYSEX_SIZE];
+    uint8_t OutputData[BUFFER_SIZE];
     uint8_t VirtualSlots[8] = {0x0F, 0x00, 0x30, 0x00, 0, 0, 0, 0};
 
-    int ReceivedSysExCounter = 0;
-    int SentSysExCounter = 0;
+    size_t ReceivedSysExCounter = 0;
+    size_t SentSysExCounter = 0;
 
-    int ReceivedBytesCounter = 0;
-    int SentBytesCounter = 0;
+    size_t ReceivedBytesCounter = 0;
+    size_t SentBytesCounter = 0;
 
     MidiEngine *pMidiEngine;
 
     uint8_t Checksum(const uint8_t *msg);
-    void SendIntegraSysEx(const uint8_t *data, int len);
+    void SendIntegraSysEx(const uint8_t *data, int len);    
 };
 
 #endif // INTEGRA7DEVICE_H

@@ -643,7 +643,7 @@
              </sizepolicy>
             </property>
             <property name="currentIndex">
-             <number>1</number>
+             <number>0</number>
             </property>
             <widget class="QWidget" name="StudioSetMenu">
              <property name="maximumSize">
@@ -962,7 +962,7 @@ COMMON</string>
        <item>
         <widget class="QStackedWidget" name="RightContent">
          <property name="currentIndex">
-          <number>11</number>
+          <number>0</number>
          </property>
          <widget class="QWidget" name="PartViewCard">
           <layout class="QGridLayout" name="PartViewCardLayout">

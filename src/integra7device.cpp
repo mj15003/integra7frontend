@@ -32,13 +32,13 @@ Integra7Device::Integra7Device(integra7MainWindow *parent, MidiEngine *midi)
     : QObject{parent}
 {
     /* SysEx fixed data initialization */
-    SysExData[0] = 0xF0;//SysEx Header
-    SysExData[1] = 0x41;//Roland Manufacturer Id
-    SysExData[2] = cDeviceId;
-    SysExData[3] = 0x0;//INTEGRA7 Model ID number
-    SysExData[4] = 0x0;//INTEGRA7 Model ID number
-    SysExData[5] = 0x64;//INTEGRA7 Model ID number
-    SysExData[SYSEX_SIZE-1] = 0xF7;//correctly ended SysEx
+    OutputData[0] = 0xF0;//SysEx Header
+    OutputData[1] = 0x41;//Roland Manufacturer Id
+    OutputData[2] = cDeviceId;
+    OutputData[3] = 0x0;//INTEGRA7 Model ID number
+    OutputData[4] = 0x0;//INTEGRA7 Model ID number
+    OutputData[5] = 0x64;//INTEGRA7 Model ID number
+    OutputData[BUFFER_SIZE-1] = 0xF7;//correctly ended SysEx
 
     uiWin = parent;
     pMidiEngine = midi;
@@ -52,7 +52,7 @@ Integra7Device::Integra7Device(integra7MainWindow *parent, MidiEngine *midi)
 
     uint8_t offset = 0x20;
     uint8_t eqoffset = 0x50;
-    for (uint8_t i=0;i<16;i++){
+    for (int i=0;i<16;i++){
         Parts[i] = new Integra7Part(this,0x18,0x00,offset++);
         PartsEQ[i] = new Integra7PartEQ(this,0x18,0x00,eqoffset++);
     }
@@ -77,20 +77,20 @@ void Integra7Device::setDeviceId(uint8_t Id)
 {
     if (Id >= 0 && Id <= 16) {
         cDeviceId = Id + 0x10;
-        SysExData[2] = cDeviceId;
+        OutputData[2] = cDeviceId;
     }
 }
 
 void Integra7Device::DataSet(const uint8_t *data, int len)
 {
-    SysExData[6] = 0x12;//INTEGRA7 DataSet Command
+    OutputData[6] = 0x12;//INTEGRA7 DataSet Command
     SendIntegraSysEx(data,len);
 }
 
 void Integra7Device::DataRequest(const uint8_t *data)
 {
     /* data array must have exactly 8 bytes -> 4 bytes address,4bytes length */
-    SysExData[6] = 0x11;//INTEGRA7 DataRequest Command
+    OutputData[6] = 0x11;//INTEGRA7 DataRequest Command
     SendIntegraSysEx(data,8);
 }
 
@@ -567,8 +567,9 @@ void Integra7Device::SetPreview(uint8_t state)
 
 void Integra7Device::ReceiveIntegraSysEx(const uint8_t *data, int len)
 {
+
     if (data[0] != 0xF0) return;
-    if (data[len-1] != 0xF7) return;
+    if (data[len-1] != 0xF7) return; //SysEx does not contain 0xF7 at the end
     if (data[2] != cDeviceId) return;
 
     if (data[1] == 0x41) {
@@ -586,9 +587,11 @@ void Integra7Device::ReceiveIntegraSysEx(const uint8_t *data, int len)
 
             DisplayStatsMsg();
 
+            qDebug("IntegraDevice received %u bytes at address : %02X %02X %02X %02X",len,data[7],data[8],data[9],data[10]);
+
             if (data[7] == 0x01) Setup->DataReceive(data+11,data[10],len-13);
             else if (data[7] == 0x02) SystemCommon->DataReceive(data+11,data[10],len-13);
-            else if (data[7] == 0x18) {                
+            else if (data[7] == 0x18) {
                 if (data[9] == 0x00) StudioSetCommon->DataReceive(data+11,data[10],len-13);
                 else if (data[9] == 0x04) Chorus->DataReceive(data+11,data[10],len-13);
                 else if (data[9] == 0x06) Reverb->DataReceive(data+11,data[10],len-13);
@@ -615,7 +618,7 @@ void Integra7Device::ReceiveIntegraSysEx(const uint8_t *data, int len)
                                                                          .arg(data[12],0,16)
                                                                          .arg(data[13],0,16);
 
-        uiWin->ShowStatusMsg(msg);        
+        uiWin->ShowStatusMsg(msg);
         ReceivedBytesCounter += len;
 
     }
@@ -783,7 +786,7 @@ uint8_t Integra7Device::Checksum(const uint8_t *msg)
     int i = 0;
     int sum = 0;
 
-    while (i <= SYSEX_SIZE-1) {
+    while (i < BUFFER_SIZE-1) {
         if (msg[i+1] == 0xF7)
             break;
         else
@@ -802,18 +805,18 @@ void Integra7Device::SendIntegraSysEx(const uint8_t *data, int len)
 
     for (int s=0; s<len; s++)
     {
-        SysExData[t++] = data[s];
+        OutputData[t++] = data[s];
     }
 
     //Reset Checksum
-    SysExData[t++] = 0;
+    OutputData[t++] = 0;
 
     //Add end of SysEx
-    SysExData[t] = 0xF7;
+    OutputData[t] = 0xF7;
 
-    SysExData[t-1] = Checksum(SysExData+7);
+    OutputData[t-1] = Checksum(OutputData+7);
 
-    pMidiEngine->SendSysEx(SysExData,t+1);
+    pMidiEngine->SendSysEx(OutputData,t+1);
 
     SentSysExCounter++;
     SentBytesCounter += t+1;

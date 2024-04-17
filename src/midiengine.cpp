@@ -41,8 +41,9 @@ void MidiEngine::Init()
         return;
 
     snd_seq_set_client_name(pAlsaSeq,"Integra7Frontend");
-
     iAlsaClient = snd_seq_client_id(pAlsaSeq);
+
+    /* Obtain list of possible destination ports */
 
     snd_seq_client_info_t *cinfo;
     snd_seq_port_info_t *pinfo;
@@ -133,24 +134,31 @@ void MidiEngine::SendSysEx(uint8_t *data, uint8_t len)
     snd_seq_drain_output(pAlsaSeq);    
 }
 
-void MidiInputThread::run() {
-
-    struct pollfd *pfds;
-    int npfds;
-
-    npfds = snd_seq_poll_descriptors_count(pAlsaSeq, POLLIN);
-    pfds = (struct pollfd *)alloca(sizeof(*pfds) * npfds);
-
+void MidiInputThread::run()
+{
     for (;;) {
-        snd_seq_poll_descriptors(pAlsaSeq, pfds, npfds, POLLIN);
-        if (poll(pfds, npfds, -1) < 0)
-            break;
-        for (;;) {
 
-            snd_seq_event_input(pAlsaSeq, &ev);
+        snd_seq_event_input(pAlsaSeq, &ev);
 
-            if (ev->type == SND_SEQ_EVENT_SYSEX)
-                emit dataReady((uint8_t *)ev->data.ext.ptr,ev->data.ext.len);
+        if (ev->type == SND_SEQ_EVENT_SYSEX) {
+
+            if (ev->data.ext.len > BUFFER_SIZE) continue;
+
+            ++InputDataIndex;
+            if (InputDataIndex == BUFFER_SIZE) InputDataIndex = 0;
+
+            for (int k=0;k<ev->data.ext.len;k++)
+                InputData[InputDataIndex][k] = ((uint8_t *)ev->data.ext.ptr)[k];
+
+            emit dataReady(InputData[InputDataIndex],ev->data.ext.len);
+
+            qDebug("MidiInputThread received SysEx | Addr = %02X %02X %02X %02X | %u bytes | InputDataIndex = %u",
+                   ((uint8_t *)ev->data.ext.ptr)[7],
+                   ((uint8_t *)ev->data.ext.ptr)[8],
+                   ((uint8_t *)ev->data.ext.ptr)[9],
+                   ((uint8_t *)ev->data.ext.ptr)[10],
+                   ev->data.ext.len,
+                   InputDataIndex);
         }
     }
 }

@@ -52,7 +52,7 @@ void Integra7Part::setToneBankProgram(int b, int p)
     output[6] = data[0x08];
 
     pIntegraDev->DataSet(output,7);
-    emit ToneBankProgram(b,p);
+    emit ToneBankProgram(address[2]-0x20,b,p);
 }
 
 void Integra7Part::EmitSignal(uint8_t a, int v)
@@ -72,6 +72,7 @@ void Integra7Part::EmitSignal(uint8_t a, int v)
         break;
     case 0x08:
         emit ToneProgramNumber(v);
+        emit ToneBankProgram(address[2]-0x20,getToneBankSelect(),getToneProgramNumber());
         break;
     case 0x09:
         emit PartLevel(v);
@@ -274,4 +275,18 @@ void Integra7Part::DataReceive(const uint8_t *rdata, uint8_t a, int len)
             ++a;
         }
     }
+}
+
+int Integra7Part::getToneProgramNumber()
+{
+    QString tp;
+    QString bk;
+
+    int bi = getToneBankSelect();
+
+    if (Integra7Device::getBankName(tp,bk,bi) < 0) return -1;
+
+    int bibase = Integra7Device::getBankIndex(tp,bk);
+
+    return (bi - bibase)*128+data[0x08];
 }

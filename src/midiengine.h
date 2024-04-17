@@ -23,6 +23,8 @@
 #include <QList>
 #include <QThread>
 
+#define BUFFER_SIZE 256
+
 class MidiInputThread : public QThread
 {
     Q_OBJECT
@@ -36,7 +38,10 @@ private:
     snd_seq_t *pAlsaSeq;
     snd_seq_event_t *ev;
 
-    void run() override;
+    uint8_t InputData[BUFFER_SIZE][BUFFER_SIZE];
+    int InputDataIndex = -1;
+
+    void run() override;    
 };
 
 class MidiEngine

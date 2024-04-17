@@ -2857,6 +2857,11 @@ integra7MainWindow::integra7MainWindow(QWidget *parent)
                      pI7d->Reverb,&Integra7Reverb::setGM2Time);
 
     /* Reverse connections */
+    for (int i=0;i<16;i++) {
+        QObject::connect(pI7d->Parts[i],&Integra7Part::ToneBankProgram,
+                         this,&integra7MainWindow::DisplayPartTonePreset);
+    }
+
     QObject::connect(pI7d->StudioSetCommon,&Integra7StudioSetCommon::MasterEQSwitch,
                      ui->MEQSwBtn,&QPushButton::setChecked);
 
@@ -4639,6 +4644,27 @@ void integra7MainWindow::ShowStatusValue(int val)
     ui->statusbar->showMessage(msg);
 }
 
+void integra7MainWindow::DisplayPartTonePreset(int part, int bank, int p)
+{
+    QString tp;
+    QString bk;
+
+    if (Integra7Device::getBankName(tp,bk,bank) < 0) return;
+
+    BlockToneChangeSignal = true;
+
+    if (TypeBoxes[part][0]->currentText() != tp)
+        TypeBoxes[part][0]->setCurrentText(tp);
+
+    if (BankBoxes[part][0]->currentText() != bk)
+        BankBoxes[part][0]->setCurrentText(bk);
+
+    if (ToneBoxes[part][0]->currentIndex() != p)
+        ToneBoxes[part][0]->setCurrentIndex(p);
+
+    BlockToneChangeSignal = false;
+}
+
 void integra7MainWindow::PartBtnToggled(int id, bool checked)
 {
     if (checked) {
@@ -4802,6 +4828,8 @@ void integra7MainWindow::BankBoxChangeLogic(QComboBox *TypeBox, QComboBox *BankB
 
 void integra7MainWindow::ToneBoxChangeLogic(uint8_t part, int index, QComboBox *TypeBox, QComboBox *BankBox)
 {
+    if (BlockToneChangeSignal) return;
+
     if (index < 0) return;
 
     QString type = TypeBox->currentText();

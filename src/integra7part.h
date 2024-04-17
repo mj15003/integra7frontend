@@ -39,7 +39,7 @@ public:
     int getToneBankSelectMSB() {return data[0x06];}
     int getToneBankSelectLSB() {return data[0x07];}
     int getToneBankSelect() {return data[0x06]<<7|data[0x07];}
-    int getToneProgramNumber() {return data[0x08];}
+    int getToneProgramNumber();
     int getPartLevel() {return data[0x09];}
     int getPartPan() {return data[0x0A]-64;}
     int getPartCoarseTune() {return data[0x0B]-64;}
@@ -177,7 +177,7 @@ signals:
     void ToneBankSelectMSB(int v);
     void ToneBankSelectLSB(int v);
     void ToneProgramNumber(int v);
-    void ToneBankProgram(int b, int p);
+    void ToneBankProgram(int part, int b, int p);
     void PartLevel(int v);
     void PartPan(int v);
     void PartCoarseTune(int v);

@@ -40,6 +40,7 @@ public:
 public slots:
     void ShowStatusValue(int val);
     void ShowStatusMsg(const QString msg) {ui->statusbar->showMessage(msg);}
+    void DisplayPartTonePreset(int part, int bank, int p);
 
 private:
     Ui::integra7MainWindow *ui;
@@ -55,6 +56,8 @@ private:
     QComboBox *TypeBoxes[16][2];
     QComboBox *BankBoxes[16][2];
     QComboBox *ToneBoxes[16][2];
+
+    bool BlockToneChangeSignal = 0;
 
     void TypeBoxChangeLogic(QComboBox *TypeBox, QComboBox *BankBox, QComboBox *ToneBox);
     void BankBoxChangeLogic(QComboBox *TypeBox, QComboBox *BankBox, QComboBox *ToneBox);
