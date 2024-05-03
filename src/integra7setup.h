@@ -32,7 +32,7 @@ public:
 
     int GetItemsNumber() {return 3;}
 
-    uint8_t getSoundMode() const { return data[0]; }
+    uint8_t getSoundMode() const { return data[0]-1; }
     int getStudioSet_BS() const { return data[4] << 7 | data[5]; }
     uint8_t getStudioSet_PC() const { return data[6]; }
 
@@ -44,7 +44,7 @@ public:
     void DataReceive(const uint8_t *rdata, uint8_t a, int len);
 
 public slots:
-    void setSoundMode(int v) { DataSet(0,v);}
+    void setSoundMode(int v) { DataSetOffset(0,v,1); }
     void setStudioSet_BS(int v) { DataSet2x7B(4,v); }
     void setStudioSet_PC(int v) { DataSet(6,v); }
 

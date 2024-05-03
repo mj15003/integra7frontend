@@ -246,7 +246,7 @@
           <item>
            <spacer name="horizontalSpacer">
             <property name="orientation">
-             <enum>Qt::Horizontal</enum>
+             <enum>Qt::Orientation::Horizontal</enum>
             </property>
             <property name="sizeHint" stdset="0">
              <size>
@@ -295,10 +295,10 @@
           <item row="1" column="1">
            <spacer name="horizontalSpacer_2">
             <property name="orientation">
-             <enum>Qt::Horizontal</enum>
+             <enum>Qt::Orientation::Horizontal</enum>
             </property>
             <property name="sizeType">
-             <enum>QSizePolicy::Preferred</enum>
+             <enum>QSizePolicy::Policy::Preferred</enum>
             </property>
             <property name="sizeHint" stdset="0">
              <size>
@@ -318,7 +318,7 @@
           <item row="1" column="6">
            <spacer name="horizontalSpacer_3">
             <property name="orientation">
-             <enum>Qt::Horizontal</enum>
+             <enum>Qt::Orientation::Horizontal</enum>
             </property>
             <property name="sizeHint" stdset="0">
              <size>
@@ -548,10 +548,10 @@
           <item row="1" column="16">
            <spacer name="horizontalSpacer_4">
             <property name="orientation">
-             <enum>Qt::Horizontal</enum>
+             <enum>Qt::Orientation::Horizontal</enum>
             </property>
             <property name="sizeType">
-             <enum>QSizePolicy::Expanding</enum>
+             <enum>QSizePolicy::Policy::Expanding</enum>
             </property>
             <property name="sizeHint" stdset="0">
              <size>
@@ -723,7 +723,7 @@ COMMON</string>
                  <string>PART</string>
                 </property>
                 <property name="alignment">
-                 <set>Qt::AlignCenter</set>
+                 <set>Qt::AlignmentFlag::AlignCenter</set>
                 </property>
                </widget>
               </item>
@@ -962,7 +962,7 @@ COMMON</string>
        <item>
         <widget class="QStackedWidget" name="RightContent">
          <property name="currentIndex">
-          <number>0</number>
+          <number>14</number>
          </property>
          <widget class="QWidget" name="PartViewCard">
           <layout class="QGridLayout" name="PartViewCardLayout">
@@ -1111,7 +1111,7 @@ COMMON</string>
            <item row="2" column="1">
             <widget class="QComboBox" name="Ch1TypeBox">
              <property name="sizeAdjustPolicy">
-              <enum>QComboBox::AdjustToContents</enum>
+              <enum>QComboBox::SizeAdjustPolicy::AdjustToContents</enum>
              </property>
             </widget>
            </item>
@@ -1124,7 +1124,7 @@ COMMON</string>
               </sizepolicy>
              </property>
              <property name="sizeAdjustPolicy">
-              <enum>QComboBox::AdjustToContents</enum>
+              <enum>QComboBox::SizeAdjustPolicy::AdjustToContents</enum>
              </property>
             </widget>
            </item>
@@ -1144,7 +1144,7 @@ COMMON</string>
            <item row="2" column="4">
             <widget class="QComboBox" name="Ch1ToneBox">
              <property name="sizeAdjustPolicy">
-              <enum>QComboBox::AdjustToContents</enum>
+              <enum>QComboBox::SizeAdjustPolicy::AdjustToContents</enum>
              </property>
             </widget>
            </item>
@@ -1156,7 +1156,7 @@ COMMON</string>
                 <number>127</number>
                </property>
                <property name="orientation">
-                <enum>Qt::Horizontal</enum>
+                <enum>Qt::Orientation::Horizontal</enum>
                </property>
               </widget>
              </item>
@@ -1180,7 +1180,7 @@ COMMON</string>
                 <number>63</number>
                </property>
                <property name="orientation">
-                <enum>Qt::Horizontal</enum>
+                <enum>Qt::Orientation::Horizontal</enum>
                </property>
               </widget>
              </item>
@@ -1204,7 +1204,7 @@ COMMON</string>
                 <number>127</number>
                </property>
                <property name="orientation">
-                <enum>Qt::Horizontal</enum>
+                <enum>Qt::Orientation::Horizontal</enum>
                </property>
               </widget>
              </item>
@@ -1225,7 +1225,7 @@ COMMON</string>
                 <number>127</number>
                </property>
                <property name="orientation">
-                <enum>Qt::Horizontal</enum>
+                <enum>Qt::Orientation::Horizontal</enum>
                </property>
               </widget>
              </item>
@@ -1274,14 +1274,14 @@ COMMON</string>
            <item row="3" column="1">
             <widget class="QComboBox" name="Ch2TypeBox">
              <property name="sizeAdjustPolicy">
-              <enum>QComboBox::AdjustToContents</enum>
+              <enum>QComboBox::SizeAdjustPolicy::AdjustToContents</enum>
              </property>
             </widget>
            </item>
            <item row="3" column="2">
             <widget class="QComboBox" name="Ch2BankBox">
              <property name="sizeAdjustPolicy">
-              <enum>QComboBox::AdjustToContents</enum>
+              <enum>QComboBox::SizeAdjustPolicy::AdjustToContents</enum>
              </property>
             </widget>
            </item>
@@ -1301,7 +1301,7 @@ COMMON</string>
            <item row="3" column="4">
             <widget class="QComboBox" name="Ch2ToneBox">
              <property name="sizeAdjustPolicy">
-              <enum>QComboBox::AdjustToContents</enum>
+              <enum>QComboBox::SizeAdjustPolicy::AdjustToContents</enum>
              </property>
             </widget>
            </item>
@@ -1313,7 +1313,7 @@ COMMON</string>
                 <number>127</number>
                </property>
                <property name="orientation">
-                <enum>Qt::Horizontal</enum>
+                <enum>Qt::Orientation::Horizontal</enum>
                </property>
               </widget>
              </item>
@@ -1337,7 +1337,7 @@ COMMON</string>
                 <number>63</number>
                </property>
                <property name="orientation">
-                <enum>Qt::Horizontal</enum>
+                <enum>Qt::Orientation::Horizontal</enum>
                </property>
               </widget>
              </item>
@@ -1361,7 +1361,7 @@ COMMON</string>
                 <number>127</number>
                </property>
                <property name="orientation">
-                <enum>Qt::Horizontal</enum>
+                <enum>Qt::Orientation::Horizontal</enum>
                </property>
               </widget>
              </item>
@@ -1382,7 +1382,7 @@ COMMON</string>
                 <number>127</number>
                </property>
                <property name="orientation">
-                <enum>Qt::Horizontal</enum>
+                <enum>Qt::Orientation::Horizontal</enum>
                </property>
               </widget>
              </item>
@@ -1431,14 +1431,14 @@ COMMON</string>
            <item row="4" column="1">
             <widget class="QComboBox" name="Ch3TypeBox">
              <property name="sizeAdjustPolicy">
-              <enum>QComboBox::AdjustToContents</enum>
+              <enum>QComboBox::SizeAdjustPolicy::AdjustToContents</enum>
              </property>
             </widget>
            </item>
            <item row="4" column="2">
             <widget class="QComboBox" name="Ch3BankBox">
              <property name="sizeAdjustPolicy">
-              <enum>QComboBox::AdjustToContents</enum>
+              <enum>QComboBox::SizeAdjustPolicy::AdjustToContents</enum>
              </property>
             </widget>
            </item>
@@ -1458,7 +1458,7 @@ COMMON</string>
            <item row="4" column="4">
             <widget class="QComboBox" name="Ch3ToneBox">
              <property name="sizeAdjustPolicy">
-              <enum>QComboBox::AdjustToContents</enum>
+              <enum>QComboBox::SizeAdjustPolicy::AdjustToContents</enum>
              </property>
             </widget>
            </item>
@@ -1470,7 +1470,7 @@ COMMON</string>
                 <number>127</number>
                </property>
                <property name="orientation">
-                <enum>Qt::Horizontal</enum>
+                <enum>Qt::Orientation::Horizontal</enum>
                </property>
               </widget>
              </item>
@@ -1494,7 +1494,7 @@ COMMON</string>
                 <number>63</number>
                </property>
                <property name="orientation">
-                <enum>Qt::Horizontal</enum>
+                <enum>Qt::Orientation::Horizontal</enum>
                </property>
               </widget>
              </item>
@@ -1518,7 +1518,7 @@ COMMON</string>
                 <number>127</number>
                </property>
                <property name="orientation">
-                <enum>Qt::Horizontal</enum>
+                <enum>Qt::Orientation::Horizontal</enum>
                </property>
               </widget>
              </item>
@@ -1539,7 +1539,7 @@ COMMON</string>
                 <number>127</number>
                </property>
                <property name="orientation">
-                <enum>Qt::Horizontal</enum>
+                <enum>Qt::Orientation::Horizontal</enum>
                </property>
               </widget>
              </item>
@@ -1588,14 +1588,14 @@ COMMON</string>
            <item row="5" column="1">
             <widget class="QComboBox" name="Ch4TypeBox">
              <property name="sizeAdjustPolicy">
-              <enum>QComboBox::AdjustToContents</enum>
+              <enum>QComboBox::SizeAdjustPolicy::AdjustToContents</enum>
              </property>
             </widget>
            </item>
            <item row="5" column="2">
             <widget class="QComboBox" name="Ch4BankBox">
              <property name="sizeAdjustPolicy">
-              <enum>QComboBox::AdjustToContents</enum>
+              <enum>QComboBox::SizeAdjustPolicy::AdjustToContents</enum>
              </property>
             </widget>
            </item>
@@ -1615,7 +1615,7 @@ COMMON</string>
            <item row="5" column="4">
             <widget class="QComboBox" name="Ch4ToneBox">
              <property name="sizeAdjustPolicy">
-              <enum>QComboBox::AdjustToContents</enum>
+              <enum>QComboBox::SizeAdjustPolicy::AdjustToContents</enum>
              </property>
             </widget>
            </item>
@@ -1627,7 +1627,7 @@ COMMON</string>
                 <number>127</number>
                </property>
                <property name="orientation">
-                <enum>Qt::Horizontal</enum>
+                <enum>Qt::Orientation::Horizontal</enum>
                </property>
               </widget>
              </item>
@@ -1651,7 +1651,7 @@ COMMON</string>
                 <number>63</number>
                </property>
                <property name="orientation">
-                <enum>Qt::Horizontal</enum>
+                <enum>Qt::Orientation::Horizontal</enum>
                </property>
               </widget>
              </item>
@@ -1675,7 +1675,7 @@ COMMON</string>
                 <number>127</number>
                </property>
                <property name="orientation">
-                <enum>Qt::Horizontal</enum>
+                <enum>Qt::Orientation::Horizontal</enum>
                </property>
               </widget>
              </item>
@@ -1696,7 +1696,7 @@ COMMON</string>
                 <number>127</number>
                </property>
                <property name="orientation">
-                <enum>Qt::Horizontal</enum>
+                <enum>Qt::Orientation::Horizontal</enum>
                </property>
               </widget>
              </item>
@@ -1745,14 +1745,14 @@ COMMON</string>
            <item row="6" column="1">
             <widget class="QComboBox" name="Ch5TypeBox">
              <property name="sizeAdjustPolicy">
-              <enum>QComboBox::AdjustToContents</enum>
+              <enum>QComboBox::SizeAdjustPolicy::AdjustToContents</enum>
              </property>
             </widget>
            </item>
            <item row="6" column="2">
             <widget class="QComboBox" name="Ch5BankBox">
              <property name="sizeAdjustPolicy">
-              <enum>QComboBox::AdjustToContents</enum>
+              <enum>QComboBox::SizeAdjustPolicy::AdjustToContents</enum>
              </property>
             </widget>
            </item>
@@ -1772,7 +1772,7 @@ COMMON</string>
            <item row="6" column="4">
             <widget class="QComboBox" name="Ch5ToneBox">
              <property name="sizeAdjustPolicy">
-              <enum>QComboBox::AdjustToContents</enum>
+              <enum>QComboBox::SizeAdjustPolicy::AdjustToContents</enum>
              </property>
             </widget>
            </item>
@@ -1784,7 +1784,7 @@ COMMON</string>
                 <number>127</number>
                </property>
                <property name="orientation">
-                <enum>Qt::Horizontal</enum>
+                <enum>Qt::Orientation::Horizontal</enum>
                </property>
               </widget>
              </item>
@@ -1808,7 +1808,7 @@ COMMON</string>
                 <number>63</number>
                </property>
                <property name="orientation">
-                <enum>Qt::Horizontal</enum>
+                <enum>Qt::Orientation::Horizontal</enum>
                </property>
               </widget>
              </item>
@@ -1832,7 +1832,7 @@ COMMON</string>
                 <number>127</number>
                </property>
                <property name="orientation">
-                <enum>Qt::Horizontal</enum>
+                <enum>Qt::Orientation::Horizontal</enum>
                </property>
               </widget>
              </item>
@@ -1853,7 +1853,7 @@ COMMON</string>
                 <number>127</number>
                </property>
                <property name="orientation">
-                <enum>Qt::Horizontal</enum>
+                <enum>Qt::Orientation::Horizontal</enum>
                </property>
               </widget>
              </item>
@@ -1902,14 +1902,14 @@ COMMON</string>
            <item row="7" column="1">
             <widget class="QComboBox" name="Ch6TypeBox">
              <property name="sizeAdjustPolicy">
-              <enum>QComboBox::AdjustToContents</enum>
+              <enum>QComboBox::SizeAdjustPolicy::AdjustToContents</enum>
              </property>
             </widget>
            </item>
            <item row="7" column="2">
             <widget class="QComboBox" name="Ch6BankBox">
              <property name="sizeAdjustPolicy">
-              <enum>QComboBox::AdjustToContents</enum>
+              <enum>QComboBox::SizeAdjustPolicy::AdjustToContents</enum>
              </property>
             </widget>
            </item>
@@ -1929,7 +1929,7 @@ COMMON</string>
            <item row="7" column="4">
             <widget class="QComboBox" name="Ch6ToneBox">
              <property name="sizeAdjustPolicy">
-              <enum>QComboBox::AdjustToContents</enum>
+              <enum>QComboBox::SizeAdjustPolicy::AdjustToContents</enum>
              </property>
             </widget>
            </item>
@@ -1941,7 +1941,7 @@ COMMON</string>
                 <number>127</number>
                </property>
                <property name="orientation">
-                <enum>Qt::Horizontal</enum>
+                <enum>Qt::Orientation::Horizontal</enum>
                </property>
               </widget>
              </item>
@@ -1965,7 +1965,7 @@ COMMON</string>
                 <number>63</number>
                </property>
                <property name="orientation">
-                <enum>Qt::Horizontal</enum>
+                <enum>Qt::Orientation::Horizontal</enum>
                </property>
               </widget>
              </item>
@@ -1989,7 +1989,7 @@ COMMON</string>
                 <number>127</number>
                </property>
                <property name="orientation">
-                <enum>Qt::Horizontal</enum>
+                <enum>Qt::Orientation::Horizontal</enum>
                </property>
               </widget>
              </item>
@@ -2010,7 +2010,7 @@ COMMON</string>
                 <number>127</number>
                </property>
                <property name="orientation">
-                <enum>Qt::Horizontal</enum>
+                <enum>Qt::Orientation::Horizontal</enum>
                </property>
               </widget>
              </item>
@@ -2059,14 +2059,14 @@ COMMON</string>
            <item row="8" column="1">
             <widget class="QComboBox" name="Ch7TypeBox">
              <property name="sizeAdjustPolicy">
-              <enum>QComboBox::AdjustToContents</enum>
+              <enum>QComboBox::SizeAdjustPolicy::AdjustToContents</enum>
              </property>
             </widget>
            </item>
            <item row="8" column="2">
             <widget class="QComboBox" name="Ch7BankBox">
              <property name="sizeAdjustPolicy">
-              <enum>QComboBox::AdjustToContents</enum>
+              <enum>QComboBox::SizeAdjustPolicy::AdjustToContents</enum>
              </property>
             </widget>
            </item>
@@ -2086,7 +2086,7 @@ COMMON</string>
            <item row="8" column="4">
             <widget class="QComboBox" name="Ch7ToneBox">
              <property name="sizeAdjustPolicy">
-              <enum>QComboBox::AdjustToContents</enum>
+              <enum>QComboBox::SizeAdjustPolicy::AdjustToContents</enum>
              </property>
             </widget>
            </item>
@@ -2098,7 +2098,7 @@ COMMON</string>
                 <number>127</number>
                </property>
                <property name="orientation">
-                <enum>Qt::Horizontal</enum>
+                <enum>Qt::Orientation::Horizontal</enum>
                </property>
               </widget>
              </item>
@@ -2122,7 +2122,7 @@ COMMON</string>
                 <number>63</number>
                </property>
                <property name="orientation">
-                <enum>Qt::Horizontal</enum>
+                <enum>Qt::Orientation::Horizontal</enum>
                </property>
               </widget>
              </item>
@@ -2146,7 +2146,7 @@ COMMON</string>
                 <number>127</number>
                </property>
                <property name="orientation">
-                <enum>Qt::Horizontal</enum>
+                <enum>Qt::Orientation::Horizontal</enum>
                </property>
               </widget>
              </item>
@@ -2167,7 +2167,7 @@ COMMON</string>
                 <number>127</number>
                </property>
                <property name="orientation">
-                <enum>Qt::Horizontal</enum>
+                <enum>Qt::Orientation::Horizontal</enum>
                </property>
               </widget>
              </item>
@@ -2216,14 +2216,14 @@ COMMON</string>
            <item row="9" column="1">
             <widget class="QComboBox" name="Ch8TypeBox">
              <property name="sizeAdjustPolicy">
-              <enum>QComboBox::AdjustToContents</enum>
+              <enum>QComboBox::SizeAdjustPolicy::AdjustToContents</enum>
              </property>
             </widget>
            </item>
            <item row="9" column="2">
             <widget class="QComboBox" name="Ch8BankBox">
              <property name="sizeAdjustPolicy">
-              <enum>QComboBox::AdjustToContents</enum>
+              <enum>QComboBox::SizeAdjustPolicy::AdjustToContents</enum>
              </property>
             </widget>
            </item>
@@ -2243,7 +2243,7 @@ COMMON</string>
            <item row="9" column="4">
             <widget class="QComboBox" name="Ch8ToneBox">
              <property name="sizeAdjustPolicy">
-              <enum>QComboBox::AdjustToContents</enum>
+              <enum>QComboBox::SizeAdjustPolicy::AdjustToContents</enum>
              </property>
             </widget>
            </item>
@@ -2255,7 +2255,7 @@ COMMON</string>
                 <number>127</number>
                </property>
                <property name="orientation">
-                <enum>Qt::Horizontal</enum>
+                <enum>Qt::Orientation::Horizontal</enum>
                </property>
               </widget>
              </item>
@@ -2279,7 +2279,7 @@ COMMON</string>
                 <number>63</number>
                </property>
                <property name="orientation">
-                <enum>Qt::Horizontal</enum>
+                <enum>Qt::Orientation::Horizontal</enum>
                </property>
               </widget>
              </item>
@@ -2303,7 +2303,7 @@ COMMON</string>
                 <number>127</number>
                </property>
                <property name="orientation">
-                <enum>Qt::Horizontal</enum>
+                <enum>Qt::Orientation::Horizontal</enum>
                </property>
               </widget>
              </item>
@@ -2324,7 +2324,7 @@ COMMON</string>
                 <number>127</number>
                </property>
                <property name="orientation">
-                <enum>Qt::Horizontal</enum>
+                <enum>Qt::Orientation::Horizontal</enum>
                </property>
               </widget>
              </item>
@@ -2373,14 +2373,14 @@ COMMON</string>
            <item row="10" column="1">
             <widget class="QComboBox" name="Ch9TypeBox">
              <property name="sizeAdjustPolicy">
-              <enum>QComboBox::AdjustToContents</enum>
+              <enum>QComboBox::SizeAdjustPolicy::AdjustToContents</enum>
              </property>
             </widget>
            </item>
            <item row="10" column="2">
             <widget class="QComboBox" name="Ch9BankBox">
              <property name="sizeAdjustPolicy">
-              <enum>QComboBox::AdjustToContents</enum>
+              <enum>QComboBox::SizeAdjustPolicy::AdjustToContents</enum>
              </property>
             </widget>
            </item>
@@ -2400,7 +2400,7 @@ COMMON</string>
            <item row="10" column="4">
             <widget class="QComboBox" name="Ch9ToneBox">
              <property name="sizeAdjustPolicy">
-              <enum>QComboBox::AdjustToContents</enum>
+              <enum>QComboBox::SizeAdjustPolicy::AdjustToContents</enum>
              </property>
             </widget>
            </item>
@@ -2412,7 +2412,7 @@ COMMON</string>
                 <number>127</number>
                </property>
                <property name="orientation">
-                <enum>Qt::Horizontal</enum>
+                <enum>Qt::Orientation::Horizontal</enum>
                </property>
               </widget>
              </item>
@@ -2436,7 +2436,7 @@ COMMON</string>
                 <number>63</number>
                </property>
                <property name="orientation">
-                <enum>Qt::Horizontal</enum>
+                <enum>Qt::Orientation::Horizontal</enum>
                </property>
               </widget>
              </item>
@@ -2460,7 +2460,7 @@ COMMON</string>
                 <number>127</number>
                </property>
                <property name="orientation">
-                <enum>Qt::Horizontal</enum>
+                <enum>Qt::Orientation::Horizontal</enum>
                </property>
               </widget>
              </item>
@@ -2481,7 +2481,7 @@ COMMON</string>
                 <number>127</number>
                </property>
                <property name="orientation">
-                <enum>Qt::Horizontal</enum>
+                <enum>Qt::Orientation::Horizontal</enum>
                </property>
               </widget>
              </item>
@@ -2530,14 +2530,14 @@ COMMON</string>
            <item row="11" column="1">
             <widget class="QComboBox" name="Ch10TypeBox">
              <property name="sizeAdjustPolicy">
-              <enum>QComboBox::AdjustToContents</enum>
+              <enum>QComboBox::SizeAdjustPolicy::AdjustToContents</enum>
              </property>
             </widget>
            </item>
            <item row="11" column="2">
             <widget class="QComboBox" name="Ch10BankBox">
              <property name="sizeAdjustPolicy">
-              <enum>QComboBox::AdjustToContents</enum>
+              <enum>QComboBox::SizeAdjustPolicy::AdjustToContents</enum>
              </property>
             </widget>
            </item>
@@ -2557,7 +2557,7 @@ COMMON</string>
            <item row="11" column="4">
             <widget class="QComboBox" name="Ch10ToneBox">
              <property name="sizeAdjustPolicy">
-              <enum>QComboBox::AdjustToContents</enum>
+              <enum>QComboBox::SizeAdjustPolicy::AdjustToContents</enum>
              </property>
             </widget>
            </item>
@@ -2569,7 +2569,7 @@ COMMON</string>
                 <number>127</number>
                </property>
                <property name="orientation">
-                <enum>Qt::Horizontal</enum>
+                <enum>Qt::Orientation::Horizontal</enum>
                </property>
               </widget>
              </item>
@@ -2593,7 +2593,7 @@ COMMON</string>
                 <number>63</number>
                </property>
                <property name="orientation">
-                <enum>Qt::Horizontal</enum>
+                <enum>Qt::Orientation::Horizontal</enum>
                </property>
               </widget>
              </item>
@@ -2617,7 +2617,7 @@ COMMON</string>
                 <number>127</number>
                </property>
                <property name="orientation">
-                <enum>Qt::Horizontal</enum>
+                <enum>Qt::Orientation::Horizontal</enum>
                </property>
               </widget>
              </item>
@@ -2638,7 +2638,7 @@ COMMON</string>
                 <number>127</number>
                </property>
                <property name="orientation">
-                <enum>Qt::Horizontal</enum>
+                <enum>Qt::Orientation::Horizontal</enum>
                </property>
               </widget>
              </item>
@@ -2687,14 +2687,14 @@ COMMON</string>
            <item row="12" column="1">
             <widget class="QComboBox" name="Ch11TypeBox">
              <property name="sizeAdjustPolicy">
-              <enum>QComboBox::AdjustToContents</enum>
+              <enum>QComboBox::SizeAdjustPolicy::AdjustToContents</enum>
              </property>
             </widget>
            </item>
            <item row="12" column="2">
             <widget class="QComboBox" name="Ch11BankBox">
              <property name="sizeAdjustPolicy">
-              <enum>QComboBox::AdjustToContents</enum>
+              <enum>QComboBox::SizeAdjustPolicy::AdjustToContents</enum>
              </property>
             </widget>
            </item>
@@ -2714,7 +2714,7 @@ COMMON</string>
            <item row="12" column="4">
             <widget class="QComboBox" name="Ch11ToneBox">
              <property name="sizeAdjustPolicy">
-              <enum>QComboBox::AdjustToContents</enum>
+              <enum>QComboBox::SizeAdjustPolicy::AdjustToContents</enum>
              </property>
             </widget>
            </item>
@@ -2726,7 +2726,7 @@ COMMON</string>
                 <number>127</number>
                </property>
                <property name="orientation">
-                <enum>Qt::Horizontal</enum>
+                <enum>Qt::Orientation::Horizontal</enum>
                </property>
               </widget>
              </item>
@@ -2750,7 +2750,7 @@ COMMON</string>
                 <number>63</number>
                </property>
                <property name="orientation">
-                <enum>Qt::Horizontal</enum>
+                <enum>Qt::Orientation::Horizontal</enum>
                </property>
               </widget>
              </item>
@@ -2774,7 +2774,7 @@ COMMON</string>
                 <number>127</number>
                </property>
                <property name="orientation">
-                <enum>Qt::Horizontal</enum>
+                <enum>Qt::Orientation::Horizontal</enum>
                </property>
               </widget>
              </item>
@@ -2795,7 +2795,7 @@ COMMON</string>
                 <number>127</number>
                </property>
                <property name="orientation">
-                <enum>Qt::Horizontal</enum>
+                <enum>Qt::Orientation::Horizontal</enum>
                </property>
               </widget>
              </item>
@@ -2844,14 +2844,14 @@ COMMON</string>
            <item row="13" column="1">
             <widget class="QComboBox" name="Ch12TypeBox">
              <property name="sizeAdjustPolicy">
-              <enum>QComboBox::AdjustToContents</enum>
+              <enum>QComboBox::SizeAdjustPolicy::AdjustToContents</enum>
              </property>
             </widget>
            </item>
            <item row="13" column="2">
             <widget class="QComboBox" name="Ch12BankBox">
              <property name="sizeAdjustPolicy">
-              <enum>QComboBox::AdjustToContents</enum>
+              <enum>QComboBox::SizeAdjustPolicy::AdjustToContents</enum>
              </property>
             </widget>
            </item>
@@ -2871,7 +2871,7 @@ COMMON</string>
            <item row="13" column="4">
             <widget class="QComboBox" name="Ch12ToneBox">
              <property name="sizeAdjustPolicy">
-              <enum>QComboBox::AdjustToContents</enum>
+              <enum>QComboBox::SizeAdjustPolicy::AdjustToContents</enum>
              </property>
             </widget>
            </item>
@@ -2883,7 +2883,7 @@ COMMON</string>
                 <number>127</number>
                </property>
                <property name="orientation">
-                <enum>Qt::Horizontal</enum>
+                <enum>Qt::Orientation::Horizontal</enum>
                </property>
               </widget>
              </item>
@@ -2907,7 +2907,7 @@ COMMON</string>
                 <number>63</number>
                </property>
                <property name="orientation">
-                <enum>Qt::Horizontal</enum>
+                <enum>Qt::Orientation::Horizontal</enum>
                </property>
               </widget>
              </item>
@@ -2931,7 +2931,7 @@ COMMON</string>
                 <number>127</number>
                </property>
                <property name="orientation">
-                <enum>Qt::Horizontal</enum>
+                <enum>Qt::Orientation::Horizontal</enum>
                </property>
               </widget>
              </item>
@@ -2952,7 +2952,7 @@ COMMON</string>
                 <number>127</number>
                </property>
                <property name="orientation">
-                <enum>Qt::Horizontal</enum>
+                <enum>Qt::Orientation::Horizontal</enum>
                </property>
               </widget>
              </item>
@@ -3001,14 +3001,14 @@ COMMON</string>
            <item row="14" column="1">
             <widget class="QComboBox" name="Ch13TypeBox">
              <property name="sizeAdjustPolicy">
-              <enum>QComboBox::AdjustToContents</enum>
+              <enum>QComboBox::SizeAdjustPolicy::AdjustToContents</enum>
              </property>
             </widget>
            </item>
            <item row="14" column="2">
             <widget class="QComboBox" name="Ch13BankBox">
              <property name="sizeAdjustPolicy">
-              <enum>QComboBox::AdjustToContents</enum>
+              <enum>QComboBox::SizeAdjustPolicy::AdjustToContents</enum>
              </property>
             </widget>
            </item>
@@ -3028,7 +3028,7 @@ COMMON</string>
            <item row="14" column="4">
             <widget class="QComboBox" name="Ch13ToneBox">
              <property name="sizeAdjustPolicy">
-              <enum>QComboBox::AdjustToContents</enum>
+              <enum>QComboBox::SizeAdjustPolicy::AdjustToContents</enum>
              </property>
             </widget>
            </item>
@@ -3040,7 +3040,7 @@ COMMON</string>
                 <number>127</number>
                </property>
                <property name="orientation">
-                <enum>Qt::Horizontal</enum>
+                <enum>Qt::Orientation::Horizontal</enum>
                </property>
               </widget>
              </item>
@@ -3064,7 +3064,7 @@ COMMON</string>
                 <number>63</number>
                </property>
                <property name="orientation">
-                <enum>Qt::Horizontal</enum>
+                <enum>Qt::Orientation::Horizontal</enum>
                </property>
               </widget>
              </item>
@@ -3088,7 +3088,7 @@ COMMON</string>
                 <number>127</number>
                </property>
                <property name="orientation">
-                <enum>Qt::Horizontal</enum>
+                <enum>Qt::Orientation::Horizontal</enum>
                </property>
               </widget>
              </item>
@@ -3109,7 +3109,7 @@ COMMON</string>
                 <number>127</number>
                </property>
                <property name="orientation">
-                <enum>Qt::Horizontal</enum>
+                <enum>Qt::Orientation::Horizontal</enum>
                </property>
               </widget>
              </item>
@@ -3158,14 +3158,14 @@ COMMON</string>
            <item row="15" column="1">
             <widget class="QComboBox" name="Ch14TypeBox">
              <property name="sizeAdjustPolicy">
-              <enum>QComboBox::AdjustToContents</enum>
+              <enum>QComboBox::SizeAdjustPolicy::AdjustToContents</enum>
              </property>
             </widget>
            </item>
            <item row="15" column="2">
             <widget class="QComboBox" name="Ch14BankBox">
              <property name="sizeAdjustPolicy">
-              <enum>QComboBox::AdjustToContents</enum>
+              <enum>QComboBox::SizeAdjustPolicy::AdjustToContents</enum>
              </property>
             </widget>
            </item>
@@ -3185,7 +3185,7 @@ COMMON</string>
            <item row="15" column="4">
             <widget class="QComboBox" name="Ch14ToneBox">
              <property name="sizeAdjustPolicy">
-              <enum>QComboBox::AdjustToContents</enum>
+              <enum>QComboBox::SizeAdjustPolicy::AdjustToContents</enum>
              </property>
             </widget>
            </item>
@@ -3197,7 +3197,7 @@ COMMON</string>
                 <number>127</number>
                </property>
                <property name="orientation">
-                <enum>Qt::Horizontal</enum>
+                <enum>Qt::Orientation::Horizontal</enum>
                </property>
               </widget>
              </item>
@@ -3221,7 +3221,7 @@ COMMON</string>
                 <number>63</number>
                </property>
                <property name="orientation">
-                <enum>Qt::Horizontal</enum>
+                <enum>Qt::Orientation::Horizontal</enum>
                </property>
               </widget>
              </item>
@@ -3245,7 +3245,7 @@ COMMON</string>
                 <number>127</number>
                </property>
                <property name="orientation">
-                <enum>Qt::Horizontal</enum>
+                <enum>Qt::Orientation::Horizontal</enum>
                </property>
               </widget>
              </item>
@@ -3266,7 +3266,7 @@ COMMON</string>
                 <number>127</number>
                </property>
                <property name="orientation">
-                <enum>Qt::Horizontal</enum>
+                <enum>Qt::Orientation::Horizontal</enum>
                </property>
               </widget>
              </item>
@@ -3315,14 +3315,14 @@ COMMON</string>
            <item row="16" column="1">
             <widget class="QComboBox" name="Ch15TypeBox">
              <property name="sizeAdjustPolicy">
-              <enum>QComboBox::AdjustToContents</enum>
+              <enum>QComboBox::SizeAdjustPolicy::AdjustToContents</enum>
              </property>
             </widget>
            </item>
            <item row="16" column="2">
             <widget class="QComboBox" name="Ch15BankBox">
              <property name="sizeAdjustPolicy">
-              <enum>QComboBox::AdjustToContents</enum>
+              <enum>QComboBox::SizeAdjustPolicy::AdjustToContents</enum>
              </property>
             </widget>
            </item>
@@ -3342,7 +3342,7 @@ COMMON</string>
            <item row="16" column="4">
             <widget class="QComboBox" name="Ch15ToneBox">
              <property name="sizeAdjustPolicy">
-              <enum>QComboBox::AdjustToContents</enum>
+              <enum>QComboBox::SizeAdjustPolicy::AdjustToContents</enum>
              </property>
             </widget>
            </item>
@@ -3354,7 +3354,7 @@ COMMON</string>
                 <number>127</number>
                </property>
                <property name="orientation">
-                <enum>Qt::Horizontal</enum>
+                <enum>Qt::Orientation::Horizontal</enum>
                </property>
               </widget>
              </item>
@@ -3378,7 +3378,7 @@ COMMON</string>
                 <number>63</number>
                </property>
                <property name="orientation">
-                <enum>Qt::Horizontal</enum>
+                <enum>Qt::Orientation::Horizontal</enum>
                </property>
               </widget>
              </item>
@@ -3402,7 +3402,7 @@ COMMON</string>
                 <number>127</number>
                </property>
                <property name="orientation">
-                <enum>Qt::Horizontal</enum>
+                <enum>Qt::Orientation::Horizontal</enum>
                </property>
               </widget>
              </item>
@@ -3423,7 +3423,7 @@ COMMON</string>
                 <number>127</number>
                </property>
                <property name="orientation">
-                <enum>Qt::Horizontal</enum>
+                <enum>Qt::Orientation::Horizontal</enum>
                </property>
               </widget>
              </item>
@@ -3472,14 +3472,14 @@ COMMON</string>
            <item row="17" column="1">
             <widget class="QComboBox" name="Ch16TypeBox">
              <property name="sizeAdjustPolicy">
-              <enum>QComboBox::AdjustToContents</enum>
+              <enum>QComboBox::SizeAdjustPolicy::AdjustToContents</enum>
              </property>
             </widget>
            </item>
            <item row="17" column="2">
             <widget class="QComboBox" name="Ch16BankBox">
              <property name="sizeAdjustPolicy">
-              <enum>QComboBox::AdjustToContents</enum>
+              <enum>QComboBox::SizeAdjustPolicy::AdjustToContents</enum>
              </property>
             </widget>
            </item>
@@ -3499,7 +3499,7 @@ COMMON</string>
            <item row="17" column="4">
             <widget class="QComboBox" name="Ch16ToneBox">
              <property name="sizeAdjustPolicy">
-              <enum>QComboBox::AdjustToContents</enum>
+              <enum>QComboBox::SizeAdjustPolicy::AdjustToContents</enum>
              </property>
             </widget>
            </item>
@@ -3511,7 +3511,7 @@ COMMON</string>
                 <number>127</number>
                </property>
                <property name="orientation">
-                <enum>Qt::Horizontal</enum>
+                <enum>Qt::Orientation::Horizontal</enum>
                </property>
               </widget>
              </item>
@@ -3535,7 +3535,7 @@ COMMON</string>
                 <number>63</number>
                </property>
                <property name="orientation">
-                <enum>Qt::Horizontal</enum>
+                <enum>Qt::Orientation::Horizontal</enum>
                </property>
               </widget>
              </item>
@@ -3559,7 +3559,7 @@ COMMON</string>
                 <number>127</number>
                </property>
                <property name="orientation">
-                <enum>Qt::Horizontal</enum>
+                <enum>Qt::Orientation::Horizontal</enum>
                </property>
               </widget>
              </item>
@@ -3580,7 +3580,7 @@ COMMON</string>
                 <number>127</number>
                </property>
                <property name="orientation">
-                <enum>Qt::Horizontal</enum>
+                <enum>Qt::Orientation::Horizontal</enum>
                </property>
               </widget>
              </item>
@@ -3621,7 +3621,7 @@ COMMON</string>
                 <number>127</number>
                </property>
                <property name="orientation">
-                <enum>Qt::Horizontal</enum>
+                <enum>Qt::Orientation::Horizontal</enum>
                </property>
               </widget>
              </item>
@@ -3642,7 +3642,7 @@ COMMON</string>
                 <number>127</number>
                </property>
                <property name="orientation">
-                <enum>Qt::Horizontal</enum>
+                <enum>Qt::Orientation::Horizontal</enum>
                </property>
               </widget>
              </item>
@@ -3663,7 +3663,7 @@ COMMON</string>
                 <number>127</number>
                </property>
                <property name="orientation">
-                <enum>Qt::Horizontal</enum>
+                <enum>Qt::Orientation::Horizontal</enum>
                </property>
               </widget>
              </item>
@@ -3709,7 +3709,7 @@ COMMON</string>
               <string>SOLO</string>
              </property>
              <property name="alignment">
-              <set>Qt::AlignCenter</set>
+              <set>Qt::AlignmentFlag::AlignCenter</set>
              </property>
             </widget>
            </item>
@@ -4016,7 +4016,7 @@ COMMON</string>
               <string>TYPE</string>
              </property>
              <property name="alignment">
-              <set>Qt::AlignCenter</set>
+              <set>Qt::AlignmentFlag::AlignCenter</set>
              </property>
             </widget>
            </item>
@@ -4087,7 +4087,7 @@ COMMON</string>
               <string>MUTE</string>
              </property>
              <property name="alignment">
-              <set>Qt::AlignCenter</set>
+              <set>Qt::AlignmentFlag::AlignCenter</set>
              </property>
             </widget>
            </item>
@@ -4315,7 +4315,7 @@ COMMON</string>
               <string>CATEGORY</string>
              </property>
              <property name="alignment">
-              <set>Qt::AlignCenter</set>
+              <set>Qt::AlignmentFlag::AlignCenter</set>
              </property>
             </widget>
            </item>
@@ -4416,7 +4416,7 @@ COMMON</string>
               <string>BANK</string>
              </property>
              <property name="alignment">
-              <set>Qt::AlignCenter</set>
+              <set>Qt::AlignmentFlag::AlignCenter</set>
              </property>
             </widget>
            </item>
@@ -4571,7 +4571,7 @@ COMMON</string>
               <string>TONE</string>
              </property>
              <property name="alignment">
-              <set>Qt::AlignCenter</set>
+              <set>Qt::AlignmentFlag::AlignCenter</set>
              </property>
             </widget>
            </item>
@@ -4807,7 +4807,7 @@ COMMON</string>
                 <number>127</number>
                </property>
                <property name="orientation">
-                <enum>Qt::Horizontal</enum>
+                <enum>Qt::Orientation::Horizontal</enum>
                </property>
               </widget>
              </item>
@@ -4828,7 +4828,7 @@ COMMON</string>
                 <number>127</number>
                </property>
                <property name="orientation">
-                <enum>Qt::Horizontal</enum>
+                <enum>Qt::Orientation::Horizontal</enum>
                </property>
               </widget>
              </item>
@@ -4849,7 +4849,7 @@ COMMON</string>
                 <number>127</number>
                </property>
                <property name="orientation">
-                <enum>Qt::Horizontal</enum>
+                <enum>Qt::Orientation::Horizontal</enum>
                </property>
               </widget>
              </item>
@@ -4870,7 +4870,7 @@ COMMON</string>
                 <number>127</number>
                </property>
                <property name="orientation">
-                <enum>Qt::Horizontal</enum>
+                <enum>Qt::Orientation::Horizontal</enum>
                </property>
               </widget>
              </item>
@@ -4920,7 +4920,7 @@ COMMON</string>
                 <number>127</number>
                </property>
                <property name="orientation">
-                <enum>Qt::Horizontal</enum>
+                <enum>Qt::Orientation::Horizontal</enum>
                </property>
               </widget>
              </item>
@@ -4964,7 +4964,7 @@ COMMON</string>
                 <number>127</number>
                </property>
                <property name="orientation">
-                <enum>Qt::Horizontal</enum>
+                <enum>Qt::Orientation::Horizontal</enum>
                </property>
               </widget>
              </item>
@@ -5005,7 +5005,7 @@ COMMON</string>
                 <number>127</number>
                </property>
                <property name="orientation">
-                <enum>Qt::Horizontal</enum>
+                <enum>Qt::Orientation::Horizontal</enum>
                </property>
               </widget>
              </item>
@@ -5026,7 +5026,7 @@ COMMON</string>
                 <number>127</number>
                </property>
                <property name="orientation">
-                <enum>Qt::Horizontal</enum>
+                <enum>Qt::Orientation::Horizontal</enum>
                </property>
               </widget>
              </item>
@@ -5047,7 +5047,7 @@ COMMON</string>
                 <number>127</number>
                </property>
                <property name="orientation">
-                <enum>Qt::Horizontal</enum>
+                <enum>Qt::Orientation::Horizontal</enum>
                </property>
               </widget>
              </item>
@@ -5084,7 +5084,7 @@ COMMON</string>
                 <number>127</number>
                </property>
                <property name="orientation">
-                <enum>Qt::Horizontal</enum>
+                <enum>Qt::Orientation::Horizontal</enum>
                </property>
               </widget>
              </item>
@@ -5108,7 +5108,7 @@ COMMON</string>
                 <number>127</number>
                </property>
                <property name="orientation">
-                <enum>Qt::Horizontal</enum>
+                <enum>Qt::Orientation::Horizontal</enum>
                </property>
               </widget>
              </item>
@@ -5132,7 +5132,7 @@ COMMON</string>
                 <number>63</number>
                </property>
                <property name="orientation">
-                <enum>Qt::Horizontal</enum>
+                <enum>Qt::Orientation::Horizontal</enum>
                </property>
               </widget>
              </item>
@@ -5194,7 +5194,7 @@ COMMON</string>
               <string>VOICE RESERVE</string>
              </property>
              <property name="alignment">
-              <set>Qt::AlignCenter</set>
+              <set>Qt::AlignmentFlag::AlignCenter</set>
              </property>
             </widget>
            </item>
@@ -5210,7 +5210,7 @@ COMMON</string>
               <string>CHORUS SEND</string>
              </property>
              <property name="alignment">
-              <set>Qt::AlignCenter</set>
+              <set>Qt::AlignmentFlag::AlignCenter</set>
              </property>
             </widget>
            </item>
@@ -5225,7 +5225,7 @@ COMMON</string>
                 <number>63</number>
                </property>
                <property name="orientation">
-                <enum>Qt::Horizontal</enum>
+                <enum>Qt::Orientation::Horizontal</enum>
                </property>
               </widget>
              </item>
@@ -5262,7 +5262,7 @@ COMMON</string>
                 <number>63</number>
                </property>
                <property name="orientation">
-                <enum>Qt::Horizontal</enum>
+                <enum>Qt::Orientation::Horizontal</enum>
                </property>
               </widget>
              </item>
@@ -5286,7 +5286,7 @@ COMMON</string>
                 <number>127</number>
                </property>
                <property name="orientation">
-                <enum>Qt::Horizontal</enum>
+                <enum>Qt::Orientation::Horizontal</enum>
                </property>
               </widget>
              </item>
@@ -5321,7 +5321,7 @@ COMMON</string>
               <string>OUTPUT</string>
              </property>
              <property name="alignment">
-              <set>Qt::AlignCenter</set>
+              <set>Qt::AlignmentFlag::AlignCenter</set>
              </property>
             </widget>
            </item>
@@ -5353,7 +5353,7 @@ COMMON</string>
               <string>PAN</string>
              </property>
              <property name="alignment">
-              <set>Qt::AlignCenter</set>
+              <set>Qt::AlignmentFlag::AlignCenter</set>
              </property>
             </widget>
            </item>
@@ -5371,7 +5371,7 @@ COMMON</string>
                 <number>63</number>
                </property>
                <property name="orientation">
-                <enum>Qt::Horizontal</enum>
+                <enum>Qt::Orientation::Horizontal</enum>
                </property>
               </widget>
              </item>
@@ -5430,7 +5430,7 @@ COMMON</string>
                 <number>127</number>
                </property>
                <property name="orientation">
-                <enum>Qt::Horizontal</enum>
+                <enum>Qt::Orientation::Horizontal</enum>
                </property>
               </widget>
              </item>
@@ -5457,7 +5457,7 @@ COMMON</string>
                 <number>63</number>
                </property>
                <property name="orientation">
-                <enum>Qt::Horizontal</enum>
+                <enum>Qt::Orientation::Horizontal</enum>
                </property>
               </widget>
              </item>
@@ -5481,7 +5481,7 @@ COMMON</string>
                 <number>127</number>
                </property>
                <property name="orientation">
-                <enum>Qt::Horizontal</enum>
+                <enum>Qt::Orientation::Horizontal</enum>
                </property>
               </widget>
              </item>
@@ -5509,7 +5509,7 @@ COMMON</string>
               <string>RX CH</string>
              </property>
              <property name="alignment">
-              <set>Qt::AlignCenter</set>
+              <set>Qt::AlignmentFlag::AlignCenter</set>
              </property>
             </widget>
            </item>
@@ -5525,7 +5525,7 @@ COMMON</string>
               <string>LEVEL</string>
              </property>
              <property name="alignment">
-              <set>Qt::AlignCenter</set>
+              <set>Qt::AlignmentFlag::AlignCenter</set>
              </property>
             </widget>
            </item>
@@ -5540,7 +5540,7 @@ COMMON</string>
                 <number>63</number>
                </property>
                <property name="orientation">
-                <enum>Qt::Horizontal</enum>
+                <enum>Qt::Orientation::Horizontal</enum>
                </property>
               </widget>
              </item>
@@ -5589,7 +5589,7 @@ COMMON</string>
                 <number>63</number>
                </property>
                <property name="orientation">
-                <enum>Qt::Horizontal</enum>
+                <enum>Qt::Orientation::Horizontal</enum>
                </property>
               </widget>
              </item>
@@ -5616,7 +5616,7 @@ COMMON</string>
                 <number>127</number>
                </property>
                <property name="orientation">
-                <enum>Qt::Horizontal</enum>
+                <enum>Qt::Orientation::Horizontal</enum>
                </property>
               </widget>
              </item>
@@ -5654,7 +5654,7 @@ COMMON</string>
                 <number>127</number>
                </property>
                <property name="orientation">
-                <enum>Qt::Horizontal</enum>
+                <enum>Qt::Orientation::Horizontal</enum>
                </property>
               </widget>
              </item>
@@ -5681,7 +5681,7 @@ COMMON</string>
                 <number>127</number>
                </property>
                <property name="orientation">
-                <enum>Qt::Horizontal</enum>
+                <enum>Qt::Orientation::Horizontal</enum>
                </property>
               </widget>
              </item>
@@ -5706,7 +5706,7 @@ COMMON</string>
               <string>REVERB SEND</string>
              </property>
              <property name="alignment">
-              <set>Qt::AlignCenter</set>
+              <set>Qt::AlignmentFlag::AlignCenter</set>
              </property>
             </widget>
            </item>
@@ -5727,7 +5727,7 @@ COMMON</string>
                 <number>127</number>
                </property>
                <property name="orientation">
-                <enum>Qt::Horizontal</enum>
+                <enum>Qt::Orientation::Horizontal</enum>
                </property>
               </widget>
              </item>
@@ -5748,7 +5748,7 @@ COMMON</string>
                 <number>127</number>
                </property>
                <property name="orientation">
-                <enum>Qt::Horizontal</enum>
+                <enum>Qt::Orientation::Horizontal</enum>
                </property>
               </widget>
              </item>
@@ -5773,7 +5773,7 @@ COMMON</string>
               <string>RX SW</string>
              </property>
              <property name="alignment">
-              <set>Qt::AlignCenter</set>
+              <set>Qt::AlignmentFlag::AlignCenter</set>
              </property>
             </widget>
            </item>
@@ -5794,7 +5794,7 @@ COMMON</string>
                 <number>63</number>
                </property>
                <property name="orientation">
-                <enum>Qt::Horizontal</enum>
+                <enum>Qt::Orientation::Horizontal</enum>
                </property>
               </widget>
              </item>
@@ -5824,7 +5824,7 @@ COMMON</string>
                 <number>127</number>
                </property>
                <property name="orientation">
-                <enum>Qt::Horizontal</enum>
+                <enum>Qt::Orientation::Horizontal</enum>
                </property>
               </widget>
              </item>
@@ -5845,7 +5845,7 @@ COMMON</string>
                 <number>127</number>
                </property>
                <property name="orientation">
-                <enum>Qt::Horizontal</enum>
+                <enum>Qt::Orientation::Horizontal</enum>
                </property>
               </widget>
              </item>
@@ -5889,7 +5889,7 @@ COMMON</string>
                 <number>127</number>
                </property>
                <property name="orientation">
-                <enum>Qt::Horizontal</enum>
+                <enum>Qt::Orientation::Horizontal</enum>
                </property>
               </widget>
              </item>
@@ -5916,7 +5916,7 @@ COMMON</string>
                 <number>63</number>
                </property>
                <property name="orientation">
-                <enum>Qt::Horizontal</enum>
+                <enum>Qt::Orientation::Horizontal</enum>
                </property>
               </widget>
              </item>
@@ -5943,7 +5943,7 @@ COMMON</string>
                 <number>127</number>
                </property>
                <property name="orientation">
-                <enum>Qt::Horizontal</enum>
+                <enum>Qt::Orientation::Horizontal</enum>
                </property>
               </widget>
              </item>
@@ -5967,7 +5967,7 @@ COMMON</string>
                 <number>63</number>
                </property>
                <property name="orientation">
-                <enum>Qt::Horizontal</enum>
+                <enum>Qt::Orientation::Horizontal</enum>
                </property>
               </widget>
              </item>
@@ -5994,7 +5994,7 @@ COMMON</string>
                 <number>127</number>
                </property>
                <property name="orientation">
-                <enum>Qt::Horizontal</enum>
+                <enum>Qt::Orientation::Horizontal</enum>
                </property>
               </widget>
              </item>
@@ -6025,7 +6025,7 @@ COMMON</string>
                 <number>127</number>
                </property>
                <property name="orientation">
-                <enum>Qt::Horizontal</enum>
+                <enum>Qt::Orientation::Horizontal</enum>
                </property>
               </widget>
              </item>
@@ -6046,7 +6046,7 @@ COMMON</string>
                 <number>127</number>
                </property>
                <property name="orientation">
-                <enum>Qt::Horizontal</enum>
+                <enum>Qt::Orientation::Horizontal</enum>
                </property>
               </widget>
              </item>
@@ -6067,7 +6067,7 @@ COMMON</string>
                 <number>127</number>
                </property>
                <property name="orientation">
-                <enum>Qt::Horizontal</enum>
+                <enum>Qt::Orientation::Horizontal</enum>
                </property>
               </widget>
              </item>
@@ -6088,7 +6088,7 @@ COMMON</string>
                 <number>127</number>
                </property>
                <property name="orientation">
-                <enum>Qt::Horizontal</enum>
+                <enum>Qt::Orientation::Horizontal</enum>
                </property>
               </widget>
              </item>
@@ -6115,7 +6115,7 @@ COMMON</string>
                 <number>63</number>
                </property>
                <property name="orientation">
-                <enum>Qt::Horizontal</enum>
+                <enum>Qt::Orientation::Horizontal</enum>
                </property>
               </widget>
              </item>
@@ -6142,7 +6142,7 @@ COMMON</string>
                 <number>63</number>
                </property>
                <property name="orientation">
-                <enum>Qt::Horizontal</enum>
+                <enum>Qt::Orientation::Horizontal</enum>
                </property>
               </widget>
              </item>
@@ -6182,7 +6182,7 @@ COMMON</string>
                 <number>127</number>
                </property>
                <property name="orientation">
-                <enum>Qt::Horizontal</enum>
+                <enum>Qt::Orientation::Horizontal</enum>
                </property>
               </widget>
              </item>
@@ -6203,7 +6203,7 @@ COMMON</string>
                 <number>127</number>
                </property>
                <property name="orientation">
-                <enum>Qt::Horizontal</enum>
+                <enum>Qt::Orientation::Horizontal</enum>
                </property>
               </widget>
              </item>
@@ -6228,7 +6228,7 @@ COMMON</string>
               <string>MONO/POLY</string>
              </property>
              <property name="alignment">
-              <set>Qt::AlignCenter</set>
+              <set>Qt::AlignmentFlag::AlignCenter</set>
              </property>
             </widget>
            </item>
@@ -6256,7 +6256,7 @@ COMMON</string>
                 <number>127</number>
                </property>
                <property name="orientation">
-                <enum>Qt::Horizontal</enum>
+                <enum>Qt::Orientation::Horizontal</enum>
                </property>
               </widget>
              </item>
@@ -6287,7 +6287,7 @@ COMMON</string>
                 <number>127</number>
                </property>
                <property name="orientation">
-                <enum>Qt::Horizontal</enum>
+                <enum>Qt::Orientation::Horizontal</enum>
                </property>
               </widget>
              </item>
@@ -6318,7 +6318,7 @@ COMMON</string>
                 <number>127</number>
                </property>
                <property name="orientation">
-                <enum>Qt::Horizontal</enum>
+                <enum>Qt::Orientation::Horizontal</enum>
                </property>
               </widget>
              </item>
@@ -6391,7 +6391,7 @@ COMMON</string>
                 <number>127</number>
                </property>
                <property name="orientation">
-                <enum>Qt::Horizontal</enum>
+                <enum>Qt::Orientation::Horizontal</enum>
                </property>
               </widget>
              </item>
@@ -6425,7 +6425,7 @@ COMMON</string>
                 <number>127</number>
                </property>
                <property name="orientation">
-                <enum>Qt::Horizontal</enum>
+                <enum>Qt::Orientation::Horizontal</enum>
                </property>
               </widget>
              </item>
@@ -6446,7 +6446,7 @@ COMMON</string>
                 <number>127</number>
                </property>
                <property name="orientation">
-                <enum>Qt::Horizontal</enum>
+                <enum>Qt::Orientation::Horizontal</enum>
                </property>
               </widget>
              </item>
@@ -6479,7 +6479,7 @@ COMMON</string>
                 <number>127</number>
                </property>
                <property name="orientation">
-                <enum>Qt::Horizontal</enum>
+                <enum>Qt::Orientation::Horizontal</enum>
                </property>
               </widget>
              </item>
@@ -6500,7 +6500,7 @@ COMMON</string>
                 <number>127</number>
                </property>
                <property name="orientation">
-                <enum>Qt::Horizontal</enum>
+                <enum>Qt::Orientation::Horizontal</enum>
                </property>
               </widget>
              </item>
@@ -6524,7 +6524,7 @@ COMMON</string>
                 <number>127</number>
                </property>
                <property name="orientation">
-                <enum>Qt::Horizontal</enum>
+                <enum>Qt::Orientation::Horizontal</enum>
                </property>
               </widget>
              </item>
@@ -6545,7 +6545,7 @@ COMMON</string>
                 <number>127</number>
                </property>
                <property name="orientation">
-                <enum>Qt::Horizontal</enum>
+                <enum>Qt::Orientation::Horizontal</enum>
                </property>
               </widget>
              </item>
@@ -6566,7 +6566,7 @@ COMMON</string>
                 <number>127</number>
                </property>
                <property name="orientation">
-                <enum>Qt::Horizontal</enum>
+                <enum>Qt::Orientation::Horizontal</enum>
                </property>
               </widget>
              </item>
@@ -6587,7 +6587,7 @@ COMMON</string>
                 <number>127</number>
                </property>
                <property name="orientation">
-                <enum>Qt::Horizontal</enum>
+                <enum>Qt::Orientation::Horizontal</enum>
                </property>
               </widget>
              </item>
@@ -6608,7 +6608,7 @@ COMMON</string>
                 <number>127</number>
                </property>
                <property name="orientation">
-                <enum>Qt::Horizontal</enum>
+                <enum>Qt::Orientation::Horizontal</enum>
                </property>
               </widget>
              </item>
@@ -6639,7 +6639,7 @@ COMMON</string>
                 <number>63</number>
                </property>
                <property name="orientation">
-                <enum>Qt::Horizontal</enum>
+                <enum>Qt::Orientation::Horizontal</enum>
                </property>
               </widget>
              </item>
@@ -6666,7 +6666,7 @@ COMMON</string>
                 <number>127</number>
                </property>
                <property name="orientation">
-                <enum>Qt::Horizontal</enum>
+                <enum>Qt::Orientation::Horizontal</enum>
                </property>
               </widget>
              </item>
@@ -6687,7 +6687,7 @@ COMMON</string>
                 <number>127</number>
                </property>
                <property name="orientation">
-                <enum>Qt::Horizontal</enum>
+                <enum>Qt::Orientation::Horizontal</enum>
                </property>
               </widget>
              </item>
@@ -6708,7 +6708,7 @@ COMMON</string>
                 <number>127</number>
                </property>
                <property name="orientation">
-                <enum>Qt::Horizontal</enum>
+                <enum>Qt::Orientation::Horizontal</enum>
                </property>
               </widget>
              </item>
@@ -6732,7 +6732,7 @@ COMMON</string>
                 <number>127</number>
                </property>
                <property name="orientation">
-                <enum>Qt::Horizontal</enum>
+                <enum>Qt::Orientation::Horizontal</enum>
                </property>
               </widget>
              </item>
@@ -6772,7 +6772,7 @@ COMMON</string>
                 <number>127</number>
                </property>
                <property name="orientation">
-                <enum>Qt::Horizontal</enum>
+                <enum>Qt::Orientation::Horizontal</enum>
                </property>
               </widget>
              </item>
@@ -6823,7 +6823,7 @@ COMMON</string>
                 <number>63</number>
                </property>
                <property name="orientation">
-                <enum>Qt::Horizontal</enum>
+                <enum>Qt::Orientation::Horizontal</enum>
                </property>
               </widget>
              </item>
@@ -6865,7 +6865,7 @@ COMMON</string>
                 <number>63</number>
                </property>
                <property name="orientation">
-                <enum>Qt::Horizontal</enum>
+                <enum>Qt::Orientation::Horizontal</enum>
                </property>
               </widget>
              </item>
@@ -6902,7 +6902,7 @@ COMMON</string>
               <string>LEGATO</string>
              </property>
              <property name="alignment">
-              <set>Qt::AlignCenter</set>
+              <set>Qt::AlignmentFlag::AlignCenter</set>
              </property>
             </widget>
            </item>
@@ -6914,7 +6914,7 @@ COMMON</string>
                 <number>127</number>
                </property>
                <property name="orientation">
-                <enum>Qt::Horizontal</enum>
+                <enum>Qt::Orientation::Horizontal</enum>
                </property>
               </widget>
              </item>
@@ -6948,7 +6948,7 @@ COMMON</string>
                 <number>63</number>
                </property>
                <property name="orientation">
-                <enum>Qt::Horizontal</enum>
+                <enum>Qt::Orientation::Horizontal</enum>
                </property>
               </widget>
              </item>
@@ -6972,7 +6972,7 @@ COMMON</string>
                 <number>127</number>
                </property>
                <property name="orientation">
-                <enum>Qt::Horizontal</enum>
+                <enum>Qt::Orientation::Horizontal</enum>
                </property>
               </widget>
              </item>
@@ -7021,7 +7021,7 @@ COMMON</string>
                 <number>127</number>
                </property>
                <property name="orientation">
-                <enum>Qt::Horizontal</enum>
+                <enum>Qt::Orientation::Horizontal</enum>
                </property>
               </widget>
              </item>
@@ -7112,7 +7112,7 @@ COMMON</string>
               <string>EQ MID Q</string>
              </property>
              <property name="alignment">
-              <set>Qt::AlignCenter</set>
+              <set>Qt::AlignmentFlag::AlignCenter</set>
              </property>
             </widget>
            </item>
@@ -7128,7 +7128,7 @@ COMMON</string>
               <string>EQ MID FREQ</string>
              </property>
              <property name="alignment">
-              <set>Qt::AlignCenter</set>
+              <set>Qt::AlignmentFlag::AlignCenter</set>
              </property>
             </widget>
            </item>
@@ -7144,7 +7144,7 @@ COMMON</string>
               <string>EQ HIGH FREQ</string>
              </property>
              <property name="alignment">
-              <set>Qt::AlignCenter</set>
+              <set>Qt::AlignmentFlag::AlignCenter</set>
              </property>
             </widget>
            </item>
@@ -7160,7 +7160,7 @@ COMMON</string>
               <string>EQ LOW FREQ</string>
              </property>
              <property name="alignment">
-              <set>Qt::AlignCenter</set>
+              <set>Qt::AlignmentFlag::AlignCenter</set>
              </property>
             </widget>
            </item>
@@ -7176,7 +7176,7 @@ COMMON</string>
               <string>EQ HIGH GAIN</string>
              </property>
              <property name="alignment">
-              <set>Qt::AlignCenter</set>
+              <set>Qt::AlignmentFlag::AlignCenter</set>
              </property>
             </widget>
            </item>
@@ -7192,7 +7192,7 @@ COMMON</string>
               <string>EQ LOW GAIN</string>
              </property>
              <property name="alignment">
-              <set>Qt::AlignCenter</set>
+              <set>Qt::AlignmentFlag::AlignCenter</set>
              </property>
             </widget>
            </item>
@@ -7208,7 +7208,7 @@ COMMON</string>
               <string>EQ MID GAIN</string>
              </property>
              <property name="alignment">
-              <set>Qt::AlignCenter</set>
+              <set>Qt::AlignmentFlag::AlignCenter</set>
              </property>
             </widget>
            </item>
@@ -7224,7 +7224,7 @@ COMMON</string>
               <string>EQ SW</string>
              </property>
              <property name="alignment">
-              <set>Qt::AlignCenter</set>
+              <set>Qt::AlignmentFlag::AlignCenter</set>
              </property>
             </widget>
            </item>
@@ -7265,7 +7265,7 @@ COMMON</string>
                 <number>15</number>
                </property>
                <property name="orientation">
-                <enum>Qt::Horizontal</enum>
+                <enum>Qt::Orientation::Horizontal</enum>
                </property>
               </widget>
              </item>
@@ -7295,7 +7295,7 @@ COMMON</string>
                 <number>15</number>
                </property>
                <property name="orientation">
-                <enum>Qt::Horizontal</enum>
+                <enum>Qt::Orientation::Horizontal</enum>
                </property>
               </widget>
              </item>
@@ -7328,7 +7328,7 @@ COMMON</string>
                 <number>15</number>
                </property>
                <property name="orientation">
-                <enum>Qt::Horizontal</enum>
+                <enum>Qt::Orientation::Horizontal</enum>
                </property>
               </widget>
              </item>
@@ -7381,7 +7381,7 @@ COMMON</string>
                 <number>15</number>
                </property>
                <property name="orientation">
-                <enum>Qt::Horizontal</enum>
+                <enum>Qt::Orientation::Horizontal</enum>
                </property>
               </widget>
              </item>
@@ -7411,7 +7411,7 @@ COMMON</string>
                 <number>15</number>
                </property>
                <property name="orientation">
-                <enum>Qt::Horizontal</enum>
+                <enum>Qt::Orientation::Horizontal</enum>
                </property>
               </widget>
              </item>
@@ -7444,7 +7444,7 @@ COMMON</string>
                 <number>15</number>
                </property>
                <property name="orientation">
-                <enum>Qt::Horizontal</enum>
+                <enum>Qt::Orientation::Horizontal</enum>
                </property>
               </widget>
              </item>
@@ -7497,7 +7497,7 @@ COMMON</string>
                 <number>15</number>
                </property>
                <property name="orientation">
-                <enum>Qt::Horizontal</enum>
+                <enum>Qt::Orientation::Horizontal</enum>
                </property>
               </widget>
              </item>
@@ -7527,7 +7527,7 @@ COMMON</string>
                 <number>15</number>
                </property>
                <property name="orientation">
-                <enum>Qt::Horizontal</enum>
+                <enum>Qt::Orientation::Horizontal</enum>
                </property>
               </widget>
              </item>
@@ -7560,7 +7560,7 @@ COMMON</string>
                 <number>15</number>
                </property>
                <property name="orientation">
-                <enum>Qt::Horizontal</enum>
+                <enum>Qt::Orientation::Horizontal</enum>
                </property>
               </widget>
              </item>
@@ -7613,7 +7613,7 @@ COMMON</string>
                 <number>15</number>
                </property>
                <property name="orientation">
-                <enum>Qt::Horizontal</enum>
+                <enum>Qt::Orientation::Horizontal</enum>
                </property>
               </widget>
              </item>
@@ -7643,7 +7643,7 @@ COMMON</string>
                 <number>15</number>
                </property>
                <property name="orientation">
-                <enum>Qt::Horizontal</enum>
+                <enum>Qt::Orientation::Horizontal</enum>
                </property>
               </widget>
              </item>
@@ -7676,7 +7676,7 @@ COMMON</string>
                 <number>15</number>
                </property>
                <property name="orientation">
-                <enum>Qt::Horizontal</enum>
+                <enum>Qt::Orientation::Horizontal</enum>
                </property>
               </widget>
              </item>
@@ -7729,7 +7729,7 @@ COMMON</string>
                 <number>15</number>
                </property>
                <property name="orientation">
-                <enum>Qt::Horizontal</enum>
+                <enum>Qt::Orientation::Horizontal</enum>
                </property>
               </widget>
              </item>
@@ -7759,7 +7759,7 @@ COMMON</string>
                 <number>15</number>
                </property>
                <property name="orientation">
-                <enum>Qt::Horizontal</enum>
+                <enum>Qt::Orientation::Horizontal</enum>
                </property>
               </widget>
              </item>
@@ -7792,7 +7792,7 @@ COMMON</string>
                 <number>15</number>
                </property>
                <property name="orientation">
-                <enum>Qt::Horizontal</enum>
+                <enum>Qt::Orientation::Horizontal</enum>
                </property>
               </widget>
              </item>
@@ -7845,7 +7845,7 @@ COMMON</string>
                 <number>15</number>
                </property>
                <property name="orientation">
-                <enum>Qt::Horizontal</enum>
+                <enum>Qt::Orientation::Horizontal</enum>
                </property>
               </widget>
              </item>
@@ -7875,7 +7875,7 @@ COMMON</string>
                 <number>15</number>
                </property>
                <property name="orientation">
-                <enum>Qt::Horizontal</enum>
+                <enum>Qt::Orientation::Horizontal</enum>
                </property>
               </widget>
              </item>
@@ -7908,7 +7908,7 @@ COMMON</string>
                 <number>15</number>
                </property>
                <property name="orientation">
-                <enum>Qt::Horizontal</enum>
+                <enum>Qt::Orientation::Horizontal</enum>
                </property>
               </widget>
              </item>
@@ -7961,7 +7961,7 @@ COMMON</string>
                 <number>15</number>
                </property>
                <property name="orientation">
-                <enum>Qt::Horizontal</enum>
+                <enum>Qt::Orientation::Horizontal</enum>
                </property>
               </widget>
              </item>
@@ -7991,7 +7991,7 @@ COMMON</string>
                 <number>15</number>
                </property>
                <property name="orientation">
-                <enum>Qt::Horizontal</enum>
+                <enum>Qt::Orientation::Horizontal</enum>
                </property>
               </widget>
              </item>
@@ -8024,7 +8024,7 @@ COMMON</string>
                 <number>15</number>
                </property>
                <property name="orientation">
-                <enum>Qt::Horizontal</enum>
+                <enum>Qt::Orientation::Horizontal</enum>
                </property>
               </widget>
              </item>
@@ -8077,7 +8077,7 @@ COMMON</string>
                 <number>15</number>
                </property>
                <property name="orientation">
-                <enum>Qt::Horizontal</enum>
+                <enum>Qt::Orientation::Horizontal</enum>
                </property>
               </widget>
              </item>
@@ -8107,7 +8107,7 @@ COMMON</string>
                 <number>15</number>
                </property>
                <property name="orientation">
-                <enum>Qt::Horizontal</enum>
+                <enum>Qt::Orientation::Horizontal</enum>
                </property>
               </widget>
              </item>
@@ -8140,7 +8140,7 @@ COMMON</string>
                 <number>15</number>
                </property>
                <property name="orientation">
-                <enum>Qt::Horizontal</enum>
+                <enum>Qt::Orientation::Horizontal</enum>
                </property>
               </widget>
              </item>
@@ -8193,7 +8193,7 @@ COMMON</string>
                 <number>15</number>
                </property>
                <property name="orientation">
-                <enum>Qt::Horizontal</enum>
+                <enum>Qt::Orientation::Horizontal</enum>
                </property>
               </widget>
              </item>
@@ -8223,7 +8223,7 @@ COMMON</string>
                 <number>15</number>
                </property>
                <property name="orientation">
-                <enum>Qt::Horizontal</enum>
+                <enum>Qt::Orientation::Horizontal</enum>
                </property>
               </widget>
              </item>
@@ -8256,7 +8256,7 @@ COMMON</string>
                 <number>15</number>
                </property>
                <property name="orientation">
-                <enum>Qt::Horizontal</enum>
+                <enum>Qt::Orientation::Horizontal</enum>
                </property>
               </widget>
              </item>
@@ -8309,7 +8309,7 @@ COMMON</string>
                 <number>15</number>
                </property>
                <property name="orientation">
-                <enum>Qt::Horizontal</enum>
+                <enum>Qt::Orientation::Horizontal</enum>
                </property>
               </widget>
              </item>
@@ -8339,7 +8339,7 @@ COMMON</string>
                 <number>15</number>
                </property>
                <property name="orientation">
-                <enum>Qt::Horizontal</enum>
+                <enum>Qt::Orientation::Horizontal</enum>
                </property>
               </widget>
              </item>
@@ -8372,7 +8372,7 @@ COMMON</string>
                 <number>15</number>
                </property>
                <property name="orientation">
-                <enum>Qt::Horizontal</enum>
+                <enum>Qt::Orientation::Horizontal</enum>
                </property>
               </widget>
              </item>
@@ -8425,7 +8425,7 @@ COMMON</string>
                 <number>15</number>
                </property>
                <property name="orientation">
-                <enum>Qt::Horizontal</enum>
+                <enum>Qt::Orientation::Horizontal</enum>
                </property>
               </widget>
              </item>
@@ -8455,7 +8455,7 @@ COMMON</string>
                 <number>15</number>
                </property>
                <property name="orientation">
-                <enum>Qt::Horizontal</enum>
+                <enum>Qt::Orientation::Horizontal</enum>
                </property>
               </widget>
              </item>
@@ -8488,7 +8488,7 @@ COMMON</string>
                 <number>15</number>
                </property>
                <property name="orientation">
-                <enum>Qt::Horizontal</enum>
+                <enum>Qt::Orientation::Horizontal</enum>
                </property>
               </widget>
              </item>
@@ -8541,7 +8541,7 @@ COMMON</string>
                 <number>15</number>
                </property>
                <property name="orientation">
-                <enum>Qt::Horizontal</enum>
+                <enum>Qt::Orientation::Horizontal</enum>
                </property>
               </widget>
              </item>
@@ -8571,7 +8571,7 @@ COMMON</string>
                 <number>15</number>
                </property>
                <property name="orientation">
-                <enum>Qt::Horizontal</enum>
+                <enum>Qt::Orientation::Horizontal</enum>
                </property>
               </widget>
              </item>
@@ -8604,7 +8604,7 @@ COMMON</string>
                 <number>15</number>
                </property>
                <property name="orientation">
-                <enum>Qt::Horizontal</enum>
+                <enum>Qt::Orientation::Horizontal</enum>
                </property>
               </widget>
              </item>
@@ -8657,7 +8657,7 @@ COMMON</string>
                 <number>15</number>
                </property>
                <property name="orientation">
-                <enum>Qt::Horizontal</enum>
+                <enum>Qt::Orientation::Horizontal</enum>
                </property>
               </widget>
              </item>
@@ -8687,7 +8687,7 @@ COMMON</string>
                 <number>15</number>
                </property>
                <property name="orientation">
-                <enum>Qt::Horizontal</enum>
+                <enum>Qt::Orientation::Horizontal</enum>
                </property>
               </widget>
              </item>
@@ -8720,7 +8720,7 @@ COMMON</string>
                 <number>15</number>
                </property>
                <property name="orientation">
-                <enum>Qt::Horizontal</enum>
+                <enum>Qt::Orientation::Horizontal</enum>
                </property>
               </widget>
              </item>
@@ -8773,7 +8773,7 @@ COMMON</string>
                 <number>15</number>
                </property>
                <property name="orientation">
-                <enum>Qt::Horizontal</enum>
+                <enum>Qt::Orientation::Horizontal</enum>
                </property>
               </widget>
              </item>
@@ -8803,7 +8803,7 @@ COMMON</string>
                 <number>15</number>
                </property>
                <property name="orientation">
-                <enum>Qt::Horizontal</enum>
+                <enum>Qt::Orientation::Horizontal</enum>
                </property>
               </widget>
              </item>
@@ -8836,7 +8836,7 @@ COMMON</string>
                 <number>15</number>
                </property>
                <property name="orientation">
-                <enum>Qt::Horizontal</enum>
+                <enum>Qt::Orientation::Horizontal</enum>
                </property>
               </widget>
              </item>
@@ -8889,7 +8889,7 @@ COMMON</string>
                 <number>15</number>
                </property>
                <property name="orientation">
-                <enum>Qt::Horizontal</enum>
+                <enum>Qt::Orientation::Horizontal</enum>
                </property>
               </widget>
              </item>
@@ -8919,7 +8919,7 @@ COMMON</string>
                 <number>15</number>
                </property>
                <property name="orientation">
-                <enum>Qt::Horizontal</enum>
+                <enum>Qt::Orientation::Horizontal</enum>
                </property>
               </widget>
              </item>
@@ -8952,7 +8952,7 @@ COMMON</string>
                 <number>15</number>
                </property>
                <property name="orientation">
-                <enum>Qt::Horizontal</enum>
+                <enum>Qt::Orientation::Horizontal</enum>
                </property>
               </widget>
              </item>
@@ -9002,7 +9002,7 @@ COMMON</string>
                 <number>15</number>
                </property>
                <property name="orientation">
-                <enum>Qt::Horizontal</enum>
+                <enum>Qt::Orientation::Horizontal</enum>
                </property>
               </widget>
              </item>
@@ -9032,7 +9032,7 @@ COMMON</string>
                 <number>15</number>
                </property>
                <property name="orientation">
-                <enum>Qt::Horizontal</enum>
+                <enum>Qt::Orientation::Horizontal</enum>
                </property>
               </widget>
              </item>
@@ -9065,7 +9065,7 @@ COMMON</string>
                 <number>15</number>
                </property>
                <property name="orientation">
-                <enum>Qt::Horizontal</enum>
+                <enum>Qt::Orientation::Horizontal</enum>
                </property>
               </widget>
              </item>
@@ -9097,7 +9097,7 @@ COMMON</string>
               <string>PART</string>
              </property>
              <property name="alignment">
-              <set>Qt::AlignCenter</set>
+              <set>Qt::AlignmentFlag::AlignCenter</set>
              </property>
             </widget>
            </item>
@@ -9113,7 +9113,7 @@ COMMON</string>
               <string>VELO FADE LOWER</string>
              </property>
              <property name="alignment">
-              <set>Qt::AlignCenter</set>
+              <set>Qt::AlignmentFlag::AlignCenter</set>
              </property>
             </widget>
            </item>
@@ -9129,7 +9129,7 @@ COMMON</string>
               <string>KEY FADE UPPER</string>
              </property>
              <property name="alignment">
-              <set>Qt::AlignCenter</set>
+              <set>Qt::AlignmentFlag::AlignCenter</set>
              </property>
             </widget>
            </item>
@@ -9145,7 +9145,7 @@ COMMON</string>
               <string>KEY FADE LOWER</string>
              </property>
              <property name="alignment">
-              <set>Qt::AlignCenter</set>
+              <set>Qt::AlignmentFlag::AlignCenter</set>
              </property>
             </widget>
            </item>
@@ -9162,7 +9162,7 @@ COMMON</string>
 LOWER UPPER</string>
              </property>
              <property name="alignment">
-              <set>Qt::AlignCenter</set>
+              <set>Qt::AlignmentFlag::AlignCenter</set>
              </property>
             </widget>
            </item>
@@ -9179,7 +9179,7 @@ LOWER UPPER</string>
 OFFSET</string>
              </property>
              <property name="alignment">
-              <set>Qt::AlignCenter</set>
+              <set>Qt::AlignmentFlag::AlignCenter</set>
              </property>
             </widget>
            </item>
@@ -9241,7 +9241,7 @@ OFFSET</string>
               <string>VELO FADE UPPER</string>
              </property>
              <property name="alignment">
-              <set>Qt::AlignCenter</set>
+              <set>Qt::AlignmentFlag::AlignCenter</set>
              </property>
             </widget>
            </item>
@@ -9258,7 +9258,7 @@ OFFSET</string>
 LOWER UPPER</string>
              </property>
              <property name="alignment">
-              <set>Qt::AlignCenter</set>
+              <set>Qt::AlignmentFlag::AlignCenter</set>
              </property>
             </widget>
            </item>
@@ -9268,7 +9268,7 @@ LOWER UPPER</string>
               <string>1</string>
              </property>
              <property name="alignment">
-              <set>Qt::AlignCenter</set>
+              <set>Qt::AlignmentFlag::AlignCenter</set>
              </property>
             </widget>
            </item>
@@ -9280,7 +9280,7 @@ LOWER UPPER</string>
                 <number>127</number>
                </property>
                <property name="orientation">
-                <enum>Qt::Horizontal</enum>
+                <enum>Qt::Orientation::Horizontal</enum>
                </property>
               </widget>
              </item>
@@ -9319,7 +9319,7 @@ LOWER UPPER</string>
                 <number>127</number>
                </property>
                <property name="orientation">
-                <enum>Qt::Horizontal</enum>
+                <enum>Qt::Orientation::Horizontal</enum>
                </property>
               </widget>
              </item>
@@ -9340,7 +9340,7 @@ LOWER UPPER</string>
                 <number>127</number>
                </property>
                <property name="orientation">
-                <enum>Qt::Horizontal</enum>
+                <enum>Qt::Orientation::Horizontal</enum>
                </property>
               </widget>
              </item>
@@ -9382,7 +9382,7 @@ LOWER UPPER</string>
                 <number>127</number>
                </property>
                <property name="orientation">
-                <enum>Qt::Horizontal</enum>
+                <enum>Qt::Orientation::Horizontal</enum>
                </property>
               </widget>
              </item>
@@ -9406,7 +9406,7 @@ LOWER UPPER</string>
                 <number>63</number>
                </property>
                <property name="orientation">
-                <enum>Qt::Horizontal</enum>
+                <enum>Qt::Orientation::Horizontal</enum>
                </property>
               </widget>
              </item>
@@ -9428,7 +9428,7 @@ LOWER UPPER</string>
               <string>2</string>
              </property>
              <property name="alignment">
-              <set>Qt::AlignCenter</set>
+              <set>Qt::AlignmentFlag::AlignCenter</set>
              </property>
             </widget>
            </item>
@@ -9440,7 +9440,7 @@ LOWER UPPER</string>
                 <number>127</number>
                </property>
                <property name="orientation">
-                <enum>Qt::Horizontal</enum>
+                <enum>Qt::Orientation::Horizontal</enum>
                </property>
               </widget>
              </item>
@@ -9479,7 +9479,7 @@ LOWER UPPER</string>
                 <number>127</number>
                </property>
                <property name="orientation">
-                <enum>Qt::Horizontal</enum>
+                <enum>Qt::Orientation::Horizontal</enum>
                </property>
               </widget>
              </item>
@@ -9500,7 +9500,7 @@ LOWER UPPER</string>
                 <number>127</number>
                </property>
                <property name="orientation">
-                <enum>Qt::Horizontal</enum>
+                <enum>Qt::Orientation::Horizontal</enum>
                </property>
               </widget>
              </item>
@@ -9542,7 +9542,7 @@ LOWER UPPER</string>
                 <number>127</number>
                </property>
                <property name="orientation">
-                <enum>Qt::Horizontal</enum>
+                <enum>Qt::Orientation::Horizontal</enum>
                </property>
               </widget>
              </item>
@@ -9566,7 +9566,7 @@ LOWER UPPER</string>
                 <number>63</number>
                </property>
                <property name="orientation">
-                <enum>Qt::Horizontal</enum>
+                <enum>Qt::Orientation::Horizontal</enum>
                </property>
               </widget>
              </item>
@@ -9588,7 +9588,7 @@ LOWER UPPER</string>
               <string>3</string>
              </property>
              <property name="alignment">
-              <set>Qt::AlignCenter</set>
+              <set>Qt::AlignmentFlag::AlignCenter</set>
              </property>
             </widget>
            </item>
@@ -9600,7 +9600,7 @@ LOWER UPPER</string>
                 <number>127</number>
                </property>
                <property name="orientation">
-                <enum>Qt::Horizontal</enum>
+                <enum>Qt::Orientation::Horizontal</enum>
                </property>
               </widget>
              </item>
@@ -9639,7 +9639,7 @@ LOWER UPPER</string>
                 <number>127</number>
                </property>
                <property name="orientation">
-                <enum>Qt::Horizontal</enum>
+                <enum>Qt::Orientation::Horizontal</enum>
                </property>
               </widget>
              </item>
@@ -9660,7 +9660,7 @@ LOWER UPPER</string>
                 <number>127</number>
                </property>
                <property name="orientation">
-                <enum>Qt::Horizontal</enum>
+                <enum>Qt::Orientation::Horizontal</enum>
                </property>
               </widget>
              </item>
@@ -9702,7 +9702,7 @@ LOWER UPPER</string>
                 <number>127</number>
                </property>
                <property name="orientation">
-                <enum>Qt::Horizontal</enum>
+                <enum>Qt::Orientation::Horizontal</enum>
                </property>
               </widget>
              </item>
@@ -9726,7 +9726,7 @@ LOWER UPPER</string>
                 <number>63</number>
                </property>
                <property name="orientation">
-                <enum>Qt::Horizontal</enum>
+                <enum>Qt::Orientation::Horizontal</enum>
                </property>
               </widget>
              </item>
@@ -9748,7 +9748,7 @@ LOWER UPPER</string>
               <string>4</string>
              </property>
              <property name="alignment">
-              <set>Qt::AlignCenter</set>
+              <set>Qt::AlignmentFlag::AlignCenter</set>
              </property>
             </widget>
            </item>
@@ -9760,7 +9760,7 @@ LOWER UPPER</string>
                 <number>127</number>
                </property>
                <property name="orientation">
-                <enum>Qt::Horizontal</enum>
+                <enum>Qt::Orientation::Horizontal</enum>
                </property>
               </widget>
              </item>
@@ -9799,7 +9799,7 @@ LOWER UPPER</string>
                 <number>127</number>
                </property>
                <property name="orientation">
-                <enum>Qt::Horizontal</enum>
+                <enum>Qt::Orientation::Horizontal</enum>
                </property>
               </widget>
              </item>
@@ -9820,7 +9820,7 @@ LOWER UPPER</string>
                 <number>127</number>
                </property>
                <property name="orientation">
-                <enum>Qt::Horizontal</enum>
+                <enum>Qt::Orientation::Horizontal</enum>
                </property>
               </widget>
              </item>
@@ -9862,7 +9862,7 @@ LOWER UPPER</string>
                 <number>127</number>
                </property>
                <property name="orientation">
-                <enum>Qt::Horizontal</enum>
+                <enum>Qt::Orientation::Horizontal</enum>
                </property>
               </widget>
              </item>
@@ -9886,7 +9886,7 @@ LOWER UPPER</string>
                 <number>63</number>
                </property>
                <property name="orientation">
-                <enum>Qt::Horizontal</enum>
+                <enum>Qt::Orientation::Horizontal</enum>
                </property>
               </widget>
              </item>
@@ -9908,7 +9908,7 @@ LOWER UPPER</string>
               <string>5</string>
              </property>
              <property name="alignment">
-              <set>Qt::AlignCenter</set>
+              <set>Qt::AlignmentFlag::AlignCenter</set>
              </property>
             </widget>
            </item>
@@ -9920,7 +9920,7 @@ LOWER UPPER</string>
                 <number>127</number>
                </property>
                <property name="orientation">
-                <enum>Qt::Horizontal</enum>
+                <enum>Qt::Orientation::Horizontal</enum>
                </property>
               </widget>
              </item>
@@ -9959,7 +9959,7 @@ LOWER UPPER</string>
                 <number>127</number>
                </property>
                <property name="orientation">
-                <enum>Qt::Horizontal</enum>
+                <enum>Qt::Orientation::Horizontal</enum>
                </property>
               </widget>
              </item>
@@ -9980,7 +9980,7 @@ LOWER UPPER</string>
                 <number>127</number>
                </property>
                <property name="orientation">
-                <enum>Qt::Horizontal</enum>
+                <enum>Qt::Orientation::Horizontal</enum>
                </property>
               </widget>
              </item>
@@ -10022,7 +10022,7 @@ LOWER UPPER</string>
                 <number>127</number>
                </property>
                <property name="orientation">
-                <enum>Qt::Horizontal</enum>
+                <enum>Qt::Orientation::Horizontal</enum>
                </property>
               </widget>
              </item>
@@ -10046,7 +10046,7 @@ LOWER UPPER</string>
                 <number>63</number>
                </property>
                <property name="orientation">
-                <enum>Qt::Horizontal</enum>
+                <enum>Qt::Orientation::Horizontal</enum>
                </property>
               </widget>
              </item>
@@ -10068,7 +10068,7 @@ LOWER UPPER</string>
               <string>6</string>
              </property>
              <property name="alignment">
-              <set>Qt::AlignCenter</set>
+              <set>Qt::AlignmentFlag::AlignCenter</set>
              </property>
             </widget>
            </item>
@@ -10080,7 +10080,7 @@ LOWER UPPER</string>
                 <number>127</number>
                </property>
                <property name="orientation">
-                <enum>Qt::Horizontal</enum>
+                <enum>Qt::Orientation::Horizontal</enum>
                </property>
               </widget>
              </item>
@@ -10119,7 +10119,7 @@ LOWER UPPER</string>
                 <number>127</number>
                </property>
                <property name="orientation">
-                <enum>Qt::Horizontal</enum>
+                <enum>Qt::Orientation::Horizontal</enum>
                </property>
               </widget>
              </item>
@@ -10140,7 +10140,7 @@ LOWER UPPER</string>
                 <number>127</number>
                </property>
                <property name="orientation">
-                <enum>Qt::Horizontal</enum>
+                <enum>Qt::Orientation::Horizontal</enum>
                </property>
               </widget>
              </item>
@@ -10182,7 +10182,7 @@ LOWER UPPER</string>
                 <number>127</number>
                </property>
                <property name="orientation">
-                <enum>Qt::Horizontal</enum>
+                <enum>Qt::Orientation::Horizontal</enum>
                </property>
               </widget>
              </item>
@@ -10206,7 +10206,7 @@ LOWER UPPER</string>
                 <number>63</number>
                </property>
                <property name="orientation">
-                <enum>Qt::Horizontal</enum>
+                <enum>Qt::Orientation::Horizontal</enum>
                </property>
               </widget>
              </item>
@@ -10228,7 +10228,7 @@ LOWER UPPER</string>
               <string>7</string>
              </property>
              <property name="alignment">
-              <set>Qt::AlignCenter</set>
+              <set>Qt::AlignmentFlag::AlignCenter</set>
              </property>
             </widget>
            </item>
@@ -10240,7 +10240,7 @@ LOWER UPPER</string>
                 <number>127</number>
                </property>
                <property name="orientation">
-                <enum>Qt::Horizontal</enum>
+                <enum>Qt::Orientation::Horizontal</enum>
                </property>
               </widget>
              </item>
@@ -10279,7 +10279,7 @@ LOWER UPPER</string>
                 <number>127</number>
                </property>
                <property name="orientation">
-                <enum>Qt::Horizontal</enum>
+                <enum>Qt::Orientation::Horizontal</enum>
                </property>
               </widget>
              </item>
@@ -10300,7 +10300,7 @@ LOWER UPPER</string>
                 <number>127</number>
                </property>
                <property name="orientation">
-                <enum>Qt::Horizontal</enum>
+                <enum>Qt::Orientation::Horizontal</enum>
                </property>
               </widget>
              </item>
@@ -10342,7 +10342,7 @@ LOWER UPPER</string>
                 <number>127</number>
                </property>
                <property name="orientation">
-                <enum>Qt::Horizontal</enum>
+                <enum>Qt::Orientation::Horizontal</enum>
                </property>
               </widget>
              </item>
@@ -10366,7 +10366,7 @@ LOWER UPPER</string>
                 <number>63</number>
                </property>
                <property name="orientation">
-                <enum>Qt::Horizontal</enum>
+                <enum>Qt::Orientation::Horizontal</enum>
                </property>
               </widget>
              </item>
@@ -10388,7 +10388,7 @@ LOWER UPPER</string>
               <string>8</string>
              </property>
              <property name="alignment">
-              <set>Qt::AlignCenter</set>
+              <set>Qt::AlignmentFlag::AlignCenter</set>
              </property>
             </widget>
            </item>
@@ -10400,7 +10400,7 @@ LOWER UPPER</string>
                 <number>127</number>
                </property>
                <property name="orientation">
-                <enum>Qt::Horizontal</enum>
+                <enum>Qt::Orientation::Horizontal</enum>
                </property>
               </widget>
              </item>
@@ -10439,7 +10439,7 @@ LOWER UPPER</string>
                 <number>127</number>
                </property>
                <property name="orientation">
-                <enum>Qt::Horizontal</enum>
+                <enum>Qt::Orientation::Horizontal</enum>
                </property>
               </widget>
              </item>
@@ -10460,7 +10460,7 @@ LOWER UPPER</string>
                 <number>127</number>
                </property>
                <property name="orientation">
-                <enum>Qt::Horizontal</enum>
+                <enum>Qt::Orientation::Horizontal</enum>
                </property>
               </widget>
              </item>
@@ -10502,7 +10502,7 @@ LOWER UPPER</string>
                 <number>127</number>
                </property>
                <property name="orientation">
-                <enum>Qt::Horizontal</enum>
+                <enum>Qt::Orientation::Horizontal</enum>
                </property>
               </widget>
              </item>
@@ -10526,7 +10526,7 @@ LOWER UPPER</string>
                 <number>63</number>
                </property>
                <property name="orientation">
-                <enum>Qt::Horizontal</enum>
+                <enum>Qt::Orientation::Horizontal</enum>
                </property>
               </widget>
              </item>
@@ -10548,7 +10548,7 @@ LOWER UPPER</string>
               <string>9</string>
              </property>
              <property name="alignment">
-              <set>Qt::AlignCenter</set>
+              <set>Qt::AlignmentFlag::AlignCenter</set>
              </property>
             </widget>
            </item>
@@ -10560,7 +10560,7 @@ LOWER UPPER</string>
                 <number>127</number>
                </property>
                <property name="orientation">
-                <enum>Qt::Horizontal</enum>
+                <enum>Qt::Orientation::Horizontal</enum>
                </property>
               </widget>
              </item>
@@ -10599,7 +10599,7 @@ LOWER UPPER</string>
                 <number>127</number>
                </property>
                <property name="orientation">
-                <enum>Qt::Horizontal</enum>
+                <enum>Qt::Orientation::Horizontal</enum>
                </property>
               </widget>
              </item>
@@ -10620,7 +10620,7 @@ LOWER UPPER</string>
                 <number>127</number>
                </property>
                <property name="orientation">
-                <enum>Qt::Horizontal</enum>
+                <enum>Qt::Orientation::Horizontal</enum>
                </property>
               </widget>
              </item>
@@ -10662,7 +10662,7 @@ LOWER UPPER</string>
                 <number>127</number>
                </property>
                <property name="orientation">
-                <enum>Qt::Horizontal</enum>
+                <enum>Qt::Orientation::Horizontal</enum>
                </property>
               </widget>
              </item>
@@ -10686,7 +10686,7 @@ LOWER UPPER</string>
                 <number>63</number>
                </property>
                <property name="orientation">
-                <enum>Qt::Horizontal</enum>
+                <enum>Qt::Orientation::Horizontal</enum>
                </property>
               </widget>
              </item>
@@ -10708,7 +10708,7 @@ LOWER UPPER</string>
               <string>10</string>
              </property>
              <property name="alignment">
-              <set>Qt::AlignCenter</set>
+              <set>Qt::AlignmentFlag::AlignCenter</set>
              </property>
             </widget>
            </item>
@@ -10720,7 +10720,7 @@ LOWER UPPER</string>
                 <number>127</number>
                </property>
                <property name="orientation">
-                <enum>Qt::Horizontal</enum>
+                <enum>Qt::Orientation::Horizontal</enum>
                </property>
               </widget>
              </item>
@@ -10759,7 +10759,7 @@ LOWER UPPER</string>
                 <number>127</number>
                </property>
                <property name="orientation">
-                <enum>Qt::Horizontal</enum>
+                <enum>Qt::Orientation::Horizontal</enum>
                </property>
               </widget>
              </item>
@@ -10780,7 +10780,7 @@ LOWER UPPER</string>
                 <number>127</number>
                </property>
                <property name="orientation">
-                <enum>Qt::Horizontal</enum>
+                <enum>Qt::Orientation::Horizontal</enum>
                </property>
               </widget>
              </item>
@@ -10822,7 +10822,7 @@ LOWER UPPER</string>
                 <number>127</number>
                </property>
                <property name="orientation">
-                <enum>Qt::Horizontal</enum>
+                <enum>Qt::Orientation::Horizontal</enum>
                </property>
               </widget>
              </item>
@@ -10846,7 +10846,7 @@ LOWER UPPER</string>
                 <number>63</number>
                </property>
                <property name="orientation">
-                <enum>Qt::Horizontal</enum>
+                <enum>Qt::Orientation::Horizontal</enum>
                </property>
               </widget>
              </item>
@@ -10868,7 +10868,7 @@ LOWER UPPER</string>
               <string>11</string>
              </property>
              <property name="alignment">
-              <set>Qt::AlignCenter</set>
+              <set>Qt::AlignmentFlag::AlignCenter</set>
              </property>
             </widget>
            </item>
@@ -10880,7 +10880,7 @@ LOWER UPPER</string>
                 <number>127</number>
                </property>
                <property name="orientation">
-                <enum>Qt::Horizontal</enum>
+                <enum>Qt::Orientation::Horizontal</enum>
                </property>
               </widget>
              </item>
@@ -10919,7 +10919,7 @@ LOWER UPPER</string>
                 <number>127</number>
                </property>
                <property name="orientation">
-                <enum>Qt::Horizontal</enum>
+                <enum>Qt::Orientation::Horizontal</enum>
                </property>
               </widget>
              </item>
@@ -10940,7 +10940,7 @@ LOWER UPPER</string>
                 <number>127</number>
                </property>
                <property name="orientation">
-                <enum>Qt::Horizontal</enum>
+                <enum>Qt::Orientation::Horizontal</enum>
                </property>
               </widget>
              </item>
@@ -10982,7 +10982,7 @@ LOWER UPPER</string>
                 <number>127</number>
                </property>
                <property name="orientation">
-                <enum>Qt::Horizontal</enum>
+                <enum>Qt::Orientation::Horizontal</enum>
                </property>
               </widget>
              </item>
@@ -11006,7 +11006,7 @@ LOWER UPPER</string>
                 <number>63</number>
                </property>
                <property name="orientation">
-                <enum>Qt::Horizontal</enum>
+                <enum>Qt::Orientation::Horizontal</enum>
                </property>
               </widget>
              </item>
@@ -11028,7 +11028,7 @@ LOWER UPPER</string>
               <string>12</string>
              </property>
              <property name="alignment">
-              <set>Qt::AlignCenter</set>
+              <set>Qt::AlignmentFlag::AlignCenter</set>
              </property>
             </widget>
            </item>
@@ -11040,7 +11040,7 @@ LOWER UPPER</string>
                 <number>127</number>
                </property>
                <property name="orientation">
-                <enum>Qt::Horizontal</enum>
+                <enum>Qt::Orientation::Horizontal</enum>
                </property>
               </widget>
              </item>
@@ -11079,7 +11079,7 @@ LOWER UPPER</string>
                 <number>127</number>
                </property>
                <property name="orientation">
-                <enum>Qt::Horizontal</enum>
+                <enum>Qt::Orientation::Horizontal</enum>
                </property>
               </widget>
              </item>
@@ -11100,7 +11100,7 @@ LOWER UPPER</string>
                 <number>127</number>
                </property>
                <property name="orientation">
-                <enum>Qt::Horizontal</enum>
+                <enum>Qt::Orientation::Horizontal</enum>
                </property>
               </widget>
              </item>
@@ -11142,7 +11142,7 @@ LOWER UPPER</string>
                 <number>127</number>
                </property>
                <property name="orientation">
-                <enum>Qt::Horizontal</enum>
+                <enum>Qt::Orientation::Horizontal</enum>
                </property>
               </widget>
              </item>
@@ -11166,7 +11166,7 @@ LOWER UPPER</string>
                 <number>63</number>
                </property>
                <property name="orientation">
-                <enum>Qt::Horizontal</enum>
+                <enum>Qt::Orientation::Horizontal</enum>
                </property>
               </widget>
              </item>
@@ -11188,7 +11188,7 @@ LOWER UPPER</string>
               <string>13</string>
              </property>
              <property name="alignment">
-              <set>Qt::AlignCenter</set>
+              <set>Qt::AlignmentFlag::AlignCenter</set>
              </property>
             </widget>
            </item>
@@ -11200,7 +11200,7 @@ LOWER UPPER</string>
                 <number>127</number>
                </property>
                <property name="orientation">
-                <enum>Qt::Horizontal</enum>
+                <enum>Qt::Orientation::Horizontal</enum>
                </property>
               </widget>
              </item>
@@ -11239,7 +11239,7 @@ LOWER UPPER</string>
                 <number>127</number>
                </property>
                <property name="orientation">
-                <enum>Qt::Horizontal</enum>
+                <enum>Qt::Orientation::Horizontal</enum>
                </property>
               </widget>
              </item>
@@ -11260,7 +11260,7 @@ LOWER UPPER</string>
                 <number>127</number>
                </property>
                <property name="orientation">
-                <enum>Qt::Horizontal</enum>
+                <enum>Qt::Orientation::Horizontal</enum>
                </property>
               </widget>
              </item>
@@ -11302,7 +11302,7 @@ LOWER UPPER</string>
                 <number>127</number>
                </property>
                <property name="orientation">
-                <enum>Qt::Horizontal</enum>
+                <enum>Qt::Orientation::Horizontal</enum>
                </property>
               </widget>
              </item>
@@ -11326,7 +11326,7 @@ LOWER UPPER</string>
                 <number>63</number>
                </property>
                <property name="orientation">
-                <enum>Qt::Horizontal</enum>
+                <enum>Qt::Orientation::Horizontal</enum>
                </property>
               </widget>
              </item>
@@ -11348,7 +11348,7 @@ LOWER UPPER</string>
               <string>14</string>
              </property>
              <property name="alignment">
-              <set>Qt::AlignCenter</set>
+              <set>Qt::AlignmentFlag::AlignCenter</set>
              </property>
             </widget>
            </item>
@@ -11360,7 +11360,7 @@ LOWER UPPER</string>
                 <number>127</number>
                </property>
                <property name="orientation">
-                <enum>Qt::Horizontal</enum>
+                <enum>Qt::Orientation::Horizontal</enum>
                </property>
               </widget>
              </item>
@@ -11399,7 +11399,7 @@ LOWER UPPER</string>
                 <number>127</number>
                </property>
                <property name="orientation">
-                <enum>Qt::Horizontal</enum>
+                <enum>Qt::Orientation::Horizontal</enum>
                </property>
               </widget>
              </item>
@@ -11420,7 +11420,7 @@ LOWER UPPER</string>
                 <number>127</number>
                </property>
                <property name="orientation">
-                <enum>Qt::Horizontal</enum>
+                <enum>Qt::Orientation::Horizontal</enum>
                </property>
               </widget>
              </item>
@@ -11462,7 +11462,7 @@ LOWER UPPER</string>
                 <number>127</number>
                </property>
                <property name="orientation">
-                <enum>Qt::Horizontal</enum>
+                <enum>Qt::Orientation::Horizontal</enum>
                </property>
               </widget>
              </item>
@@ -11486,7 +11486,7 @@ LOWER UPPER</string>
                 <number>63</number>
                </property>
                <property name="orientation">
-                <enum>Qt::Horizontal</enum>
+                <enum>Qt::Orientation::Horizontal</enum>
                </property>
               </widget>
              </item>
@@ -11508,7 +11508,7 @@ LOWER UPPER</string>
               <string>15</string>
              </property>
              <property name="alignment">
-              <set>Qt::AlignCenter</set>
+              <set>Qt::AlignmentFlag::AlignCenter</set>
              </property>
             </widget>
            </item>
@@ -11520,7 +11520,7 @@ LOWER UPPER</string>
                 <number>127</number>
                </property>
                <property name="orientation">
-                <enum>Qt::Horizontal</enum>
+                <enum>Qt::Orientation::Horizontal</enum>
                </property>
               </widget>
              </item>
@@ -11559,7 +11559,7 @@ LOWER UPPER</string>
                 <number>127</number>
                </property>
                <property name="orientation">
-                <enum>Qt::Horizontal</enum>
+                <enum>Qt::Orientation::Horizontal</enum>
                </property>
               </widget>
              </item>
@@ -11580,7 +11580,7 @@ LOWER UPPER</string>
                 <number>127</number>
                </property>
                <property name="orientation">
-                <enum>Qt::Horizontal</enum>
+                <enum>Qt::Orientation::Horizontal</enum>
                </property>
               </widget>
              </item>
@@ -11622,7 +11622,7 @@ LOWER UPPER</string>
                 <number>127</number>
                </property>
                <property name="orientation">
-                <enum>Qt::Horizontal</enum>
+                <enum>Qt::Orientation::Horizontal</enum>
                </property>
               </widget>
              </item>
@@ -11646,7 +11646,7 @@ LOWER UPPER</string>
                 <number>63</number>
                </property>
                <property name="orientation">
-                <enum>Qt::Horizontal</enum>
+                <enum>Qt::Orientation::Horizontal</enum>
                </property>
               </widget>
              </item>
@@ -11668,7 +11668,7 @@ LOWER UPPER</string>
               <string>16</string>
              </property>
              <property name="alignment">
-              <set>Qt::AlignCenter</set>
+              <set>Qt::AlignmentFlag::AlignCenter</set>
              </property>
             </widget>
            </item>
@@ -11680,7 +11680,7 @@ LOWER UPPER</string>
                 <number>127</number>
                </property>
                <property name="orientation">
-                <enum>Qt::Horizontal</enum>
+                <enum>Qt::Orientation::Horizontal</enum>
                </property>
               </widget>
              </item>
@@ -11719,7 +11719,7 @@ LOWER UPPER</string>
                 <number>127</number>
                </property>
                <property name="orientation">
-                <enum>Qt::Horizontal</enum>
+                <enum>Qt::Orientation::Horizontal</enum>
                </property>
               </widget>
              </item>
@@ -11740,7 +11740,7 @@ LOWER UPPER</string>
                 <number>127</number>
                </property>
                <property name="orientation">
-                <enum>Qt::Horizontal</enum>
+                <enum>Qt::Orientation::Horizontal</enum>
                </property>
               </widget>
              </item>
@@ -11782,7 +11782,7 @@ LOWER UPPER</string>
                 <number>127</number>
                </property>
                <property name="orientation">
-                <enum>Qt::Horizontal</enum>
+                <enum>Qt::Orientation::Horizontal</enum>
                </property>
               </widget>
              </item>
@@ -11806,7 +11806,7 @@ LOWER UPPER</string>
                 <number>63</number>
                </property>
                <property name="orientation">
-                <enum>Qt::Horizontal</enum>
+                <enum>Qt::Orientation::Horizontal</enum>
                </property>
               </widget>
              </item>
@@ -11884,7 +11884,7 @@ LOWER UPPER</string>
               <string>COARSE TUNE</string>
              </property>
              <property name="alignment">
-              <set>Qt::AlignCenter</set>
+              <set>Qt::AlignmentFlag::AlignCenter</set>
              </property>
             </widget>
            </item>
@@ -11900,7 +11900,7 @@ LOWER UPPER</string>
               <string>FINE TUNE</string>
              </property>
              <property name="alignment">
-              <set>Qt::AlignCenter</set>
+              <set>Qt::AlignmentFlag::AlignCenter</set>
              </property>
             </widget>
            </item>
@@ -11916,7 +11916,7 @@ LOWER UPPER</string>
               <string>PORTA SWITCH</string>
              </property>
              <property name="alignment">
-              <set>Qt::AlignCenter</set>
+              <set>Qt::AlignmentFlag::AlignCenter</set>
              </property>
             </widget>
            </item>
@@ -11932,7 +11932,7 @@ LOWER UPPER</string>
               <string>BEND RANGE</string>
              </property>
              <property name="alignment">
-              <set>Qt::AlignCenter</set>
+              <set>Qt::AlignmentFlag::AlignCenter</set>
              </property>
             </widget>
            </item>
@@ -11948,7 +11948,7 @@ LOWER UPPER</string>
               <string>OCTAVE SHIFT</string>
              </property>
              <property name="alignment">
-              <set>Qt::AlignCenter</set>
+              <set>Qt::AlignmentFlag::AlignCenter</set>
              </property>
             </widget>
            </item>
@@ -11977,7 +11977,7 @@ LOWER UPPER</string>
               <string>PORTA TIME</string>
              </property>
              <property name="alignment">
-              <set>Qt::AlignCenter</set>
+              <set>Qt::AlignmentFlag::AlignCenter</set>
              </property>
             </widget>
            </item>
@@ -12005,7 +12005,7 @@ LOWER UPPER</string>
                 <number>3</number>
                </property>
                <property name="orientation">
-                <enum>Qt::Horizontal</enum>
+                <enum>Qt::Orientation::Horizontal</enum>
                </property>
               </widget>
              </item>
@@ -12032,7 +12032,7 @@ LOWER UPPER</string>
                 <number>48</number>
                </property>
                <property name="orientation">
-                <enum>Qt::Horizontal</enum>
+                <enum>Qt::Orientation::Horizontal</enum>
                </property>
               </widget>
              </item>
@@ -12062,7 +12062,7 @@ LOWER UPPER</string>
                 <number>50</number>
                </property>
                <property name="orientation">
-                <enum>Qt::Horizontal</enum>
+                <enum>Qt::Orientation::Horizontal</enum>
                </property>
               </widget>
              </item>
@@ -12092,7 +12092,7 @@ LOWER UPPER</string>
                 <number>25</number>
                </property>
                <property name="orientation">
-                <enum>Qt::Horizontal</enum>
+                <enum>Qt::Orientation::Horizontal</enum>
                </property>
                <property name="invertedControls">
                 <bool>true</bool>
@@ -12134,7 +12134,7 @@ LOWER UPPER</string>
                 <number>128</number>
                </property>
                <property name="orientation">
-                <enum>Qt::Horizontal</enum>
+                <enum>Qt::Orientation::Horizontal</enum>
                </property>
               </widget>
              </item>
@@ -12183,7 +12183,7 @@ LOWER UPPER</string>
                 <number>3</number>
                </property>
                <property name="orientation">
-                <enum>Qt::Horizontal</enum>
+                <enum>Qt::Orientation::Horizontal</enum>
                </property>
               </widget>
              </item>
@@ -12210,7 +12210,7 @@ LOWER UPPER</string>
                 <number>48</number>
                </property>
                <property name="orientation">
-                <enum>Qt::Horizontal</enum>
+                <enum>Qt::Orientation::Horizontal</enum>
                </property>
               </widget>
              </item>
@@ -12240,7 +12240,7 @@ LOWER UPPER</string>
                 <number>50</number>
                </property>
                <property name="orientation">
-                <enum>Qt::Horizontal</enum>
+                <enum>Qt::Orientation::Horizontal</enum>
                </property>
               </widget>
              </item>
@@ -12270,7 +12270,7 @@ LOWER UPPER</string>
                 <number>25</number>
                </property>
                <property name="orientation">
-                <enum>Qt::Horizontal</enum>
+                <enum>Qt::Orientation::Horizontal</enum>
                </property>
                <property name="invertedControls">
                 <bool>true</bool>
@@ -12312,7 +12312,7 @@ LOWER UPPER</string>
                 <number>128</number>
                </property>
                <property name="orientation">
-                <enum>Qt::Horizontal</enum>
+                <enum>Qt::Orientation::Horizontal</enum>
                </property>
               </widget>
              </item>
@@ -12361,7 +12361,7 @@ LOWER UPPER</string>
                 <number>3</number>
                </property>
                <property name="orientation">
-                <enum>Qt::Horizontal</enum>
+                <enum>Qt::Orientation::Horizontal</enum>
                </property>
               </widget>
              </item>
@@ -12388,7 +12388,7 @@ LOWER UPPER</string>
                 <number>48</number>
                </property>
                <property name="orientation">
-                <enum>Qt::Horizontal</enum>
+                <enum>Qt::Orientation::Horizontal</enum>
                </property>
               </widget>
              </item>
@@ -12418,7 +12418,7 @@ LOWER UPPER</string>
                 <number>50</number>
                </property>
                <property name="orientation">
-                <enum>Qt::Horizontal</enum>
+                <enum>Qt::Orientation::Horizontal</enum>
                </property>
               </widget>
              </item>
@@ -12448,7 +12448,7 @@ LOWER UPPER</string>
                 <number>25</number>
                </property>
                <property name="orientation">
-                <enum>Qt::Horizontal</enum>
+                <enum>Qt::Orientation::Horizontal</enum>
                </property>
                <property name="invertedControls">
                 <bool>true</bool>
@@ -12490,7 +12490,7 @@ LOWER UPPER</string>
                 <number>128</number>
                </property>
                <property name="orientation">
-                <enum>Qt::Horizontal</enum>
+                <enum>Qt::Orientation::Horizontal</enum>
                </property>
               </widget>
              </item>
@@ -12539,7 +12539,7 @@ LOWER UPPER</string>
                 <number>3</number>
                </property>
                <property name="orientation">
-                <enum>Qt::Horizontal</enum>
+                <enum>Qt::Orientation::Horizontal</enum>
                </property>
               </widget>
              </item>
@@ -12566,7 +12566,7 @@ LOWER UPPER</string>
                 <number>48</number>
                </property>
                <property name="orientation">
-                <enum>Qt::Horizontal</enum>
+                <enum>Qt::Orientation::Horizontal</enum>
                </property>
               </widget>
              </item>
@@ -12596,7 +12596,7 @@ LOWER UPPER</string>
                 <number>50</number>
                </property>
                <property name="orientation">
-                <enum>Qt::Horizontal</enum>
+                <enum>Qt::Orientation::Horizontal</enum>
                </property>
               </widget>
              </item>
@@ -12626,7 +12626,7 @@ LOWER UPPER</string>
                 <number>25</number>
                </property>
                <property name="orientation">
-                <enum>Qt::Horizontal</enum>
+                <enum>Qt::Orientation::Horizontal</enum>
                </property>
                <property name="invertedControls">
                 <bool>true</bool>
@@ -12668,7 +12668,7 @@ LOWER UPPER</string>
                 <number>128</number>
                </property>
                <property name="orientation">
-                <enum>Qt::Horizontal</enum>
+                <enum>Qt::Orientation::Horizontal</enum>
                </property>
               </widget>
              </item>
@@ -12717,7 +12717,7 @@ LOWER UPPER</string>
                 <number>3</number>
                </property>
                <property name="orientation">
-                <enum>Qt::Horizontal</enum>
+                <enum>Qt::Orientation::Horizontal</enum>
                </property>
               </widget>
              </item>
@@ -12744,7 +12744,7 @@ LOWER UPPER</string>
                 <number>48</number>
                </property>
                <property name="orientation">
-                <enum>Qt::Horizontal</enum>
+                <enum>Qt::Orientation::Horizontal</enum>
                </property>
               </widget>
              </item>
@@ -12774,7 +12774,7 @@ LOWER UPPER</string>
                 <number>50</number>
                </property>
                <property name="orientation">
-                <enum>Qt::Horizontal</enum>
+                <enum>Qt::Orientation::Horizontal</enum>
                </property>
               </widget>
              </item>
@@ -12804,7 +12804,7 @@ LOWER UPPER</string>
                 <number>25</number>
                </property>
                <property name="orientation">
-                <enum>Qt::Horizontal</enum>
+                <enum>Qt::Orientation::Horizontal</enum>
                </property>
                <property name="invertedControls">
                 <bool>true</bool>
@@ -12846,7 +12846,7 @@ LOWER UPPER</string>
                 <number>128</number>
                </property>
                <property name="orientation">
-                <enum>Qt::Horizontal</enum>
+                <enum>Qt::Orientation::Horizontal</enum>
                </property>
               </widget>
              </item>
@@ -12895,7 +12895,7 @@ LOWER UPPER</string>
                 <number>3</number>
                </property>
                <property name="orientation">
-                <enum>Qt::Horizontal</enum>
+                <enum>Qt::Orientation::Horizontal</enum>
                </property>
               </widget>
              </item>
@@ -12922,7 +12922,7 @@ LOWER UPPER</string>
                 <number>48</number>
                </property>
                <property name="orientation">
-                <enum>Qt::Horizontal</enum>
+                <enum>Qt::Orientation::Horizontal</enum>
                </property>
               </widget>
              </item>
@@ -12952,7 +12952,7 @@ LOWER UPPER</string>
                 <number>50</number>
                </property>
                <property name="orientation">
-                <enum>Qt::Horizontal</enum>
+                <enum>Qt::Orientation::Horizontal</enum>
                </property>
               </widget>
              </item>
@@ -12982,7 +12982,7 @@ LOWER UPPER</string>
                 <number>25</number>
                </property>
                <property name="orientation">
-                <enum>Qt::Horizontal</enum>
+                <enum>Qt::Orientation::Horizontal</enum>
                </property>
                <property name="invertedControls">
                 <bool>true</bool>
@@ -13024,7 +13024,7 @@ LOWER UPPER</string>
                 <number>128</number>
                </property>
                <property name="orientation">
-                <enum>Qt::Horizontal</enum>
+                <enum>Qt::Orientation::Horizontal</enum>
                </property>
               </widget>
              </item>
@@ -13073,7 +13073,7 @@ LOWER UPPER</string>
                 <number>3</number>
                </property>
                <property name="orientation">
-                <enum>Qt::Horizontal</enum>
+                <enum>Qt::Orientation::Horizontal</enum>
                </property>
               </widget>
              </item>
@@ -13100,7 +13100,7 @@ LOWER UPPER</string>
                 <number>48</number>
                </property>
                <property name="orientation">
-                <enum>Qt::Horizontal</enum>
+                <enum>Qt::Orientation::Horizontal</enum>
                </property>
               </widget>
              </item>
@@ -13130,7 +13130,7 @@ LOWER UPPER</string>
                 <number>50</number>
                </property>
                <property name="orientation">
-                <enum>Qt::Horizontal</enum>
+                <enum>Qt::Orientation::Horizontal</enum>
                </property>
               </widget>
              </item>
@@ -13160,7 +13160,7 @@ LOWER UPPER</string>
                 <number>25</number>
                </property>
                <property name="orientation">
-                <enum>Qt::Horizontal</enum>
+                <enum>Qt::Orientation::Horizontal</enum>
                </property>
                <property name="invertedControls">
                 <bool>true</bool>
@@ -13202,7 +13202,7 @@ LOWER UPPER</string>
                 <number>128</number>
                </property>
                <property name="orientation">
-                <enum>Qt::Horizontal</enum>
+                <enum>Qt::Orientation::Horizontal</enum>
                </property>
               </widget>
              </item>
@@ -13251,7 +13251,7 @@ LOWER UPPER</string>
                 <number>3</number>
                </property>
                <property name="orientation">
-                <enum>Qt::Horizontal</enum>
+                <enum>Qt::Orientation::Horizontal</enum>
                </property>
               </widget>
              </item>
@@ -13278,7 +13278,7 @@ LOWER UPPER</string>
                 <number>48</number>
                </property>
                <property name="orientation">
-                <enum>Qt::Horizontal</enum>
+                <enum>Qt::Orientation::Horizontal</enum>
                </property>
               </widget>
              </item>
@@ -13308,7 +13308,7 @@ LOWER UPPER</string>
                 <number>50</number>
                </property>
                <property name="orientation">
-                <enum>Qt::Horizontal</enum>
+                <enum>Qt::Orientation::Horizontal</enum>
                </property>
               </widget>
              </item>
@@ -13338,7 +13338,7 @@ LOWER UPPER</string>
                 <number>25</number>
                </property>
                <property name="orientation">
-                <enum>Qt::Horizontal</enum>
+                <enum>Qt::Orientation::Horizontal</enum>
                </property>
                <property name="invertedControls">
                 <bool>true</bool>
@@ -13380,7 +13380,7 @@ LOWER UPPER</string>
                 <number>128</number>
                </property>
                <property name="orientation">
-                <enum>Qt::Horizontal</enum>
+                <enum>Qt::Orientation::Horizontal</enum>
                </property>
               </widget>
              </item>
@@ -13429,7 +13429,7 @@ LOWER UPPER</string>
                 <number>3</number>
                </property>
                <property name="orientation">
-                <enum>Qt::Horizontal</enum>
+                <enum>Qt::Orientation::Horizontal</enum>
                </property>
               </widget>
              </item>
@@ -13456,7 +13456,7 @@ LOWER UPPER</string>
                 <number>48</number>
                </property>
                <property name="orientation">
-                <enum>Qt::Horizontal</enum>
+                <enum>Qt::Orientation::Horizontal</enum>
                </property>
               </widget>
              </item>
@@ -13486,7 +13486,7 @@ LOWER UPPER</string>
                 <number>50</number>
                </property>
                <property name="orientation">
-                <enum>Qt::Horizontal</enum>
+                <enum>Qt::Orientation::Horizontal</enum>
                </property>
               </widget>
              </item>
@@ -13516,7 +13516,7 @@ LOWER UPPER</string>
                 <number>25</number>
                </property>
                <property name="orientation">
-                <enum>Qt::Horizontal</enum>
+                <enum>Qt::Orientation::Horizontal</enum>
                </property>
                <property name="invertedControls">
                 <bool>true</bool>
@@ -13558,7 +13558,7 @@ LOWER UPPER</string>
                 <number>128</number>
                </property>
                <property name="orientation">
-                <enum>Qt::Horizontal</enum>
+                <enum>Qt::Orientation::Horizontal</enum>
                </property>
               </widget>
              </item>
@@ -13607,7 +13607,7 @@ LOWER UPPER</string>
                 <number>3</number>
                </property>
                <property name="orientation">
-                <enum>Qt::Horizontal</enum>
+                <enum>Qt::Orientation::Horizontal</enum>
                </property>
               </widget>
              </item>
@@ -13634,7 +13634,7 @@ LOWER UPPER</string>
                 <number>48</number>
                </property>
                <property name="orientation">
-                <enum>Qt::Horizontal</enum>
+                <enum>Qt::Orientation::Horizontal</enum>
                </property>
               </widget>
              </item>
@@ -13664,7 +13664,7 @@ LOWER UPPER</string>
                 <number>50</number>
                </property>
                <property name="orientation">
-                <enum>Qt::Horizontal</enum>
+                <enum>Qt::Orientation::Horizontal</enum>
                </property>
               </widget>
              </item>
@@ -13694,7 +13694,7 @@ LOWER UPPER</string>
                 <number>25</number>
                </property>
                <property name="orientation">
-                <enum>Qt::Horizontal</enum>
+                <enum>Qt::Orientation::Horizontal</enum>
                </property>
                <property name="invertedControls">
                 <bool>true</bool>
@@ -13736,7 +13736,7 @@ LOWER UPPER</string>
                 <number>128</number>
                </property>
                <property name="orientation">
-                <enum>Qt::Horizontal</enum>
+                <enum>Qt::Orientation::Horizontal</enum>
                </property>
               </widget>
              </item>
@@ -13785,7 +13785,7 @@ LOWER UPPER</string>
                 <number>3</number>
                </property>
                <property name="orientation">
-                <enum>Qt::Horizontal</enum>
+                <enum>Qt::Orientation::Horizontal</enum>
                </property>
               </widget>
              </item>
@@ -13812,7 +13812,7 @@ LOWER UPPER</string>
                 <number>48</number>
                </property>
                <property name="orientation">
-                <enum>Qt::Horizontal</enum>
+                <enum>Qt::Orientation::Horizontal</enum>
                </property>
               </widget>
              </item>
@@ -13842,7 +13842,7 @@ LOWER UPPER</string>
                 <number>50</number>
                </property>
                <property name="orientation">
-                <enum>Qt::Horizontal</enum>
+                <enum>Qt::Orientation::Horizontal</enum>
                </property>
               </widget>
              </item>
@@ -13872,7 +13872,7 @@ LOWER UPPER</string>
                 <number>25</number>
                </property>
                <property name="orientation">
-                <enum>Qt::Horizontal</enum>
+                <enum>Qt::Orientation::Horizontal</enum>
                </property>
                <property name="invertedControls">
                 <bool>true</bool>
@@ -13914,7 +13914,7 @@ LOWER UPPER</string>
                 <number>128</number>
                </property>
                <property name="orientation">
-                <enum>Qt::Horizontal</enum>
+                <enum>Qt::Orientation::Horizontal</enum>
                </property>
               </widget>
              </item>
@@ -13963,7 +13963,7 @@ LOWER UPPER</string>
                 <number>3</number>
                </property>
                <property name="orientation">
-                <enum>Qt::Horizontal</enum>
+                <enum>Qt::Orientation::Horizontal</enum>
                </property>
               </widget>
              </item>
@@ -13990,7 +13990,7 @@ LOWER UPPER</string>
                 <number>48</number>
                </property>
                <property name="orientation">
-                <enum>Qt::Horizontal</enum>
+                <enum>Qt::Orientation::Horizontal</enum>
                </property>
               </widget>
              </item>
@@ -14020,7 +14020,7 @@ LOWER UPPER</string>
                 <number>50</number>
                </property>
                <property name="orientation">
-                <enum>Qt::Horizontal</enum>
+                <enum>Qt::Orientation::Horizontal</enum>
                </property>
               </widget>
              </item>
@@ -14050,7 +14050,7 @@ LOWER UPPER</string>
                 <number>25</number>
                </property>
                <property name="orientation">
-                <enum>Qt::Horizontal</enum>
+                <enum>Qt::Orientation::Horizontal</enum>
                </property>
                <property name="invertedControls">
                 <bool>true</bool>
@@ -14092,7 +14092,7 @@ LOWER UPPER</string>
                 <number>128</number>
                </property>
                <property name="orientation">
-                <enum>Qt::Horizontal</enum>
+                <enum>Qt::Orientation::Horizontal</enum>
                </property>
               </widget>
              </item>
@@ -14141,7 +14141,7 @@ LOWER UPPER</string>
                 <number>3</number>
                </property>
                <property name="orientation">
-                <enum>Qt::Horizontal</enum>
+                <enum>Qt::Orientation::Horizontal</enum>
                </property>
               </widget>
              </item>
@@ -14168,7 +14168,7 @@ LOWER UPPER</string>
                 <number>48</number>
                </property>
                <property name="orientation">
-                <enum>Qt::Horizontal</enum>
+                <enum>Qt::Orientation::Horizontal</enum>
                </property>
               </widget>
              </item>
@@ -14198,7 +14198,7 @@ LOWER UPPER</string>
                 <number>50</number>
                </property>
                <property name="orientation">
-                <enum>Qt::Horizontal</enum>
+                <enum>Qt::Orientation::Horizontal</enum>
                </property>
               </widget>
              </item>
@@ -14228,7 +14228,7 @@ LOWER UPPER</string>
                 <number>25</number>
                </property>
                <property name="orientation">
-                <enum>Qt::Horizontal</enum>
+                <enum>Qt::Orientation::Horizontal</enum>
                </property>
                <property name="invertedControls">
                 <bool>true</bool>
@@ -14270,7 +14270,7 @@ LOWER UPPER</string>
                 <number>128</number>
                </property>
                <property name="orientation">
-                <enum>Qt::Horizontal</enum>
+                <enum>Qt::Orientation::Horizontal</enum>
                </property>
               </widget>
              </item>
@@ -14319,7 +14319,7 @@ LOWER UPPER</string>
                 <number>3</number>
                </property>
                <property name="orientation">
-                <enum>Qt::Horizontal</enum>
+                <enum>Qt::Orientation::Horizontal</enum>
                </property>
               </widget>
              </item>
@@ -14346,7 +14346,7 @@ LOWER UPPER</string>
                 <number>48</number>
                </property>
                <property name="orientation">
-                <enum>Qt::Horizontal</enum>
+                <enum>Qt::Orientation::Horizontal</enum>
                </property>
               </widget>
              </item>
@@ -14376,7 +14376,7 @@ LOWER UPPER</string>
                 <number>50</number>
                </property>
                <property name="orientation">
-                <enum>Qt::Horizontal</enum>
+                <enum>Qt::Orientation::Horizontal</enum>
                </property>
               </widget>
              </item>
@@ -14406,7 +14406,7 @@ LOWER UPPER</string>
                 <number>25</number>
                </property>
                <property name="orientation">
-                <enum>Qt::Horizontal</enum>
+                <enum>Qt::Orientation::Horizontal</enum>
                </property>
                <property name="invertedControls">
                 <bool>true</bool>
@@ -14448,7 +14448,7 @@ LOWER UPPER</string>
                 <number>128</number>
                </property>
                <property name="orientation">
-                <enum>Qt::Horizontal</enum>
+                <enum>Qt::Orientation::Horizontal</enum>
                </property>
               </widget>
              </item>
@@ -14497,7 +14497,7 @@ LOWER UPPER</string>
                 <number>3</number>
                </property>
                <property name="orientation">
-                <enum>Qt::Horizontal</enum>
+                <enum>Qt::Orientation::Horizontal</enum>
                </property>
               </widget>
              </item>
@@ -14524,7 +14524,7 @@ LOWER UPPER</string>
                 <number>48</number>
                </property>
                <property name="orientation">
-                <enum>Qt::Horizontal</enum>
+                <enum>Qt::Orientation::Horizontal</enum>
                </property>
               </widget>
              </item>
@@ -14554,7 +14554,7 @@ LOWER UPPER</string>
                 <number>50</number>
                </property>
                <property name="orientation">
-                <enum>Qt::Horizontal</enum>
+                <enum>Qt::Orientation::Horizontal</enum>
                </property>
               </widget>
              </item>
@@ -14584,7 +14584,7 @@ LOWER UPPER</string>
                 <number>25</number>
                </property>
                <property name="orientation">
-                <enum>Qt::Horizontal</enum>
+                <enum>Qt::Orientation::Horizontal</enum>
                </property>
                <property name="invertedControls">
                 <bool>true</bool>
@@ -14626,7 +14626,7 @@ LOWER UPPER</string>
                 <number>128</number>
                </property>
                <property name="orientation">
-                <enum>Qt::Horizontal</enum>
+                <enum>Qt::Orientation::Horizontal</enum>
                </property>
               </widget>
              </item>
@@ -14675,7 +14675,7 @@ LOWER UPPER</string>
                 <number>3</number>
                </property>
                <property name="orientation">
-                <enum>Qt::Horizontal</enum>
+                <enum>Qt::Orientation::Horizontal</enum>
                </property>
               </widget>
              </item>
@@ -14702,7 +14702,7 @@ LOWER UPPER</string>
                 <number>48</number>
                </property>
                <property name="orientation">
-                <enum>Qt::Horizontal</enum>
+                <enum>Qt::Orientation::Horizontal</enum>
                </property>
               </widget>
              </item>
@@ -14732,7 +14732,7 @@ LOWER UPPER</string>
                 <number>50</number>
                </property>
                <property name="orientation">
-                <enum>Qt::Horizontal</enum>
+                <enum>Qt::Orientation::Horizontal</enum>
                </property>
               </widget>
              </item>
@@ -14762,7 +14762,7 @@ LOWER UPPER</string>
                 <number>25</number>
                </property>
                <property name="orientation">
-                <enum>Qt::Horizontal</enum>
+                <enum>Qt::Orientation::Horizontal</enum>
                </property>
                <property name="invertedControls">
                 <bool>true</bool>
@@ -14804,7 +14804,7 @@ LOWER UPPER</string>
                 <number>128</number>
                </property>
                <property name="orientation">
-                <enum>Qt::Horizontal</enum>
+                <enum>Qt::Orientation::Horizontal</enum>
                </property>
               </widget>
              </item>
@@ -14916,7 +14916,7 @@ LOWER UPPER</string>
            <item row="7" column="1">
             <spacer name="verticalSpacer">
              <property name="orientation">
-              <enum>Qt::Vertical</enum>
+              <enum>Qt::Orientation::Vertical</enum>
              </property>
              <property name="sizeHint" stdset="0">
               <size>
@@ -14929,10 +14929,10 @@ LOWER UPPER</string>
            <item row="5" column="1">
             <spacer name="verticalSpacer_2">
              <property name="orientation">
-              <enum>Qt::Vertical</enum>
+              <enum>Qt::Orientation::Vertical</enum>
              </property>
              <property name="sizeType">
-              <enum>QSizePolicy::Fixed</enum>
+              <enum>QSizePolicy::Policy::Fixed</enum>
              </property>
              <property name="sizeHint" stdset="0">
               <size>
@@ -15019,7 +15019,7 @@ LOWER UPPER</string>
               <string>HIGH</string>
              </property>
              <property name="alignment">
-              <set>Qt::AlignCenter</set>
+              <set>Qt::AlignmentFlag::AlignCenter</set>
              </property>
             </widget>
            </item>
@@ -15034,7 +15034,7 @@ LOWER UPPER</string>
                 <number>15</number>
                </property>
                <property name="orientation">
-                <enum>Qt::Horizontal</enum>
+                <enum>Qt::Orientation::Horizontal</enum>
                </property>
               </widget>
              </item>
@@ -15056,7 +15056,7 @@ LOWER UPPER</string>
               <string>Q</string>
              </property>
              <property name="alignment">
-              <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+              <set>Qt::AlignmentFlag::AlignRight|Qt::AlignmentFlag::AlignTrailing|Qt::AlignmentFlag::AlignVCenter</set>
              </property>
             </widget>
            </item>
@@ -15121,7 +15121,7 @@ LOWER UPPER</string>
               <string>MID</string>
              </property>
              <property name="alignment">
-              <set>Qt::AlignCenter</set>
+              <set>Qt::AlignmentFlag::AlignCenter</set>
              </property>
             </widget>
            </item>
@@ -15136,7 +15136,7 @@ LOWER UPPER</string>
                 <number>15</number>
                </property>
                <property name="orientation">
-                <enum>Qt::Horizontal</enum>
+                <enum>Qt::Orientation::Horizontal</enum>
                </property>
               </widget>
              </item>
@@ -15158,7 +15158,7 @@ LOWER UPPER</string>
               <string>FREQUENCY</string>
              </property>
              <property name="alignment">
-              <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+              <set>Qt::AlignmentFlag::AlignRight|Qt::AlignmentFlag::AlignTrailing|Qt::AlignmentFlag::AlignVCenter</set>
              </property>
             </widget>
            </item>
@@ -15173,7 +15173,7 @@ LOWER UPPER</string>
                 <number>15</number>
                </property>
                <property name="orientation">
-                <enum>Qt::Horizontal</enum>
+                <enum>Qt::Orientation::Horizontal</enum>
                </property>
               </widget>
              </item>
@@ -15195,7 +15195,7 @@ LOWER UPPER</string>
               <string>FREQUENCY</string>
              </property>
              <property name="alignment">
-              <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+              <set>Qt::AlignmentFlag::AlignRight|Qt::AlignmentFlag::AlignTrailing|Qt::AlignmentFlag::AlignVCenter</set>
              </property>
             </widget>
            </item>
@@ -15212,10 +15212,10 @@ LOWER UPPER</string>
            <item row="4" column="2">
             <spacer name="verticalSpacer_7">
              <property name="orientation">
-              <enum>Qt::Vertical</enum>
+              <enum>Qt::Orientation::Vertical</enum>
              </property>
              <property name="sizeType">
-              <enum>QSizePolicy::Preferred</enum>
+              <enum>QSizePolicy::Policy::Preferred</enum>
              </property>
              <property name="sizeHint" stdset="0">
               <size>
@@ -15271,7 +15271,7 @@ LOWER UPPER</string>
               <string>GAIN</string>
              </property>
              <property name="alignment">
-              <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+              <set>Qt::AlignmentFlag::AlignRight|Qt::AlignmentFlag::AlignTrailing|Qt::AlignmentFlag::AlignVCenter</set>
              </property>
             </widget>
            </item>
@@ -15301,7 +15301,7 @@ LOWER UPPER</string>
               <string>GAIN</string>
              </property>
              <property name="alignment">
-              <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+              <set>Qt::AlignmentFlag::AlignRight|Qt::AlignmentFlag::AlignTrailing|Qt::AlignmentFlag::AlignVCenter</set>
              </property>
             </widget>
            </item>
@@ -15366,17 +15366,17 @@ LOWER UPPER</string>
               <string>LOW</string>
              </property>
              <property name="alignment">
-              <set>Qt::AlignCenter</set>
+              <set>Qt::AlignmentFlag::AlignCenter</set>
              </property>
             </widget>
            </item>
            <item row="8" column="2">
             <spacer name="verticalSpacer_8">
              <property name="orientation">
-              <enum>Qt::Vertical</enum>
+              <enum>Qt::Orientation::Vertical</enum>
              </property>
              <property name="sizeType">
-              <enum>QSizePolicy::Preferred</enum>
+              <enum>QSizePolicy::Policy::Preferred</enum>
              </property>
              <property name="sizeHint" stdset="0">
               <size>
@@ -15392,7 +15392,7 @@ LOWER UPPER</string>
               <string>FREQUENCY</string>
              </property>
              <property name="alignment">
-              <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+              <set>Qt::AlignmentFlag::AlignRight|Qt::AlignmentFlag::AlignTrailing|Qt::AlignmentFlag::AlignVCenter</set>
              </property>
             </widget>
            </item>
@@ -15412,7 +15412,7 @@ LOWER UPPER</string>
               <string>GAIN</string>
              </property>
              <property name="alignment">
-              <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+              <set>Qt::AlignmentFlag::AlignRight|Qt::AlignmentFlag::AlignTrailing|Qt::AlignmentFlag::AlignVCenter</set>
              </property>
             </widget>
            </item>
@@ -15438,7 +15438,7 @@ LOWER UPPER</string>
               <string>SWITCH</string>
              </property>
              <property name="alignment">
-              <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+              <set>Qt::AlignmentFlag::AlignRight|Qt::AlignmentFlag::AlignTrailing|Qt::AlignmentFlag::AlignVCenter</set>
              </property>
             </widget>
            </item>
@@ -15550,7 +15550,7 @@ LOWER UPPER</string>
                 <number>127</number>
                </property>
                <property name="orientation">
-                <enum>Qt::Horizontal</enum>
+                <enum>Qt::Orientation::Horizontal</enum>
                </property>
               </widget>
              </item>
@@ -15709,7 +15709,7 @@ LOWER UPPER</string>
                     <number>127</number>
                    </property>
                    <property name="orientation">
-                    <enum>Qt::Horizontal</enum>
+                    <enum>Qt::Orientation::Horizontal</enum>
                    </property>
                   </widget>
                  </item>
@@ -15740,7 +15740,7 @@ LOWER UPPER</string>
                     <number>2</number>
                    </property>
                    <property name="orientation">
-                    <enum>Qt::Horizontal</enum>
+                    <enum>Qt::Orientation::Horizontal</enum>
                    </property>
                   </widget>
                  </item>
@@ -15771,7 +15771,7 @@ LOWER UPPER</string>
                     <number>127</number>
                    </property>
                    <property name="orientation">
-                    <enum>Qt::Horizontal</enum>
+                    <enum>Qt::Orientation::Horizontal</enum>
                    </property>
                   </widget>
                  </item>
@@ -15851,7 +15851,7 @@ LOWER UPPER</string>
                     <number>1000</number>
                    </property>
                    <property name="orientation">
-                    <enum>Qt::Horizontal</enum>
+                    <enum>Qt::Orientation::Horizontal</enum>
                    </property>
                   </widget>
                  </item>
@@ -15879,7 +15879,7 @@ LOWER UPPER</string>
                     <number>1000</number>
                    </property>
                    <property name="orientation">
-                    <enum>Qt::Horizontal</enum>
+                    <enum>Qt::Orientation::Horizontal</enum>
                    </property>
                   </widget>
                  </item>
@@ -15907,7 +15907,7 @@ LOWER UPPER</string>
                     <number>1000</number>
                    </property>
                    <property name="orientation">
-                    <enum>Qt::Horizontal</enum>
+                    <enum>Qt::Orientation::Horizontal</enum>
                    </property>
                   </widget>
                  </item>
@@ -15976,7 +15976,7 @@ LOWER UPPER</string>
                     <number>2</number>
                    </property>
                    <property name="orientation">
-                    <enum>Qt::Horizontal</enum>
+                    <enum>Qt::Orientation::Horizontal</enum>
                    </property>
                   </widget>
                  </item>
@@ -16010,7 +16010,7 @@ LOWER UPPER</string>
                     <number>127</number>
                    </property>
                    <property name="orientation">
-                    <enum>Qt::Horizontal</enum>
+                    <enum>Qt::Orientation::Horizontal</enum>
                    </property>
                   </widget>
                  </item>
@@ -16031,7 +16031,7 @@ LOWER UPPER</string>
                     <number>127</number>
                    </property>
                    <property name="orientation">
-                    <enum>Qt::Horizontal</enum>
+                    <enum>Qt::Orientation::Horizontal</enum>
                    </property>
                   </widget>
                  </item>
@@ -16052,7 +16052,7 @@ LOWER UPPER</string>
                     <number>127</number>
                    </property>
                    <property name="orientation">
-                    <enum>Qt::Horizontal</enum>
+                    <enum>Qt::Orientation::Horizontal</enum>
                    </property>
                   </widget>
                  </item>
@@ -16189,7 +16189,7 @@ LOWER UPPER</string>
                     <number>127</number>
                    </property>
                    <property name="orientation">
-                    <enum>Qt::Horizontal</enum>
+                    <enum>Qt::Orientation::Horizontal</enum>
                    </property>
                   </widget>
                  </item>
@@ -16210,7 +16210,7 @@ LOWER UPPER</string>
                     <number>127</number>
                    </property>
                    <property name="orientation">
-                    <enum>Qt::Horizontal</enum>
+                    <enum>Qt::Orientation::Horizontal</enum>
                    </property>
                   </widget>
                  </item>
@@ -16231,7 +16231,7 @@ LOWER UPPER</string>
                     <number>127</number>
                    </property>
                    <property name="orientation">
-                    <enum>Qt::Horizontal</enum>
+                    <enum>Qt::Orientation::Horizontal</enum>
                    </property>
                   </widget>
                  </item>
@@ -16252,7 +16252,7 @@ LOWER UPPER</string>
                     <number>127</number>
                    </property>
                    <property name="orientation">
-                    <enum>Qt::Horizontal</enum>
+                    <enum>Qt::Orientation::Horizontal</enum>
                    </property>
                   </widget>
                  </item>
@@ -16273,7 +16273,7 @@ LOWER UPPER</string>
                     <number>127</number>
                    </property>
                    <property name="orientation">
-                    <enum>Qt::Horizontal</enum>
+                    <enum>Qt::Orientation::Horizontal</enum>
                    </property>
                   </widget>
                  </item>
@@ -16393,7 +16393,7 @@ LOWER UPPER</string>
                 <number>127</number>
                </property>
                <property name="orientation">
-                <enum>Qt::Horizontal</enum>
+                <enum>Qt::Orientation::Horizontal</enum>
                </property>
               </widget>
              </item>
@@ -16461,7 +16461,7 @@ LOWER UPPER</string>
                     <number>100</number>
                    </property>
                    <property name="orientation">
-                    <enum>Qt::Horizontal</enum>
+                    <enum>Qt::Orientation::Horizontal</enum>
                    </property>
                   </widget>
                  </item>
@@ -16559,7 +16559,7 @@ LOWER UPPER</string>
                     <number>127</number>
                    </property>
                    <property name="orientation">
-                    <enum>Qt::Horizontal</enum>
+                    <enum>Qt::Orientation::Horizontal</enum>
                    </property>
                   </widget>
                  </item>
@@ -16580,7 +16580,7 @@ LOWER UPPER</string>
                     <number>127</number>
                    </property>
                    <property name="orientation">
-                    <enum>Qt::Horizontal</enum>
+                    <enum>Qt::Orientation::Horizontal</enum>
                    </property>
                   </widget>
                  </item>
@@ -16601,7 +16601,7 @@ LOWER UPPER</string>
                     <number>100</number>
                    </property>
                    <property name="orientation">
-                    <enum>Qt::Horizontal</enum>
+                    <enum>Qt::Orientation::Horizontal</enum>
                    </property>
                   </widget>
                  </item>
@@ -16622,7 +16622,7 @@ LOWER UPPER</string>
                     <number>100</number>
                    </property>
                    <property name="orientation">
-                    <enum>Qt::Horizontal</enum>
+                    <enum>Qt::Orientation::Horizontal</enum>
                    </property>
                   </widget>
                  </item>
@@ -16643,7 +16643,7 @@ LOWER UPPER</string>
                     <number>127</number>
                    </property>
                    <property name="orientation">
-                    <enum>Qt::Horizontal</enum>
+                    <enum>Qt::Orientation::Horizontal</enum>
                    </property>
                   </widget>
                  </item>
@@ -16664,7 +16664,7 @@ LOWER UPPER</string>
                     <number>127</number>
                    </property>
                    <property name="orientation">
-                    <enum>Qt::Horizontal</enum>
+                    <enum>Qt::Orientation::Horizontal</enum>
                    </property>
                   </widget>
                  </item>
@@ -16713,7 +16713,7 @@ LOWER UPPER</string>
                     <number>127</number>
                    </property>
                    <property name="orientation">
-                    <enum>Qt::Horizontal</enum>
+                    <enum>Qt::Orientation::Horizontal</enum>
                    </property>
                   </widget>
                  </item>
@@ -16757,10 +16757,10 @@ LOWER UPPER</string>
            <item row="1" column="0">
             <spacer name="verticalSpacer_4">
              <property name="orientation">
-              <enum>Qt::Vertical</enum>
+              <enum>Qt::Orientation::Vertical</enum>
              </property>
              <property name="sizeType">
-              <enum>QSizePolicy::Fixed</enum>
+              <enum>QSizePolicy::Policy::Fixed</enum>
              </property>
              <property name="sizeHint" stdset="0">
               <size>
@@ -16800,7 +16800,7 @@ LOWER UPPER</string>
            <item row="6" column="1">
             <spacer name="verticalSpacer_5">
              <property name="orientation">
-              <enum>Qt::Vertical</enum>
+              <enum>Qt::Orientation::Vertical</enum>
              </property>
              <property name="sizeHint" stdset="0">
               <size>
@@ -16826,10 +16826,725 @@ LOWER UPPER</string>
            <item row="4" column="1">
             <spacer name="verticalSpacer_6">
              <property name="orientation">
-              <enum>Qt::Vertical</enum>
+              <enum>Qt::Orientation::Vertical</enum>
              </property>
              <property name="sizeType">
-              <enum>QSizePolicy::Fixed</enum>
+              <enum>QSizePolicy::Policy::Fixed</enum>
+             </property>
+             <property name="sizeHint" stdset="0">
+              <size>
+               <width>20</width>
+               <height>40</height>
+              </size>
+             </property>
+            </spacer>
+           </item>
+          </layout>
+         </widget>
+         <widget class="QWidget" name="SystemCard">
+          <property name="maximumSize">
+           <size>
+            <width>900</width>
+            <height>16777215</height>
+           </size>
+          </property>
+          <layout class="QVBoxLayout" name="verticalLayout_6">
+           <item>
+            <layout class="QFormLayout" name="SystemSoundLayout">
+             <item row="1" column="0">
+              <widget class="QLabel" name="label_139">
+               <property name="text">
+                <string>Master Level</string>
+               </property>
+              </widget>
+             </item>
+             <item row="2" column="0">
+              <widget class="QLabel" name="label_140">
+               <property name="text">
+                <string>Master Tune</string>
+               </property>
+              </widget>
+             </item>
+             <item row="3" column="0">
+              <widget class="QLabel" name="label_141">
+               <property name="text">
+                <string>Master Keyshift</string>
+               </property>
+              </widget>
+             </item>
+             <item row="1" column="1">
+              <layout class="QHBoxLayout" name="horizontalLayout_29">
+               <item>
+                <widget class="QSlider" name="MasterLevelSld">
+                 <property name="maximum">
+                  <number>127</number>
+                 </property>
+                 <property name="value">
+                  <number>127</number>
+                 </property>
+                 <property name="tracking">
+                  <bool>false</bool>
+                 </property>
+                 <property name="orientation">
+                  <enum>Qt::Orientation::Horizontal</enum>
+                 </property>
+                </widget>
+               </item>
+               <item>
+                <widget class="QSpinBox" name="MasterLevelBox">
+                 <property name="keyboardTracking">
+                  <bool>false</bool>
+                 </property>
+                 <property name="maximum">
+                  <number>127</number>
+                 </property>
+                 <property name="value">
+                  <number>127</number>
+                 </property>
+                </widget>
+               </item>
+              </layout>
+             </item>
+             <item row="2" column="1">
+              <layout class="QHBoxLayout" name="horizontalLayout_35">
+               <item>
+                <widget class="QSlider" name="MasterTuneSld">
+                 <property name="minimum">
+                  <number>24</number>
+                 </property>
+                 <property name="maximum">
+                  <number>2024</number>
+                 </property>
+                 <property name="value">
+                  <number>1024</number>
+                 </property>
+                 <property name="tracking">
+                  <bool>false</bool>
+                 </property>
+                 <property name="orientation">
+                  <enum>Qt::Orientation::Horizontal</enum>
+                 </property>
+                </widget>
+               </item>
+               <item>
+                <widget class="QDoubleSpinBox" name="MasterTuneBoxC">
+                 <property name="keyboardTracking">
+                  <bool>false</bool>
+                 </property>
+                 <property name="decimals">
+                  <number>1</number>
+                 </property>
+                 <property name="minimum">
+                  <double>-100.000000000000000</double>
+                 </property>
+                 <property name="maximum">
+                  <double>100.000000000000000</double>
+                 </property>
+                 <property name="singleStep">
+                  <double>0.100000000000000</double>
+                 </property>
+                </widget>
+               </item>
+               <item>
+                <widget class="QLabel" name="label_144">
+                 <property name="text">
+                  <string>cents</string>
+                 </property>
+                </widget>
+               </item>
+               <item>
+                <widget class="QDoubleSpinBox" name="MasterTuneBox">
+                 <property name="readOnly">
+                  <bool>true</bool>
+                 </property>
+                 <property name="decimals">
+                  <number>3</number>
+                 </property>
+                 <property name="minimum">
+                  <double>415.300000000000011</double>
+                 </property>
+                 <property name="maximum">
+                  <double>466.199999999999989</double>
+                 </property>
+                 <property name="value">
+                  <double>440.000000000000000</double>
+                 </property>
+                </widget>
+               </item>
+               <item>
+                <widget class="QLabel" name="label_143">
+                 <property name="text">
+                  <string>Hz</string>
+                 </property>
+                </widget>
+               </item>
+              </layout>
+             </item>
+             <item row="3" column="1">
+              <layout class="QHBoxLayout" name="horizontalLayout_36">
+               <item>
+                <widget class="QSlider" name="MasterKeyShiftSld">
+                 <property name="minimum">
+                  <number>-24</number>
+                 </property>
+                 <property name="maximum">
+                  <number>24</number>
+                 </property>
+                 <property name="tracking">
+                  <bool>false</bool>
+                 </property>
+                 <property name="orientation">
+                  <enum>Qt::Orientation::Horizontal</enum>
+                 </property>
+                </widget>
+               </item>
+               <item>
+                <widget class="QSpinBox" name="MasterKeyShiftBox">
+                 <property name="keyboardTracking">
+                  <bool>false</bool>
+                 </property>
+                 <property name="minimum">
+                  <number>-24</number>
+                 </property>
+                 <property name="maximum">
+                  <number>24</number>
+                 </property>
+                </widget>
+               </item>
+              </layout>
+             </item>
+             <item row="4" column="0">
+              <widget class="QLabel" name="label_145">
+               <property name="text">
+                <string>Scale Tune Switch</string>
+               </property>
+              </widget>
+             </item>
+             <item row="4" column="1">
+              <widget class="OnOffButton" name="ScaleTuneSwitchBtn">
+               <property name="sizePolicy">
+                <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
+                 <horstretch>0</horstretch>
+                 <verstretch>0</verstretch>
+                </sizepolicy>
+               </property>
+               <property name="text">
+                <string>OFF</string>
+               </property>
+               <property name="checkable">
+                <bool>true</bool>
+               </property>
+              </widget>
+             </item>
+             <item row="0" column="0" colspan="2">
+              <widget class="QLabel" name="label_160">
+               <property name="palette">
+                <palette>
+                 <active>
+                  <colorrole role="WindowText">
+                   <brush brushstyle="SolidPattern">
+                    <color alpha="255">
+                     <red>154</red>
+                     <green>153</green>
+                     <blue>150</blue>
+                    </color>
+                   </brush>
+                  </colorrole>
+                 </active>
+                 <inactive>
+                  <colorrole role="WindowText">
+                   <brush brushstyle="SolidPattern">
+                    <color alpha="255">
+                     <red>154</red>
+                     <green>153</green>
+                     <blue>150</blue>
+                    </color>
+                   </brush>
+                  </colorrole>
+                 </inactive>
+                 <disabled/>
+                </palette>
+               </property>
+               <property name="font">
+                <font>
+                 <pointsize>16</pointsize>
+                 <bold>true</bold>
+                </font>
+               </property>
+               <property name="text">
+                <string>SOUND</string>
+               </property>
+              </widget>
+             </item>
+            </layout>
+           </item>
+           <item>
+            <layout class="QHBoxLayout" name="horizontalLayout_37">
+             <item>
+              <layout class="QFormLayout" name="SystemControlLayout">
+               <property name="fieldGrowthPolicy">
+                <enum>QFormLayout::FieldGrowthPolicy::FieldsStayAtSizeHint</enum>
+               </property>
+               <item row="1" column="0">
+                <widget class="QLabel" name="label_149">
+                 <property name="text">
+                  <string>System Control 1 Source</string>
+                 </property>
+                </widget>
+               </item>
+               <item row="1" column="1">
+                <widget class="QComboBox" name="SysCtrl1SrcBox"/>
+               </item>
+               <item row="2" column="0">
+                <widget class="QLabel" name="label_150">
+                 <property name="text">
+                  <string>System Control 2 Source</string>
+                 </property>
+                </widget>
+               </item>
+               <item row="3" column="0">
+                <widget class="QLabel" name="label_151">
+                 <property name="text">
+                  <string>System Control 3 Source</string>
+                 </property>
+                </widget>
+               </item>
+               <item row="4" column="0">
+                <widget class="QLabel" name="label_152">
+                 <property name="text">
+                  <string>System Control 4 Source</string>
+                 </property>
+                </widget>
+               </item>
+               <item row="2" column="1">
+                <widget class="QComboBox" name="SysCtrl2SrcBox"/>
+               </item>
+               <item row="3" column="1">
+                <widget class="QComboBox" name="SysCtrl3SrcBox"/>
+               </item>
+               <item row="4" column="1">
+                <widget class="QComboBox" name="SysCtrl4SrcBox"/>
+               </item>
+               <item row="0" column="0" colspan="2">
+                <widget class="QLabel" name="label_146">
+                 <property name="palette">
+                  <palette>
+                   <active>
+                    <colorrole role="WindowText">
+                     <brush brushstyle="SolidPattern">
+                      <color alpha="255">
+                       <red>154</red>
+                       <green>153</green>
+                       <blue>150</blue>
+                      </color>
+                     </brush>
+                    </colorrole>
+                   </active>
+                   <inactive>
+                    <colorrole role="WindowText">
+                     <brush brushstyle="SolidPattern">
+                      <color alpha="255">
+                       <red>154</red>
+                       <green>153</green>
+                       <blue>150</blue>
+                      </color>
+                     </brush>
+                    </colorrole>
+                   </inactive>
+                   <disabled/>
+                  </palette>
+                 </property>
+                 <property name="font">
+                  <font>
+                   <pointsize>16</pointsize>
+                   <bold>true</bold>
+                  </font>
+                 </property>
+                 <property name="text">
+                  <string>SYSTEM CONTROL</string>
+                 </property>
+                </widget>
+               </item>
+              </layout>
+             </item>
+             <item>
+              <layout class="QFormLayout" name="SystemSyncTempoLayout">
+               <property name="fieldGrowthPolicy">
+                <enum>QFormLayout::FieldGrowthPolicy::FieldsStayAtSizeHint</enum>
+               </property>
+               <item row="1" column="0">
+                <widget class="QLabel" name="label_153">
+                 <property name="text">
+                  <string>Control Source</string>
+                 </property>
+                </widget>
+               </item>
+               <item row="1" column="1">
+                <widget class="QComboBox" name="SystemControlSourceBox"/>
+               </item>
+               <item row="2" column="0">
+                <widget class="QLabel" name="label_154">
+                 <property name="text">
+                  <string>System Clock Source</string>
+                 </property>
+                </widget>
+               </item>
+               <item row="2" column="1">
+                <widget class="QComboBox" name="SystemClockSourceBox"/>
+               </item>
+               <item row="3" column="0">
+                <widget class="QLabel" name="label_155">
+                 <property name="text">
+                  <string>System Tempo</string>
+                 </property>
+                </widget>
+               </item>
+               <item row="4" column="0">
+                <widget class="QLabel" name="label_156">
+                 <property name="text">
+                  <string>Tempo Assign Source</string>
+                 </property>
+                </widget>
+               </item>
+               <item row="4" column="1">
+                <widget class="QComboBox" name="SystemTempoAssignSourceBox"/>
+               </item>
+               <item row="3" column="1">
+                <layout class="QHBoxLayout" name="horizontalLayout_38">
+                 <item>
+                  <widget class="QSpinBox" name="SystemTempoBox">
+                   <property name="keyboardTracking">
+                    <bool>false</bool>
+                   </property>
+                   <property name="minimum">
+                    <number>20</number>
+                   </property>
+                   <property name="maximum">
+                    <number>250</number>
+                   </property>
+                   <property name="value">
+                    <number>120</number>
+                   </property>
+                  </widget>
+                 </item>
+                 <item>
+                  <widget class="QLabel" name="label_157">
+                   <property name="text">
+                    <string>BPM</string>
+                   </property>
+                  </widget>
+                 </item>
+                </layout>
+               </item>
+               <item row="0" column="0" colspan="2">
+                <widget class="QLabel" name="label_142">
+                 <property name="sizePolicy">
+                  <sizepolicy hsizetype="Preferred" vsizetype="Fixed">
+                   <horstretch>0</horstretch>
+                   <verstretch>0</verstretch>
+                  </sizepolicy>
+                 </property>
+                 <property name="palette">
+                  <palette>
+                   <active>
+                    <colorrole role="WindowText">
+                     <brush brushstyle="SolidPattern">
+                      <color alpha="255">
+                       <red>154</red>
+                       <green>153</green>
+                       <blue>150</blue>
+                      </color>
+                     </brush>
+                    </colorrole>
+                   </active>
+                   <inactive>
+                    <colorrole role="WindowText">
+                     <brush brushstyle="SolidPattern">
+                      <color alpha="255">
+                       <red>154</red>
+                       <green>153</green>
+                       <blue>150</blue>
+                      </color>
+                     </brush>
+                    </colorrole>
+                   </inactive>
+                   <disabled/>
+                  </palette>
+                 </property>
+                 <property name="font">
+                  <font>
+                   <pointsize>16</pointsize>
+                   <bold>true</bold>
+                  </font>
+                 </property>
+                 <property name="text">
+                  <string>SYNC/TEMPO</string>
+                 </property>
+                </widget>
+               </item>
+              </layout>
+             </item>
+            </layout>
+           </item>
+           <item>
+            <layout class="QHBoxLayout" name="horizontalLayout_39">
+             <item>
+              <layout class="QFormLayout" name="SystemMidiLayout">
+               <property name="fieldGrowthPolicy">
+                <enum>QFormLayout::FieldGrowthPolicy::FieldsStayAtSizeHint</enum>
+               </property>
+               <item row="0" column="0">
+                <widget class="QLabel" name="label_147">
+                 <property name="sizePolicy">
+                  <sizepolicy hsizetype="Preferred" vsizetype="Fixed">
+                   <horstretch>0</horstretch>
+                   <verstretch>0</verstretch>
+                  </sizepolicy>
+                 </property>
+                 <property name="palette">
+                  <palette>
+                   <active>
+                    <colorrole role="WindowText">
+                     <brush brushstyle="SolidPattern">
+                      <color alpha="255">
+                       <red>154</red>
+                       <green>153</green>
+                       <blue>150</blue>
+                      </color>
+                     </brush>
+                    </colorrole>
+                   </active>
+                   <inactive>
+                    <colorrole role="WindowText">
+                     <brush brushstyle="SolidPattern">
+                      <color alpha="255">
+                       <red>154</red>
+                       <green>153</green>
+                       <blue>150</blue>
+                      </color>
+                     </brush>
+                    </colorrole>
+                   </inactive>
+                   <disabled/>
+                  </palette>
+                 </property>
+                 <property name="font">
+                  <font>
+                   <pointsize>16</pointsize>
+                   <bold>true</bold>
+                  </font>
+                 </property>
+                 <property name="text">
+                  <string>MIDI</string>
+                 </property>
+                </widget>
+               </item>
+               <item row="1" column="0">
+                <widget class="QLabel" name="label_158">
+                 <property name="text">
+                  <string>Receive Program Change</string>
+                 </property>
+                </widget>
+               </item>
+               <item row="1" column="1">
+                <widget class="OnOffButton" name="SysRcvPrgChangeBtn">
+                 <property name="text">
+                  <string>OFF</string>
+                 </property>
+                 <property name="checkable">
+                  <bool>true</bool>
+                 </property>
+                </widget>
+               </item>
+               <item row="2" column="0">
+                <widget class="QLabel" name="label_159">
+                 <property name="text">
+                  <string>Receive Bank Select</string>
+                 </property>
+                </widget>
+               </item>
+               <item row="2" column="1">
+                <widget class="OnOffButton" name="SysRcvBankSelBtn">
+                 <property name="text">
+                  <string>OFF</string>
+                 </property>
+                 <property name="checkable">
+                  <bool>true</bool>
+                 </property>
+                </widget>
+               </item>
+               <item row="3" column="0">
+                <widget class="QLabel" name="label_163">
+                 <property name="text">
+                  <string>Studio Set Control Channel</string>
+                 </property>
+                </widget>
+               </item>
+               <item row="3" column="1">
+                <widget class="QComboBox" name="StudioSetCtrlChBox"/>
+               </item>
+              </layout>
+             </item>
+             <item>
+              <layout class="QFormLayout" name="SystemSpeakerLayout">
+               <property name="fieldGrowthPolicy">
+                <enum>QFormLayout::FieldGrowthPolicy::FieldsStayAtSizeHint</enum>
+               </property>
+               <item row="1" column="0">
+                <widget class="QLabel" name="label_138">
+                 <property name="text">
+                  <string>5.1 CH Center Speaker Switch</string>
+                 </property>
+                </widget>
+               </item>
+               <item row="2" column="0">
+                <widget class="QLabel" name="label_161">
+                 <property name="text">
+                  <string>5.1 CH Subwoofer Switch</string>
+                 </property>
+                </widget>
+               </item>
+               <item row="3" column="0">
+                <widget class="QLabel" name="label_162">
+                 <property name="text">
+                  <string>2 CH Output Mode</string>
+                 </property>
+                </widget>
+               </item>
+               <item row="3" column="1">
+                <widget class="QComboBox" name="SpkOutModeBox"/>
+               </item>
+               <item row="1" column="1">
+                <widget class="OnOffButton" name="CenterSpkSwBtn">
+                 <property name="text">
+                  <string>OFF</string>
+                 </property>
+                 <property name="checkable">
+                  <bool>true</bool>
+                 </property>
+                </widget>
+               </item>
+               <item row="2" column="1">
+                <widget class="OnOffButton" name="SubwooferSpkSwBtn">
+                 <property name="text">
+                  <string>OFF</string>
+                 </property>
+                 <property name="checkable">
+                  <bool>true</bool>
+                 </property>
+                </widget>
+               </item>
+               <item row="0" column="0">
+                <widget class="QLabel" name="label_148">
+                 <property name="sizePolicy">
+                  <sizepolicy hsizetype="Preferred" vsizetype="Fixed">
+                   <horstretch>0</horstretch>
+                   <verstretch>0</verstretch>
+                  </sizepolicy>
+                 </property>
+                 <property name="palette">
+                  <palette>
+                   <active>
+                    <colorrole role="WindowText">
+                     <brush brushstyle="SolidPattern">
+                      <color alpha="255">
+                       <red>154</red>
+                       <green>153</green>
+                       <blue>150</blue>
+                      </color>
+                     </brush>
+                    </colorrole>
+                   </active>
+                   <inactive>
+                    <colorrole role="WindowText">
+                     <brush brushstyle="SolidPattern">
+                      <color alpha="255">
+                       <red>154</red>
+                       <green>153</green>
+                       <blue>150</blue>
+                      </color>
+                     </brush>
+                    </colorrole>
+                   </inactive>
+                   <disabled/>
+                  </palette>
+                 </property>
+                 <property name="font">
+                  <font>
+                   <pointsize>16</pointsize>
+                   <bold>true</bold>
+                  </font>
+                 </property>
+                 <property name="text">
+                  <string>SPEAKER</string>
+                 </property>
+                </widget>
+               </item>
+              </layout>
+             </item>
+            </layout>
+           </item>
+           <item>
+            <layout class="QFormLayout" name="formLayout_10">
+             <property name="fieldGrowthPolicy">
+              <enum>QFormLayout::FieldGrowthPolicy::FieldsStayAtSizeHint</enum>
+             </property>
+             <item row="1" column="0">
+              <widget class="QLabel" name="label_165">
+               <property name="text">
+                <string>Sound Mode</string>
+               </property>
+              </widget>
+             </item>
+             <item row="0" column="0" colspan="2">
+              <widget class="QLabel" name="label_164">
+               <property name="palette">
+                <palette>
+                 <active>
+                  <colorrole role="WindowText">
+                   <brush brushstyle="SolidPattern">
+                    <color alpha="255">
+                     <red>154</red>
+                     <green>153</green>
+                     <blue>150</blue>
+                    </color>
+                   </brush>
+                  </colorrole>
+                 </active>
+                 <inactive>
+                  <colorrole role="WindowText">
+                   <brush brushstyle="SolidPattern">
+                    <color alpha="255">
+                     <red>154</red>
+                     <green>153</green>
+                     <blue>150</blue>
+                    </color>
+                   </brush>
+                  </colorrole>
+                 </inactive>
+                 <disabled/>
+                </palette>
+               </property>
+               <property name="font">
+                <font>
+                 <pointsize>16</pointsize>
+                 <bold>true</bold>
+                </font>
+               </property>
+               <property name="text">
+                <string>SETUP</string>
+               </property>
+              </widget>
+             </item>
+             <item row="1" column="1">
+              <widget class="QComboBox" name="SoundModeBox"/>
+             </item>
+            </layout>
+           </item>
+           <item>
+            <spacer name="verticalSpacer_3">
+             <property name="orientation">
+              <enum>Qt::Orientation::Vertical</enum>
              </property>
              <property name="sizeHint" stdset="0">
               <size>
@@ -32905,6 +33620,70 @@ LOWER UPPER</string>
     <hint type="destinationlabel">
      <x>487</x>
      <y>663</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>MasterLevelSld</sender>
+   <signal>valueChanged(int)</signal>
+   <receiver>MasterLevelBox</receiver>
+   <slot>setValue(int)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>549</x>
+     <y>307</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>816</x>
+     <y>307</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>MasterLevelBox</sender>
+   <signal>valueChanged(int)</signal>
+   <receiver>MasterLevelSld</receiver>
+   <slot>setValue(int)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>816</x>
+     <y>307</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>549</x>
+     <y>307</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>MasterKeyShiftSld</sender>
+   <signal>valueChanged(int)</signal>
+   <receiver>MasterKeyShiftBox</receiver>
+   <slot>setValue(int)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>551</x>
+     <y>407</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>819</x>
+     <y>407</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>MasterKeyShiftBox</sender>
+   <signal>valueChanged(int)</signal>
+   <receiver>MasterKeyShiftSld</receiver>
+   <slot>setValue(int)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>819</x>
+     <y>407</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>551</x>
+     <y>407</y>
     </hint>
    </hints>
   </connection>

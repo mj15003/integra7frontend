@@ -27,10 +27,13 @@ void Integra7Setup::EmitSignal(uint8_t a, int v)
 {
     switch (a) {
     case 0:
-        emit SoundMode(v);
+        emit SoundMode(getSoundMode());
         break;
     case 4:
-        emit StudioSet_BS(v);
+        emit StudioSet_BS(getStudioSet_BS());
+        break;
+    case 5:
+        emit StudioSet_BS(getStudioSet_BS());
         break;
     case 6:
         emit StudioSet_PC(v);
@@ -42,6 +45,13 @@ void Integra7Setup::EmitSignal(uint8_t a, int v)
 
 void Integra7Setup::DataReceive(const uint8_t *rdata, uint8_t a, int len)
 {
+    uint8_t a2 = a + len;
+    uint8_t r = 0;
 
+    while (a < a2) {
+        data[a] = rdata[r++];
+        EmitSignal(a,data[a]);
+        ++a;
+    }
 }
 

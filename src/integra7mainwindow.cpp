@@ -21,6 +21,8 @@
 #include "integra7parteq.h"
 #include "integra7mastereq.h"
 #include "integra7studiosetcommon.h"
+#include "integra7systemcommon.h"
+#include "integra7setup.h"
 #include "integra7chorus.h"
 #include "integra7reverb.h"
 
@@ -308,6 +310,10 @@ integra7MainWindow::integra7MainWindow(QWidget *parent)
     QObject::connect(ui->EffectsBtn,
                      &QAbstractButton::clicked,this,
                      &integra7MainWindow::ShowEffects);
+
+    QObject::connect(ui->SystemBtn,
+                     &QAbstractButton::clicked,this,
+                     &integra7MainWindow::ShowSystemCard);
 
     QObject::connect(ui->PartViewOpenBtn,
                      &QAbstractButton::clicked,this,
@@ -693,6 +699,18 @@ integra7MainWindow::integra7MainWindow(QWidget *parent)
 
     ui->ChorusParams->setCurrentWidget(ui->ChorusEmptyPage);
     ui->ReverbParams->setCurrentWidget(ui->ReverbEmptyPage);
+
+    ui->SysCtrl1SrcBox->addItems(Integra7Device::ControlSourceList());
+    ui->SysCtrl2SrcBox->addItems(Integra7Device::ControlSourceList());
+    ui->SysCtrl3SrcBox->addItems(Integra7Device::ControlSourceList());
+    ui->SysCtrl4SrcBox->addItems(Integra7Device::ControlSourceList());
+
+    ui->SystemControlSourceBox->addItems(Integra7SystemCommon::SystemStudioSetList());
+    ui->SystemClockSourceBox->addItems(Integra7SystemCommon::SystemClockSourceList());
+    ui->SystemTempoAssignSourceBox->addItems(Integra7SystemCommon::SystemStudioSetList());
+    ui->StudioSetCtrlChBox->addItems(Integra7SystemCommon::MIDIChListOff());
+    ui->SpkOutModeBox->addItems(Integra7SystemCommon::SpeakerPhonesList());
+    ui->SoundModeBox->addItems(Integra7Setup::SoundModeLabels());
 
     /* ComboBoxes change value logic connections */
     QObject::connect(ui->Ch1TypeBox,&QComboBox::currentIndexChanged,this,
@@ -2856,6 +2874,67 @@ integra7MainWindow::integra7MainWindow(QWidget *parent)
     QObject::connect(ui->ReverbGM2TimeBox,&QSpinBox::valueChanged,
                      pI7d->Reverb,&Integra7Reverb::setGM2Time);
 
+    /* System Common connections */
+    QObject::connect(ui->MasterLevelBox,&QSpinBox::valueChanged,
+                     pI7d->SystemCommon,&Integra7SystemCommon::setMasterLevel);
+
+    QObject::connect(ui->MasterTuneSld,&QSlider::valueChanged,
+                     pI7d->SystemCommon,&Integra7SystemCommon::setMasterTune);
+
+    QObject::connect(ui->MasterTuneBoxC,&QDoubleSpinBox::valueChanged,
+                     pI7d->SystemCommon,&Integra7SystemCommon::setMasterTuneCents);
+
+    QObject::connect(ui->MasterKeyShiftBox,&QSpinBox::valueChanged,
+                     pI7d->SystemCommon,&Integra7SystemCommon::setMasterKeyShift);
+
+    QObject::connect(ui->ScaleTuneSwitchBtn,&QAbstractButton::toggled,
+                     pI7d->SystemCommon,&Integra7SystemCommon::setScaleTuneSwitch);
+
+    QObject::connect(ui->SysCtrl1SrcBox,&QComboBox::currentIndexChanged,
+                     pI7d->SystemCommon,&Integra7SystemCommon::setSystemControl1Source);
+
+    QObject::connect(ui->SysCtrl2SrcBox,&QComboBox::currentIndexChanged,
+                     pI7d->SystemCommon,&Integra7SystemCommon::setSystemControl2Source);
+
+    QObject::connect(ui->SysCtrl3SrcBox,&QComboBox::currentIndexChanged,
+                     pI7d->SystemCommon,&Integra7SystemCommon::setSystemControl3Source);
+
+    QObject::connect(ui->SysCtrl4SrcBox,&QComboBox::currentIndexChanged,
+                     pI7d->SystemCommon,&Integra7SystemCommon::setSystemControl4Source);
+
+    QObject::connect(ui->SystemControlSourceBox,&QComboBox::currentIndexChanged,
+                     pI7d->SystemCommon,&Integra7SystemCommon::setControlSource);
+
+    QObject::connect(ui->SystemClockSourceBox,&QComboBox::currentIndexChanged,
+                     pI7d->SystemCommon,&Integra7SystemCommon::setSystemClockSource);
+
+    QObject::connect(ui->SystemTempoBox,&QSpinBox::valueChanged,
+                     pI7d->SystemCommon,&Integra7SystemCommon::setSystemTempo);
+
+    QObject::connect(ui->SystemTempoAssignSourceBox,&QComboBox::currentIndexChanged,
+                     pI7d->SystemCommon,&Integra7SystemCommon::setTempoAssignSource);
+
+    QObject::connect(ui->SysRcvPrgChangeBtn,&QAbstractButton::toggled,
+                     pI7d->SystemCommon,&Integra7SystemCommon::setReceiveProgramChange);
+
+    QObject::connect(ui->SysRcvBankSelBtn,&QAbstractButton::toggled,
+                     pI7d->SystemCommon,&Integra7SystemCommon::setReceiveBankSelect);
+
+    QObject::connect(ui->StudioSetCtrlChBox,&QComboBox::currentIndexChanged,
+                     pI7d->SystemCommon,&Integra7SystemCommon::setStudioSetControlChannel);
+
+    QObject::connect(ui->CenterSpkSwBtn,&QAbstractButton::toggled,
+                     pI7d->SystemCommon,&Integra7SystemCommon::set51CHCenterSpeakerSwitch);
+
+    QObject::connect(ui->SubwooferSpkSwBtn,&QAbstractButton::toggled,
+                     pI7d->SystemCommon,&Integra7SystemCommon::set51CHSubWooferSwitch);
+
+    QObject::connect(ui->SpkOutModeBox,&QComboBox::currentIndexChanged,
+                     pI7d->SystemCommon,&Integra7SystemCommon::set2CHOutputMode);
+
+    QObject::connect(ui->SoundModeBox,&QComboBox::currentIndexChanged,
+                     pI7d->Setup,&Integra7Setup::setSoundMode);
+
     /* Reverse connections */
     for (int i=0;i<16;i++) {
         QObject::connect(pI7d->Parts[i],&Integra7Part::ToneBankProgram,
@@ -4622,6 +4701,71 @@ integra7MainWindow::integra7MainWindow(QWidget *parent)
 
     QObject::connect(pI7d->Reverb,&Integra7Reverb::GM2Time,
                      ui->ReverbGM2TimeBox,&QSpinBox::setValue);
+
+    /*************************************************/
+
+    QObject::connect(pI7d->SystemCommon,&Integra7SystemCommon::MasterLevel,
+                     ui->MasterLevelBox,&QSpinBox::setValue);
+
+    QObject::connect(pI7d->SystemCommon,&Integra7SystemCommon::MasterTune,
+                     ui->MasterTuneSld,&QSlider::setValue);
+
+    QObject::connect(pI7d->SystemCommon,&Integra7SystemCommon::MasterTuneCents,
+                     ui->MasterTuneBoxC,&QDoubleSpinBox::setValue);
+
+    QObject::connect(pI7d->SystemCommon,&Integra7SystemCommon::MasterTuneHz,
+                     ui->MasterTuneBox,&QDoubleSpinBox::setValue);
+
+    QObject::connect(pI7d->SystemCommon,&Integra7SystemCommon::MasterKeyShift,
+                     ui->MasterKeyShiftBox,&QSpinBox::setValue);
+
+    QObject::connect(pI7d->SystemCommon,&Integra7SystemCommon::ScaleTuneSwitch,
+                     ui->ScaleTuneSwitchBtn,&QAbstractButton::setChecked);
+
+    QObject::connect(pI7d->SystemCommon,&Integra7SystemCommon::SystemControl1Source,
+                     ui->SysCtrl1SrcBox,&QComboBox::setCurrentIndex);
+
+    QObject::connect(pI7d->SystemCommon,&Integra7SystemCommon::SystemControl2Source,
+                     ui->SysCtrl2SrcBox,&QComboBox::setCurrentIndex);
+
+    QObject::connect(pI7d->SystemCommon,&Integra7SystemCommon::SystemControl3Source,
+                     ui->SysCtrl3SrcBox,&QComboBox::setCurrentIndex);
+
+    QObject::connect(pI7d->SystemCommon,&Integra7SystemCommon::SystemControl4Source,
+                     ui->SysCtrl4SrcBox,&QComboBox::setCurrentIndex);
+
+    QObject::connect(pI7d->SystemCommon,&Integra7SystemCommon::ControlSource,
+                     ui->SystemControlSourceBox,&QComboBox::setCurrentIndex);
+
+    QObject::connect(pI7d->SystemCommon,&Integra7SystemCommon::SystemClockSource,
+                     ui->SystemClockSourceBox,&QComboBox::setCurrentIndex);
+
+    QObject::connect(pI7d->SystemCommon,&Integra7SystemCommon::SystemTempo,
+                     ui->SystemTempoBox,&QSpinBox::setValue);
+
+    QObject::connect(pI7d->SystemCommon,&Integra7SystemCommon::TempoAssignSource,
+                     ui->SystemTempoAssignSourceBox,&QComboBox::setCurrentIndex);
+
+    QObject::connect(pI7d->SystemCommon,&Integra7SystemCommon::ReceiveProgramChange,
+                     ui->SysRcvPrgChangeBtn,&QAbstractButton::setChecked);
+
+    QObject::connect(pI7d->SystemCommon,&Integra7SystemCommon::ReceiveBankSelect,
+                     ui->SysRcvBankSelBtn,&QAbstractButton::setChecked);
+
+    QObject::connect(pI7d->SystemCommon,&Integra7SystemCommon::StudioSetControlChannel,
+                     ui->StudioSetCtrlChBox,&QComboBox::setCurrentIndex);
+
+    QObject::connect(pI7d->SystemCommon,&Integra7SystemCommon::sig51CHCenterSpeakerSwitch,
+                     ui->CenterSpkSwBtn,&QAbstractButton::setChecked);
+
+    QObject::connect(pI7d->SystemCommon,&Integra7SystemCommon::sig51CHSubWooferSwitch,
+                     ui->SubwooferSpkSwBtn,&QAbstractButton::setChecked);
+
+    QObject::connect(pI7d->SystemCommon,&Integra7SystemCommon::sig2CHOutputMode,
+                     ui->SpkOutModeBox,&QComboBox::setCurrentIndex);
+
+    QObject::connect(pI7d->Setup,&Integra7Setup::SoundMode,
+                     ui->SoundModeBox,&QComboBox::setCurrentIndex);
 
     ui->Ch1Btn->setChecked(true);
 

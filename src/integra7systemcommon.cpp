@@ -28,9 +28,11 @@ void Integra7SystemCommon::EmitSignal(uint8_t a, int v)
     switch (a) {
     case 0x0:
         emit MasterTune(v);
+        emit MasterTuneCents(getMasterTuneCents());
+        emit MasterTuneHz(getMasterTuneHz());
         break;
     case 0x04:
-        emit MasterKeyShift(v);
+        emit MasterKeyShift(getMasterKeyShift());
         break;
     case 0x05:
         emit MasterLevel(v);
@@ -42,16 +44,16 @@ void Integra7SystemCommon::EmitSignal(uint8_t a, int v)
         emit StudioSetControlChannel(v);
         break;
     case 0x20:
-        emit SystemControl1Source(v);
+        v<32?emit SystemControl1Source(v):emit SystemControl1Source(v-1);
         break;
     case 0x21:
-        emit SystemControl2Source(v);
+        v<32?emit SystemControl2Source(v):emit SystemControl2Source(v-1);
         break;
     case 0x22:
-        emit SystemControl3Source(v);
+        v<32?emit SystemControl3Source(v):emit SystemControl3Source(v-1);
         break;
     case 0x23:
-        emit SystemControl4Source(v);
+        v<32?emit SystemControl4Source(v):emit SystemControl4Source(v-1);
         break;
     case 0x24:
         emit ControlSource(v);
@@ -87,5 +89,24 @@ void Integra7SystemCommon::EmitSignal(uint8_t a, int v)
 
 void Integra7SystemCommon::DataReceive(const uint8_t *rdata, uint8_t a, int len)
 {
+    uint8_t a2 = a + len;
+    uint8_t r = 0;
 
+    while (a < a2) {
+        if (a == 0x0){
+            data[a++] = rdata[r++];
+            data[a++] = rdata[r++];
+            data[a++] = rdata[r++];
+            data[a++] = rdata[r++];
+            EmitSignal(0x0,getMasterTune());
+        } else if (a == 0x26) {
+            data[a++] = rdata[r++];
+            data[a++] = rdata[r++];
+            EmitSignal(0x26,getSystemTempo());
+        } else {
+            data[a] = rdata[r++];
+            EmitSignal(a,data[a]);
+            ++a;
+        }
+    }
 }

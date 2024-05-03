@@ -31,35 +31,59 @@ public:
 
     void DataReceive(const uint8_t *rdata, uint8_t a, int len);
 
-    uint8_t getMasterTune() {return data[0x0];}
-    uint8_t getMasterKeyShift() {return data[0x04];}
-    uint8_t getMasterLevel() {return data[0x05];}
-    uint8_t getScaleTuneSwitch() {return data[0x06];}
-    uint8_t getStudioSetControlChannel() {return data[0x11];}
-    uint8_t getSystemControl1Source() {return data[0x20];}
-    uint8_t getSystemControl2Source() {return data[0x21];}
-    uint8_t getSystemControl3Source() {return data[0x22];}
-    uint8_t getSystemControl4Source() {return data[0x23];}
-    uint8_t getControlSource() {return data[0x24];}
-    uint8_t getSystemClockSource() {return data[0x25];}
-    uint8_t getSystemTempo() {return data[0x26];}
-    uint8_t getTempoAssignSource() {return data[0x28];}
-    uint8_t getReceiveProgramChange() {return data[0x29];}
-    uint8_t getReceiveBankSelect() {return data[0x2A];}
-    uint8_t get51CHCenterSpeakerSwitch() {return data[0x2B];}
-    uint8_t get51CHSubWooferSwitch() {return data[0x2C];}
-    uint8_t get2CHOutputMode() {return data[0x2D];}
+    int getMasterTune() {return data[0x1]<<8|data[0x2]<<4|data[0x3];}
+    double getMasterTuneCents() {return Tune2Cents(getMasterTune());}
+    double getMasterTuneHz() {return Cents2Hz(getMasterTuneCents());}
+    int getMasterKeyShift() {return data[0x04]-64;}
+    int getMasterLevel() {return data[0x05];}
+    int getScaleTuneSwitch() {return data[0x06];}
+    int getStudioSetControlChannel() {return data[0x11];}
+    int getSystemControl1Source() {return data[0x20];}
+    int getSystemControl2Source() {return data[0x21];}
+    int getSystemControl3Source() {return data[0x22];}
+    int getSystemControl4Source() {return data[0x23];}
+    int getControlSource() {return data[0x24];}
+    int getSystemClockSource() {return data[0x25];}
+    int getSystemTempo() {return data[0x26]<<4|data[0x27];}
+    int getTempoAssignSource() {return data[0x28];}
+    int getReceiveProgramChange() {return data[0x29];}
+    int getReceiveBankSelect() {return data[0x2A];}
+    int get51CHCenterSpeakerSwitch() {return data[0x2B];}
+    int get51CHSubWooferSwitch() {return data[0x2C];}
+    int get2CHOutputMode() {return data[0x2D];}
+
+    static QStringList& MIDIChListOff() {
+        static QStringList list = { "1","2","3","4","5","6","7","8",
+                                   "9","10","11","12","13","14","15","16","OFF" };
+        return list;
+    }
+
+    static QStringList& SystemStudioSetList() {
+        static QStringList list = { "SYSTEM","STUDIO SET" };
+        return list;
+    }
+
+    static QStringList& SystemClockSourceList() {
+        static QStringList list = { "MIDI","USB" };
+        return list;
+    }
+
+    static QStringList& SpeakerPhonesList() {
+        static QStringList list = { "SPEAKER","PHONES" };
+        return list;
+    }
 
 public slots:
-    void setMasterTune(int v) { DataSet(0x0,v); }
-    void setMasterKeyShift(int v) { DataSet(0x04,v); }
+    void setMasterTune(int v) { DataSet4x4B(0x0,v); }
+    void setMasterTuneCents(double v) { DataSet4x4B(0x0,Cents2Tune(v)); }
+    void setMasterKeyShift(int v) { DataSetOffset(0x04,v,64); }
     void setMasterLevel(int v) { DataSet(0x05,v); }
     void setScaleTuneSwitch(int v) { DataSet(0x06,v); }
     void setStudioSetControlChannel(int v) { DataSet(0x11,v); }
-    void setSystemControl1Source(int v) { DataSet(0x20,v); }
-    void setSystemControl2Source(int v) { DataSet(0x21,v); }
-    void setSystemControl3Source(int v) { DataSet(0x22,v); }
-    void setSystemControl4Source(int v) { DataSet(0x23,v); }
+    void setSystemControl1Source(int v) { v<32?DataSet(0x20,v):DataSet(0x20,v+1); }
+    void setSystemControl2Source(int v) { v<32?DataSet(0x21,v):DataSet(0x21,v+1); }
+    void setSystemControl3Source(int v) { v<32?DataSet(0x22,v):DataSet(0x22,v+1); }
+    void setSystemControl4Source(int v) { v<32?DataSet(0x23,v):DataSet(0x23,v+1); }
     void setControlSource(int v) { DataSet(0x24,v); }
     void setSystemClockSource(int v) { DataSet(0x25,v); }
     void setSystemTempo(int v) { DataSet2x4B(0x26,v); }
@@ -71,27 +95,32 @@ public slots:
     void set2CHOutputMode(int v) { DataSet(0x2D,v); }
 
 signals:
-    void MasterTune(uint8_t v);
-    void MasterKeyShift(uint8_t v);
-    void MasterLevel(uint8_t v);
-    void ScaleTuneSwitch(uint8_t v);
-    void StudioSetControlChannel(uint8_t v);
-    void SystemControl1Source(uint8_t v);
-    void SystemControl2Source(uint8_t v);
-    void SystemControl3Source(uint8_t v);
-    void SystemControl4Source(uint8_t v);
-    void ControlSource(uint8_t v);
-    void SystemClockSource(uint8_t v);
-    void SystemTempo(uint8_t v);
-    void TempoAssignSource(uint8_t v);
-    void ReceiveProgramChange(uint8_t v);
-    void ReceiveBankSelect(uint8_t v);
-    void sig51CHCenterSpeakerSwitch(uint8_t v);
-    void sig51CHSubWooferSwitch(uint8_t v);
-    void sig2CHOutputMode(uint8_t v);
+    void MasterTune(int v);
+    void MasterTuneCents(double v);
+    void MasterTuneHz(double v);
+    void MasterKeyShift(int v);
+    void MasterLevel(int v);
+    void ScaleTuneSwitch(int v);
+    void StudioSetControlChannel(int v);
+    void SystemControl1Source(int v);
+    void SystemControl2Source(int v);
+    void SystemControl3Source(int v);
+    void SystemControl4Source(int v);
+    void ControlSource(int v);
+    void SystemClockSource(int v);
+    void SystemTempo(int v);
+    void TempoAssignSource(int v);
+    void ReceiveProgramChange(int v);
+    void ReceiveBankSelect(int v);
+    void sig51CHCenterSpeakerSwitch(int v);
+    void sig51CHSubWooferSwitch(int v);
+    void sig2CHOutputMode(int v);
 
 private:
     void EmitSignal(uint8_t a, int v);
+    double Tune2Cents(int v) { return (v-1024)/10.0;}
+    double Cents2Hz(double c) { return 440*pow(2,c/1200);}    
+    int Cents2Tune(double c) { return round(c*10+1024);}
 };
 
 #endif // INTEGRA7SYSTEMCOMMON_H
