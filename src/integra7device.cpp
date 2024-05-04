@@ -27,6 +27,7 @@
 #include "integra7device.h"
 
 #include <QStringBuilder>
+#include <QThreadPool>
 
 Integra7Device::Integra7Device(integra7MainWindow *parent, MidiEngine *midi)
     : QObject{parent}
@@ -759,26 +760,10 @@ QStringList& Integra7Device::GetToneList(QString type, QString bank)
 
 void Integra7Device::BulkDumpRequest()
 {
-    uint8_t req[8];
-
-    Setup->GetRequestArray(req);
-    DataRequest(req);
-
-    SystemCommon->GetRequestArray(req);
-    DataRequest(req);
-
-    //Request whole StudioSet in single call
-    req[0] = 0x18;
-    req[1] = 0;
-    req[2] = 0;
-    req[3] = 0;
-
-    req[4] = 0;
-    req[5] = 0;
-    req[6] = 0x60;
-    req[7] = 0;
-
-    DataRequest(req);
+    /* Bulk dump request needs to run in an separate thread because of
+       waiting between particular calls for data transmission */
+    ReadRequest *RR = new ReadRequest(this);
+    QThreadPool::globalInstance()->start(RR);
 }
 
 uint8_t Integra7Device::Checksum(const uint8_t *msg)
@@ -822,4 +807,37 @@ void Integra7Device::SendIntegraSysEx(const uint8_t *data, int len)
     SentBytesCounter += t+1;
 
     DisplayStatsMsg();
+}
+
+ReadRequest::ReadRequest(Integra7Device *i7dev)
+{
+    dev = i7dev;
+}
+
+void ReadRequest::run()
+{
+    uint8_t req[8];
+
+    dev->Setup->GetRequestArray(req);
+    dev->DataRequest(req);
+
+    QThread::sleep(1); //give it a time to process the response
+
+    dev->SystemCommon->GetRequestArray(req);
+    dev->DataRequest(req);
+
+    QThread::sleep(1); //give it a time to process the response
+
+    //Request whole StudioSet in single call
+    req[0] = 0x18;
+    req[1] = 0;
+    req[2] = 0;
+    req[3] = 0;
+
+    req[4] = 0;
+    req[5] = 0;
+    req[6] = 0x60;
+    req[7] = 0;
+
+    dev->DataRequest(req);
 }

@@ -22,6 +22,7 @@
 
 #include <QObject>
 #include <QStringList>
+#include <QRunnable>
 
 /* Forward Declarations */
 class Integra7Setup;
@@ -521,6 +522,15 @@ private:
 
     uint8_t Checksum(const uint8_t *msg);
     void SendIntegraSysEx(const uint8_t *data, int len);    
+};
+
+class ReadRequest : public QRunnable
+{
+public:
+    explicit ReadRequest(Integra7Device *i7dev);
+private:
+    Integra7Device *dev;
+    void run() override;
 };
 
 #endif // INTEGRA7DEVICE_H
