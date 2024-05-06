@@ -504,7 +504,7 @@ public:
 public slots:
     void BulkDumpRequest();
     void setDeviceId(uint8_t Id);
-    void SetPreview(uint8_t state);
+    void SetPreview(uint8_t val);
     void ReceiveIntegraSysEx(const uint8_t *data, int len);
 
 private:

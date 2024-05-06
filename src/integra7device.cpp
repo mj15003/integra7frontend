@@ -559,10 +559,9 @@ void Integra7Device::LoadVirtualSlots(uint8_t s1, uint8_t s2, uint8_t s3, uint8_
     DataRequest(VirtualSlots);
 }
 
-void Integra7Device::SetPreview(uint8_t state)
+void Integra7Device::SetPreview(uint8_t val)
 {
-    uint8_t msg[5] {0x0F,0x00,0x20,0x00,0x01};
-    msg[4] = state;
+    uint8_t msg[5] {0x0F,0x00,0x20,0x00,val};
     DataSet(msg,5);
 }
 

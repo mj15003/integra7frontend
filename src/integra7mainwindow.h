@@ -41,6 +41,7 @@ public slots:
     void ShowStatusValue(int val);
     void ShowStatusMsg(const QString msg) {ui->statusbar->showMessage(msg);}
     void DisplayPartTonePreset(int part, int bank, int p);
+    void SelectPreview(bool checked);
 
 private:
     Ui::integra7MainWindow *ui;

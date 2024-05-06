@@ -1090,9 +1090,8 @@ integra7MainWindow::integra7MainWindow(QWidget *parent)
                      &QComboBox::currentIndexChanged,pI7d,
                      &Integra7Device::setDeviceId);
 
-    QObject::connect(ui->PreviewBtn,
-                     &QAbstractButton::clicked,pI7d,
-                     &Integra7Device::SetPreview);
+    QObject::connect(ui->PreviewBtn,&QAbstractButton::clicked,
+                     this,&integra7MainWindow::SelectPreview);
 
     QObject::connect(ui->ReadBtn,
                      &QAbstractButton::clicked,pI7d,
@@ -4807,6 +4806,14 @@ void integra7MainWindow::DisplayPartTonePreset(int part, int bank, int p)
         ToneBoxes[part][0]->setCurrentIndex(p);
 
     BlockToneChangeSignal = false;
+}
+
+void integra7MainWindow::SelectPreview(bool checked)
+{
+    if (checked)
+        pI7d->SetPreview(PartBtnGrp.checkedId()+1);
+    else
+        pI7d->SetPreview(0);
 }
 
 void integra7MainWindow::PartBtnToggled(int id, bool checked)
