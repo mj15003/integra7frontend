@@ -376,6 +376,7 @@ integra7MainWindow::integra7MainWindow(QWidget *parent)
                      &integra7MainWindow::ShowReverbCard);
 
     /* Setup Main Combo box lists*/
+    ui->StudioSetBox->addItems(Integra7Device::NumberedCustomList(64,":INIT"));
     ui->TypeBox->addItems(Integra7Device::TypeLabels());
     ui->BankBox->addItems(Integra7Device::SNAcousticBanks());
     ui->ToneBox->addItems(Integra7Device::SNAcousticPresets());
@@ -1085,6 +1086,9 @@ integra7MainWindow::integra7MainWindow(QWidget *parent)
                      pI7d,&Integra7Device::ReceiveIntegraSysEx);
 
     pMidiEngine->pMidiInputThread->start();
+
+    QObject::connect(ui->StudioSetBox,&QComboBox::currentIndexChanged,
+                     pI7d->Setup,&Integra7Setup::setStudioSet_PC);
 
     QObject::connect(ui->DeviceIdBox,
                      &QComboBox::currentIndexChanged,pI7d,
@@ -2939,6 +2943,9 @@ integra7MainWindow::integra7MainWindow(QWidget *parent)
         QObject::connect(pI7d->Parts[i],&Integra7Part::ToneBankProgram,
                          this,&integra7MainWindow::DisplayPartTonePreset);
     }
+
+    QObject::connect(pI7d->StudioSetCommon,&Integra7StudioSetCommon::StudioSetName,
+                     this,&integra7MainWindow::UpdateStudioSetName);
 
     QObject::connect(pI7d->StudioSetCommon,&Integra7StudioSetCommon::MasterEQSwitch,
                      ui->MEQSwBtn,&QPushButton::setChecked);
@@ -4814,6 +4821,11 @@ void integra7MainWindow::SelectPreview(bool checked)
         pI7d->SetPreview(PartBtnGrp.checkedId()+1);
     else
         pI7d->SetPreview(0);
+}
+
+void integra7MainWindow::UpdateStudioSetName(QString name)
+{
+    ui->StudioSetBox->setItemText(ui->StudioSetBox->currentIndex(),name);
 }
 
 void integra7MainWindow::PartBtnToggled(int id, bool checked)

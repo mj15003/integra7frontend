@@ -290,7 +290,11 @@
         <widget class="QWidget" name="MainSelectors" native="true">
          <layout class="QGridLayout" name="gridLayout">
           <item row="1" column="0">
-           <widget class="QComboBox" name="StudioSetBox"/>
+           <widget class="QComboBox" name="StudioSetBox">
+            <property name="sizeAdjustPolicy">
+             <enum>QComboBox::SizeAdjustPolicy::AdjustToContents</enum>
+            </property>
+           </widget>
           </item>
           <item row="1" column="1">
            <spacer name="horizontalSpacer_2">
