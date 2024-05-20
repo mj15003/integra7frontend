@@ -42,6 +42,7 @@ public:
     explicit Integra7Device(integra7MainWindow *parent, MidiEngine *midi);
     ~Integra7Device();
 
+    int BulkDumpWriteFile(const QString &fileName);
     void DataSet(const uint8_t *data,int len);
     void DataRequest(const uint8_t *data);
     void SendIdentityRequest();
@@ -501,8 +502,7 @@ public:
     static QStringList& GetBankList(QString type);
     static QStringList& GetToneList(QString type, QString bank);
 
-public slots:
-    void BulkDumpRequest();
+public slots:    
     void setDeviceId(uint8_t Id);
     void SetPreview(uint8_t val);
     void ReceiveIntegraSysEx(const uint8_t *data, int len);
@@ -521,16 +521,7 @@ private:
     MidiEngine *pMidiEngine;
 
     uint8_t Checksum(const uint8_t *msg);
-    void SendIntegraSysEx(const uint8_t *data, int len);    
+    int FillOutputDataFrame(const uint8_t *data, int len);
+    void SendIntegraSysEx(int len);
 };
-
-class ReadRequest : public QRunnable
-{
-public:
-    explicit ReadRequest(Integra7Device *i7dev);
-private:
-    Integra7Device *dev;
-    void run() override;
-};
-
 #endif // INTEGRA7DEVICE_H

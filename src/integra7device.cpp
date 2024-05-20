@@ -27,7 +27,7 @@
 #include "integra7device.h"
 
 #include <QStringBuilder>
-#include <QThreadPool>
+#include <QFile>
 
 Integra7Device::Integra7Device(integra7MainWindow *parent, MidiEngine *midi)
     : QObject{parent}
@@ -61,7 +61,7 @@ Integra7Device::Integra7Device(integra7MainWindow *parent, MidiEngine *midi)
 
 Integra7Device::~Integra7Device()
 {
-    for (uint8_t i=0;i<16;i++) {
+    for (int i=0;i<16;i++) {
         delete Parts[i];
         delete PartsEQ[i];
     }
@@ -72,6 +72,48 @@ Integra7Device::~Integra7Device()
     delete StudioSetCommon;
     delete SystemCommon;
     delete Setup;
+}
+
+int Integra7Device::BulkDumpWriteFile(const QString &fileName)
+{
+    QFile file(fileName);
+    file.open(QIODevice::WriteOnly);    
+
+    uint8_t buffer[256];
+    int len;
+
+    len = Setup->OutputDump(buffer);
+    file.write((char*)OutputData,FillOutputDataFrame(buffer,len));
+
+    len = SystemCommon->OutputDump(buffer);
+    file.write((char*)OutputData,FillOutputDataFrame(buffer,len));
+
+    len = StudioSetCommon->OutputDump(buffer);
+    file.write((char*)OutputData,FillOutputDataFrame(buffer,len));
+
+    len = Chorus->OutputDump(buffer);
+    file.write((char*)OutputData,FillOutputDataFrame(buffer,len));
+
+    len = Reverb->OutputDump(buffer);
+    file.write((char*)OutputData,FillOutputDataFrame(buffer,len));
+
+    len = MasterEQ->OutputDump(buffer);
+    file.write((char*)OutputData,FillOutputDataFrame(buffer,len));
+
+
+    for (int i=0;i<16;i++) {
+        len = Parts[i]->OutputDump(buffer);
+        file.write((char*)OutputData,FillOutputDataFrame(buffer,len));
+    }
+
+    for (int i=0;i<16;i++) {
+        len = PartsEQ[i]->OutputDump(buffer);
+        file.write((char*)OutputData,FillOutputDataFrame(buffer,len));
+    }
+
+    file.close();
+
+    return file.size();
 }
 
 void Integra7Device::setDeviceId(uint8_t Id)
@@ -85,14 +127,14 @@ void Integra7Device::setDeviceId(uint8_t Id)
 void Integra7Device::DataSet(const uint8_t *data, int len)
 {
     OutputData[6] = 0x12;//INTEGRA7 DataSet Command
-    SendIntegraSysEx(data,len);
+    SendIntegraSysEx(FillOutputDataFrame(data,len));
 }
 
 void Integra7Device::DataRequest(const uint8_t *data)
 {
     /* data array must have exactly 8 bytes -> 4 bytes address,4bytes length */
     OutputData[6] = 0x11;//INTEGRA7 DataRequest Command
-    SendIntegraSysEx(data,8);
+    SendIntegraSysEx(FillOutputDataFrame(data,8));
 }
 
 void Integra7Device::SendIdentityRequest()
@@ -758,14 +800,6 @@ QStringList& Integra7Device::GetToneList(QString type, QString bank)
     return Integra7Device::GM2Presets();
 }
 
-void Integra7Device::BulkDumpRequest()
-{
-    /* Bulk dump request needs to run in an separate thread because of
-       waiting between particular calls for data transmission */
-    ReadRequest *RR = new ReadRequest(this);
-    QThreadPool::globalInstance()->start(RR);
-}
-
 uint8_t Integra7Device::Checksum(const uint8_t *msg)
 {
     int i = 0;
@@ -781,11 +815,8 @@ uint8_t Integra7Device::Checksum(const uint8_t *msg)
     return 128 - (sum & 0x7F);
 }
 
-void Integra7Device::SendIntegraSysEx(const uint8_t *data, int len)
+int Integra7Device::FillOutputDataFrame(const uint8_t *data, int len)
 {
-    /* Put message to the SysEx frame and forward to the midiengine*/
-    /*TODO: Enable sending more data than SYSEX_SIZE in multiple packets*/
-
     int t = 7; //target counter = start index of address bytes in SysEx array
 
     for (int s=0; s<len; s++)
@@ -801,43 +832,15 @@ void Integra7Device::SendIntegraSysEx(const uint8_t *data, int len)
 
     OutputData[t-1] = Checksum(OutputData+7);
 
-    pMidiEngine->SendSysEx(OutputData,t+1);
+    return t+1;
+}
+
+void Integra7Device::SendIntegraSysEx(int len)
+{   
+    pMidiEngine->SendSysEx(OutputData,len);
 
     SentSysExCounter++;
-    SentBytesCounter += t+1;
+    SentBytesCounter += len;
 
     DisplayStatsMsg();
-}
-
-ReadRequest::ReadRequest(Integra7Device *i7dev)
-{
-    dev = i7dev;
-}
-
-void ReadRequest::run()
-{
-    uint8_t req[8];
-
-    dev->Setup->GetRequestArray(req);
-    dev->DataRequest(req);
-
-    QThread::sleep(1); //give it a time to process the response
-
-    dev->SystemCommon->GetRequestArray(req);
-    dev->DataRequest(req);
-
-    QThread::sleep(1); //give it a time to process the response
-
-    //Request whole StudioSet in single call
-    req[0] = 0x18;
-    req[1] = 0;
-    req[2] = 0;
-    req[3] = 0;
-
-    req[4] = 0;
-    req[5] = 0;
-    req[6] = 0x60;
-    req[7] = 0;
-
-    dev->DataRequest(req);
 }

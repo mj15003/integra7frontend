@@ -15,6 +15,9 @@
    along with this program. If not, see <https://www.gnu.org/licenses/>
 *************************************************************************/
 
+#include <QFileDialog>
+#include <QThreadPool>
+
 #include "integra7mainwindow.h"
 #include "./ui_integra7mainwindow.h"
 #include "integra7part.h"
@@ -374,6 +377,14 @@ integra7MainWindow::integra7MainWindow(QWidget *parent)
     QObject::connect(ui->ReverbBtn,
                      &QAbstractButton::clicked,this,
                      &integra7MainWindow::ShowReverbCard);
+
+    QObject::connect(ui->WriteToFileBtn,
+                     &QAbstractButton::clicked,this,
+                     &integra7MainWindow::WriteDumpToFile);
+
+    QObject::connect(ui->ReadFromFileBtn,
+                     &QAbstractButton::clicked,this,
+                     &integra7MainWindow::ReadDumpFromFile);
 
     /* Setup Main Combo box lists*/
     ui->StudioSetBox->addItems(Integra7Device::NumberedCustomList(64,":INIT"));
@@ -1097,9 +1108,8 @@ integra7MainWindow::integra7MainWindow(QWidget *parent)
     QObject::connect(ui->PreviewBtn,&QAbstractButton::clicked,
                      this,&integra7MainWindow::SelectPreview);
 
-    QObject::connect(ui->ReadBtn,
-                     &QAbstractButton::clicked,pI7d,
-                     &Integra7Device::BulkDumpRequest);
+    QObject::connect(ui->ReadBtn,&QAbstractButton::clicked,
+                     this,&integra7MainWindow::BulkDumpRequest);
 
     /* Master EQ Connections */
     QObject::connect(ui->MEQSwBtn,&QPushButton::toggled,
@@ -4828,6 +4838,24 @@ void integra7MainWindow::UpdateStudioSetName(QString name)
     ui->StudioSetBox->setItemText(ui->StudioSetBox->currentIndex(),name);
 }
 
+void integra7MainWindow::ReadDumpFromFile()
+{
+    QString fileName = QFileDialog::getOpenFileName(this, "Load SysEx Dump from file",
+                               "","SysEx Dump (*.syx)");
+    ShowStatusMsg("Sending " % fileName % " to device ...");
+
+    DumpFileReader *DFR = new DumpFileReader(pMidiEngine,this,fileName);
+    QThreadPool::globalInstance()->start(DFR);
+}
+
+void integra7MainWindow::WriteDumpToFile()
+{
+    QString fileName = QFileDialog::getSaveFileName(this, "Save SysEx Dump to file",
+                               "","SysEx Dump (*.syx)");
+    int len = pI7d->BulkDumpWriteFile(fileName);
+    ShowStatusMsg("Dump file written to : " % fileName % " Size : " % QString::number(len) % " bytes");
+}
+
 void integra7MainWindow::PartBtnToggled(int id, bool checked)
 {
     if (checked) {
@@ -5021,3 +5049,86 @@ void integra7MainWindow::VSlotLoadBtn_clicked()
                            ui->VSlotDBox->currentIndex());
 }
 
+void integra7MainWindow::BulkDumpRequest()
+{
+    /* Bulk dump request needs to run in an separate thread because of
+       waiting between particular calls for data transmission */
+    ReadRequest *RR = new ReadRequest(pI7d);
+    QThreadPool::globalInstance()->start(RR);
+}
+
+DumpFileReader::DumpFileReader(MidiEngine *pmidi, integra7MainWindow *pwin, QString &fname)
+{
+    midi = pmidi;
+    win = pwin;
+    fileName = fname;
+}
+
+void DumpFileReader::run()
+{
+    QFile file(fileName);
+    file.open(QIODevice::ReadOnly);
+
+    uint8_t *rdata = new uint8_t[file.size()];
+
+    //read the content of file at once into array
+    //split into SysExes and send each separately into the device with defined delay
+    //then request dump read from device to synchornize UI
+
+    int nrd = file.read((char*)rdata,file.size());
+    int len = 0;
+    int start = 0;
+
+    for (int c=0;c<nrd;++c) {
+        if (rdata[c] == 0xF0)
+        {
+            len = 1;
+            start = c;
+        }
+        else if (rdata[c] == 0xF7)
+        {
+            ++len;
+            midi->SendSysEx(rdata+start,len);
+            QThread::msleep(50);
+        }
+        else ++len;
+    }
+
+    file.close();
+    delete[] rdata;
+
+    win->BulkDumpRequest();
+}
+
+ReadRequest::ReadRequest(Integra7Device *i7dev)
+{
+    dev = i7dev;
+}
+
+void ReadRequest::run()
+{
+    uint8_t req[8];
+
+    dev->Setup->GetRequestArray(req);
+    dev->DataRequest(req);
+
+    QThread::sleep(1); //give it a time to process the response
+
+    dev->SystemCommon->GetRequestArray(req);
+    dev->DataRequest(req);
+
+    QThread::sleep(1); //give it a time to process the response
+
+    //Request whole StudioSet in single call
+    req[0] = 0x18;
+    req[1] = 0;
+    req[2] = 0;
+    req[3] = 0;
+
+    req[4] = 0;
+    req[5] = 0;
+    req[6] = 0x60;
+    req[7] = 0;
+
+    dev->DataRequest(req);
+}

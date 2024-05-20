@@ -38,11 +38,14 @@ public:
     ~integra7MainWindow();
 
 public slots:
+    void BulkDumpRequest();
     void ShowStatusValue(int val);
     void ShowStatusMsg(const QString msg) {ui->statusbar->showMessage(msg);}
     void DisplayPartTonePreset(int part, int bank, int p);
     void SelectPreview(bool checked);
     void UpdateStudioSetName(QString name);
+    void ReadDumpFromFile();
+    void WriteDumpToFile();
 
 private:
     Ui::integra7MainWindow *ui;
@@ -69,8 +72,8 @@ private:
     void BankBoxChange(int part);
     void ToneBoxChange(int part);
 
-private slots:
-    void PartBtnToggled(int id, bool checked);    
+private slots:    
+    void PartBtnToggled(int id, bool checked);
     void ShowStudioSet();
     void ShowEffects();
     void ShowPartViewCard() {ui->RightContent->setCurrentWidget(ui->PartViewCard);}
@@ -97,5 +100,25 @@ private slots:
     void VSlotBox_currentIndexChanged(int index);
     void VSlotLoadBtn_clicked();
 
+};
+
+class ReadRequest : public QRunnable
+{
+public:
+    explicit ReadRequest(Integra7Device *i7dev);
+private:
+    Integra7Device *dev;
+    void run() override;
+};
+
+class DumpFileReader : public QRunnable
+{
+public:
+    explicit DumpFileReader(MidiEngine *pmidi, integra7MainWindow *pwin, QString& fname);
+private:
+    QString fileName;
+    MidiEngine *midi;
+    integra7MainWindow *win;
+    void run() override;
 };
 #endif // INTEGRA7MAINWINDOW_H

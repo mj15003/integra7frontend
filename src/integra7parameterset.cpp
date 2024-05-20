@@ -38,6 +38,23 @@ void Integra7ParameterSet::GetRequestArray(uint8_t *req)
     req[7] = GetLength() & 0x7F;
 }
 
+int Integra7ParameterSet::OutputDump(uint8_t *dump)
+{
+    dump[0] = address[0];
+    dump[1] = address[1];
+    dump[2] = address[2];
+    dump[3] = 0;
+
+    int len = GetLength();
+    int t = 3;
+
+    for (int i = 0; i < len; ++i) {
+        dump[++t] = data[i];
+    }
+
+    return len+4;
+}
+
 void Integra7ParameterSet::DataSet(uint8_t a, int v)
 {
     if (v == data[a]) return;
