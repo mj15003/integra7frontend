@@ -1101,9 +1101,11 @@ integra7MainWindow::integra7MainWindow(QWidget *parent)
     QObject::connect(ui->StudioSetBox,&QComboBox::currentIndexChanged,
                      pI7d->Setup,&Integra7Setup::setStudioSet_PC);
 
-    QObject::connect(ui->DeviceIdBox,
-                     &QComboBox::currentIndexChanged,pI7d,
-                     &Integra7Device::setDeviceId);
+    QObject::connect(ui->DeviceIdBox,&QComboBox::currentIndexChanged,
+                     pI7d,&Integra7Device::setDeviceId);
+
+    QObject::connect(ui->MidiMsgDelayBox,&QSpinBox::valueChanged,
+                     pI7d,&Integra7Device::setMsgDelay);
 
     QObject::connect(ui->PreviewBtn,&QAbstractButton::clicked,
                      this,&integra7MainWindow::SelectPreview);
@@ -4844,7 +4846,7 @@ void integra7MainWindow::ReadDumpFromFile()
                                "","SysEx Dump (*.syx)");
     ShowStatusMsg("Sending " % fileName % " to device ...");
 
-    DumpFileReader *DFR = new DumpFileReader(pMidiEngine,this,fileName);
+    DumpFileReader *DFR = new DumpFileReader(pMidiEngine,pI7d,this,fileName);
     QThreadPool::globalInstance()->start(DFR);
 }
 
@@ -5057,9 +5059,10 @@ void integra7MainWindow::BulkDumpRequest()
     QThreadPool::globalInstance()->start(RR);
 }
 
-DumpFileReader::DumpFileReader(MidiEngine *pmidi, integra7MainWindow *pwin, QString &fname)
+DumpFileReader::DumpFileReader(MidiEngine *pmidi, Integra7Device *pdev, integra7MainWindow *pwin, QString &fname)
 {
     midi = pmidi;
+    dev = pdev;
     win = pwin;
     fileName = fname;
 }
@@ -5089,7 +5092,7 @@ void DumpFileReader::run()
         {
             ++len;
             midi->SendSysEx(rdata+start,len);
-            QThread::msleep(50);
+            QThread::msleep(dev->GetMsgDelay());
         }
         else ++len;
     }
@@ -5112,12 +5115,12 @@ void ReadRequest::run()
     dev->Setup->GetRequestArray(req);
     dev->DataRequest(req);
 
-    QThread::sleep(1); //give it a time to process the response
+    QThread::msleep(dev->GetMsgDelay()); //give it a time to process the response
 
     dev->SystemCommon->GetRequestArray(req);
     dev->DataRequest(req);
 
-    QThread::sleep(1); //give it a time to process the response
+    QThread::msleep(dev->GetMsgDelay()); //give it a time to process the response
 
     //Request whole StudioSet in single call
     req[0] = 0x18;

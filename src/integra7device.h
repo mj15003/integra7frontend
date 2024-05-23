@@ -502,15 +502,20 @@ public:
     static QStringList& GetBankList(QString type);
     static QStringList& GetToneList(QString type, QString bank);
 
+    size_t GetMsgDelay() { return msgDelay;}
+
 public slots:    
     void setDeviceId(uint8_t Id);
     void SetPreview(uint8_t val);
+    void setMsgDelay(size_t val) { msgDelay = val;}
     void ReceiveIntegraSysEx(const uint8_t *data, int len);
 
 private:
     uint8_t cDeviceId = 0x10;
     uint8_t OutputData[BUFFER_SIZE];
     uint8_t VirtualSlots[8] = {0x0F, 0x00, 0x30, 0x00, 0, 0, 0, 0};
+
+    size_t msgDelay = 20;//miliseconds
 
     size_t ReceivedSysExCounter = 0;
     size_t SentSysExCounter = 0;

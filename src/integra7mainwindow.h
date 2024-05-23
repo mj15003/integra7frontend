@@ -114,11 +114,12 @@ private:
 class DumpFileReader : public QRunnable
 {
 public:
-    explicit DumpFileReader(MidiEngine *pmidi, integra7MainWindow *pwin, QString& fname);
+    explicit DumpFileReader(MidiEngine *pmidi, Integra7Device *pdev, integra7MainWindow *pwin, QString& fname);
 private:
     QString fileName;
     MidiEngine *midi;
     integra7MainWindow *win;
+    Integra7Device *dev;
     void run() override;
 };
 #endif // INTEGRA7MAINWINDOW_H
