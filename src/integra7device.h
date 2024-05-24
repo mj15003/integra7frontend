@@ -504,6 +504,8 @@ public:
 
     size_t GetMsgDelay() { return msgDelay;}
 
+    void SendFullSysEx(uint8_t *data, int len);
+
 public slots:    
     void setDeviceId(uint8_t Id);
     void SetPreview(uint8_t val);

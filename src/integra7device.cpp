@@ -800,6 +800,16 @@ QStringList& Integra7Device::GetToneList(QString type, QString bank)
     return Integra7Device::GM2Presets();
 }
 
+void Integra7Device::SendFullSysEx(uint8_t *data, int len)
+{
+    pMidiEngine->SendSysEx(data,len);
+
+    ++SentSysExCounter;
+    SentBytesCounter += len;
+
+    DisplayStatsMsg();
+}
+
 uint8_t Integra7Device::Checksum(const uint8_t *msg)
 {
     int i = 0;
@@ -839,7 +849,7 @@ void Integra7Device::SendIntegraSysEx(int len)
 {   
     pMidiEngine->SendSysEx(OutputData,len);
 
-    SentSysExCounter++;
+    ++SentSysExCounter;
     SentBytesCounter += len;
 
     DisplayStatsMsg();

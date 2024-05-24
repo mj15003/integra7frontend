@@ -4842,20 +4842,20 @@ void integra7MainWindow::UpdateStudioSetName(QString name)
 
 void integra7MainWindow::ReadDumpFromFile()
 {
-    QString fileName = QFileDialog::getOpenFileName(this, "Load SysEx Dump from file",
+    QString fileName = QFileDialog::getOpenFileName(this, "Load SysEx Dump from a file",
                                "","SysEx Dump (*.syx)");
     ShowStatusMsg("Sending " % fileName % " to device ...");
 
-    DumpFileReader *DFR = new DumpFileReader(pMidiEngine,pI7d,this,fileName);
+    DumpFileReader *DFR = new DumpFileReader(pI7d,this,fileName);
     QThreadPool::globalInstance()->start(DFR);
 }
 
 void integra7MainWindow::WriteDumpToFile()
 {
-    QString fileName = QFileDialog::getSaveFileName(this, "Save SysEx Dump to file",
-                               "","SysEx Dump (*.syx)");
+    QString fileName = QFileDialog::getSaveFileName(this, "Save SysEx Dump to a file",
+                               "Integra7.syx","SysEx Dump (*.syx)");
     int len = pI7d->BulkDumpWriteFile(fileName);
-    ShowStatusMsg("Dump file written to : " % fileName % " Size : " % QString::number(len) % " bytes");
+    ShowStatusMsg("Dump file of size " % QString::number(len) % " bytes written to : " % fileName);
 }
 
 void integra7MainWindow::PartBtnToggled(int id, bool checked)
@@ -5059,9 +5059,8 @@ void integra7MainWindow::BulkDumpRequest()
     QThreadPool::globalInstance()->start(RR);
 }
 
-DumpFileReader::DumpFileReader(MidiEngine *pmidi, Integra7Device *pdev, integra7MainWindow *pwin, QString &fname)
-{
-    midi = pmidi;
+DumpFileReader::DumpFileReader(Integra7Device *pdev, integra7MainWindow *pwin, QString &fname)
+{    
     dev = pdev;
     win = pwin;
     fileName = fname;
@@ -5091,7 +5090,7 @@ void DumpFileReader::run()
         else if (rdata[c] == 0xF7)
         {
             ++len;
-            midi->SendSysEx(rdata+start,len);
+            dev->SendFullSysEx(rdata+start,len);
             QThread::msleep(dev->GetMsgDelay());
         }
         else ++len;
