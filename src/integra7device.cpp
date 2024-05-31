@@ -24,6 +24,7 @@
 #include "integra7chorus.h"
 #include "integra7reverb.h"
 #include "integra7mainwindow.h"
+#include "integra7tone.h"
 #include "integra7device.h"
 
 #include <QStringBuilder>
@@ -52,10 +53,21 @@ Integra7Device::Integra7Device(integra7MainWindow *parent, MidiEngine *midi)
     Reverb = new Integra7Reverb(this,0x18,0,0x6);
 
     uint8_t offset = 0x20;
-    uint8_t eqoffset = 0x50;
+    uint8_t offset2 = 0x50;
     for (int i=0;i<16;i++){
         Parts[i] = new Integra7Part(this,0x18,0x00,offset++);
-        PartsEQ[i] = new Integra7PartEQ(this,0x18,0x00,eqoffset++);
+        PartsEQ[i] = new Integra7PartEQ(this,0x18,0x00,offset2++);
+    }
+
+    offset = 0x19;
+    offset2 = 0x0;
+    for (int i=0;i<16;i++){
+        Tones[i] = new Integra7Tone(this,offset,offset2);
+        if (offset2 < 0x60) offset2 += 0x20;
+        else {
+            ++offset;
+            offset2 = 0x0;
+        }
     }
 }
 
@@ -64,6 +76,7 @@ Integra7Device::~Integra7Device()
     for (int i=0;i<16;i++) {
         delete Parts[i];
         delete PartsEQ[i];
+        delete Tones[i];
     }
 
     delete Reverb;

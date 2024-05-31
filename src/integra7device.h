@@ -34,6 +34,7 @@ class Integra7MasterEQ;
 class Integra7PartEQ;
 class Integra7Chorus;
 class Integra7Reverb;
+class Integra7Tone;
 
 class Integra7Device : public QObject
 {
@@ -64,6 +65,7 @@ public:
 
     Integra7Part *Parts[16];
     Integra7PartEQ *PartsEQ[16];
+    Integra7Tone *Tones[16];
 
     static QStringList& DeviceIdList() {
         static QStringList list = {"17","18","19","20","21","22","23","24","25","26","27","28","29","30","31","32"};
