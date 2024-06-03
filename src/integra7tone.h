@@ -44,9 +44,6 @@ class Integra7Tone
 public:
     Integra7Tone(Integra7Device *parent,uint8_t a0, uint8_t a1);
     ~Integra7Tone();
-private:
-    uint8_t address[2];
-    Integra7Device *pIntegraDev;
 
     Integra7PCMSynthToneCommon *PCMSynthToneCommon;
     Integra7PCMSynthToneCommonMFX *PCMSynthToneCommonMFX;
@@ -71,6 +68,12 @@ private:
     Integra7SNDrumKitMFX *SNDrumKitMFX;
     Integra7SNDrumKitCommonCompEQ *SNDrumKitCommonCompEQ;
     Integra7SNDrumKitNote *SNDrumKitNote[62];
+
+    void ReceiveData(const uint8_t *rdata, int len);
+
+private:
+    uint8_t address[2];
+    Integra7Device *pIntegraDev;
 
 };
 

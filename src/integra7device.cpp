@@ -645,17 +645,27 @@ void Integra7Device::ReceiveIntegraSysEx(const uint8_t *data, int len)
 
             qDebug("IntegraDevice received %u bytes at address : %02X %02X %02X %02X",len,data[7],data[8],data[9],data[10]);
 
-            if (data[7] == 0x01) Setup->DataReceive(data+11,data[10],len-13);
-            else if (data[7] == 0x02) SystemCommon->DataReceive(data+11,data[10],len-13);
-            else if (data[7] == 0x18) {
-                if (data[9] == 0x00) StudioSetCommon->DataReceive(data+11,data[10],len-13);
-                else if (data[9] == 0x04) Chorus->DataReceive(data+11,data[10],len-13);
-                else if (data[9] == 0x06) Reverb->DataReceive(data+11,data[10],len-13);
-                else if (data[9] == 0x09) MasterEQ->DataReceive(data+11,data[10],len-13);
-                else if (data[9] >= 0x20 && data[9] <= 0x2F)
-                    Parts[data[9]-0x20]->DataReceive(data+11,data[10],len-13);
-                else if (data[9] >= 0x50 && data[9] <= 0x5F)
-                    PartsEQ[data[9]-0x50]->DataReceive(data+11,data[10],len-13);
+            int dlen = len - 13;
+            uint8_t a0 = data[10];
+            uint8_t a1 = data[9];
+            uint8_t a2 = data[8];
+            uint8_t a3 = data[7];
+            const uint8_t *rdata = data+11;
+
+            if (a3 == 0x01) Setup->DataReceive(rdata,a0,dlen);
+            else if (a3 == 0x02) SystemCommon->DataReceive(rdata,a0,dlen);
+            else if (a3 == 0x18) {
+                if (a1 == 0x00) StudioSetCommon->DataReceive(rdata,a0,dlen);
+                else if (a1 == 0x04) Chorus->DataReceive(rdata,a0,dlen);
+                else if (a1 == 0x06) Reverb->DataReceive(rdata,a0,dlen);
+                else if (a1 == 0x09) MasterEQ->DataReceive(rdata,a0,dlen);
+                else if (a1 >= 0x20 && a1 <= 0x2F)
+                    Parts[a1-0x20]->DataReceive(rdata,a0,dlen);
+                else if (a1 >= 0x50 && a1 <= 0x5F)
+                    PartsEQ[a1-0x50]->DataReceive(rdata,a0,dlen);
+            } else if (a3 >= 0x19 && a3 <= 0x1C) {
+                int ti = (a3-0x19)*4+a2/0x20;
+                Tones[ti]->ReceiveData(data,len);
             }
         }
 

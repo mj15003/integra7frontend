@@ -100,3 +100,96 @@ Integra7Tone::~Integra7Tone()
     delete PCMSynthToneCommonMFX;
     delete PCMSynthToneCommon;
 }
+
+void Integra7Tone::ReceiveData(const uint8_t *data, int len)
+{
+    const uint8_t *rdata = data + 11;
+
+    uint8_t a0 = data[10];
+    uint8_t a1 = data[9];
+
+    uint8_t toff = data[8] % 0x20;
+
+    int dlen = len - 13;
+
+    switch (toff) {
+    case 0x00:
+        switch (a1) {
+        case 0x00:
+            PCMSynthToneCommon->DataReceive(rdata,a0,dlen);
+            break;
+        case 0x02:
+            PCMSynthToneCommonMFX->DataReceive(rdata,a0,dlen);
+            break;
+        case 0x10:
+            PCMSynthTonePMT->DataReceive(rdata,a0,dlen);
+            break;
+        case 0x20:
+            PCMSynthTonePartial[0]->DataReceive(rdata,a0,dlen);
+            break;
+        case 0x22:
+            PCMSynthTonePartial[1]->DataReceive(rdata,a0,dlen);
+            break;
+        case 0x24:
+            PCMSynthTonePartial[2]->DataReceive(rdata,a0,dlen);
+            break;
+        case 0x26:
+            PCMSynthTonePartial[3]->DataReceive(rdata,a0,dlen);
+            break;
+        case 0x30:
+            PCMSynthToneCommon2->DataReceive(rdata,a0,dlen);
+            break;
+        default:
+            break;
+        }
+        break;
+    case 0x01:
+        switch (a1) {
+        case 0x00:
+            SNSynthToneCommon->DataReceive(rdata,a0,dlen);
+            break;
+        case 0x02:
+            SNSynthToneMFX->DataReceive(rdata,a0,dlen);
+            break;
+        case 0x20:
+            SNSynthTonePartial[0]->DataReceive(rdata,a0,dlen);
+            break;
+        case 0x21:
+            SNSynthTonePartial[1]->DataReceive(rdata,a0,dlen);
+            break;
+        case 0x22:
+            SNSynthTonePartial[2]->DataReceive(rdata,a0,dlen);
+            break;
+        default:
+            break;
+        }
+        break;
+    case 0x02:
+        if (a1 == 0x00) SNAcousticToneCommon->DataReceive(rdata,a0,dlen);
+        if (a1 == 0x02) SNAcousticToneMFX->DataReceive(rdata,a0,dlen);
+        break;
+    case 0x03:
+        if (a1 == 0x00) SNDrumKitCommon->DataReceive(rdata,a0,dlen);
+        if (a1 == 0x02) SNDrumKitMFX->DataReceive(rdata,a0,dlen);
+        if (a1 == 0x08) SNDrumKitCommonCompEQ->DataReceive(rdata,a0,dlen);
+        if (a1 >= 0x10 && a1 <= 0x4D)
+            SNDrumKitNote[a1-0x10]->DataReceive(rdata,a0,dlen);
+        break;
+    case 0x10:
+        if (a1 == 0x00) PCMDrumKitCommon->DataReceive(rdata,a0,dlen);
+        if (a1 == 0x02) PCMDrumKitCommonMFX->DataReceive(rdata,a0,dlen);
+        if (a1 == 0x08) PCMDrumKitCommonCompEQ->DataReceive(rdata,a0,dlen);
+        if (a1 >= 0x10 && a1 <= 0x7E)
+            PCMDrumKitPartial[(a1-0x10)/2]->DataReceive(rdata,a0,dlen);
+        break;
+    case 0x11:
+        if (a1 <= 0x3E)
+            PCMDrumKitPartial[56+a1/2]->DataReceive(rdata,a0,dlen);
+        break;
+    case 0x12:
+        if (a1 == 0x00) PCMDrumKitCommon2->DataReceive(rdata,a0,dlen);
+        break;
+    default:
+        break;
+    }
+}
