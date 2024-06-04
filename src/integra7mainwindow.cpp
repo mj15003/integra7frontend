@@ -28,6 +28,7 @@
 #include "integra7setup.h"
 #include "integra7chorus.h"
 #include "integra7reverb.h"
+#include "integra7tone.h"
 
 integra7MainWindow::integra7MainWindow(QWidget *parent)
     : QMainWindow(parent)
@@ -1112,6 +1113,54 @@ integra7MainWindow::integra7MainWindow(QWidget *parent)
 
     QObject::connect(ui->ReadBtn,&QAbstractButton::clicked,
                      this,&integra7MainWindow::BulkDumpRequest);
+
+    QObject::connect(ui->Ch1TypeBox,&QComboBox::currentTextChanged,
+                     pI7d->Tones[0],&Integra7Tone::setToneType);
+
+    QObject::connect(ui->Ch2TypeBox,&QComboBox::currentTextChanged,
+                     pI7d->Tones[1],&Integra7Tone::setToneType);
+
+    QObject::connect(ui->Ch3TypeBox,&QComboBox::currentTextChanged,
+                     pI7d->Tones[2],&Integra7Tone::setToneType);
+
+    QObject::connect(ui->Ch4TypeBox,&QComboBox::currentTextChanged,
+                     pI7d->Tones[3],&Integra7Tone::setToneType);
+
+    QObject::connect(ui->Ch5TypeBox,&QComboBox::currentTextChanged,
+                     pI7d->Tones[4],&Integra7Tone::setToneType);
+
+    QObject::connect(ui->Ch6TypeBox,&QComboBox::currentTextChanged,
+                     pI7d->Tones[5],&Integra7Tone::setToneType);
+
+    QObject::connect(ui->Ch7TypeBox,&QComboBox::currentTextChanged,
+                     pI7d->Tones[6],&Integra7Tone::setToneType);
+
+    QObject::connect(ui->Ch8TypeBox,&QComboBox::currentTextChanged,
+                     pI7d->Tones[7],&Integra7Tone::setToneType);
+
+    QObject::connect(ui->Ch9TypeBox,&QComboBox::currentTextChanged,
+                     pI7d->Tones[8],&Integra7Tone::setToneType);
+
+    QObject::connect(ui->Ch10TypeBox,&QComboBox::currentTextChanged,
+                     pI7d->Tones[9],&Integra7Tone::setToneType);
+
+    QObject::connect(ui->Ch11TypeBox,&QComboBox::currentTextChanged,
+                     pI7d->Tones[10],&Integra7Tone::setToneType);
+
+    QObject::connect(ui->Ch12TypeBox,&QComboBox::currentTextChanged,
+                     pI7d->Tones[11],&Integra7Tone::setToneType);
+
+    QObject::connect(ui->Ch13TypeBox,&QComboBox::currentTextChanged,
+                     pI7d->Tones[12],&Integra7Tone::setToneType);
+
+    QObject::connect(ui->Ch14TypeBox,&QComboBox::currentTextChanged,
+                     pI7d->Tones[13],&Integra7Tone::setToneType);
+
+    QObject::connect(ui->Ch15TypeBox,&QComboBox::currentTextChanged,
+                     pI7d->Tones[14],&Integra7Tone::setToneType);
+
+    QObject::connect(ui->Ch16TypeBox,&QComboBox::currentTextChanged,
+                     pI7d->Tones[15],&Integra7Tone::setToneType);
 
     /* Master EQ Connections */
     QObject::connect(ui->MEQSwBtn,&QPushButton::toggled,

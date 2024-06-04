@@ -90,9 +90,9 @@ Integra7Device::~Integra7Device()
 int Integra7Device::BulkDumpWriteFile(const QString &fileName)
 {
     QFile file(fileName);
-    file.open(QIODevice::WriteOnly);    
+    file.open(QIODevice::WriteOnly);
 
-    uint8_t buffer[256];
+    uint8_t buffer[PARAMETER_ARRAY_SIZE];
     int len;
 
     len = Setup->OutputDump(buffer);
@@ -122,6 +122,12 @@ int Integra7Device::BulkDumpWriteFile(const QString &fileName)
     for (int i=0;i<16;i++) {
         len = PartsEQ[i]->OutputDump(buffer);
         file.write((char*)OutputData,FillOutputDataFrame(buffer,len));
+    }
+
+    for (int i=0;i<16;i++) {
+        while (Tones[i]->OutputDump(buffer,&len)) {
+            file.write((char*)OutputData,FillOutputDataFrame(buffer,len));
+        }
     }
 
     file.close();

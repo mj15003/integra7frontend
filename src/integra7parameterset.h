@@ -36,7 +36,7 @@ public:
 protected:    
     Integra7Device *pIntegraDev;
     uint8_t address[3];
-    uint8_t data[256];//data store
+    uint8_t data[PARAMETER_ARRAY_SIZE];//data store
 
     void DataSet(uint8_t a, int v);
     void DataSetOffset(uint8_t a, int v, int offset);

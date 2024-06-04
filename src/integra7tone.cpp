@@ -193,3 +193,116 @@ void Integra7Tone::ReceiveData(const uint8_t *data, int len)
         break;
     }
 }
+
+int Integra7Tone::OutputDump(uint8_t *data, int *len)
+{
+    if (ToneType == "PCM-S") {
+        switch (outcnt) {
+        case 0:
+            *len = PCMSynthToneCommon->OutputDump(data);
+            return ++outcnt;
+        case 1:
+            *len = PCMSynthToneCommonMFX->OutputDump(data);
+            return ++outcnt;
+        case 2:
+            *len = PCMSynthTonePMT->OutputDump(data);
+            return ++outcnt;
+        case 3:
+            *len = PCMSynthTonePartial[0]->OutputDump(data);
+            return ++outcnt;
+        case 4:
+            *len = PCMSynthTonePartial[1]->OutputDump(data);
+            return ++outcnt;
+        case 5:
+            *len = PCMSynthTonePartial[2]->OutputDump(data);
+            return ++outcnt;
+        case 6:
+            *len = PCMSynthTonePartial[3]->OutputDump(data);
+            return ++outcnt;
+        case 7:
+            *len = PCMSynthToneCommon2->OutputDump(data);
+            return ++outcnt;
+        default:
+            outcnt = 0;
+            return outcnt;
+        }
+    } else if (ToneType == "SN-S") {
+        switch (outcnt) {
+        case 0:
+            *len = SNSynthToneCommon->OutputDump(data);
+            return ++outcnt;
+        case 1:
+            *len = SNSynthToneMFX->OutputDump(data);
+            return ++outcnt;
+        case 2:
+            *len = SNSynthTonePartial[0]->OutputDump(data);
+            return ++outcnt;
+        case 3:
+            *len = SNSynthTonePartial[1]->OutputDump(data);
+            return ++outcnt;
+        case 4:
+            *len = SNSynthTonePartial[2]->OutputDump(data);
+            return ++outcnt;
+        default:
+            outcnt = 0;
+            return outcnt;
+        }
+    } else if (ToneType == "SN-A") {
+        switch (outcnt) {
+        case 0:
+            *len = SNAcousticToneCommon->OutputDump(data);
+            return ++outcnt;
+        case 1:
+            *len = SNAcousticToneMFX->OutputDump(data);
+            return ++outcnt;
+        default:
+            outcnt = 0;
+            return outcnt;
+        }
+    } else if (ToneType == "SN-D") {
+        switch (outcnt) {
+        case 0:
+            *len = SNDrumKitCommon->OutputDump(data);
+            return ++outcnt;
+        case 1:
+            *len = SNDrumKitMFX->OutputDump(data);
+            return ++outcnt;
+        case 2:
+            *len = SNDrumKitCommonCompEQ->OutputDump(data);
+            return ++outcnt;
+        default:
+            *len = SNDrumKitNote[outcnt-3]->OutputDump(data);
+            return ++outcnt;
+        case 65:
+            outcnt = 0;
+            return outcnt;
+        }
+    } else if (ToneType == "PCM-D") {
+        switch (outcnt) {
+        case 0:
+            *len = PCMDrumKitCommon->OutputDump(data);
+            return ++outcnt;
+        case 1:
+            *len = PCMDrumKitCommonMFX->OutputDump(data);
+            return ++outcnt;
+        case 2:
+            *len = PCMDrumKitCommonCompEQ->OutputDump(data);
+            return ++outcnt;
+        default:
+            *len = PCMDrumKitPartial[outcnt-3]->OutputDump(data);
+            return ++outcnt;
+        case 91:
+            *len = PCMDrumKitCommon2->OutputDump(data);
+            return ++outcnt;
+        case 92:
+            outcnt = 0;
+            return outcnt;
+        }
+    }
+    return 0;
+}
+void Integra7Tone::setToneType(const QString &ts)
+{
+    ToneType = ts;
+    outcnt = 0;
+}

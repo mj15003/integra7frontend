@@ -24,6 +24,8 @@
 #include <QStringList>
 #include <QRunnable>
 
+#define PARAMETER_ARRAY_SIZE 256
+
 /* Forward Declarations */
 class Integra7Setup;
 class integra7MainWindow;

@@ -39,11 +39,14 @@
 #include "integra7sndrumkitcommoncompeq.h"
 #include "integra7sndrumkitnote.h"
 
-class Integra7Tone
+class Integra7Tone : public QObject
 {
+    Q_OBJECT
 public:
     Integra7Tone(Integra7Device *parent,uint8_t a0, uint8_t a1);
     ~Integra7Tone();
+
+    QString ToneType = "GS";
 
     Integra7PCMSynthToneCommon *PCMSynthToneCommon;
     Integra7PCMSynthToneCommonMFX *PCMSynthToneCommonMFX;
@@ -70,10 +73,15 @@ public:
     Integra7SNDrumKitNote *SNDrumKitNote[62];
 
     void ReceiveData(const uint8_t *rdata, int len);
+    int OutputDump(uint8_t *data,int *len);
+
+public slots:
+    void setToneType(const QString &ts);
 
 private:
     uint8_t address[2];
     Integra7Device *pIntegraDev;
+    int outcnt = 0;
 
 };
 
