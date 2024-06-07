@@ -27,10 +27,55 @@ class Integra7SNDrumKitNote : public Integra7ParameterSet
 public:
     explicit Integra7SNDrumKitNote(Integra7Device *parent, uint8_t o1, uint8_t o2, uint8_t o3);
 
+    int getInstNumber() {return data[0x00]<<12|data[0x01]<<8|data[0x02]<<4|data[0x03];}
+    int getLevel() {return data[0x04];}
+    int getPan() {return data[0x05];}
+    int getChorusSendLevel() {return data[0x06];}
+    int getReverbSendLevel() {return data[0x07];}
+    int getTune() {return data[0x08]<<12|data[0x09]<<8|data[0x0A]<<4|data[0x0B];}
+    int getAttack() {return data[0x0C];}
+    int getDecay() {return data[0x0D];}
+    int getBrilliance() {return data[0x0E];}
+    int getVariation() {return data[0x0F];}
+    int getDynamicRange() {return data[0x10];}
+    int getStereoWidth() {return data[0x11];}
+    int getOutputAssign() {return data[0x12];}
+
     void DataReceive(const uint8_t *rdata, uint8_t a, int len);
 
     int GetLength() {return 0x13;}
     int GetItemsNumber() {return 13;}
+
+public slots:
+
+    void setInstNumber(int v) {DataSet4x4B(0x00,v);}
+    void setLevel(int v) {DataSet(0x04,v);}
+    void setPan(int v) {DataSet(0x05,v);}
+    void setChorusSendLevel(int v) {DataSet(0x06,v);}
+    void setReverbSendLevel(int v) {DataSet(0x07,v);}
+    void setTune(int v) {DataSet4x4B(0x08,v);}
+    void setAttack(int v) {DataSet(0x0C,v);}
+    void setDecay(int v) {DataSet(0x0D,v);}
+    void setBrilliance(int v) {DataSet(0x0E,v);}
+    void setVariation(int v) {DataSet(0x0F,v);}
+    void setDynamicRange(int v) {DataSet(0x10,v);}
+    void setStereoWidth(int v) {DataSet(0x11,v);}
+    void setOutputAssign(int v) {DataSet(0x12,v);}
+
+signals:
+    void InstNumber(int v);
+    void Level(int v);
+    void Pan(int v);
+    void ChorusSendLevel(int v);
+    void ReverbSendLevel(int v);
+    void Tune(int v);
+    void Attack(int v);
+    void Decay(int v);
+    void Brilliance(int v);
+    void Variation(int v);
+    void DynamicRange(int v);
+    void StereoWidth(int v);
+    void OutputAssign(int v);
 
 private:
     void EmitSignal(uint8_t a, int v);

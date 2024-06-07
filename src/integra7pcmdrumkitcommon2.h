@@ -27,10 +27,23 @@ class Integra7PCMDrumKitCommon2 : public Integra7ParameterSet
 public:
     explicit Integra7PCMDrumKitCommon2(Integra7Device *parent, uint8_t o1, uint8_t o2, uint8_t o3);
 
+    int getPhraseNumber() {return data[0x10]<<4|data[0x11];}
+    int getTFXSwitch() {return data[0x31];}
+
     void DataReceive(const uint8_t *rdata, uint8_t a, int len);
 
     int GetLength() {return 0x32;}
     int GetItemsNumber() {return 2;}
+
+public slots:
+
+    void setPhraseNumber(int v) {DataSet2x4B(0x10,v);}
+    void setTFXSwitch(int v) {DataSet(0x31,v);}
+
+signals:
+
+    void PhraseNumber(int v);
+    void TFXSwitch(int v);
 
 private:
     void EmitSignal(uint8_t a, int v);

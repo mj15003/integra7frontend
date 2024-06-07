@@ -22,8 +22,193 @@ Integra7SNAcousticToneCommon::Integra7SNAcousticToneCommon(Integra7Device *paren
 
 void Integra7SNAcousticToneCommon::EmitSignal(uint8_t a, int v)
 {
-
-
+    switch (a) {
+    case 0x00:
+        emit ToneName1(v);
+        break;
+    case 0x01:
+        emit ToneName2(v);
+        break;
+    case 0x02:
+        emit ToneName3(v);
+        break;
+    case 0x03:
+        emit ToneName4(v);
+        break;
+    case 0x04:
+        emit ToneName5(v);
+        break;
+    case 0x05:
+        emit ToneName6(v);
+        break;
+    case 0x06:
+        emit ToneName7(v);
+        break;
+    case 0x07:
+        emit ToneName8(v);
+        break;
+    case 0x08:
+        emit ToneName9(v);
+        break;
+    case 0x09:
+        emit ToneName10(v);
+        break;
+    case 0x0A:
+        emit ToneName11(v);
+        break;
+    case 0x0B:
+        emit ToneName12(v);
+        break;
+    case 0x10:
+        emit ToneLevel(v);
+        break;
+    case 0x11:
+        emit MonoPoly(v);
+        break;
+    case 0x12:
+        emit PortamentoTimeOffset(v);
+        break;
+    case 0x13:
+        emit CutoffOffset(v);
+        break;
+    case 0x14:
+        emit ResonanceOffset(v);
+        break;
+    case 0x15:
+        emit AttackTimeOffset(v);
+        break;
+    case 0x16:
+        emit ReleaseTimeOffset(v);
+        break;
+    case 0x17:
+        emit VibratoRate(v);
+        break;
+    case 0x18:
+        emit VibratoDepth(v);
+        break;
+    case 0x19:
+        emit VibratoDelay(v);
+        break;
+    case 0x1A:
+        emit OctaveShift(v);
+        break;
+    case 0x1B:
+        emit Category(v);
+        break;
+    case 0x1C:
+        emit PhraseNumber(getPhraseNumber());
+        break;
+    case 0x1E:
+        emit PhraseOctaveShift(v);
+        break;
+    case 0x1F:
+        emit TFXSwitch(v);
+        break;
+    case 0x20:
+        emit InstVariation(v);
+        break;
+    case 0x21:
+        emit InstNumber(v);
+        break;
+    case 0x22:
+        emit ModifyParameter1(v);
+        break;
+    case 0x23:
+        emit ModifyParameter2(v);
+        break;
+    case 0x24:
+        emit ModifyParameter3(v);
+        break;
+    case 0x25:
+        emit ModifyParameter4(v);
+        break;
+    case 0x26:
+        emit ModifyParameter5(v);
+        break;
+    case 0x27:
+        emit ModifyParameter6(v);
+        break;
+    case 0x28:
+        emit ModifyParameter7(v);
+        break;
+    case 0x29:
+        emit ModifyParameter8(v);
+        break;
+    case 0x2A:
+        emit ModifyParameter9(v);
+        break;
+    case 0x2B:
+        emit ModifyParameter10(v);
+        break;
+    case 0x2C:
+        emit ModifyParameter11(v);
+        break;
+    case 0x2D:
+        emit ModifyParameter12(v);
+        break;
+    case 0x2E:
+        emit ModifyParameter13(v);
+        break;
+    case 0x2F:
+        emit ModifyParameter14(v);
+        break;
+    case 0x30:
+        emit ModifyParameter15(v);
+        break;
+    case 0x31:
+        emit ModifyParameter16(v);
+        break;
+    case 0x32:
+        emit ModifyParameter17(v);
+        break;
+    case 0x33:
+        emit ModifyParameter18(v);
+        break;
+    case 0x34:
+        emit ModifyParameter19(v);
+        break;
+    case 0x35:
+        emit ModifyParameter20(v);
+        break;
+    case 0x36:
+        emit ModifyParameter21(v);
+        break;
+    case 0x37:
+        emit ModifyParameter22(v);
+        break;
+    case 0x38:
+        emit ModifyParameter23(v);
+        break;
+    case 0x39:
+        emit ModifyParameter24(v);
+        break;
+    case 0x3A:
+        emit ModifyParameter25(v);
+        break;
+    case 0x3B:
+        emit ModifyParameter26(v);
+        break;
+    case 0x3C:
+        emit ModifyParameter27(v);
+        break;
+    case 0x3D:
+        emit ModifyParameter28(v);
+        break;
+    case 0x3E:
+        emit ModifyParameter29(v);
+        break;
+    case 0x3F:
+        emit ModifyParameter30(v);
+        break;
+    case 0x40:
+        emit ModifyParameter31(v);
+        break;
+    case 0x41:
+        emit ModifyParameter32(v);
+        break;
+    default:
+        break;
+    }
 }
 
 void Integra7SNAcousticToneCommon::DataReceive(const uint8_t *rdata, uint8_t a, int len)
@@ -32,8 +217,13 @@ void Integra7SNAcousticToneCommon::DataReceive(const uint8_t *rdata, uint8_t a, 
     uint8_t r = 0;
 
     while (a < a2) {
-        data[a] = rdata[r++];
-        EmitSignal(a,data[a]);
-        ++a;
+        if (a == 0x0){
+            while (r<0x0C) data[a++] = rdata[r++];
+            emit ToneName(getToneName());
+        } else {
+            data[a] = rdata[r++];
+            EmitSignal(a,data[a]);
+            ++a;
+        }
     }
 }

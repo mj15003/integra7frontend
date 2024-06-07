@@ -22,8 +22,16 @@ Integra7PCMDrumKitCommon2::Integra7PCMDrumKitCommon2(Integra7Device *parent, uin
 
 void Integra7PCMDrumKitCommon2::EmitSignal(uint8_t a, int v)
 {
-
-
+    switch (a) {
+    case 0x10:
+        emit PhraseNumber(getPhraseNumber());
+        break;
+    case 0x31:
+        emit TFXSwitch(v);
+        break;
+    default:
+        break;
+    }
 }
 
 void Integra7PCMDrumKitCommon2::DataReceive(const uint8_t *rdata, uint8_t a, int len)

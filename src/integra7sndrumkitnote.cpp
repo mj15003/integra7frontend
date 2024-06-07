@@ -22,8 +22,49 @@ Integra7SNDrumKitNote::Integra7SNDrumKitNote(Integra7Device *parent, uint8_t o1,
 
 void Integra7SNDrumKitNote::EmitSignal(uint8_t a, int v)
 {
-
-
+    switch (a) {
+    case 0x00:
+        emit InstNumber(getInstNumber());
+        break;
+    case 0x04:
+        emit Level(v);
+        break;
+    case 0x05:
+        emit Pan(v);
+        break;
+    case 0x06:
+        emit ChorusSendLevel(v);
+        break;
+    case 0x07:
+        emit ReverbSendLevel(v);
+        break;
+    case 0x08:
+        emit Tune(getTune());
+        break;
+    case 0x0C:
+        emit Attack(v);
+        break;
+    case 0x0D:
+        emit Decay(v);
+        break;
+    case 0x0E:
+        emit Brilliance(v);
+        break;
+    case 0x0F:
+        emit Variation(v);
+        break;
+    case 0x10:
+        emit DynamicRange(v);
+        break;
+    case 0x11:
+        emit StereoWidth(v);
+        break;
+    case 0x12:
+        emit OutputAssign(v);
+        break;
+    default:
+        break;
+    }
 }
 
 void Integra7SNDrumKitNote::DataReceive(const uint8_t *rdata, uint8_t a, int len)

@@ -5,8 +5,133 @@ Integra7PCMSynthTonePMT::Integra7PCMSynthTonePMT(Integra7Device *parent, uint8_t
 
 void Integra7PCMSynthTonePMT::EmitSignal(uint8_t a, int v)
 {
-
-
+    switch (a) {
+    case 0x00:
+        emit StructureType12(v);
+        break;
+    case 0x01:
+        emit Booster12(v);
+        break;
+    case 0x02:
+        emit StructureType34(v);
+        break;
+    case 0x03:
+        emit Booster34(v);
+        break;
+    case 0x04:
+        emit PMTVelocityControl(v);
+        break;
+    case 0x05:
+        emit PMT1PartialSwitch(v);
+        break;
+    case 0x06:
+        emit PMT1KeyboardRangeLower(v);
+        break;
+    case 0x07:
+        emit PMT1KeyboardRangeUpper(v);
+        break;
+    case 0x08:
+        emit PMT1KeyboardFadeWidthLower(v);
+        break;
+    case 0x09:
+        emit PMT1KeyboardFadeWidthUpper(v);
+        break;
+    case 0x0A:
+        emit PMT1VelocityRangeLower(v);
+        break;
+    case 0x0B:
+        emit PMT1VelocityRangeUpper(v);
+        break;
+    case 0x0C:
+        emit PMT1VelocityFadeWidthLower(v);
+        break;
+    case 0x0D:
+        emit PMT1VelocityFadeWidthUpper(v);
+        break;
+    case 0x0E:
+        emit PMT2PartialSwitch(v);
+        break;
+    case 0x0F:
+        emit PMT2KeyboardRangeLower(v);
+        break;
+    case 0x10:
+        emit PMT2KeyboardRangeUpper(v);
+        break;
+    case 0x11:
+        emit PMT2KeyboardFadeWidthLower(v);
+        break;
+    case 0x12:
+        emit PMT2KeyboardFadeWidthUpper(v);
+        break;
+    case 0x13:
+        emit PMT2VelocityRangeLower(v);
+        break;
+    case 0x14:
+        emit PMT2VelocityRangeUpper(v);
+        break;
+    case 0x15:
+        emit PMT2VelocityFadeWidthLower(v);
+        break;
+    case 0x16:
+        emit PMT2VelocityFadeWidthUpper(v);
+        break;
+    case 0x17:
+        emit PMT3PartialSwitch(v);
+        break;
+    case 0x18:
+        emit PMT3KeyboardRangeLower(v);
+        break;
+    case 0x19:
+        emit PMT3KeyboardRangeUpper(v);
+        break;
+    case 0x1A:
+        emit PMT3KeyboardFadeWidthLower(v);
+        break;
+    case 0x1B:
+        emit PMT3KeyboardFadeWidthUpper(v);
+        break;
+    case 0x1C:
+        emit PMT3VelocityRangeLower(v);
+        break;
+    case 0x1D:
+        emit PMT3VelocityRangeUpper(v);
+        break;
+    case 0x1E:
+        emit PMT3VelocityFadeWidthLower(v);
+        break;
+    case 0x1F:
+        emit PMT3VelocityFadeWidthUpper(v);
+        break;
+    case 0x20:
+        emit PMT4PartialSwitch(v);
+        break;
+    case 0x21:
+        emit PMT4KeyboardRangeLower(v);
+        break;
+    case 0x22:
+        emit PMT4KeyboardRangeUpper(v);
+        break;
+    case 0x23:
+        emit PMT4KeyboardFadeWidthLower(v);
+        break;
+    case 0x24:
+        emit PMT4KeyboardFadeWidthUpper(v);
+        break;
+    case 0x25:
+        emit PMT4VelocityRangeLower(v);
+        break;
+    case 0x26:
+        emit PMT4VelocityRangeUpper(v);
+        break;
+    case 0x27:
+        emit PMT4VelocityFadeWidthLower(v);
+        break;
+    case 0x28:
+        emit PMT4VelocityFadeWidthUpper(v);
+        break;
+    default:
+        break;
+    }
 }
 
 void Integra7PCMSynthTonePMT::DataReceive(const uint8_t *rdata, uint8_t a, int len)

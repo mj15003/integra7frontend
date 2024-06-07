@@ -22,8 +22,58 @@ Integra7SNDrumKitCommon::Integra7SNDrumKitCommon(Integra7Device *parent, uint8_t
 
 void Integra7SNDrumKitCommon::EmitSignal(uint8_t a, int v)
 {
-
-
+    switch (a) {
+    case 0x00:
+        emit KitName1(v);
+        break;
+    case 0x01:
+        emit KitName2(v);
+        break;
+    case 0x02:
+        emit KitName3(v);
+        break;
+    case 0x03:
+        emit KitName4(v);
+        break;
+    case 0x04:
+        emit KitName5(v);
+        break;
+    case 0x05:
+        emit KitName6(v);
+        break;
+    case 0x06:
+        emit KitName7(v);
+        break;
+    case 0x07:
+        emit KitName8(v);
+        break;
+    case 0x08:
+        emit KitName9(v);
+        break;
+    case 0x09:
+        emit KitName10(v);
+        break;
+    case 0x0A:
+        emit KitName11(v);
+        break;
+    case 0x0B:
+        emit KitName12(v);
+        break;
+    case 0x10:
+        emit KitLevel(v);
+        break;
+    case 0x11:
+        emit AmbienceLevel(v);
+        break;
+    case 0x12:
+        emit PhraseNumber(v);
+        break;
+    case 0x13:
+        emit TFXSwitch(v);
+        break;
+    default:
+        break;
+    }
 }
 
 void Integra7SNDrumKitCommon::DataReceive(const uint8_t *rdata, uint8_t a, int len)
@@ -32,8 +82,13 @@ void Integra7SNDrumKitCommon::DataReceive(const uint8_t *rdata, uint8_t a, int l
     uint8_t r = 0;
 
     while (a < a2) {
-        data[a] = rdata[r++];
-        EmitSignal(a,data[a]);
-        ++a;
+        if (a == 0x0){
+            while (r<0x0C) data[a++] = rdata[r++];
+            emit KitName(getKitName());
+        } else {
+            data[a] = rdata[r++];
+            EmitSignal(a,data[a]);
+            ++a;
+        }
     }
 }

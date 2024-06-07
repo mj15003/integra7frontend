@@ -27,10 +27,29 @@ class Integra7PCMSynthToneCommon2 : public Integra7ParameterSet
 public:
     explicit Integra7PCMSynthToneCommon2(Integra7Device *parent, uint8_t o1, uint8_t o2, uint8_t o3);
 
+    int getToneCategory() {return data[0x10];}    
+    int getPhraseOctaveShift() {return data[0x13];}
+    int getTFXSwitch() {return data[0x33];}
+    int getPhraseNumber() {return data[0x38]<<12|data[0x39]<<8|data[0x3A]<<4|data[0x3B];}
+
     void DataReceive(const uint8_t *rdata, uint8_t a, int len);
 
     int GetLength() {return 0x3C;}
     int GetItemsNumber() {return 5;}
+
+public slots:
+
+    void setToneCategory(int v) {DataSet(0x10,v);}
+    void setPhraseOctaveShift(int v) {DataSet(0x13,v);}
+    void setTFXSwitch(int v) {DataSet(0x33,v);}
+    void setPhraseNumber(int v) {DataSet4x4B(0x38,v);}
+
+signals:
+
+    void ToneCategory(int v);
+    void PhraseOctaveShift(int v);
+    void TFXSwitch(int v);
+    void PhraseNumber(int v);
 
 private:
     void EmitSignal(uint8_t a, int v);

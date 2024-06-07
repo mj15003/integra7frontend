@@ -23,7 +23,7 @@ Integra7Tone::Integra7Tone(Integra7Device *parent,uint8_t a0, uint8_t a1) {
     pIntegraDev = parent;
 
     PCMSynthToneCommon = new Integra7PCMSynthToneCommon(parent,a0,0,0);
-    PCMSynthToneCommonMFX = new Integra7PCMSynthToneCommonMFX(parent,a0,a1,0x02);
+    PCMSynthToneCommonMFX = new Integra7ToneMFX(parent,a0,a1,0x02);
     PCMSynthTonePMT = new Integra7PCMSynthTonePMT(parent,a0,a1,0x10);
     PCMSynthTonePartial[0] = new Integra7PCMSynthTonePartial(parent,a0,a1,0x20);
     PCMSynthTonePartial[1] = new Integra7PCMSynthTonePartial(parent,a0,a1,0x22);
@@ -32,16 +32,16 @@ Integra7Tone::Integra7Tone(Integra7Device *parent,uint8_t a0, uint8_t a1) {
     PCMSynthToneCommon2 = new Integra7PCMSynthToneCommon2(parent,a0,a1,0x30);
 
     SNSynthToneCommon = new Integra7SNSynthToneCommon(parent,a0,a1+0x01,0);
-    SNSynthToneMFX = new Integra7SNSynthToneMFX(parent,a0,a1+0x01,0x02);
+    SNSynthToneCommonMFX = new Integra7ToneMFX(parent,a0,a1+0x01,0x02);
     SNSynthTonePartial[0] = new Integra7SNSynthTonePartial(parent,a0,a1+0x01,0x20);
     SNSynthTonePartial[1] = new Integra7SNSynthTonePartial(parent,a0,a1+0x01,0x21);
     SNSynthTonePartial[2] = new Integra7SNSynthTonePartial(parent,a0,a1+0x01,0x22);
 
     SNAcousticToneCommon = new Integra7SNAcousticToneCommon(parent,a0,a1+2,0);
-    SNAcousticToneMFX = new Integra7SNAcousticToneMFX(parent,a0,a1+0x02,0x02);
+    SNAcousticToneMFX = new Integra7ToneMFX(parent,a0,a1+0x02,0x02);
 
     SNDrumKitCommon = new Integra7SNDrumKitCommon(parent,a0,a1+0x03,0);
-    SNDrumKitMFX = new Integra7SNDrumKitMFX(parent,a0,a1+0x03,0x02);
+    SNDrumKitMFX = new Integra7ToneMFX(parent,a0,a1+0x03,0x02);
     SNDrumKitCommonCompEQ = new Integra7SNDrumKitCommonCompEQ(parent,a0,a1+0x03,0x08);
 
     uint8_t o1 = 0x10;
@@ -50,7 +50,7 @@ Integra7Tone::Integra7Tone(Integra7Device *parent,uint8_t a0, uint8_t a1) {
     }
 
     PCMDrumKitCommon = new Integra7PCMDrumKitCommon(parent,a0,a1+0x10,0);
-    PCMDrumKitCommonMFX = new Integra7PCMDrumKitCommonMFX(parent,a0,a1+0x10,0x02);
+    PCMDrumKitCommonMFX = new Integra7ToneMFX(parent,a0,a1+0x10,0x02);
     PCMDrumKitCommonCompEQ = new Integra7PCMDrumKitCommonCompEQ(parent,a0,a1+0x10,0x08);
 
     o1 = 0;
@@ -88,7 +88,7 @@ Integra7Tone::~Integra7Tone()
     delete SNSynthTonePartial[2];
     delete SNSynthTonePartial[1];
     delete SNSynthTonePartial[0];
-    delete SNSynthToneMFX;
+    delete SNSynthToneCommonMFX;
     delete SNSynthToneCommon;
 
     delete PCMSynthToneCommon2;
@@ -149,7 +149,7 @@ void Integra7Tone::ReceiveData(const uint8_t *data, int len)
             SNSynthToneCommon->DataReceive(rdata,a0,dlen);
             break;
         case 0x02:
-            SNSynthToneMFX->DataReceive(rdata,a0,dlen);
+            SNSynthToneCommonMFX->DataReceive(rdata,a0,dlen);
             break;
         case 0x20:
             SNSynthTonePartial[0]->DataReceive(rdata,a0,dlen);
@@ -232,7 +232,7 @@ int Integra7Tone::OutputDump(uint8_t *data, int *len)
             *len = SNSynthToneCommon->OutputDump(data);
             return ++outcnt;
         case 1:
-            *len = SNSynthToneMFX->OutputDump(data);
+            *len = SNSynthToneCommonMFX->OutputDump(data);
             return ++outcnt;
         case 2:
             *len = SNSynthTonePartial[0]->OutputDump(data);

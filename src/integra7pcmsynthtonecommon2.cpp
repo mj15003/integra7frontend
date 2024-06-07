@@ -22,8 +22,22 @@ Integra7PCMSynthToneCommon2::Integra7PCMSynthToneCommon2(Integra7Device *parent,
 
 void Integra7PCMSynthToneCommon2::EmitSignal(uint8_t a, int v)
 {
-
-
+    switch (a) {
+    case 0x10:
+        emit ToneCategory(v);
+        break;
+    case 0x13:
+        emit PhraseOctaveShift(v);
+        break;
+    case 0x33:
+        emit TFXSwitch(v);
+        break;
+    case 0x38:
+        emit PhraseNumber(getPhraseNumber());
+        break;
+    default:
+        break;
+    }
 }
 
 void Integra7PCMSynthToneCommon2::DataReceive(const uint8_t *rdata, uint8_t a, int len)

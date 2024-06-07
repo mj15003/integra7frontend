@@ -20,24 +20,20 @@
 
 #include "integra7device.h"
 #include "integra7pcmsynthtonecommon.h"
-#include "integra7pcmsynthtonecommonmfx.h"
 #include "integra7pcmsynthtonepmt.h"
 #include "integra7pcmsynthtonepartial.h"
 #include "integra7pcmsynthtonecommon2.h"
 #include "integra7pcmdrumkitcommon.h"
-#include "integra7pcmdrumkitcommonmfx.h"
 #include "integra7pcmdrumkitcommoncompeq.h"
 #include "integra7pcmdrumkitpartial.h"
 #include "integra7pcmdrumkitcommon2.h"
 #include "integra7snsynthtonecommon.h"
-#include "integra7snsynthtonemfx.h"
 #include "integra7snsynthtonepartial.h"
 #include "integra7snacoustictonecommon.h"
-#include "integra7snacoustictonemfx.h"
 #include "integra7sndrumkitcommon.h"
-#include "integra7sndrumkitmfx.h"
 #include "integra7sndrumkitcommoncompeq.h"
 #include "integra7sndrumkitnote.h"
+#include "integra7tonemfx.h"
 
 class Integra7Tone : public QObject
 {
@@ -49,26 +45,26 @@ public:
     QString ToneType = "GS";
 
     Integra7PCMSynthToneCommon *PCMSynthToneCommon;
-    Integra7PCMSynthToneCommonMFX *PCMSynthToneCommonMFX;
+    Integra7ToneMFX *PCMSynthToneCommonMFX;
     Integra7PCMSynthTonePMT *PCMSynthTonePMT;
     Integra7PCMSynthTonePartial *PCMSynthTonePartial[4];
     Integra7PCMSynthToneCommon2 *PCMSynthToneCommon2;
 
     Integra7PCMDrumKitCommon *PCMDrumKitCommon;
-    Integra7PCMDrumKitCommonMFX *PCMDrumKitCommonMFX;
+    Integra7ToneMFX *PCMDrumKitCommonMFX;
     Integra7PCMDrumKitCommonCompEQ *PCMDrumKitCommonCompEQ;
     Integra7PCMDrumKitPartial *PCMDrumKitPartial[88];
     Integra7PCMDrumKitCommon2 *PCMDrumKitCommon2;
 
     Integra7SNSynthToneCommon *SNSynthToneCommon;
-    Integra7SNSynthToneMFX *SNSynthToneMFX;
+    Integra7ToneMFX *SNSynthToneCommonMFX;
     Integra7SNSynthTonePartial *SNSynthTonePartial[3];
 
     Integra7SNAcousticToneCommon *SNAcousticToneCommon;
-    Integra7SNAcousticToneMFX *SNAcousticToneMFX;
+    Integra7ToneMFX *SNAcousticToneMFX;
 
     Integra7SNDrumKitCommon *SNDrumKitCommon;
-    Integra7SNDrumKitMFX *SNDrumKitMFX;
+    Integra7ToneMFX *SNDrumKitMFX;
     Integra7SNDrumKitCommonCompEQ *SNDrumKitCommonCompEQ;
     Integra7SNDrumKitNote *SNDrumKitNote[62];
 

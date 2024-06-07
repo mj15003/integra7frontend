@@ -22,8 +22,49 @@ Integra7PCMDrumKitCommon::Integra7PCMDrumKitCommon(Integra7Device *parent, uint8
 
 void Integra7PCMDrumKitCommon::EmitSignal(uint8_t a, int v)
 {
-
-
+    switch (a) {
+    case 0x00:
+        emit KitName1(v);
+        break;
+    case 0x01:
+        emit KitName2(v);
+        break;
+    case 0x02:
+        emit KitName3(v);
+        break;
+    case 0x03:
+        emit KitName4(v);
+        break;
+    case 0x04:
+        emit KitName5(v);
+        break;
+    case 0x05:
+        emit KitName6(v);
+        break;
+    case 0x06:
+        emit KitName7(v);
+        break;
+    case 0x07:
+        emit KitName8(v);
+        break;
+    case 0x08:
+        emit KitName9(v);
+        break;
+    case 0x09:
+        emit KitName10(v);
+        break;
+    case 0x0A:
+        emit KitName11(v);
+        break;
+    case 0x0B:
+        emit KitName12(v);
+        break;
+    case 0x0C:
+        emit KitLevel(v);
+        break;
+    default:
+        break;
+    }
 }
 
 void Integra7PCMDrumKitCommon::DataReceive(const uint8_t *rdata, uint8_t a, int len)
@@ -32,8 +73,13 @@ void Integra7PCMDrumKitCommon::DataReceive(const uint8_t *rdata, uint8_t a, int 
     uint8_t r = 0;
 
     while (a < a2) {
-        data[a] = rdata[r++];
-        EmitSignal(a,data[a]);
-        ++a;
+        if (a == 0x0){
+            while (r<0x0C) data[a++] = rdata[r++];
+            emit KitName(getKitName());
+        } else {
+            data[a] = rdata[r++];
+            EmitSignal(a,data[a]);
+            ++a;
+        }
     }
 }
