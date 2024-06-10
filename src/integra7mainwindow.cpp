@@ -2788,6 +2788,486 @@ integra7MainWindow::integra7MainWindow(QWidget *parent)
     QObject::connect(ui->Ch16PortaTimeBox,&QSpinBox::valueChanged,
                      pI7d->Parts[15],&Integra7Part::setPartPortamentoTime);
 
+    QObject::connect(ui->Ch1RPCBtn,&QAbstractButton::toggled,
+                     pI7d->Parts[0],&Integra7Part::setReceiveProgramChange);
+
+    QObject::connect(ui->Ch1RBSBtn,&QAbstractButton::toggled,
+                     pI7d->Parts[0],&Integra7Part::setReceiveBankSelect);
+
+    QObject::connect(ui->Ch1RPBBtn,&QAbstractButton::toggled,
+                     pI7d->Parts[0],&Integra7Part::setReceivePitchBend);
+
+    QObject::connect(ui->Ch1RPPBtn,&QAbstractButton::toggled,
+                     pI7d->Parts[0],&Integra7Part::setReceivePolyphonicKeyPressure);
+
+    QObject::connect(ui->Ch1RCPBtn,&QAbstractButton::toggled,
+                     pI7d->Parts[0],&Integra7Part::setReceiveChannelPressure);
+
+    QObject::connect(ui->Ch1RModBtn,&QAbstractButton::toggled,
+                     pI7d->Parts[0],&Integra7Part::setReceiveModulation);
+
+    QObject::connect(ui->Ch1RVolBtn,&QAbstractButton::toggled,
+                     pI7d->Parts[0],&Integra7Part::setReceiveVolume);
+
+    QObject::connect(ui->Ch1RPanBtn,&QAbstractButton::toggled,
+                     pI7d->Parts[0],&Integra7Part::setReceivePan);
+
+    QObject::connect(ui->Ch1RExpBtn,&QAbstractButton::toggled,
+                     pI7d->Parts[0],&Integra7Part::setReceiveExpression);
+
+    QObject::connect(ui->Ch1RHoldBtn,&QAbstractButton::toggled,
+                     pI7d->Parts[0],&Integra7Part::setReceiveHold);
+
+    QObject::connect(ui->Ch2RPCBtn,&QAbstractButton::toggled,
+                     pI7d->Parts[1],&Integra7Part::setReceiveProgramChange);
+
+    QObject::connect(ui->Ch2RBSBtn,&QAbstractButton::toggled,
+                     pI7d->Parts[1],&Integra7Part::setReceiveBankSelect);
+
+    QObject::connect(ui->Ch2RPBBtn,&QAbstractButton::toggled,
+                     pI7d->Parts[1],&Integra7Part::setReceivePitchBend);
+
+    QObject::connect(ui->Ch2RPPBtn,&QAbstractButton::toggled,
+                     pI7d->Parts[1],&Integra7Part::setReceivePolyphonicKeyPressure);
+
+    QObject::connect(ui->Ch2RCPBtn,&QAbstractButton::toggled,
+                     pI7d->Parts[1],&Integra7Part::setReceiveChannelPressure);
+
+    QObject::connect(ui->Ch2RModBtn,&QAbstractButton::toggled,
+                     pI7d->Parts[1],&Integra7Part::setReceiveModulation);
+
+    QObject::connect(ui->Ch2RVolBtn,&QAbstractButton::toggled,
+                     pI7d->Parts[1],&Integra7Part::setReceiveVolume);
+
+    QObject::connect(ui->Ch2RPanBtn,&QAbstractButton::toggled,
+                     pI7d->Parts[1],&Integra7Part::setReceivePan);
+
+    QObject::connect(ui->Ch2RExpBtn,&QAbstractButton::toggled,
+                     pI7d->Parts[1],&Integra7Part::setReceiveExpression);
+
+    QObject::connect(ui->Ch2RHoldBtn,&QAbstractButton::toggled,
+                     pI7d->Parts[1],&Integra7Part::setReceiveHold);
+
+    QObject::connect(ui->Ch3RPCBtn,&QAbstractButton::toggled,
+                     pI7d->Parts[2],&Integra7Part::setReceiveProgramChange);
+
+    QObject::connect(ui->Ch3RBSBtn,&QAbstractButton::toggled,
+                     pI7d->Parts[2],&Integra7Part::setReceiveBankSelect);
+
+    QObject::connect(ui->Ch3RPBBtn,&QAbstractButton::toggled,
+                     pI7d->Parts[2],&Integra7Part::setReceivePitchBend);
+
+    QObject::connect(ui->Ch3RPPBtn,&QAbstractButton::toggled,
+                     pI7d->Parts[2],&Integra7Part::setReceivePolyphonicKeyPressure);
+
+    QObject::connect(ui->Ch3RCPBtn,&QAbstractButton::toggled,
+                     pI7d->Parts[2],&Integra7Part::setReceiveChannelPressure);
+
+    QObject::connect(ui->Ch3RModBtn,&QAbstractButton::toggled,
+                     pI7d->Parts[2],&Integra7Part::setReceiveModulation);
+
+    QObject::connect(ui->Ch3RVolBtn,&QAbstractButton::toggled,
+                     pI7d->Parts[2],&Integra7Part::setReceiveVolume);
+
+    QObject::connect(ui->Ch3RPanBtn,&QAbstractButton::toggled,
+                     pI7d->Parts[2],&Integra7Part::setReceivePan);
+
+    QObject::connect(ui->Ch3RExpBtn,&QAbstractButton::toggled,
+                     pI7d->Parts[2],&Integra7Part::setReceiveExpression);
+
+    QObject::connect(ui->Ch3RHoldBtn,&QAbstractButton::toggled,
+                     pI7d->Parts[2],&Integra7Part::setReceiveHold);
+
+    QObject::connect(ui->Ch4RPCBtn,&QAbstractButton::toggled,
+                     pI7d->Parts[3],&Integra7Part::setReceiveProgramChange);
+
+    QObject::connect(ui->Ch4RBSBtn,&QAbstractButton::toggled,
+                     pI7d->Parts[3],&Integra7Part::setReceiveBankSelect);
+
+    QObject::connect(ui->Ch4RPBBtn,&QAbstractButton::toggled,
+                     pI7d->Parts[3],&Integra7Part::setReceivePitchBend);
+
+    QObject::connect(ui->Ch4RPPBtn,&QAbstractButton::toggled,
+                     pI7d->Parts[3],&Integra7Part::setReceivePolyphonicKeyPressure);
+
+    QObject::connect(ui->Ch4RCPBtn,&QAbstractButton::toggled,
+                     pI7d->Parts[3],&Integra7Part::setReceiveChannelPressure);
+
+    QObject::connect(ui->Ch4RModBtn,&QAbstractButton::toggled,
+                     pI7d->Parts[3],&Integra7Part::setReceiveModulation);
+
+    QObject::connect(ui->Ch4RVolBtn,&QAbstractButton::toggled,
+                     pI7d->Parts[3],&Integra7Part::setReceiveVolume);
+
+    QObject::connect(ui->Ch4RPanBtn,&QAbstractButton::toggled,
+                     pI7d->Parts[3],&Integra7Part::setReceivePan);
+
+    QObject::connect(ui->Ch4RExpBtn,&QAbstractButton::toggled,
+                     pI7d->Parts[3],&Integra7Part::setReceiveExpression);
+
+    QObject::connect(ui->Ch4RHoldBtn,&QAbstractButton::toggled,
+                     pI7d->Parts[3],&Integra7Part::setReceiveHold);
+
+    QObject::connect(ui->Ch5RPCBtn,&QAbstractButton::toggled,
+                     pI7d->Parts[4],&Integra7Part::setReceiveProgramChange);
+
+    QObject::connect(ui->Ch5RBSBtn,&QAbstractButton::toggled,
+                     pI7d->Parts[4],&Integra7Part::setReceiveBankSelect);
+
+    QObject::connect(ui->Ch5RPBBtn,&QAbstractButton::toggled,
+                     pI7d->Parts[4],&Integra7Part::setReceivePitchBend);
+
+    QObject::connect(ui->Ch5RPPBtn,&QAbstractButton::toggled,
+                     pI7d->Parts[4],&Integra7Part::setReceivePolyphonicKeyPressure);
+
+    QObject::connect(ui->Ch5RCPBtn,&QAbstractButton::toggled,
+                     pI7d->Parts[4],&Integra7Part::setReceiveChannelPressure);
+
+    QObject::connect(ui->Ch5RModBtn,&QAbstractButton::toggled,
+                     pI7d->Parts[4],&Integra7Part::setReceiveModulation);
+
+    QObject::connect(ui->Ch5RVolBtn,&QAbstractButton::toggled,
+                     pI7d->Parts[4],&Integra7Part::setReceiveVolume);
+
+    QObject::connect(ui->Ch5RPanBtn,&QAbstractButton::toggled,
+                     pI7d->Parts[4],&Integra7Part::setReceivePan);
+
+    QObject::connect(ui->Ch5RExpBtn,&QAbstractButton::toggled,
+                     pI7d->Parts[4],&Integra7Part::setReceiveExpression);
+
+    QObject::connect(ui->Ch5RHoldBtn,&QAbstractButton::toggled,
+                     pI7d->Parts[4],&Integra7Part::setReceiveHold);
+
+    QObject::connect(ui->Ch6RPCBtn,&QAbstractButton::toggled,
+                     pI7d->Parts[5],&Integra7Part::setReceiveProgramChange);
+
+    QObject::connect(ui->Ch6RBSBtn,&QAbstractButton::toggled,
+                     pI7d->Parts[5],&Integra7Part::setReceiveBankSelect);
+
+    QObject::connect(ui->Ch6RPBBtn,&QAbstractButton::toggled,
+                     pI7d->Parts[5],&Integra7Part::setReceivePitchBend);
+
+    QObject::connect(ui->Ch6RPPBtn,&QAbstractButton::toggled,
+                     pI7d->Parts[5],&Integra7Part::setReceivePolyphonicKeyPressure);
+
+    QObject::connect(ui->Ch6RCPBtn,&QAbstractButton::toggled,
+                     pI7d->Parts[5],&Integra7Part::setReceiveChannelPressure);
+
+    QObject::connect(ui->Ch6RModBtn,&QAbstractButton::toggled,
+                     pI7d->Parts[5],&Integra7Part::setReceiveModulation);
+
+    QObject::connect(ui->Ch6RVolBtn,&QAbstractButton::toggled,
+                     pI7d->Parts[5],&Integra7Part::setReceiveVolume);
+
+    QObject::connect(ui->Ch6RPanBtn,&QAbstractButton::toggled,
+                     pI7d->Parts[5],&Integra7Part::setReceivePan);
+
+    QObject::connect(ui->Ch6RExpBtn,&QAbstractButton::toggled,
+                     pI7d->Parts[5],&Integra7Part::setReceiveExpression);
+
+    QObject::connect(ui->Ch6RHoldBtn,&QAbstractButton::toggled,
+                     pI7d->Parts[5],&Integra7Part::setReceiveHold);
+
+    QObject::connect(ui->Ch7RPCBtn,&QAbstractButton::toggled,
+                     pI7d->Parts[6],&Integra7Part::setReceiveProgramChange);
+
+    QObject::connect(ui->Ch7RBSBtn,&QAbstractButton::toggled,
+                     pI7d->Parts[6],&Integra7Part::setReceiveBankSelect);
+
+    QObject::connect(ui->Ch7RPBBtn,&QAbstractButton::toggled,
+                     pI7d->Parts[6],&Integra7Part::setReceivePitchBend);
+
+    QObject::connect(ui->Ch7RPPBtn,&QAbstractButton::toggled,
+                     pI7d->Parts[6],&Integra7Part::setReceivePolyphonicKeyPressure);
+
+    QObject::connect(ui->Ch7RCPBtn,&QAbstractButton::toggled,
+                     pI7d->Parts[6],&Integra7Part::setReceiveChannelPressure);
+
+    QObject::connect(ui->Ch7RModBtn,&QAbstractButton::toggled,
+                     pI7d->Parts[6],&Integra7Part::setReceiveModulation);
+
+    QObject::connect(ui->Ch7RVolBtn,&QAbstractButton::toggled,
+                     pI7d->Parts[6],&Integra7Part::setReceiveVolume);
+
+    QObject::connect(ui->Ch7RPanBtn,&QAbstractButton::toggled,
+                     pI7d->Parts[6],&Integra7Part::setReceivePan);
+
+    QObject::connect(ui->Ch7RExpBtn,&QAbstractButton::toggled,
+                     pI7d->Parts[6],&Integra7Part::setReceiveExpression);
+
+    QObject::connect(ui->Ch7RHoldBtn,&QAbstractButton::toggled,
+                     pI7d->Parts[6],&Integra7Part::setReceiveHold);
+
+    QObject::connect(ui->Ch8RPCBtn,&QAbstractButton::toggled,
+                     pI7d->Parts[7],&Integra7Part::setReceiveProgramChange);
+
+    QObject::connect(ui->Ch8RBSBtn,&QAbstractButton::toggled,
+                     pI7d->Parts[7],&Integra7Part::setReceiveBankSelect);
+
+    QObject::connect(ui->Ch8RPBBtn,&QAbstractButton::toggled,
+                     pI7d->Parts[7],&Integra7Part::setReceivePitchBend);
+
+    QObject::connect(ui->Ch8RPPBtn,&QAbstractButton::toggled,
+                     pI7d->Parts[7],&Integra7Part::setReceivePolyphonicKeyPressure);
+
+    QObject::connect(ui->Ch8RCPBtn,&QAbstractButton::toggled,
+                     pI7d->Parts[7],&Integra7Part::setReceiveChannelPressure);
+
+    QObject::connect(ui->Ch8RModBtn,&QAbstractButton::toggled,
+                     pI7d->Parts[7],&Integra7Part::setReceiveModulation);
+
+    QObject::connect(ui->Ch8RVolBtn,&QAbstractButton::toggled,
+                     pI7d->Parts[7],&Integra7Part::setReceiveVolume);
+
+    QObject::connect(ui->Ch8RPanBtn,&QAbstractButton::toggled,
+                     pI7d->Parts[7],&Integra7Part::setReceivePan);
+
+    QObject::connect(ui->Ch8RExpBtn,&QAbstractButton::toggled,
+                     pI7d->Parts[7],&Integra7Part::setReceiveExpression);
+
+    QObject::connect(ui->Ch8RHoldBtn,&QAbstractButton::toggled,
+                     pI7d->Parts[7],&Integra7Part::setReceiveHold);
+
+    QObject::connect(ui->Ch9RPCBtn,&QAbstractButton::toggled,
+                     pI7d->Parts[8],&Integra7Part::setReceiveProgramChange);
+
+    QObject::connect(ui->Ch9RBSBtn,&QAbstractButton::toggled,
+                     pI7d->Parts[8],&Integra7Part::setReceiveBankSelect);
+
+    QObject::connect(ui->Ch9RPBBtn,&QAbstractButton::toggled,
+                     pI7d->Parts[8],&Integra7Part::setReceivePitchBend);
+
+    QObject::connect(ui->Ch9RPPBtn,&QAbstractButton::toggled,
+                     pI7d->Parts[8],&Integra7Part::setReceivePolyphonicKeyPressure);
+
+    QObject::connect(ui->Ch9RCPBtn,&QAbstractButton::toggled,
+                     pI7d->Parts[8],&Integra7Part::setReceiveChannelPressure);
+
+    QObject::connect(ui->Ch9RModBtn,&QAbstractButton::toggled,
+                     pI7d->Parts[8],&Integra7Part::setReceiveModulation);
+
+    QObject::connect(ui->Ch9RVolBtn,&QAbstractButton::toggled,
+                     pI7d->Parts[8],&Integra7Part::setReceiveVolume);
+
+    QObject::connect(ui->Ch9RPanBtn,&QAbstractButton::toggled,
+                     pI7d->Parts[8],&Integra7Part::setReceivePan);
+
+    QObject::connect(ui->Ch9RExpBtn,&QAbstractButton::toggled,
+                     pI7d->Parts[8],&Integra7Part::setReceiveExpression);
+
+    QObject::connect(ui->Ch9RHoldBtn,&QAbstractButton::toggled,
+                     pI7d->Parts[8],&Integra7Part::setReceiveHold);
+
+    QObject::connect(ui->Ch10RPCBtn,&QAbstractButton::toggled,
+                     pI7d->Parts[9],&Integra7Part::setReceiveProgramChange);
+
+    QObject::connect(ui->Ch10RBSBtn,&QAbstractButton::toggled,
+                     pI7d->Parts[9],&Integra7Part::setReceiveBankSelect);
+
+    QObject::connect(ui->Ch10RPBBtn,&QAbstractButton::toggled,
+                     pI7d->Parts[9],&Integra7Part::setReceivePitchBend);
+
+    QObject::connect(ui->Ch10RPPBtn,&QAbstractButton::toggled,
+                     pI7d->Parts[9],&Integra7Part::setReceivePolyphonicKeyPressure);
+
+    QObject::connect(ui->Ch10RCPBtn,&QAbstractButton::toggled,
+                     pI7d->Parts[9],&Integra7Part::setReceiveChannelPressure);
+
+    QObject::connect(ui->Ch10RModBtn,&QAbstractButton::toggled,
+                     pI7d->Parts[9],&Integra7Part::setReceiveModulation);
+
+    QObject::connect(ui->Ch10RVolBtn,&QAbstractButton::toggled,
+                     pI7d->Parts[9],&Integra7Part::setReceiveVolume);
+
+    QObject::connect(ui->Ch10RPanBtn,&QAbstractButton::toggled,
+                     pI7d->Parts[9],&Integra7Part::setReceivePan);
+
+    QObject::connect(ui->Ch10RExpBtn,&QAbstractButton::toggled,
+                     pI7d->Parts[9],&Integra7Part::setReceiveExpression);
+
+    QObject::connect(ui->Ch10RHoldBtn,&QAbstractButton::toggled,
+                     pI7d->Parts[9],&Integra7Part::setReceiveHold);
+
+    QObject::connect(ui->Ch11RPCBtn,&QAbstractButton::toggled,
+                     pI7d->Parts[10],&Integra7Part::setReceiveProgramChange);
+
+    QObject::connect(ui->Ch11RBSBtn,&QAbstractButton::toggled,
+                     pI7d->Parts[10],&Integra7Part::setReceiveBankSelect);
+
+    QObject::connect(ui->Ch11RPBBtn,&QAbstractButton::toggled,
+                     pI7d->Parts[10],&Integra7Part::setReceivePitchBend);
+
+    QObject::connect(ui->Ch11RPPBtn,&QAbstractButton::toggled,
+                     pI7d->Parts[10],&Integra7Part::setReceivePolyphonicKeyPressure);
+
+    QObject::connect(ui->Ch11RCPBtn,&QAbstractButton::toggled,
+                     pI7d->Parts[10],&Integra7Part::setReceiveChannelPressure);
+
+    QObject::connect(ui->Ch11RModBtn,&QAbstractButton::toggled,
+                     pI7d->Parts[10],&Integra7Part::setReceiveModulation);
+
+    QObject::connect(ui->Ch11RVolBtn,&QAbstractButton::toggled,
+                     pI7d->Parts[10],&Integra7Part::setReceiveVolume);
+
+    QObject::connect(ui->Ch11RPanBtn,&QAbstractButton::toggled,
+                     pI7d->Parts[10],&Integra7Part::setReceivePan);
+
+    QObject::connect(ui->Ch11RExpBtn,&QAbstractButton::toggled,
+                     pI7d->Parts[10],&Integra7Part::setReceiveExpression);
+
+    QObject::connect(ui->Ch11RHoldBtn,&QAbstractButton::toggled,
+                     pI7d->Parts[10],&Integra7Part::setReceiveHold);
+
+    QObject::connect(ui->Ch12RPCBtn,&QAbstractButton::toggled,
+                     pI7d->Parts[11],&Integra7Part::setReceiveProgramChange);
+
+    QObject::connect(ui->Ch12RBSBtn,&QAbstractButton::toggled,
+                     pI7d->Parts[11],&Integra7Part::setReceiveBankSelect);
+
+    QObject::connect(ui->Ch12RPBBtn,&QAbstractButton::toggled,
+                     pI7d->Parts[11],&Integra7Part::setReceivePitchBend);
+
+    QObject::connect(ui->Ch12RPPBtn,&QAbstractButton::toggled,
+                     pI7d->Parts[11],&Integra7Part::setReceivePolyphonicKeyPressure);
+
+    QObject::connect(ui->Ch12RCPBtn,&QAbstractButton::toggled,
+                     pI7d->Parts[11],&Integra7Part::setReceiveChannelPressure);
+
+    QObject::connect(ui->Ch12RModBtn,&QAbstractButton::toggled,
+                     pI7d->Parts[11],&Integra7Part::setReceiveModulation);
+
+    QObject::connect(ui->Ch12RVolBtn,&QAbstractButton::toggled,
+                     pI7d->Parts[11],&Integra7Part::setReceiveVolume);
+
+    QObject::connect(ui->Ch12RPanBtn,&QAbstractButton::toggled,
+                     pI7d->Parts[11],&Integra7Part::setReceivePan);
+
+    QObject::connect(ui->Ch12RExpBtn,&QAbstractButton::toggled,
+                     pI7d->Parts[11],&Integra7Part::setReceiveExpression);
+
+    QObject::connect(ui->Ch12RHoldBtn,&QAbstractButton::toggled,
+                     pI7d->Parts[11],&Integra7Part::setReceiveHold);
+
+    QObject::connect(ui->Ch13RPCBtn,&QAbstractButton::toggled,
+                     pI7d->Parts[12],&Integra7Part::setReceiveProgramChange);
+
+    QObject::connect(ui->Ch13RBSBtn,&QAbstractButton::toggled,
+                     pI7d->Parts[12],&Integra7Part::setReceiveBankSelect);
+
+    QObject::connect(ui->Ch13RPBBtn,&QAbstractButton::toggled,
+                     pI7d->Parts[12],&Integra7Part::setReceivePitchBend);
+
+    QObject::connect(ui->Ch13RPPBtn,&QAbstractButton::toggled,
+                     pI7d->Parts[12],&Integra7Part::setReceivePolyphonicKeyPressure);
+
+    QObject::connect(ui->Ch13RCPBtn,&QAbstractButton::toggled,
+                     pI7d->Parts[12],&Integra7Part::setReceiveChannelPressure);
+
+    QObject::connect(ui->Ch13RModBtn,&QAbstractButton::toggled,
+                     pI7d->Parts[12],&Integra7Part::setReceiveModulation);
+
+    QObject::connect(ui->Ch13RVolBtn,&QAbstractButton::toggled,
+                     pI7d->Parts[12],&Integra7Part::setReceiveVolume);
+
+    QObject::connect(ui->Ch13RPanBtn,&QAbstractButton::toggled,
+                     pI7d->Parts[12],&Integra7Part::setReceivePan);
+
+    QObject::connect(ui->Ch13RExpBtn,&QAbstractButton::toggled,
+                     pI7d->Parts[12],&Integra7Part::setReceiveExpression);
+
+    QObject::connect(ui->Ch13RHoldBtn,&QAbstractButton::toggled,
+                     pI7d->Parts[12],&Integra7Part::setReceiveHold);
+
+    QObject::connect(ui->Ch14RPCBtn,&QAbstractButton::toggled,
+                     pI7d->Parts[13],&Integra7Part::setReceiveProgramChange);
+
+    QObject::connect(ui->Ch14RBSBtn,&QAbstractButton::toggled,
+                     pI7d->Parts[13],&Integra7Part::setReceiveBankSelect);
+
+    QObject::connect(ui->Ch14RPBBtn,&QAbstractButton::toggled,
+                     pI7d->Parts[13],&Integra7Part::setReceivePitchBend);
+
+    QObject::connect(ui->Ch14RPPBtn,&QAbstractButton::toggled,
+                     pI7d->Parts[13],&Integra7Part::setReceivePolyphonicKeyPressure);
+
+    QObject::connect(ui->Ch14RCPBtn,&QAbstractButton::toggled,
+                     pI7d->Parts[13],&Integra7Part::setReceiveChannelPressure);
+
+    QObject::connect(ui->Ch14RModBtn,&QAbstractButton::toggled,
+                     pI7d->Parts[13],&Integra7Part::setReceiveModulation);
+
+    QObject::connect(ui->Ch14RVolBtn,&QAbstractButton::toggled,
+                     pI7d->Parts[13],&Integra7Part::setReceiveVolume);
+
+    QObject::connect(ui->Ch14RPanBtn,&QAbstractButton::toggled,
+                     pI7d->Parts[13],&Integra7Part::setReceivePan);
+
+    QObject::connect(ui->Ch14RExpBtn,&QAbstractButton::toggled,
+                     pI7d->Parts[13],&Integra7Part::setReceiveExpression);
+
+    QObject::connect(ui->Ch14RHoldBtn,&QAbstractButton::toggled,
+                     pI7d->Parts[13],&Integra7Part::setReceiveHold);
+
+    QObject::connect(ui->Ch15RPCBtn,&QAbstractButton::toggled,
+                     pI7d->Parts[14],&Integra7Part::setReceiveProgramChange);
+
+    QObject::connect(ui->Ch15RBSBtn,&QAbstractButton::toggled,
+                     pI7d->Parts[14],&Integra7Part::setReceiveBankSelect);
+
+    QObject::connect(ui->Ch15RPBBtn,&QAbstractButton::toggled,
+                     pI7d->Parts[14],&Integra7Part::setReceivePitchBend);
+
+    QObject::connect(ui->Ch15RPPBtn,&QAbstractButton::toggled,
+                     pI7d->Parts[14],&Integra7Part::setReceivePolyphonicKeyPressure);
+
+    QObject::connect(ui->Ch15RCPBtn,&QAbstractButton::toggled,
+                     pI7d->Parts[14],&Integra7Part::setReceiveChannelPressure);
+
+    QObject::connect(ui->Ch15RModBtn,&QAbstractButton::toggled,
+                     pI7d->Parts[14],&Integra7Part::setReceiveModulation);
+
+    QObject::connect(ui->Ch15RVolBtn,&QAbstractButton::toggled,
+                     pI7d->Parts[14],&Integra7Part::setReceiveVolume);
+
+    QObject::connect(ui->Ch15RPanBtn,&QAbstractButton::toggled,
+                     pI7d->Parts[14],&Integra7Part::setReceivePan);
+
+    QObject::connect(ui->Ch15RExpBtn,&QAbstractButton::toggled,
+                     pI7d->Parts[14],&Integra7Part::setReceiveExpression);
+
+    QObject::connect(ui->Ch15RHoldBtn,&QAbstractButton::toggled,
+                     pI7d->Parts[14],&Integra7Part::setReceiveHold);
+
+    QObject::connect(ui->Ch16RPCBtn,&QAbstractButton::toggled,
+                     pI7d->Parts[15],&Integra7Part::setReceiveProgramChange);
+
+    QObject::connect(ui->Ch16RBSBtn,&QAbstractButton::toggled,
+                     pI7d->Parts[15],&Integra7Part::setReceiveBankSelect);
+
+    QObject::connect(ui->Ch16RPBBtn,&QAbstractButton::toggled,
+                     pI7d->Parts[15],&Integra7Part::setReceivePitchBend);
+
+    QObject::connect(ui->Ch16RPPBtn,&QAbstractButton::toggled,
+                     pI7d->Parts[15],&Integra7Part::setReceivePolyphonicKeyPressure);
+
+    QObject::connect(ui->Ch16RCPBtn,&QAbstractButton::toggled,
+                     pI7d->Parts[15],&Integra7Part::setReceiveChannelPressure);
+
+    QObject::connect(ui->Ch16RModBtn,&QAbstractButton::toggled,
+                     pI7d->Parts[15],&Integra7Part::setReceiveModulation);
+
+    QObject::connect(ui->Ch16RVolBtn,&QAbstractButton::toggled,
+                     pI7d->Parts[15],&Integra7Part::setReceiveVolume);
+
+    QObject::connect(ui->Ch16RPanBtn,&QAbstractButton::toggled,
+                     pI7d->Parts[15],&Integra7Part::setReceivePan);
+
+    QObject::connect(ui->Ch16RExpBtn,&QAbstractButton::toggled,
+                     pI7d->Parts[15],&Integra7Part::setReceiveExpression);
+
+    QObject::connect(ui->Ch16RHoldBtn,&QAbstractButton::toggled,
+                     pI7d->Parts[15],&Integra7Part::setReceiveHold);
+
     /* Chorus and Reverb connections */
     QObject::connect(ui->ChorusSwBtn,&QAbstractButton::toggled,
                      pI7d->StudioSetCommon,&Integra7StudioSetCommon::setChorusSwitch);
@@ -4627,6 +5107,488 @@ integra7MainWindow::integra7MainWindow(QWidget *parent)
 
     QObject::connect(pI7d->Parts[15],&Integra7Part::PartPortamentoTime,
                      ui->Ch16PortaTimeBox,&QSpinBox::setValue);
+
+    QObject::connect(pI7d->Parts[0],&Integra7Part::ReceiveProgramChange,
+                     ui->Ch1RPCBtn,&QAbstractButton::setChecked);
+
+    QObject::connect(pI7d->Parts[0],&Integra7Part::ReceiveBankSelect,
+                     ui->Ch1RBSBtn,&QAbstractButton::setChecked);
+
+    QObject::connect(pI7d->Parts[0],&Integra7Part::ReceivePitchBend,
+                     ui->Ch1RPBBtn,&QAbstractButton::setChecked);
+
+    QObject::connect(pI7d->Parts[0],&Integra7Part::ReceivePolyphonicKeyPressure,
+                     ui->Ch1RPPBtn,&QAbstractButton::setChecked);
+
+    QObject::connect(pI7d->Parts[0],&Integra7Part::ReceiveChannelPressure,
+                     ui->Ch1RCPBtn,&QAbstractButton::setChecked);
+
+    QObject::connect(pI7d->Parts[0],&Integra7Part::ReceiveModulation,
+                     ui->Ch1RModBtn,&QAbstractButton::setChecked);
+
+    QObject::connect(pI7d->Parts[0],&Integra7Part::ReceiveVolume,
+                     ui->Ch1RVolBtn,&QAbstractButton::setChecked);
+
+    QObject::connect(pI7d->Parts[0],&Integra7Part::ReceivePan,
+                     ui->Ch1RPanBtn,&QAbstractButton::setChecked);
+
+    QObject::connect(pI7d->Parts[0],&Integra7Part::ReceiveExpression,
+                     ui->Ch1RExpBtn,&QAbstractButton::setChecked);
+
+    QObject::connect(pI7d->Parts[0],&Integra7Part::ReceiveHold,
+                     ui->Ch1RHoldBtn,&QAbstractButton::setChecked);
+
+    QObject::connect(pI7d->Parts[1],&Integra7Part::ReceiveProgramChange,
+                     ui->Ch2RPCBtn,&QAbstractButton::setChecked);
+
+    QObject::connect(pI7d->Parts[1],&Integra7Part::ReceiveBankSelect,
+                     ui->Ch2RBSBtn,&QAbstractButton::setChecked);
+
+    QObject::connect(pI7d->Parts[1],&Integra7Part::ReceivePitchBend,
+                     ui->Ch2RPBBtn,&QAbstractButton::setChecked);
+
+    QObject::connect(pI7d->Parts[1],&Integra7Part::ReceivePolyphonicKeyPressure,
+                     ui->Ch2RPPBtn,&QAbstractButton::setChecked);
+
+    QObject::connect(pI7d->Parts[1],&Integra7Part::ReceiveChannelPressure,
+                     ui->Ch2RCPBtn,&QAbstractButton::setChecked);
+
+    QObject::connect(pI7d->Parts[1],&Integra7Part::ReceiveModulation,
+                     ui->Ch2RModBtn,&QAbstractButton::setChecked);
+
+    QObject::connect(pI7d->Parts[1],&Integra7Part::ReceiveVolume,
+                     ui->Ch2RVolBtn,&QAbstractButton::setChecked);
+
+    QObject::connect(pI7d->Parts[1],&Integra7Part::ReceivePan,
+                     ui->Ch2RPanBtn,&QAbstractButton::setChecked);
+
+    QObject::connect(pI7d->Parts[1],&Integra7Part::ReceiveExpression,
+                     ui->Ch2RExpBtn,&QAbstractButton::setChecked);
+
+    QObject::connect(pI7d->Parts[1],&Integra7Part::ReceiveHold,
+                     ui->Ch2RHoldBtn,&QAbstractButton::setChecked);
+
+    QObject::connect(pI7d->Parts[2],&Integra7Part::ReceiveProgramChange,
+                     ui->Ch3RPCBtn,&QAbstractButton::setChecked);
+
+    QObject::connect(pI7d->Parts[2],&Integra7Part::ReceiveBankSelect,
+                     ui->Ch3RBSBtn,&QAbstractButton::setChecked);
+
+    QObject::connect(pI7d->Parts[2],&Integra7Part::ReceivePitchBend,
+                     ui->Ch3RPBBtn,&QAbstractButton::setChecked);
+
+    QObject::connect(pI7d->Parts[2],&Integra7Part::ReceivePolyphonicKeyPressure,
+                     ui->Ch3RPPBtn,&QAbstractButton::setChecked);
+
+    QObject::connect(pI7d->Parts[2],&Integra7Part::ReceiveChannelPressure,
+                     ui->Ch3RCPBtn,&QAbstractButton::setChecked);
+
+    QObject::connect(pI7d->Parts[2],&Integra7Part::ReceiveModulation,
+                     ui->Ch3RModBtn,&QAbstractButton::setChecked);
+
+    QObject::connect(pI7d->Parts[2],&Integra7Part::ReceiveVolume,
+                     ui->Ch3RVolBtn,&QAbstractButton::setChecked);
+
+    QObject::connect(pI7d->Parts[2],&Integra7Part::ReceivePan,
+                     ui->Ch3RPanBtn,&QAbstractButton::setChecked);
+
+    QObject::connect(pI7d->Parts[2],&Integra7Part::ReceiveExpression,
+                     ui->Ch3RExpBtn,&QAbstractButton::setChecked);
+
+    QObject::connect(pI7d->Parts[2],&Integra7Part::ReceiveHold,
+                     ui->Ch3RHoldBtn,&QAbstractButton::setChecked);
+
+    QObject::connect(pI7d->Parts[3],&Integra7Part::ReceiveProgramChange,
+                     ui->Ch4RPCBtn,&QAbstractButton::setChecked);
+
+    QObject::connect(pI7d->Parts[3],&Integra7Part::ReceiveBankSelect,
+                     ui->Ch4RBSBtn,&QAbstractButton::setChecked);
+
+    QObject::connect(pI7d->Parts[3],&Integra7Part::ReceivePitchBend,
+                     ui->Ch4RPBBtn,&QAbstractButton::setChecked);
+
+    QObject::connect(pI7d->Parts[3],&Integra7Part::ReceivePolyphonicKeyPressure,
+                     ui->Ch4RPPBtn,&QAbstractButton::setChecked);
+
+    QObject::connect(pI7d->Parts[3],&Integra7Part::ReceiveChannelPressure,
+                     ui->Ch4RCPBtn,&QAbstractButton::setChecked);
+
+    QObject::connect(pI7d->Parts[3],&Integra7Part::ReceiveModulation,
+                     ui->Ch4RModBtn,&QAbstractButton::setChecked);
+
+    QObject::connect(pI7d->Parts[3],&Integra7Part::ReceiveVolume,
+                     ui->Ch4RVolBtn,&QAbstractButton::setChecked);
+
+    QObject::connect(pI7d->Parts[3],&Integra7Part::ReceivePan,
+                     ui->Ch4RPanBtn,&QAbstractButton::setChecked);
+
+    QObject::connect(pI7d->Parts[3],&Integra7Part::ReceiveExpression,
+                     ui->Ch4RExpBtn,&QAbstractButton::setChecked);
+
+    QObject::connect(pI7d->Parts[3],&Integra7Part::ReceiveHold,
+                     ui->Ch4RHoldBtn,&QAbstractButton::setChecked);
+
+    QObject::connect(pI7d->Parts[4],&Integra7Part::ReceiveProgramChange,
+                     ui->Ch5RPCBtn,&QAbstractButton::setChecked);
+
+    QObject::connect(pI7d->Parts[4],&Integra7Part::ReceiveBankSelect,
+                     ui->Ch5RBSBtn,&QAbstractButton::setChecked);
+
+    QObject::connect(pI7d->Parts[4],&Integra7Part::ReceivePitchBend,
+                     ui->Ch5RPBBtn,&QAbstractButton::setChecked);
+
+    QObject::connect(pI7d->Parts[4],&Integra7Part::ReceivePolyphonicKeyPressure,
+                     ui->Ch5RPPBtn,&QAbstractButton::setChecked);
+
+    QObject::connect(pI7d->Parts[4],&Integra7Part::ReceiveChannelPressure,
+                     ui->Ch5RCPBtn,&QAbstractButton::setChecked);
+
+    QObject::connect(pI7d->Parts[4],&Integra7Part::ReceiveModulation,
+                     ui->Ch5RModBtn,&QAbstractButton::setChecked);
+
+    QObject::connect(pI7d->Parts[4],&Integra7Part::ReceiveVolume,
+                     ui->Ch5RVolBtn,&QAbstractButton::setChecked);
+
+    QObject::connect(pI7d->Parts[4],&Integra7Part::ReceivePan,
+                     ui->Ch5RPanBtn,&QAbstractButton::setChecked);
+
+    QObject::connect(pI7d->Parts[4],&Integra7Part::ReceiveExpression,
+                     ui->Ch5RExpBtn,&QAbstractButton::setChecked);
+
+    QObject::connect(pI7d->Parts[4],&Integra7Part::ReceiveHold,
+                     ui->Ch5RHoldBtn,&QAbstractButton::setChecked);
+
+    QObject::connect(pI7d->Parts[5],&Integra7Part::ReceiveProgramChange,
+                     ui->Ch6RPCBtn,&QAbstractButton::setChecked);
+
+    QObject::connect(pI7d->Parts[5],&Integra7Part::ReceiveBankSelect,
+                     ui->Ch6RBSBtn,&QAbstractButton::setChecked);
+
+    QObject::connect(pI7d->Parts[5],&Integra7Part::ReceivePitchBend,
+                     ui->Ch6RPBBtn,&QAbstractButton::setChecked);
+
+    QObject::connect(pI7d->Parts[5],&Integra7Part::ReceivePolyphonicKeyPressure,
+                     ui->Ch6RPPBtn,&QAbstractButton::setChecked);
+
+    QObject::connect(pI7d->Parts[5],&Integra7Part::ReceiveChannelPressure,
+                     ui->Ch6RCPBtn,&QAbstractButton::setChecked);
+
+    QObject::connect(pI7d->Parts[5],&Integra7Part::ReceiveModulation,
+                     ui->Ch6RModBtn,&QAbstractButton::setChecked);
+
+    QObject::connect(pI7d->Parts[5],&Integra7Part::ReceiveVolume,
+                     ui->Ch6RVolBtn,&QAbstractButton::setChecked);
+
+    QObject::connect(pI7d->Parts[5],&Integra7Part::ReceivePan,
+                     ui->Ch6RPanBtn,&QAbstractButton::setChecked);
+
+    QObject::connect(pI7d->Parts[5],&Integra7Part::ReceiveExpression,
+                     ui->Ch6RExpBtn,&QAbstractButton::setChecked);
+
+    QObject::connect(pI7d->Parts[5],&Integra7Part::ReceiveHold,
+                     ui->Ch6RHoldBtn,&QAbstractButton::setChecked);
+
+    QObject::connect(pI7d->Parts[6],&Integra7Part::ReceiveProgramChange,
+                     ui->Ch7RPCBtn,&QAbstractButton::setChecked);
+
+    QObject::connect(pI7d->Parts[6],&Integra7Part::ReceiveBankSelect,
+                     ui->Ch7RBSBtn,&QAbstractButton::setChecked);
+
+    QObject::connect(pI7d->Parts[6],&Integra7Part::ReceivePitchBend,
+                     ui->Ch7RPBBtn,&QAbstractButton::setChecked);
+
+    QObject::connect(pI7d->Parts[6],&Integra7Part::ReceivePolyphonicKeyPressure,
+                     ui->Ch7RPPBtn,&QAbstractButton::setChecked);
+
+    QObject::connect(pI7d->Parts[6],&Integra7Part::ReceiveChannelPressure,
+                     ui->Ch7RCPBtn,&QAbstractButton::setChecked);
+
+    QObject::connect(pI7d->Parts[6],&Integra7Part::ReceiveModulation,
+                     ui->Ch7RModBtn,&QAbstractButton::setChecked);
+
+    QObject::connect(pI7d->Parts[6],&Integra7Part::ReceiveVolume,
+                     ui->Ch7RVolBtn,&QAbstractButton::setChecked);
+
+    QObject::connect(pI7d->Parts[6],&Integra7Part::ReceivePan,
+                     ui->Ch7RPanBtn,&QAbstractButton::setChecked);
+
+    QObject::connect(pI7d->Parts[6],&Integra7Part::ReceiveExpression,
+                     ui->Ch7RExpBtn,&QAbstractButton::setChecked);
+
+    QObject::connect(pI7d->Parts[6],&Integra7Part::ReceiveHold,
+                     ui->Ch7RHoldBtn,&QAbstractButton::setChecked);
+
+    QObject::connect(pI7d->Parts[7],&Integra7Part::ReceiveProgramChange,
+                     ui->Ch8RPCBtn,&QAbstractButton::setChecked);
+
+    QObject::connect(pI7d->Parts[7],&Integra7Part::ReceiveBankSelect,
+                     ui->Ch8RBSBtn,&QAbstractButton::setChecked);
+
+    QObject::connect(pI7d->Parts[7],&Integra7Part::ReceivePitchBend,
+                     ui->Ch8RPBBtn,&QAbstractButton::setChecked);
+
+    QObject::connect(pI7d->Parts[7],&Integra7Part::ReceivePolyphonicKeyPressure,
+                     ui->Ch8RPPBtn,&QAbstractButton::setChecked);
+
+    QObject::connect(pI7d->Parts[7],&Integra7Part::ReceiveChannelPressure,
+                     ui->Ch8RCPBtn,&QAbstractButton::setChecked);
+
+    QObject::connect(pI7d->Parts[7],&Integra7Part::ReceiveModulation,
+                     ui->Ch8RModBtn,&QAbstractButton::setChecked);
+
+    QObject::connect(pI7d->Parts[7],&Integra7Part::ReceiveVolume,
+                     ui->Ch8RVolBtn,&QAbstractButton::setChecked);
+
+    QObject::connect(pI7d->Parts[7],&Integra7Part::ReceivePan,
+                     ui->Ch8RPanBtn,&QAbstractButton::setChecked);
+
+    QObject::connect(pI7d->Parts[7],&Integra7Part::ReceiveExpression,
+                     ui->Ch8RExpBtn,&QAbstractButton::setChecked);
+
+    QObject::connect(pI7d->Parts[7],&Integra7Part::ReceiveHold,
+                     ui->Ch8RHoldBtn,&QAbstractButton::setChecked);
+
+    QObject::connect(pI7d->Parts[8],&Integra7Part::ReceiveProgramChange,
+                     ui->Ch9RPCBtn,&QAbstractButton::setChecked);
+
+    QObject::connect(pI7d->Parts[8],&Integra7Part::ReceiveBankSelect,
+                     ui->Ch9RBSBtn,&QAbstractButton::setChecked);
+
+    QObject::connect(pI7d->Parts[8],&Integra7Part::ReceivePitchBend,
+                     ui->Ch9RPBBtn,&QAbstractButton::setChecked);
+
+    QObject::connect(pI7d->Parts[8],&Integra7Part::ReceivePolyphonicKeyPressure,
+                     ui->Ch9RPPBtn,&QAbstractButton::setChecked);
+
+    QObject::connect(pI7d->Parts[8],&Integra7Part::ReceiveChannelPressure,
+                     ui->Ch9RCPBtn,&QAbstractButton::setChecked);
+
+    QObject::connect(pI7d->Parts[8],&Integra7Part::ReceiveModulation,
+                     ui->Ch9RModBtn,&QAbstractButton::setChecked);
+
+    QObject::connect(pI7d->Parts[8],&Integra7Part::ReceiveVolume,
+                     ui->Ch9RVolBtn,&QAbstractButton::setChecked);
+
+    QObject::connect(pI7d->Parts[8],&Integra7Part::ReceivePan,
+                     ui->Ch9RPanBtn,&QAbstractButton::setChecked);
+
+    QObject::connect(pI7d->Parts[8],&Integra7Part::ReceiveExpression,
+                     ui->Ch9RExpBtn,&QAbstractButton::setChecked);
+
+    QObject::connect(pI7d->Parts[8],&Integra7Part::ReceiveHold,
+                     ui->Ch9RHoldBtn,&QAbstractButton::setChecked);
+
+    QObject::connect(pI7d->Parts[9],&Integra7Part::ReceiveProgramChange,
+                     ui->Ch10RPCBtn,&QAbstractButton::setChecked);
+
+    QObject::connect(pI7d->Parts[9],&Integra7Part::ReceiveBankSelect,
+                     ui->Ch10RBSBtn,&QAbstractButton::setChecked);
+
+    QObject::connect(pI7d->Parts[9],&Integra7Part::ReceivePitchBend,
+                     ui->Ch10RPBBtn,&QAbstractButton::setChecked);
+
+    QObject::connect(pI7d->Parts[9],&Integra7Part::ReceivePolyphonicKeyPressure,
+                     ui->Ch10RPPBtn,&QAbstractButton::setChecked);
+
+    QObject::connect(pI7d->Parts[9],&Integra7Part::ReceiveChannelPressure,
+                     ui->Ch10RCPBtn,&QAbstractButton::setChecked);
+
+    QObject::connect(pI7d->Parts[9],&Integra7Part::ReceiveModulation,
+                     ui->Ch10RModBtn,&QAbstractButton::setChecked);
+
+    QObject::connect(pI7d->Parts[9],&Integra7Part::ReceiveVolume,
+                     ui->Ch10RVolBtn,&QAbstractButton::setChecked);
+
+    QObject::connect(pI7d->Parts[9],&Integra7Part::ReceivePan,
+                     ui->Ch10RPanBtn,&QAbstractButton::setChecked);
+
+    QObject::connect(pI7d->Parts[9],&Integra7Part::ReceiveExpression,
+                     ui->Ch10RExpBtn,&QAbstractButton::setChecked);
+
+    QObject::connect(pI7d->Parts[9],&Integra7Part::ReceiveHold,
+                     ui->Ch10RHoldBtn,&QAbstractButton::setChecked);
+
+    QObject::connect(pI7d->Parts[10],&Integra7Part::ReceiveProgramChange,
+                     ui->Ch11RPCBtn,&QAbstractButton::setChecked);
+
+    QObject::connect(pI7d->Parts[10],&Integra7Part::ReceiveBankSelect,
+                     ui->Ch11RBSBtn,&QAbstractButton::setChecked);
+
+    QObject::connect(pI7d->Parts[10],&Integra7Part::ReceivePitchBend,
+                     ui->Ch11RPBBtn,&QAbstractButton::setChecked);
+
+    QObject::connect(pI7d->Parts[10],&Integra7Part::ReceivePolyphonicKeyPressure,
+                     ui->Ch11RPPBtn,&QAbstractButton::setChecked);
+
+    QObject::connect(pI7d->Parts[10],&Integra7Part::ReceiveChannelPressure,
+                     ui->Ch11RCPBtn,&QAbstractButton::setChecked);
+
+    QObject::connect(pI7d->Parts[10],&Integra7Part::ReceiveModulation,
+                     ui->Ch11RModBtn,&QAbstractButton::setChecked);
+
+    QObject::connect(pI7d->Parts[10],&Integra7Part::ReceiveVolume,
+                     ui->Ch11RVolBtn,&QAbstractButton::setChecked);
+
+    QObject::connect(pI7d->Parts[10],&Integra7Part::ReceivePan,
+                     ui->Ch11RPanBtn,&QAbstractButton::setChecked);
+
+    QObject::connect(pI7d->Parts[10],&Integra7Part::ReceiveExpression,
+                     ui->Ch11RExpBtn,&QAbstractButton::setChecked);
+
+    QObject::connect(pI7d->Parts[10],&Integra7Part::ReceiveHold,
+                     ui->Ch11RHoldBtn,&QAbstractButton::setChecked);
+
+    QObject::connect(pI7d->Parts[11],&Integra7Part::ReceiveProgramChange,
+                     ui->Ch12RPCBtn,&QAbstractButton::setChecked);
+
+    QObject::connect(pI7d->Parts[11],&Integra7Part::ReceiveBankSelect,
+                     ui->Ch12RBSBtn,&QAbstractButton::setChecked);
+
+    QObject::connect(pI7d->Parts[11],&Integra7Part::ReceivePitchBend,
+                     ui->Ch12RPBBtn,&QAbstractButton::setChecked);
+
+    QObject::connect(pI7d->Parts[11],&Integra7Part::ReceivePolyphonicKeyPressure,
+                     ui->Ch12RPPBtn,&QAbstractButton::setChecked);
+
+    QObject::connect(pI7d->Parts[11],&Integra7Part::ReceiveChannelPressure,
+                     ui->Ch12RCPBtn,&QAbstractButton::setChecked);
+
+    QObject::connect(pI7d->Parts[11],&Integra7Part::ReceiveModulation,
+                     ui->Ch12RModBtn,&QAbstractButton::setChecked);
+
+    QObject::connect(pI7d->Parts[11],&Integra7Part::ReceiveVolume,
+                     ui->Ch12RVolBtn,&QAbstractButton::setChecked);
+
+    QObject::connect(pI7d->Parts[11],&Integra7Part::ReceivePan,
+                     ui->Ch12RPanBtn,&QAbstractButton::setChecked);
+
+    QObject::connect(pI7d->Parts[11],&Integra7Part::ReceiveExpression,
+                     ui->Ch12RExpBtn,&QAbstractButton::setChecked);
+
+    QObject::connect(pI7d->Parts[11],&Integra7Part::ReceiveHold,
+                     ui->Ch12RHoldBtn,&QAbstractButton::setChecked);
+
+    QObject::connect(pI7d->Parts[12],&Integra7Part::ReceiveProgramChange,
+                     ui->Ch13RPCBtn,&QAbstractButton::setChecked);
+
+    QObject::connect(pI7d->Parts[12],&Integra7Part::ReceiveBankSelect,
+                     ui->Ch13RBSBtn,&QAbstractButton::setChecked);
+
+    QObject::connect(pI7d->Parts[12],&Integra7Part::ReceivePitchBend,
+                     ui->Ch13RPBBtn,&QAbstractButton::setChecked);
+
+    QObject::connect(pI7d->Parts[12],&Integra7Part::ReceivePolyphonicKeyPressure,
+                     ui->Ch13RPPBtn,&QAbstractButton::setChecked);
+
+    QObject::connect(pI7d->Parts[12],&Integra7Part::ReceiveChannelPressure,
+                     ui->Ch13RCPBtn,&QAbstractButton::setChecked);
+
+    QObject::connect(pI7d->Parts[12],&Integra7Part::ReceiveModulation,
+                     ui->Ch13RModBtn,&QAbstractButton::setChecked);
+
+    QObject::connect(pI7d->Parts[12],&Integra7Part::ReceiveVolume,
+                     ui->Ch13RVolBtn,&QAbstractButton::setChecked);
+
+    QObject::connect(pI7d->Parts[12],&Integra7Part::ReceivePan,
+                     ui->Ch13RPanBtn,&QAbstractButton::setChecked);
+
+    QObject::connect(pI7d->Parts[12],&Integra7Part::ReceiveExpression,
+                     ui->Ch13RExpBtn,&QAbstractButton::setChecked);
+
+    QObject::connect(pI7d->Parts[12],&Integra7Part::ReceiveHold,
+                     ui->Ch13RHoldBtn,&QAbstractButton::setChecked);
+
+    QObject::connect(pI7d->Parts[13],&Integra7Part::ReceiveProgramChange,
+                     ui->Ch14RPCBtn,&QAbstractButton::setChecked);
+
+    QObject::connect(pI7d->Parts[13],&Integra7Part::ReceiveBankSelect,
+                     ui->Ch14RBSBtn,&QAbstractButton::setChecked);
+
+    QObject::connect(pI7d->Parts[13],&Integra7Part::ReceivePitchBend,
+                     ui->Ch14RPBBtn,&QAbstractButton::setChecked);
+
+    QObject::connect(pI7d->Parts[13],&Integra7Part::ReceivePolyphonicKeyPressure,
+                     ui->Ch14RPPBtn,&QAbstractButton::setChecked);
+
+    QObject::connect(pI7d->Parts[13],&Integra7Part::ReceiveChannelPressure,
+                     ui->Ch14RCPBtn,&QAbstractButton::setChecked);
+
+    QObject::connect(pI7d->Parts[13],&Integra7Part::ReceiveModulation,
+                     ui->Ch14RModBtn,&QAbstractButton::setChecked);
+
+    QObject::connect(pI7d->Parts[13],&Integra7Part::ReceiveVolume,
+                     ui->Ch14RVolBtn,&QAbstractButton::setChecked);
+
+    QObject::connect(pI7d->Parts[13],&Integra7Part::ReceivePan,
+                     ui->Ch14RPanBtn,&QAbstractButton::setChecked);
+
+    QObject::connect(pI7d->Parts[13],&Integra7Part::ReceiveExpression,
+                     ui->Ch14RExpBtn,&QAbstractButton::setChecked);
+
+    QObject::connect(pI7d->Parts[13],&Integra7Part::ReceiveHold,
+                     ui->Ch14RHoldBtn,&QAbstractButton::setChecked);
+
+    QObject::connect(pI7d->Parts[14],&Integra7Part::ReceiveProgramChange,
+                     ui->Ch15RPCBtn,&QAbstractButton::setChecked);
+
+    QObject::connect(pI7d->Parts[14],&Integra7Part::ReceiveBankSelect,
+                     ui->Ch15RBSBtn,&QAbstractButton::setChecked);
+
+    QObject::connect(pI7d->Parts[14],&Integra7Part::ReceivePitchBend,
+                     ui->Ch15RPBBtn,&QAbstractButton::setChecked);
+
+    QObject::connect(pI7d->Parts[14],&Integra7Part::ReceivePolyphonicKeyPressure,
+                     ui->Ch15RPPBtn,&QAbstractButton::setChecked);
+
+    QObject::connect(pI7d->Parts[14],&Integra7Part::ReceiveChannelPressure,
+                     ui->Ch15RCPBtn,&QAbstractButton::setChecked);
+
+    QObject::connect(pI7d->Parts[14],&Integra7Part::ReceiveModulation,
+                     ui->Ch15RModBtn,&QAbstractButton::setChecked);
+
+    QObject::connect(pI7d->Parts[14],&Integra7Part::ReceiveVolume,
+                     ui->Ch15RVolBtn,&QAbstractButton::setChecked);
+
+    QObject::connect(pI7d->Parts[14],&Integra7Part::ReceivePan,
+                     ui->Ch15RPanBtn,&QAbstractButton::setChecked);
+
+    QObject::connect(pI7d->Parts[14],&Integra7Part::ReceiveExpression,
+                     ui->Ch15RExpBtn,&QAbstractButton::setChecked);
+
+    QObject::connect(pI7d->Parts[14],&Integra7Part::ReceiveHold,
+                     ui->Ch15RHoldBtn,&QAbstractButton::setChecked);
+
+    QObject::connect(pI7d->Parts[15],&Integra7Part::ReceiveProgramChange,
+                     ui->Ch16RPCBtn,&QAbstractButton::setChecked);
+
+    QObject::connect(pI7d->Parts[15],&Integra7Part::ReceiveBankSelect,
+                     ui->Ch16RBSBtn,&QAbstractButton::setChecked);
+
+    QObject::connect(pI7d->Parts[15],&Integra7Part::ReceivePitchBend,
+                     ui->Ch16RPBBtn,&QAbstractButton::setChecked);
+
+    QObject::connect(pI7d->Parts[15],&Integra7Part::ReceivePolyphonicKeyPressure,
+                     ui->Ch16RPPBtn,&QAbstractButton::setChecked);
+
+    QObject::connect(pI7d->Parts[15],&Integra7Part::ReceiveChannelPressure,
+                     ui->Ch16RCPBtn,&QAbstractButton::setChecked);
+
+    QObject::connect(pI7d->Parts[15],&Integra7Part::ReceiveModulation,
+                     ui->Ch16RModBtn,&QAbstractButton::setChecked);
+
+    QObject::connect(pI7d->Parts[15],&Integra7Part::ReceiveVolume,
+                     ui->Ch16RVolBtn,&QAbstractButton::setChecked);
+
+    QObject::connect(pI7d->Parts[15],&Integra7Part::ReceivePan,
+                     ui->Ch16RPanBtn,&QAbstractButton::setChecked);
+
+    QObject::connect(pI7d->Parts[15],&Integra7Part::ReceiveExpression,
+                     ui->Ch16RExpBtn,&QAbstractButton::setChecked);
+
+    QObject::connect(pI7d->Parts[15],&Integra7Part::ReceiveHold,
+                     ui->Ch16RHoldBtn,&QAbstractButton::setChecked);
+
+    /*****************************************************************/
 
     QObject::connect(pI7d->StudioSetCommon,&Integra7StudioSetCommon::ChorusSwitch,
                      ui->ChorusSwBtn,&QAbstractButton::setChecked);
