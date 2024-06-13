@@ -76,6 +76,7 @@ private slots:
     void PartBtnToggled(int id, bool checked);
     void ShowStudioSet();
     void ShowEffects();
+    void ShowTone();
     void ShowPartViewCard() {ui->RightContent->setCurrentWidget(ui->PartViewCard);}
     void ShowPartLevelCard() {ui->RightContent->setCurrentWidget(ui->PartLevelCard);}
     void ShowPartEQCard(){ui->RightContent->setCurrentWidget(ui->PartEQCard);}
@@ -91,6 +92,23 @@ private slots:
     void ShowChorusParams(QString tp);
     void ShowReverbCard() {ui->RightContent->setCurrentWidget(ui->ReverbCard);}
     void ShowReverbParams(int tp);
+    void ShowPCMSynthCommon(){ui->RightContent->setCurrentWidget(ui->PCMSynthToneCommonCard);}
+    void ShowPCMSynthMFX(){ui->RightContent->setCurrentWidget(ui->PCMSynthToneMFXCard);}
+    void ShowPCMSynthPMT(){ui->RightContent->setCurrentWidget(ui->PCMSynthTonePMTCard);}
+    void ShowPCMSynthPartial(){ui->RightContent->setCurrentWidget(ui->PCMSynthTonePartialCard);}
+    void ShowSNSynthCommon(){ui->RightContent->setCurrentWidget(ui->SNSynthToneCommonCard);}
+    void ShowSNSynthMFX(){ui->RightContent->setCurrentWidget(ui->SNSynthToneMFXCard);}
+    void ShowSNSynthPartial(){ui->RightContent->setCurrentWidget(ui->SNSynthTonePartial);}
+    void ShowSNAcousticCommon(){ui->RightContent->setCurrentWidget(ui->SNAcousticToneCard);}
+    void ShowSNAcousticMFX(){ui->RightContent->setCurrentWidget(ui->SNAcousticToneMFXCard);}
+    void ShowSNDrumKitCommon(){ui->RightContent->setCurrentWidget(ui->SNDrumKitCommonCard);}
+    void ShowSNDrumKitMFX(){ui->RightContent->setCurrentWidget(ui->SNDrumKitMFXCard);}
+    void ShowSNDrumKitCompEQ(){ui->RightContent->setCurrentWidget(ui->SNDrumKitCompEQCard);}
+    void ShowSNDrumKitNote(){ui->RightContent->setCurrentWidget(ui->SNDrumKitNoteCard);}
+    void ShowPCMDrumKitCommon(){ui->RightContent->setCurrentWidget(ui->PCMDrumKitCommonCard);}
+    void ShowPCMDrumKitMFX(){ui->RightContent->setCurrentWidget(ui->PCMDrumKitMFXCard);}
+    void ShowPCMDrumKitCompEQ(){ui->RightContent->setCurrentWidget(ui->PCMDrumKitCompEQCard);}
+    void ShowPCMDrumKitPartial(){ui->RightContent->setCurrentWidget(ui->PCMDrumKitPartialCard);}
     void ShowVirtualSlotsCard();
     void ShowUtilityCard();
 
