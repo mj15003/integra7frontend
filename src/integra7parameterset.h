@@ -40,6 +40,7 @@ protected:
 
     void DataSet(uint8_t a, int v);
     void DataSetOffset(uint8_t a, int v, int offset);
+    void DataSetOffsetGain(uint8_t a, int v, int offset, int gain);
     void DataSet2x7B(uint8_t a, int v);
     void DataSet2x4B(uint8_t a, int v);
     void DataSet4x4B(uint8_t a, int v);    

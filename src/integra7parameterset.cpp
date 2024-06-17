@@ -91,6 +91,26 @@ void Integra7ParameterSet::DataSetOffset(uint8_t a, int v, int offset)
     EmitSignal(a,v);
 }
 
+void Integra7ParameterSet::DataSetOffsetGain(uint8_t a, int v, int offset, int gain)
+{
+    int vg = v/gain + offset;
+
+    if (vg == data[a]) return;
+
+    data[a] = vg;
+
+    uint8_t output[5];
+
+    output[0] = address[0];
+    output[1] = address[1];
+    output[2] = address[2];
+    output[3] = a;
+    output[4] = data[a];
+
+    pIntegraDev->DataSet(output,5);
+    EmitSignal(a,v);
+}
+
 void Integra7ParameterSet::DataSet2x7B(uint8_t a, int v)
 {
     uint8_t msb = v >> 7;
