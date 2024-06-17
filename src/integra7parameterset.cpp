@@ -139,15 +139,17 @@ void Integra7ParameterSet::DataSet2x4B(uint8_t a, int v)
 
 void Integra7ParameterSet::DataSet4x4B(uint8_t a, int v)
 {
+    uint8_t b3 = v >> 12 & 0xF;
     uint8_t b2 = v >> 8 & 0xF;
     uint8_t b1 = v >> 4 & 0xF;
     uint8_t b0 = v & 0xF;
 
-    //At address 'a' should always be 0x08
+    if (b3 == data[a] &&
+        b2 == data[a+1] &&
+        b1 == data[a+2] &&
+        b0 == data[a+3]) return;
 
-    if (b2 == data[a+1] && b1 == data[a+2] && b0 == data[a+3]) return;
-
-    data[a] = 0x08;
+    data[a] = b3;
     data[a+1] = b2;
     data[a+2] = b1;
     data[a+3] = b0;
