@@ -42,7 +42,7 @@ Integra7Tone::Integra7Tone(Integra7Device *parent,uint8_t a0, uint8_t a1) {
 
     SNDrumKitCommon = new Integra7SNDrumKitCommon(parent,a0,a1+0x03,0);
     SNDrumKitMFX = new Integra7ToneMFX(parent,a0,a1+0x03,0x02);
-    SNDrumKitCommonCompEQ = new Integra7SNDrumKitCommonCompEQ(parent,a0,a1+0x03,0x08);
+    SNDrumKitCommonCompEQ = new Integra7DrumCompEQ(parent,a0,a1+0x03,0x08);
 
     uint8_t o1 = 0x10;
     for (int i=0;i<62;++i){
@@ -51,7 +51,7 @@ Integra7Tone::Integra7Tone(Integra7Device *parent,uint8_t a0, uint8_t a1) {
 
     PCMDrumKitCommon = new Integra7PCMDrumKitCommon(parent,a0,a1+0x10,0);
     PCMDrumKitCommonMFX = new Integra7ToneMFX(parent,a0,a1+0x10,0x02);
-    PCMDrumKitCommonCompEQ = new Integra7PCMDrumKitCommonCompEQ(parent,a0,a1+0x10,0x08);
+    PCMDrumKitCommonCompEQ = new Integra7DrumCompEQ(parent,a0,a1+0x10,0x08);
 
     o1 = 0;
     uint8_t o2 = 0x10;

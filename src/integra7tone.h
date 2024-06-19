@@ -24,14 +24,13 @@
 #include "integra7pcmsynthtonepartial.h"
 #include "integra7pcmsynthtonecommon2.h"
 #include "integra7pcmdrumkitcommon.h"
-#include "integra7pcmdrumkitcommoncompeq.h"
+#include "integra7drumcompeq.h"
 #include "integra7pcmdrumkitpartial.h"
 #include "integra7pcmdrumkitcommon2.h"
 #include "integra7snsynthtonecommon.h"
 #include "integra7snsynthtonepartial.h"
 #include "integra7snacoustictonecommon.h"
 #include "integra7sndrumkitcommon.h"
-#include "integra7sndrumkitcommoncompeq.h"
 #include "integra7sndrumkitnote.h"
 #include "integra7tonemfx.h"
 
@@ -52,7 +51,7 @@ public:
 
     Integra7PCMDrumKitCommon *PCMDrumKitCommon;
     Integra7ToneMFX *PCMDrumKitCommonMFX;
-    Integra7PCMDrumKitCommonCompEQ *PCMDrumKitCommonCompEQ;
+    Integra7DrumCompEQ *PCMDrumKitCommonCompEQ;
     Integra7PCMDrumKitPartial *PCMDrumKitPartial[88];
     Integra7PCMDrumKitCommon2 *PCMDrumKitCommon2;
 
@@ -65,7 +64,7 @@ public:
 
     Integra7SNDrumKitCommon *SNDrumKitCommon;
     Integra7ToneMFX *SNDrumKitMFX;
-    Integra7SNDrumKitCommonCompEQ *SNDrumKitCommonCompEQ;
+    Integra7DrumCompEQ *SNDrumKitCommonCompEQ;
     Integra7SNDrumKitNote *SNDrumKitNote[62];
 
     void ReceiveData(const uint8_t *rdata, int len);

@@ -61,17 +61,16 @@ if(${QT_VERSION_MAJOR} GREATER_EQUAL 6)
         integra7pcmsynthtonepmt.h integra7pcmsynthtonepmt.cpp
         integra7pcmsynthtonepartial.h integra7pcmsynthtonepartial.cpp
         integra7pcmsynthtonecommon2.h integra7pcmsynthtonecommon2.cpp
-        integra7pcmdrumkitcommon.h integra7pcmdrumkitcommon.cpp
-        integra7pcmdrumkitcommoncompeq.h integra7pcmdrumkitcommoncompeq.cpp
+        integra7pcmdrumkitcommon.h integra7pcmdrumkitcommon.cpp        
         integra7pcmdrumkitpartial.h integra7pcmdrumkitpartial.cpp
         integra7pcmdrumkitcommon2.h integra7pcmdrumkitcommon2.cpp
         integra7snsynthtonecommon.h integra7snsynthtonecommon.cpp
         integra7snsynthtonepartial.h integra7snsynthtonepartial.cpp
         integra7snacoustictonecommon.h integra7snacoustictonecommon.cpp
-        integra7sndrumkitcommon.h integra7sndrumkitcommon.cpp
-        integra7sndrumkitcommoncompeq.h integra7sndrumkitcommoncompeq.cpp
+        integra7sndrumkitcommon.h integra7sndrumkitcommon.cpp        
         integra7sndrumkitnote.h integra7sndrumkitnote.cpp
         integra7tonemfx.h integra7tonemfx.cpp
+        integra7drumcompeq.h integra7drumcompeq.cpp
     )
 # Define target properties for Android with Qt 6 as:
 #    set_property(TARGET Integra7Frontend APPEND PROPERTY QT_ANDROID_PACKAGE_SOURCE_DIR
