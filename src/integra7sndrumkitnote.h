@@ -29,13 +29,13 @@ public:
 
     int getInstNumber() {return data[0x00]<<12|data[0x01]<<8|data[0x02]<<4|data[0x03];}
     int getLevel() {return data[0x04];}
-    int getPan() {return data[0x05];}
+    int getPan() {return data[0x05]-64;}
     int getChorusSendLevel() {return data[0x06];}
     int getReverbSendLevel() {return data[0x07];}
-    int getTune() {return data[0x08]<<12|data[0x09]<<8|data[0x0A]<<4|data[0x0B];}
+    int getTune() {return ((data[0x08]<<12|data[0x09]<<8|data[0x0A]<<4|data[0x0B])-128)*10;}
     int getAttack() {return data[0x0C];}
     int getDecay() {return data[0x0D];}
-    int getBrilliance() {return data[0x0E];}
+    int getBrilliance() {return data[0x0E]-64;}
     int getVariation() {return data[0x0F];}
     int getDynamicRange() {return data[0x10];}
     int getStereoWidth() {return data[0x11];}
@@ -50,13 +50,13 @@ public slots:
 
     void setInstNumber(int v) {DataSet4x4B(0x00,v);}
     void setLevel(int v) {DataSet(0x04,v);}
-    void setPan(int v) {DataSet(0x05,v);}
+    void setPan(int v) {DataSetOffset(0x05,v,64);}
     void setChorusSendLevel(int v) {DataSet(0x06,v);}
     void setReverbSendLevel(int v) {DataSet(0x07,v);}
-    void setTune(int v) {DataSet4x4B(0x08,v);}
+    void setTune(int v) {DataSet4x4B(0x08,v/10+128);}
     void setAttack(int v) {DataSet(0x0C,v);}
     void setDecay(int v) {DataSet(0x0D,v);}
-    void setBrilliance(int v) {DataSet(0x0E,v);}
+    void setBrilliance(int v) {DataSetOffset(0x0E,v,64);}
     void setVariation(int v) {DataSet(0x0F,v);}
     void setDynamicRange(int v) {DataSet(0x10,v);}
     void setStereoWidth(int v) {DataSet(0x11,v);}

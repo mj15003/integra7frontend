@@ -42,18 +42,18 @@ public:
     QLatin1StringView getToneName() {return QLatin1StringView((char*)&data[0],(char*)&data[0x0B]);}
     int getToneLevel() {return data[0x10];}
     int getMonoPoly() {return data[0x11];}
-    int getPortamentoTimeOffset() {return data[0x12];}
-    int getCutoffOffset() {return data[0x13];}
-    int getResonanceOffset() {return data[0x14];}
-    int getAttackTimeOffset() {return data[0x15];}
-    int getReleaseTimeOffset() {return data[0x16];}
-    int getVibratoRate() {return data[0x17];}
-    int getVibratoDepth() {return data[0x18];}
-    int getVibratoDelay() {return data[0x19];}
-    int getOctaveShift() {return data[0x1A];}
+    int getPortamentoTimeOffset() {return data[0x12]-64;}
+    int getCutoffOffset() {return data[0x13]-64;}
+    int getResonanceOffset() {return data[0x14]-64;}
+    int getAttackTimeOffset() {return data[0x15]-64;}
+    int getReleaseTimeOffset() {return data[0x16]-64;}
+    int getVibratoRate() {return data[0x17]-64;}
+    int getVibratoDepth() {return data[0x18]-64;}
+    int getVibratoDelay() {return data[0x19]-64;}
+    int getOctaveShift() {return data[0x1A]-64;}
     int getCategory() {return data[0x1B];}
     int getPhraseNumber() {return data[0x1C]<<4|data[0x1D];}
-    int getPhraseOctaveShift() {return data[0x1E];}
+    int getPhraseOctaveShift() {return data[0x1E]-64;}
     int getTFXSwitch() {return data[0x1F];}
     int getInstVariation() {return data[0x20];}
     int getInstNumber() {return data[0x21];}
@@ -90,7 +90,6 @@ public:
     int getModifyParameter31() {return data[0x40];}
     int getModifyParameter32() {return data[0x41];}
 
-
     void DataReceive(const uint8_t *rdata, uint8_t a, int len);
 
     int GetLength() {return 0x46;}
@@ -112,18 +111,18 @@ public slots:
     void setToneName12(int v) {DataSet(0x0B,v);}
     void setToneLevel(int v) {DataSet(0x10,v);}
     void setMonoPoly(int v) {DataSet(0x11,v);}
-    void setPortamentoTimeOffset(int v) {DataSet(0x12,v);}
-    void setCutoffOffset(int v) {DataSet(0x13,v);}
-    void setResonanceOffset(int v) {DataSet(0x14,v);}
-    void setAttackTimeOffset(int v) {DataSet(0x15,v);}
-    void setReleaseTimeOffset(int v) {DataSet(0x16,v);}
-    void setVibratoRate(int v) {DataSet(0x17,v);}
-    void setVibratoDepth(int v) {DataSet(0x18,v);}
-    void setVibratoDelay(int v) {DataSet(0x19,v);}
-    void setOctaveShift(int v) {DataSet(0x1A,v);}
+    void setPortamentoTimeOffset(int v) {DataSetOffset(0x12,v,64);}
+    void setCutoffOffset(int v) {DataSetOffset(0x13,v,64);}
+    void setResonanceOffset(int v) {DataSetOffset(0x14,v,64);}
+    void setAttackTimeOffset(int v) {DataSetOffset(0x15,v,64);}
+    void setReleaseTimeOffset(int v) {DataSetOffset(0x16,v,64);}
+    void setVibratoRate(int v) {DataSetOffset(0x17,v,64);}
+    void setVibratoDepth(int v) {DataSetOffset(0x18,v,64);}
+    void setVibratoDelay(int v) {DataSetOffset(0x19,v,64);}
+    void setOctaveShift(int v) {DataSetOffset(0x1A,v,64);}
     void setCategory(int v) {DataSet(0x1B,v);}
     void setPhraseNumber(int v) {DataSet2x4B(0x1C,v);}
-    void setPhraseOctaveShift(int v) {DataSet(0x1E,v);}
+    void setPhraseOctaveShift(int v) {DataSetOffset(0x1E,v,64);}
     void setTFXSwitch(int v) {DataSet(0x1F,v);}
     void setInstVariation(int v) {DataSet(0x20,v);}
     void setInstNumber(int v) {DataSet(0x21,v);}

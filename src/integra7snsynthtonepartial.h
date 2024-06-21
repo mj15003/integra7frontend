@@ -29,58 +29,58 @@ public:
 
     int getOSCWave() {return data[0x00];}
     int getOSCWaveVariation() {return data[0x01];}
-    int getOSCPitch() {return data[0x03];}
-    int getOSCDetune() {return data[0x04];}
+    int getOSCPitch() {return data[0x03]-64;}
+    int getOSCDetune() {return data[0x04]-64;}
     int getOSCPulseWidthModDepth() {return data[0x05];}
     int getOSCPulseWidth() {return data[0x06];}
     int getOSCPitchEnvAttackTime() {return data[0x07];}
     int getOSCPitchEnvDecay() {return data[0x08];}
-    int getOSCPitchEnvDepth() {return data[0x09];}
+    int getOSCPitchEnvDepth() {return data[0x09]-64;}
     int getFILTERMode() {return data[0x0A];}
     int getFILTERSlope() {return data[0x0B];}
     int getFILTERCutoff() {return data[0x0C];}
-    int getFILTERCutoffKeyfollow() {return data[0x0D];}
-    int getFILTEREnvVelocitySens() {return data[0x0E];}
+    int getFILTERCutoffKeyfollow() {return (data[0x0D]-64)*10;}
+    int getFILTEREnvVelocitySens() {return data[0x0E]-64;}
     int getFILTERResonance() {return data[0x0F];}
     int getFILTEREnvAttackTime() {return data[0x10];}
     int getFILTEREnvDecayTime() {return data[0x11];}
     int getFILTEREnvSustainLevel() {return data[0x12];}
     int getFILTEREnvReleaseTime() {return data[0x13];}
-    int getFILTEREnvDepth() {return data[0x14];}
+    int getFILTEREnvDepth() {return data[0x14]-64;}
     int getAMPLevel() {return data[0x15];}
-    int getAMPLevelVelocitySens() {return data[0x16];}
+    int getAMPLevelVelocitySens() {return data[0x16]-64;}
     int getAMPEnvAttackTime() {return data[0x17];}
     int getAMPEnvDecayTime() {return data[0x18];}
     int getAMPEnvSustainLevel() {return data[0x19];}
     int getAMPEnvReleaseTime() {return data[0x1A];}
-    int getAMPPan() {return data[0x1B];}
+    int getAMPPan() {return data[0x1B]-64;}
     int getLFOShape() {return data[0x1C];}
     int getLFORate() {return data[0x1D];}
     int getLFOTempoSyncSwitch() {return data[0x1E];}
     int getLFOTempoSyncNote() {return data[0x1F];}
     int getLFOFadeTime() {return data[0x20];}
     int getLFOKeyTrigger() {return data[0x21];}
-    int getLFOPitchDepth() {return data[0x22];}
-    int getLFOFilterDepth() {return data[0x23];}
-    int getLFOAmpDepth() {return data[0x24];}
-    int getLFOPanDepth() {return data[0x25];}
+    int getLFOPitchDepth() {return data[0x22]-64;}
+    int getLFOFilterDepth() {return data[0x23]-64;}
+    int getLFOAmpDepth() {return data[0x24]-64;}
+    int getLFOPanDepth() {return data[0x25]-64;}
     int getModulationLFOShape() {return data[0x26];}
     int getModulationLFORate() {return data[0x27];}
     int getModulationLFOTempoSyncSwitch() {return data[0x28];}
     int getModulationLFOTempoSyncNote() {return data[0x29];}
     int getOSCPulseWidthShift() {return data[0x2A];}
-    int getModulationLFOPitchDepth() {return data[0x2C];}
-    int getModulationLFOFilterDepth() {return data[0x2D];}
-    int getModulationLFOAmpDepth() {return data[0x2E];}
-    int getModulationLFOPanDepth() {return data[0x2F];}
-    int getCutoffAftertouchSens() {return data[0x30];}
-    int getLevelAftertouchSens() {return data[0x31];}
+    int getModulationLFOPitchDepth() {return data[0x2C]-64;}
+    int getModulationLFOFilterDepth() {return data[0x2D]-64;}
+    int getModulationLFOAmpDepth() {return data[0x2E]-64;}
+    int getModulationLFOPanDepth() {return data[0x2F]-64;}
+    int getCutoffAftertouchSens() {return data[0x30]-64;}
+    int getLevelAftertouchSens() {return data[0x31]-64;}
     int getWaveGain() {return data[0x34];}
     int getWaveNumber() {return data[0x35]<<12|data[0x36]<<8|data[0x37]<<4|data[0x38];}
     int getHPFCutoff() {return data[0x39];}
     int getSuperSawDetune() {return data[0x3A];}
-    int getModulationLFORateControl() {return data[0x3B];}
-    int getAMPLevelKeyfollow() {return data[0x3C];}
+    int getModulationLFORateControl() {return data[0x3B]-64;}
+    int getAMPLevelKeyfollow() {return (data[0x3C]-64)*10;}
 
     void DataReceive(const uint8_t *rdata, uint8_t a, int len);
 
@@ -91,58 +91,58 @@ public slots:
 
     void setOSCWave(int v) {DataSet(0x00,v);}
     void setOSCWaveVariation(int v) {DataSet(0x01,v);}
-    void setOSCPitch(int v) {DataSet(0x03,v);}
-    void setOSCDetune(int v) {DataSet(0x04,v);}
+    void setOSCPitch(int v) {DataSetOffset(0x03,v,64);}
+    void setOSCDetune(int v) {DataSetOffset(0x04,v,64);}
     void setOSCPulseWidthModDepth(int v) {DataSet(0x05,v);}
     void setOSCPulseWidth(int v) {DataSet(0x06,v);}
     void setOSCPitchEnvAttackTime(int v) {DataSet(0x07,v);}
     void setOSCPitchEnvDecay(int v) {DataSet(0x08,v);}
-    void setOSCPitchEnvDepth(int v) {DataSet(0x09,v);}
+    void setOSCPitchEnvDepth(int v) {DataSetOffset(0x09,v,64);}
     void setFILTERMode(int v) {DataSet(0x0A,v);}
     void setFILTERSlope(int v) {DataSet(0x0B,v);}
     void setFILTERCutoff(int v) {DataSet(0x0C,v);}
-    void setFILTERCutoffKeyfollow(int v) {DataSet(0x0D,v);}
-    void setFILTEREnvVelocitySens(int v) {DataSet(0x0E,v);}
+    void setFILTERCutoffKeyfollow(int v) {DataSetOffsetGain(0x0D,v,64,10);}
+    void setFILTEREnvVelocitySens(int v) {DataSetOffset(0x0E,v,64);}
     void setFILTERResonance(int v) {DataSet(0x0F,v);}
     void setFILTEREnvAttackTime(int v) {DataSet(0x10,v);}
     void setFILTEREnvDecayTime(int v) {DataSet(0x11,v);}
     void setFILTEREnvSustainLevel(int v) {DataSet(0x12,v);}
     void setFILTEREnvReleaseTime(int v) {DataSet(0x13,v);}
-    void setFILTEREnvDepth(int v) {DataSet(0x14,v);}
+    void setFILTEREnvDepth(int v) {DataSetOffset(0x14,v,64);}
     void setAMPLevel(int v) {DataSet(0x15,v);}
-    void setAMPLevelVelocitySens(int v) {DataSet(0x16,v);}
+    void setAMPLevelVelocitySens(int v) {DataSetOffset(0x16,v,64);}
     void setAMPEnvAttackTime(int v) {DataSet(0x17,v);}
     void setAMPEnvDecayTime(int v) {DataSet(0x18,v);}
     void setAMPEnvSustainLevel(int v) {DataSet(0x19,v);}
     void setAMPEnvReleaseTime(int v) {DataSet(0x1A,v);}
-    void setAMPPan(int v) {DataSet(0x1B,v);}
+    void setAMPPan(int v) {DataSetOffset(0x1B,v,64);}
     void setLFOShape(int v) {DataSet(0x1C,v);}
     void setLFORate(int v) {DataSet(0x1D,v);}
     void setLFOTempoSyncSwitch(int v) {DataSet(0x1E,v);}
     void setLFOTempoSyncNote(int v) {DataSet(0x1F,v);}
     void setLFOFadeTime(int v) {DataSet(0x20,v);}
     void setLFOKeyTrigger(int v) {DataSet(0x21,v);}
-    void setLFOPitchDepth(int v) {DataSet(0x22,v);}
-    void setLFOFilterDepth(int v) {DataSet(0x23,v);}
-    void setLFOAmpDepth(int v) {DataSet(0x24,v);}
-    void setLFOPanDepth(int v) {DataSet(0x25,v);}
+    void setLFOPitchDepth(int v) {DataSetOffset(0x22,v,64);}
+    void setLFOFilterDepth(int v) {DataSetOffset(0x23,v,64);}
+    void setLFOAmpDepth(int v) {DataSetOffset(0x24,v,64);}
+    void setLFOPanDepth(int v) {DataSetOffset(0x25,v,64);}
     void setModulationLFOShape(int v) {DataSet(0x26,v);}
     void setModulationLFORate(int v) {DataSet(0x27,v);}
     void setModulationLFOTempoSyncSwitch(int v) {DataSet(0x28,v);}
     void setModulationLFOTempoSyncNote(int v) {DataSet(0x29,v);}
     void setOSCPulseWidthShift(int v) {DataSet(0x2A,v);}
-    void setModulationLFOPitchDepth(int v) {DataSet(0x2C,v);}
-    void setModulationLFOFilterDepth(int v) {DataSet(0x2D,v);}
-    void setModulationLFOAmpDepth(int v) {DataSet(0x2E,v);}
-    void setModulationLFOPanDepth(int v) {DataSet(0x2F,v);}
-    void setCutoffAftertouchSens(int v) {DataSet(0x30,v);}
-    void setLevelAftertouchSens(int v) {DataSet(0x31,v);}
+    void setModulationLFOPitchDepth(int v) {DataSetOffset(0x2C,v,64);}
+    void setModulationLFOFilterDepth(int v) {DataSetOffset(0x2D,v,64);}
+    void setModulationLFOAmpDepth(int v) {DataSetOffset(0x2E,v,64);}
+    void setModulationLFOPanDepth(int v) {DataSetOffset(0x2F,v,64);}
+    void setCutoffAftertouchSens(int v) {DataSetOffset(0x30,v,64);}
+    void setLevelAftertouchSens(int v) {DataSetOffset(0x31,v,64);}
     void setWaveGain(int v) {DataSet(0x34,v);}
     void setWaveNumber(int v) {DataSet4x4B(0x35,v);}
     void setHPFCutoff(int v) {DataSet(0x39,v);}
     void setSuperSawDetune(int v) {DataSet(0x3A,v);}
-    void setModulationLFORateControl(int v) {DataSet(0x3B,v);}
-    void setAMPLevelKeyfollow(int v) {DataSet(0x3C,v);}
+    void setModulationLFORateControl(int v) {DataSetOffset(0x3B,v,64);}
+    void setAMPLevelKeyfollow(int v) {DataSetOffsetGain(0x3C,v,64,10);}
 
 signals:
 

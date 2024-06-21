@@ -28,13 +28,13 @@ public:
     explicit Integra7PCMSynthTonePartial(Integra7Device *parent, uint8_t o1, uint8_t o2, uint8_t o3);
 
     int getPartialLevel() {return data[0x00];}
-    int getPartialCoarseTune() {return data[0x01];}
-    int getPartialFineTune() {return data[0x02];}
+    int getPartialCoarseTune() {return data[0x01]-64;}
+    int getPartialFineTune() {return data[0x02]-64;}
     int getPartialRandomPitchDepth() {return data[0x03];}
-    int getPartialPan() {return data[0x04];}
-    int getPartialPanKeyfollow() {return data[0x05];}
+    int getPartialPan() {return data[0x04]-64;}
+    int getPartialPanKeyfollow() {return (data[0x05]-64)*10;}
     int getPartialRandomPanDepth() {return data[0x06];}
-    int getPartialAlternatePanDepth() {return data[0x07];}
+    int getPartialAlternatePanDepth() {return data[0x07]-64;}
     int getPartialEnvMode() {return data[0x08];}
     int getPartialDelayMode() {return data[0x09];}
     int getPartialDelayTime() {return data[0x0A]<<4|data[0x0B];}
@@ -43,6 +43,7 @@ public:
     int getPartialReverbSendLevel() {return data[0x10];}
     int getPartialReceiveBender() {return data[0x12];}
     int getPartialReceiveExpression() {return data[0x13];}
+    int getPartialReceiveHold() {return data[0x14];}
     int getPartialRedamperSwitch() {return data[0x16];}
     int getPartialControl1Switch1() {return data[0x17];}
     int getPartialControl1Switch2() {return data[0x18];}
@@ -69,34 +70,34 @@ public:
     int getWaveFXMColor() {return data[0x36];}
     int getWaveFXMDepth() {return data[0x37];}
     int getWaveTempoSync() {return data[0x38];}
-    int getWavePitchKeyfollow() {return data[0x39];}
-    int getPitchEnvDepth() {return data[0x3A];}
-    int getPitchEnvVelocitySens() {return data[0x3B];}
-    int getPitchEnvTime1VelocitySens() {return data[0x3C];}
-    int getPitchEnvTime4VelocitySens() {return data[0x3D];}
-    int getPitchEnvTimeKeyfollow() {return data[0x3E];}
+    int getWavePitchKeyfollow() {return (data[0x39]-64)*10;}
+    int getPitchEnvDepth() {return data[0x3A]-64;}
+    int getPitchEnvVelocitySens() {return data[0x3B]-64;}
+    int getPitchEnvTime1VelocitySens() {return data[0x3C]-64;}
+    int getPitchEnvTime4VelocitySens() {return data[0x3D]-64;}
+    int getPitchEnvTimeKeyfollow() {return (data[0x3E]-64)*10;}
     int getPitchEnvTime1() {return data[0x3F];}
     int getPitchEnvTime2() {return data[0x40];}
     int getPitchEnvTime3() {return data[0x41];}
     int getPitchEnvTime4() {return data[0x42];}
-    int getPitchEnvLevel0() {return data[0x43];}
-    int getPitchEnvLevel1() {return data[0x44];}
-    int getPitchEnvLevel2() {return data[0x45];}
-    int getPitchEnvLevel3() {return data[0x46];}
-    int getPitchEnvLevel4() {return data[0x47];}
+    int getPitchEnvLevel0() {return data[0x43]-64;}
+    int getPitchEnvLevel1() {return data[0x44]-64;}
+    int getPitchEnvLevel2() {return data[0x45]-64;}
+    int getPitchEnvLevel3() {return data[0x46]-64;}
+    int getPitchEnvLevel4() {return data[0x47]-64;}
     int getTVFFilterType() {return data[0x48];}
     int getTVFCutoffFrequency() {return data[0x49];}
-    int getTVFCutoffKeyfollow() {return data[0x4A];}
+    int getTVFCutoffKeyfollow() {return (data[0x4A]-64)*10;}
     int getTVFCutoffVelocityCurve() {return data[0x4B];}
-    int getTVFCutoffVelocitySens() {return data[0x4C];}
+    int getTVFCutoffVelocitySens() {return data[0x4C]-64;}
     int getTVFResonance() {return data[0x4D];}
-    int getTVFResonanceVelocitySens() {return data[0x4E];}
-    int getTVFEnvDepth() {return data[0x4F];}
+    int getTVFResonanceVelocitySens() {return data[0x4E]-64;}
+    int getTVFEnvDepth() {return data[0x4F]-64;}
     int getTVFEnvVelocityCurve() {return data[0x50];}
-    int getTVFEnvVelocitySens() {return data[0x51];}
-    int getTVFEnvTime1VelocitySens() {return data[0x52];}
-    int getTVFEnvTime4VelocitySens() {return data[0x53];}
-    int getTVFEnvTimeKeyfollow() {return data[0x54];}
+    int getTVFEnvVelocitySens() {return data[0x51]-64;}
+    int getTVFEnvTime1VelocitySens() {return data[0x52]-64;}
+    int getTVFEnvTime4VelocitySens() {return data[0x53]-64;}
+    int getTVFEnvTimeKeyfollow() {return (data[0x54]-64)*10;}
     int getTVFEnvTime1() {return data[0x55];}
     int getTVFEnvTime2() {return data[0x56];}
     int getTVFEnvTime3() {return data[0x57];}
@@ -106,14 +107,14 @@ public:
     int getTVFEnvLevel2() {return data[0x5B];}
     int getTVFEnvLevel3() {return data[0x5C];}
     int getTVFEnvLevel4() {return data[0x5D];}
-    int getBiasLevel() {return data[0x5E];}
+    int getBiasLevel() {return (data[0x5E]-64)*10;}
     int getBiasPosition() {return data[0x5F];}
     int getBiasDirection() {return data[0x60];}
     int getTVALevelVelocityCurve() {return data[0x61];}
-    int getTVALevelVelocitySens() {return data[0x62];}
-    int getTVAEnvTime1VelocitySens() {return data[0x63];}
-    int getTVAEnvTime4VelocitySens() {return data[0x64];}
-    int getTVAEnvTimeKeyfollow() {return data[0x65];}
+    int getTVALevelVelocitySens() {return data[0x62]-64;}
+    int getTVAEnvTime1VelocitySens() {return data[0x63]-64;}
+    int getTVAEnvTime4VelocitySens() {return data[0x64]-64;}
+    int getTVAEnvTimeKeyfollow() {return (data[0x65]-64)*10;}
     int getTVAEnvTime1() {return data[0x66];}
     int getTVAEnvTime2() {return data[0x67];}
     int getTVAEnvTime3() {return data[0x68];}
@@ -126,44 +127,44 @@ public:
     int getLFO1Offset() {return data[0x70];}
     int getLFO1RateDetune() {return data[0x71];}
     int getLFO1DelayTime() {return data[0x72];}
-    int getLFO1DelayTimeKeyfollow() {return data[0x73];}
+    int getLFO1DelayTimeKeyfollow() {return (data[0x73]-64)*10;}
     int getLFO1FadeMode() {return data[0x74];}
     int getLFO1FadeTime() {return data[0x75];}
     int getLFO1KeyTrigger() {return data[0x76];}
-    int getLFO1PitchDepth() {return data[0x77];}
-    int getLFO1TVFDepth() {return data[0x78];}
-    int getLFO1TVADepth() {return data[0x79];}
-    int getLFO1PanDepth() {return data[0x7A];}
+    int getLFO1PitchDepth() {return data[0x77]-64;}
+    int getLFO1TVFDepth() {return data[0x78]-64;}
+    int getLFO1TVADepth() {return data[0x79]-64;}
+    int getLFO1PanDepth() {return data[0x7A]-64;}
     int getLFO2Waveform() {return data[0x7B];}
     int getLFO2Rate() {return data[0x7C]<<4|data[0x7D];}
     int getLFO2Offset() {return data[0x7E];}
     int getLFO2RateDetune() {return data[0x7F];}
     int getLFO2DelayTime() {return data[0x80];}
-    int getLFO2DelayTimeKeyfollow() {return data[0x81];}
+    int getLFO2DelayTimeKeyfollow() {return (data[0x81]-64)*10;}
     int getLFO2FadeMode() {return data[0x82];}
     int getLFO2FadeTime() {return data[0x83];}
     int getLFO2KeyTrigger() {return data[0x84];}
-    int getLFO2PitchDepth() {return data[0x85];}
-    int getLFO2TVFDepth() {return data[0x86];}
-    int getLFO2TVADepth() {return data[0x87];}
-    int getLFO2PanDepth() {return data[0x88];}
+    int getLFO2PitchDepth() {return data[0x85]-64;}
+    int getLFO2TVFDepth() {return data[0x86]-64;}
+    int getLFO2TVADepth() {return data[0x87]-64;}
+    int getLFO2PanDepth() {return data[0x88]-64;}
     int getLFOStepType() {return data[0x89];}
-    int getLFOStep1() {return data[0x8A];}
-    int getLFOStep2() {return data[0x8B];}
-    int getLFOStep3() {return data[0x8C];}
-    int getLFOStep4() {return data[0x8D];}
-    int getLFOStep5() {return data[0x8E];}
-    int getLFOStep6() {return data[0x8F];}
-    int getLFOStep7() {return data[0x90];}
-    int getLFOStep8() {return data[0x91];}
-    int getLFOStep9() {return data[0x92];}
-    int getLFOStep10() {return data[0x93];}
-    int getLFOStep11() {return data[0x94];}
-    int getLFOStep12() {return data[0x95];}
-    int getLFOStep13() {return data[0x96];}
-    int getLFOStep14() {return data[0x97];}
-    int getLFOStep15() {return data[0x98];}
-    int getLFOStep16() {return data[0x99];}
+    int getLFOStep1() {return data[0x8A]-64;}
+    int getLFOStep2() {return data[0x8B]-64;}
+    int getLFOStep3() {return data[0x8C]-64;}
+    int getLFOStep4() {return data[0x8D]-64;}
+    int getLFOStep5() {return data[0x8E]-64;}
+    int getLFOStep6() {return data[0x8F]-64;}
+    int getLFOStep7() {return data[0x90]-64;}
+    int getLFOStep8() {return data[0x91]-64;}
+    int getLFOStep9() {return data[0x92]-64;}
+    int getLFOStep10() {return data[0x93]-64;}
+    int getLFOStep11() {return data[0x94]-64;}
+    int getLFOStep12() {return data[0x95]-64;}
+    int getLFOStep13() {return data[0x96]-64;}
+    int getLFOStep14() {return data[0x97]-64;}
+    int getLFOStep15() {return data[0x98]-64;}
+    int getLFOStep16() {return data[0x99]-64;}
 
     void DataReceive(const uint8_t *rdata, uint8_t a, int len);
 
@@ -173,13 +174,13 @@ public:
 public slots:
 
     void setPartialLevel(int v) {DataSet(0x00,v);}
-    void setPartialCoarseTune(int v) {DataSet(0x01,v);}
-    void setPartialFineTune(int v) {DataSet(0x02,v);}
+    void setPartialCoarseTune(int v) {DataSetOffset(0x01,v,64);}
+    void setPartialFineTune(int v) {DataSetOffset(0x02,v,64);}
     void setPartialRandomPitchDepth(int v) {DataSet(0x03,v);}
-    void setPartialPan(int v) {DataSet(0x04,v);}
-    void setPartialPanKeyfollow(int v) {DataSet(0x05,v);}
+    void setPartialPan(int v) {DataSetOffset(0x04,v,64);}
+    void setPartialPanKeyfollow(int v) {DataSetOffsetGain(0x05,v,64,10);}
     void setPartialRandomPanDepth(int v) {DataSet(0x06,v);}
-    void setPartialAlternatePanDepth(int v) {DataSet(0x07,v);}
+    void setPartialAlternatePanDepth(int v) {DataSetOffset(0x07,v,64);}
     void setPartialEnvMode(int v) {DataSet(0x08,v);}
     void setPartialDelayMode(int v) {DataSet(0x09,v);}
     void setPartialDelayTime(int v) {DataSet2x4B(0x0A,v);}
@@ -188,6 +189,7 @@ public slots:
     void setPartialReverbSendLevel(int v) {DataSet(0x10,v);}
     void setPartialReceiveBender(int v) {DataSet(0x12,v);}
     void setPartialReceiveExpression(int v) {DataSet(0x13,v);}
+    void setPartialReceiveHold(int v) {DataSet(0x14,v);}
     void setPartialRedamperSwitch(int v) {DataSet(0x16,v);}
     void setPartialControl1Switch1(int v) {DataSet(0x17,v);}
     void setPartialControl1Switch2(int v) {DataSet(0x18,v);}
@@ -214,34 +216,34 @@ public slots:
     void setWaveFXMColor(int v) {DataSet(0x36,v);}
     void setWaveFXMDepth(int v) {DataSet(0x37,v);}
     void setWaveTempoSync(int v) {DataSet(0x38,v);}
-    void setWavePitchKeyfollow(int v) {DataSet(0x39,v);}
-    void setPitchEnvDepth(int v) {DataSet(0x3A,v);}
-    void setPitchEnvVelocitySens(int v) {DataSet(0x3B,v);}
-    void setPitchEnvTime1VelocitySens(int v) {DataSet(0x3C,v);}
-    void setPitchEnvTime4VelocitySens(int v) {DataSet(0x3D,v);}
-    void setPitchEnvTimeKeyfollow(int v) {DataSet(0x3E,v);}
+    void setWavePitchKeyfollow(int v) {DataSetOffsetGain(0x39,v,64,10);}
+    void setPitchEnvDepth(int v) {DataSetOffset(0x3A,v,64);}
+    void setPitchEnvVelocitySens(int v) {DataSetOffset(0x3B,v,64);}
+    void setPitchEnvTime1VelocitySens(int v) {DataSetOffset(0x3C,v,64);}
+    void setPitchEnvTime4VelocitySens(int v) {DataSetOffset(0x3D,v,64);}
+    void setPitchEnvTimeKeyfollow(int v) {DataSetOffsetGain(0x3E,v,64,10);}
     void setPitchEnvTime1(int v) {DataSet(0x3F,v);}
     void setPitchEnvTime2(int v) {DataSet(0x40,v);}
     void setPitchEnvTime3(int v) {DataSet(0x41,v);}
     void setPitchEnvTime4(int v) {DataSet(0x42,v);}
-    void setPitchEnvLevel0(int v) {DataSet(0x43,v);}
-    void setPitchEnvLevel1(int v) {DataSet(0x44,v);}
-    void setPitchEnvLevel2(int v) {DataSet(0x45,v);}
-    void setPitchEnvLevel3(int v) {DataSet(0x46,v);}
-    void setPitchEnvLevel4(int v) {DataSet(0x47,v);}
+    void setPitchEnvLevel0(int v) {DataSetOffset(0x43,v,64);}
+    void setPitchEnvLevel1(int v) {DataSetOffset(0x44,v,64);}
+    void setPitchEnvLevel2(int v) {DataSetOffset(0x45,v,64);}
+    void setPitchEnvLevel3(int v) {DataSetOffset(0x46,v,64);}
+    void setPitchEnvLevel4(int v) {DataSetOffset(0x47,v,64);}
     void setTVFFilterType(int v) {DataSet(0x48,v);}
     void setTVFCutoffFrequency(int v) {DataSet(0x49,v);}
-    void setTVFCutoffKeyfollow(int v) {DataSet(0x4A,v);}
+    void setTVFCutoffKeyfollow(int v) {DataSetOffsetGain(0x4A,v,64,10);}
     void setTVFCutoffVelocityCurve(int v) {DataSet(0x4B,v);}
-    void setTVFCutoffVelocitySens(int v) {DataSet(0x4C,v);}
+    void setTVFCutoffVelocitySens(int v) {DataSetOffset(0x4C,v,64);}
     void setTVFResonance(int v) {DataSet(0x4D,v);}
-    void setTVFResonanceVelocitySens(int v) {DataSet(0x4E,v);}
-    void setTVFEnvDepth(int v) {DataSet(0x4F,v);}
+    void setTVFResonanceVelocitySens(int v) {DataSetOffset(0x4E,v,64);}
+    void setTVFEnvDepth(int v) {DataSetOffset(0x4F,v,64);}
     void setTVFEnvVelocityCurve(int v) {DataSet(0x50,v);}
-    void setTVFEnvVelocitySens(int v) {DataSet(0x51,v);}
-    void setTVFEnvTime1VelocitySens(int v) {DataSet(0x52,v);}
-    void setTVFEnvTime4VelocitySens(int v) {DataSet(0x53,v);}
-    void setTVFEnvTimeKeyfollow(int v) {DataSet(0x54,v);}
+    void setTVFEnvVelocitySens(int v) {DataSetOffset(0x51,v,64);}
+    void setTVFEnvTime1VelocitySens(int v) {DataSetOffset(0x52,v,64);}
+    void setTVFEnvTime4VelocitySens(int v) {DataSetOffset(0x53,v,64);}
+    void setTVFEnvTimeKeyfollow(int v) {DataSetOffsetGain(0x54,v,64,10);}
     void setTVFEnvTime1(int v) {DataSet(0x55,v);}
     void setTVFEnvTime2(int v) {DataSet(0x56,v);}
     void setTVFEnvTime3(int v) {DataSet(0x57,v);}
@@ -251,14 +253,14 @@ public slots:
     void setTVFEnvLevel2(int v) {DataSet(0x5B,v);}
     void setTVFEnvLevel3(int v) {DataSet(0x5C,v);}
     void setTVFEnvLevel4(int v) {DataSet(0x5D,v);}
-    void setBiasLevel(int v) {DataSet(0x5E,v);}
+    void setBiasLevel(int v) {DataSetOffsetGain(0x5E,v,64,10);}
     void setBiasPosition(int v) {DataSet(0x5F,v);}
     void setBiasDirection(int v) {DataSet(0x60,v);}
     void setTVALevelVelocityCurve(int v) {DataSet(0x61,v);}
-    void setTVALevelVelocitySens(int v) {DataSet(0x62,v);}
-    void setTVAEnvTime1VelocitySens(int v) {DataSet(0x63,v);}
-    void setTVAEnvTime4VelocitySens(int v) {DataSet(0x64,v);}
-    void setTVAEnvTimeKeyfollow(int v) {DataSet(0x65,v);}
+    void setTVALevelVelocitySens(int v) {DataSetOffset(0x62,v,64);}
+    void setTVAEnvTime1VelocitySens(int v) {DataSetOffset(0x63,v,64);}
+    void setTVAEnvTime4VelocitySens(int v) {DataSetOffset(0x64,v,64);}
+    void setTVAEnvTimeKeyfollow(int v) {DataSetOffsetGain(0x65,v,64,10);}
     void setTVAEnvTime1(int v) {DataSet(0x66,v);}
     void setTVAEnvTime2(int v) {DataSet(0x67,v);}
     void setTVAEnvTime3(int v) {DataSet(0x68,v);}
@@ -271,44 +273,44 @@ public slots:
     void setLFO1Offset(int v) {DataSet(0x70,v);}
     void setLFO1RateDetune(int v) {DataSet(0x71,v);}
     void setLFO1DelayTime(int v) {DataSet(0x72,v);}
-    void setLFO1DelayTimeKeyfollow(int v) {DataSet(0x73,v);}
+    void setLFO1DelayTimeKeyfollow(int v) {DataSetOffsetGain(0x73,v,64,10);}
     void setLFO1FadeMode(int v) {DataSet(0x74,v);}
     void setLFO1FadeTime(int v) {DataSet(0x75,v);}
     void setLFO1KeyTrigger(int v) {DataSet(0x76,v);}
-    void setLFO1PitchDepth(int v) {DataSet(0x77,v);}
-    void setLFO1TVFDepth(int v) {DataSet(0x78,v);}
-    void setLFO1TVADepth(int v) {DataSet(0x79,v);}
-    void setLFO1PanDepth(int v) {DataSet(0x7A,v);}
+    void setLFO1PitchDepth(int v) {DataSetOffset(0x77,v,64);}
+    void setLFO1TVFDepth(int v) {DataSetOffset(0x78,v,64);}
+    void setLFO1TVADepth(int v) {DataSetOffset(0x79,v,64);}
+    void setLFO1PanDepth(int v) {DataSetOffset(0x7A,v,64);}
     void setLFO2Waveform(int v) {DataSet(0x7B,v);}
     void setLFO2Rate(int v) {DataSet2x4B(0x7C,v);}
     void setLFO2Offset(int v) {DataSet(0x7E,v);}
     void setLFO2RateDetune(int v) {DataSet(0x7F,v);}
     void setLFO2DelayTime(int v) {DataSet(0x80,v);}
-    void setLFO2DelayTimeKeyfollow(int v) {DataSet(0x81,v);}
+    void setLFO2DelayTimeKeyfollow(int v) {DataSetOffsetGain(0x81,v,64,10);}
     void setLFO2FadeMode(int v) {DataSet(0x82,v);}
     void setLFO2FadeTime(int v) {DataSet(0x83,v);}
     void setLFO2KeyTrigger(int v) {DataSet(0x84,v);}
-    void setLFO2PitchDepth(int v) {DataSet(0x85,v);}
-    void setLFO2TVFDepth(int v) {DataSet(0x86,v);}
-    void setLFO2TVADepth(int v) {DataSet(0x87,v);}
-    void setLFO2PanDepth(int v) {DataSet(0x88,v);}
+    void setLFO2PitchDepth(int v) {DataSetOffset(0x85,v,64);}
+    void setLFO2TVFDepth(int v) {DataSetOffset(0x86,v,64);}
+    void setLFO2TVADepth(int v) {DataSetOffset(0x87,v,64);}
+    void setLFO2PanDepth(int v) {DataSetOffset(0x88,v,64);}
     void setLFOStepType(int v) {DataSet(0x89,v);}
-    void setLFOStep1(int v) {DataSet(0x8A,v);}
-    void setLFOStep2(int v) {DataSet(0x8B,v);}
-    void setLFOStep3(int v) {DataSet(0x8C,v);}
-    void setLFOStep4(int v) {DataSet(0x8D,v);}
-    void setLFOStep5(int v) {DataSet(0x8E,v);}
-    void setLFOStep6(int v) {DataSet(0x8F,v);}
-    void setLFOStep7(int v) {DataSet(0x90,v);}
-    void setLFOStep8(int v) {DataSet(0x91,v);}
-    void setLFOStep9(int v) {DataSet(0x92,v);}
-    void setLFOStep10(int v) {DataSet(0x93,v);}
-    void setLFOStep11(int v) {DataSet(0x94,v);}
-    void setLFOStep12(int v) {DataSet(0x95,v);}
-    void setLFOStep13(int v) {DataSet(0x96,v);}
-    void setLFOStep14(int v) {DataSet(0x97,v);}
-    void setLFOStep15(int v) {DataSet(0x98,v);}
-    void setLFOStep16(int v) {DataSet(0x99,v);}
+    void setLFOStep1(int v) {DataSetOffset(0x8A,v,64);}
+    void setLFOStep2(int v) {DataSetOffset(0x8B,v,64);}
+    void setLFOStep3(int v) {DataSetOffset(0x8C,v,64);}
+    void setLFOStep4(int v) {DataSetOffset(0x8D,v,64);}
+    void setLFOStep5(int v) {DataSetOffset(0x8E,v,64);}
+    void setLFOStep6(int v) {DataSetOffset(0x8F,v,64);}
+    void setLFOStep7(int v) {DataSetOffset(0x90,v,64);}
+    void setLFOStep8(int v) {DataSetOffset(0x91,v,64);}
+    void setLFOStep9(int v) {DataSetOffset(0x92,v,64);}
+    void setLFOStep10(int v) {DataSetOffset(0x93,v,64);}
+    void setLFOStep11(int v) {DataSetOffset(0x94,v,64);}
+    void setLFOStep12(int v) {DataSetOffset(0x95,v,64);}
+    void setLFOStep13(int v) {DataSetOffset(0x96,v,64);}
+    void setLFOStep14(int v) {DataSetOffset(0x97,v,64);}
+    void setLFOStep15(int v) {DataSetOffset(0x98,v,64);}
+    void setLFOStep16(int v) {DataSetOffset(0x99,v,64);}
 
 signals:
 

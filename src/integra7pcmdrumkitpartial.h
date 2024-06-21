@@ -44,11 +44,11 @@ public:
     int getMuteGroup() {return data[0x0D];}
     int getPartialLevel() {return data[0x0E];}
     int getPartialCoarseTune() {return data[0x0F];}
-    int getPartialFineTune() {return data[0x10];}
+    int getPartialFineTune() {return data[0x10]-64;}
     int getPartialRandomPitchDepth() {return data[0x11];}
-    int getPartialPan() {return data[0x12];}
+    int getPartialPan() {return data[0x12]-64;}
     int getPartialRandomPanDepth() {return data[0x13];}
-    int getPartialAlternatePanDepth() {return data[0x14];}
+    int getPartialAlternatePanDepth() {return data[0x14]-64;}
     int getPartialEnvMode() {return data[0x15];}
     int getPartialOutputLevel() {return data[0x16];}
     int getPartialChorusSendLevel() {return data[0x19];}
@@ -56,6 +56,7 @@ public:
     int getPartialOutputAssign() {return data[0x1B];}
     int getPartialPitchBendRange() {return data[0x1C];}
     int getPartialReceiveExpression() {return data[0x1D];}
+    int getPartialReceiveHold() {return data[0x1E];}
     int getWMTVelocityControl() {return data[0x20];}
     int getWMT1WaveSwitch() {return data[0x21];}
     int getWMT1WaveGroupType() {return data[0x22];}
@@ -67,9 +68,9 @@ public:
     int getWMT1WaveFXMColor() {return data[0x31];}
     int getWMT1WaveFXMDepth() {return data[0x32];}
     int getWMT1WaveTempoSync() {return data[0x33];}
-    int getWMT1WaveCoarseTune() {return data[0x34];}
-    int getWMT1WaveFineTune() {return data[0x35];}
-    int getWMT1WavePan() {return data[0x36];}
+    int getWMT1WaveCoarseTune() {return data[0x34]-64;}
+    int getWMT1WaveFineTune() {return data[0x35]-64;}
+    int getWMT1WavePan() {return data[0x36]-64;}
     int getWMT1WaveRandomPanSwitch() {return data[0x37];}
     int getWMT1WaveAlternatePanSwitch() {return data[0x38];}
     int getWMT1WaveLevel() {return data[0x39];}
@@ -87,9 +88,9 @@ public:
     int getWMT2WaveFXMColor() {return data[0x4E];}
     int getWMT2WaveFXMDepth() {return data[0x4F];}
     int getWMT2WaveTempoSync() {return data[0x50];}
-    int getWMT2WaveCoarseTune() {return data[0x51];}
-    int getWMT2WaveFineTune() {return data[0x52];}
-    int getWMT2WavePan() {return data[0x53];}
+    int getWMT2WaveCoarseTune() {return data[0x51]-64;}
+    int getWMT2WaveFineTune() {return data[0x52]-64;}
+    int getWMT2WavePan() {return data[0x53]-64;}
     int getWMT2WaveRandomPanSwitch() {return data[0x54];}
     int getWMT2WaveAlternatePanSwitch() {return data[0x55];}
     int getWMT2WaveLevel() {return data[0x56];}
@@ -107,9 +108,9 @@ public:
     int getWMT3WaveFXMColor() {return data[0x6B];}
     int getWMT3WaveFXMDepth() {return data[0x6C];}
     int getWMT3WaveTempoSync() {return data[0x6D];}
-    int getWMT3WaveCoarseTune() {return data[0x6E];}
-    int getWMT3WaveFineTune() {return data[0x6F];}
-    int getWMT3WavePan() {return data[0x70];}
+    int getWMT3WaveCoarseTune() {return data[0x6E]-64;}
+    int getWMT3WaveFineTune() {return data[0x6F]-64;}
+    int getWMT3WavePan() {return data[0x70]-64;}
     int getWMT3WaveRandomPanSwitch() {return data[0x71];}
     int getWMT3WaveAlternatePanSwitch() {return data[0x72];}
     int getWMT3WaveLevel() {return data[0x73];}
@@ -127,9 +128,9 @@ public:
     int getWMT4WaveFXMColor() {return data[0x88];}
     int getWMT4WaveFXMDepth() {return data[0x89];}
     int getWMT4WaveTempoSync() {return data[0x8A];}
-    int getWMT4WaveCoarseTune() {return data[0x8B];}
-    int getWMT4WaveFineTune() {return data[0x8C];}
-    int getWMT4WavePan() {return data[0x8D];}
+    int getWMT4WaveCoarseTune() {return data[0x8B]-64;}
+    int getWMT4WaveFineTune() {return data[0x8C]-64;}
+    int getWMT4WavePan() {return data[0x8D]-64;}
     int getWMT4WaveRandomPanSwitch() {return data[0x8E];}
     int getWMT4WaveAlternatePanSwitch() {return data[0x8F];}
     int getWMT4WaveLevel() {return data[0x90];}
@@ -137,30 +138,30 @@ public:
     int getWMT4VelocityRangeUpper() {return data[0x92];}
     int getWMT4VelocityFadeWidthLower() {return data[0x93];}
     int getWMT4VelocityFadeWidthUpper() {return data[0x94];}
-    int getPitchEnvDepth() {return data[0x95];}
-    int getPitchEnvVelocitySens() {return data[0x96];}
-    int getPitchEnvTime1VelocitySens() {return data[0x97];}
-    int getPitchEnvTime4VelocitySens() {return data[0x98];}
+    int getPitchEnvDepth() {return data[0x95]-64;}
+    int getPitchEnvVelocitySens() {return data[0x96]-64;}
+    int getPitchEnvTime1VelocitySens() {return data[0x97]-64;}
+    int getPitchEnvTime4VelocitySens() {return data[0x98]-64;}
     int getPitchEnvTime1() {return data[0x99];}
     int getPitchEnvTime2() {return data[0x9A];}
     int getPitchEnvTime3() {return data[0x9B];}
     int getPitchEnvTime4() {return data[0x9C];}
-    int getPitchEnvLevel0() {return data[0x9D];}
-    int getPitchEnvLevel1() {return data[0x9E];}
-    int getPitchEnvLevel2() {return data[0x9F];}
-    int getPitchEnvLevel3() {return data[0xA0];}
-    int getPitchEnvLevel4() {return data[0xA1];}
+    int getPitchEnvLevel0() {return data[0x9D]-64;}
+    int getPitchEnvLevel1() {return data[0x9E]-64;}
+    int getPitchEnvLevel2() {return data[0x9F]-64;}
+    int getPitchEnvLevel3() {return data[0xA0]-64;}
+    int getPitchEnvLevel4() {return data[0xA1]-64;}
     int getTVFFilterType() {return data[0xA2];}
     int getTVFCutoffFrequency() {return data[0xA3];}
     int getTVFCutoffVelocityCurve() {return data[0xA4];}
-    int getTVFCutoffVelocitySens() {return data[0xA5];}
+    int getTVFCutoffVelocitySens() {return data[0xA5]-64;}
     int getTVFResonance() {return data[0xA6];}
-    int getTVFResonanceVelocitySens() {return data[0xA7];}
-    int getTVFEnvDepth() {return data[0xA8];}
+    int getTVFResonanceVelocitySens() {return data[0xA7]-64;}
+    int getTVFEnvDepth() {return data[0xA8]-64;}
     int getTVFEnvVelocityCurveType() {return data[0xA9];}
-    int getTVFEnvVelocitySens() {return data[0xAA];}
-    int getTVFEnvTime1VelocitySens() {return data[0xAB];}
-    int getTVFEnvTime4VelocitySens() {return data[0xAC];}
+    int getTVFEnvVelocitySens() {return data[0xAA]-64;}
+    int getTVFEnvTime1VelocitySens() {return data[0xAB]-64;}
+    int getTVFEnvTime4VelocitySens() {return data[0xAC]-64;}
     int getTVFEnvTime1() {return data[0xAD];}
     int getTVFEnvTime2() {return data[0xAE];}
     int getTVFEnvTime3() {return data[0xAF];}
@@ -171,9 +172,9 @@ public:
     int getTVFEnvLevel3() {return data[0xB4];}
     int getTVFEnvLevel4() {return data[0xB5];}
     int getTVALevelVelocityCurve() {return data[0xB6];}
-    int getTVALevelVelocitySens() {return data[0xB7];}
-    int getTVAEnvTime1VelocitySens() {return data[0xB8];}
-    int getTVAEnvTime4VelocitySens() {return data[0xB9];}
+    int getTVALevelVelocitySens() {return data[0xB7]-64;}
+    int getTVAEnvTime1VelocitySens() {return data[0xB8]-64;}
+    int getTVAEnvTime4VelocitySens() {return data[0xB9]-64;}
     int getTVAEnvTime1() {return data[0xBA];}
     int getTVAEnvTime2() {return data[0xBB];}
     int getTVAEnvTime3() {return data[0xBC];}
@@ -206,11 +207,11 @@ public slots:
     void setMuteGroup(int v) {DataSet(0x0D,v);}
     void setPartialLevel(int v) {DataSet(0x0E,v);}
     void setPartialCoarseTune(int v) {DataSet(0x0F,v);}
-    void setPartialFineTune(int v) {DataSet(0x10,v);}
+    void setPartialFineTune(int v) {DataSetOffset(0x10,v,64);}
     void setPartialRandomPitchDepth(int v) {DataSet(0x11,v);}
-    void setPartialPan(int v) {DataSet(0x12,v);}
+    void setPartialPan(int v) {DataSetOffset(0x12,v,64);}
     void setPartialRandomPanDepth(int v) {DataSet(0x13,v);}
-    void setPartialAlternatePanDepth(int v) {DataSet(0x14,v);}
+    void setPartialAlternatePanDepth(int v) {DataSetOffset(0x14,v,64);}
     void setPartialEnvMode(int v) {DataSet(0x15,v);}
     void setPartialOutputLevel(int v) {DataSet(0x16,v);}
     void setPartialChorusSendLevel(int v) {DataSet(0x19,v);}
@@ -218,6 +219,7 @@ public slots:
     void setPartialOutputAssign(int v) {DataSet(0x1B,v);}
     void setPartialPitchBendRange(int v) {DataSet(0x1C,v);}
     void setPartialReceiveExpression(int v) {DataSet(0x1D,v);}
+    void setPartialReceiveHold(int v) {DataSet(0x1E,v);}
     void setWMTVelocityControl(int v) {DataSet(0x20,v);}
     void setWMT1WaveSwitch(int v) {DataSet(0x21,v);}
     void setWMT1WaveGroupType(int v) {DataSet(0x22,v);}
@@ -229,9 +231,9 @@ public slots:
     void setWMT1WaveFXMColor(int v) {DataSet(0x31,v);}
     void setWMT1WaveFXMDepth(int v) {DataSet(0x32,v);}
     void setWMT1WaveTempoSync(int v) {DataSet(0x33,v);}
-    void setWMT1WaveCoarseTune(int v) {DataSet(0x34,v);}
-    void setWMT1WaveFineTune(int v) {DataSet(0x35,v);}
-    void setWMT1WavePan(int v) {DataSet(0x36,v);}
+    void setWMT1WaveCoarseTune(int v) {DataSetOffset(0x34,v,64);}
+    void setWMT1WaveFineTune(int v) {DataSetOffset(0x35,v,64);}
+    void setWMT1WavePan(int v) {DataSetOffset(0x36,v,64);}
     void setWMT1WaveRandomPanSwitch(int v) {DataSet(0x37,v);}
     void setWMT1WaveAlternatePanSwitch(int v) {DataSet(0x38,v);}
     void setWMT1WaveLevel(int v) {DataSet(0x39,v);}
@@ -249,9 +251,9 @@ public slots:
     void setWMT2WaveFXMColor(int v) {DataSet(0x4E,v);}
     void setWMT2WaveFXMDepth(int v) {DataSet(0x4F,v);}
     void setWMT2WaveTempoSync(int v) {DataSet(0x50,v);}
-    void setWMT2WaveCoarseTune(int v) {DataSet(0x51,v);}
-    void setWMT2WaveFineTune(int v) {DataSet(0x52,v);}
-    void setWMT2WavePan(int v) {DataSet(0x53,v);}
+    void setWMT2WaveCoarseTune(int v) {DataSetOffset(0x51,v,64);}
+    void setWMT2WaveFineTune(int v) {DataSetOffset(0x52,v,64);}
+    void setWMT2WavePan(int v) {DataSetOffset(0x53,v,64);}
     void setWMT2WaveRandomPanSwitch(int v) {DataSet(0x54,v);}
     void setWMT2WaveAlternatePanSwitch(int v) {DataSet(0x55,v);}
     void setWMT2WaveLevel(int v) {DataSet(0x56,v);}
@@ -269,9 +271,9 @@ public slots:
     void setWMT3WaveFXMColor(int v) {DataSet(0x6B,v);}
     void setWMT3WaveFXMDepth(int v) {DataSet(0x6C,v);}
     void setWMT3WaveTempoSync(int v) {DataSet(0x6D,v);}
-    void setWMT3WaveCoarseTune(int v) {DataSet(0x6E,v);}
-    void setWMT3WaveFineTune(int v) {DataSet(0x6F,v);}
-    void setWMT3WavePan(int v) {DataSet(0x70,v);}
+    void setWMT3WaveCoarseTune(int v) {DataSetOffset(0x6E,v,64);}
+    void setWMT3WaveFineTune(int v) {DataSetOffset(0x6F,v,64);}
+    void setWMT3WavePan(int v) {DataSetOffset(0x70,v,64);}
     void setWMT3WaveRandomPanSwitch(int v) {DataSet(0x71,v);}
     void setWMT3WaveAlternatePanSwitch(int v) {DataSet(0x72,v);}
     void setWMT3WaveLevel(int v) {DataSet(0x73,v);}
@@ -289,9 +291,9 @@ public slots:
     void setWMT4WaveFXMColor(int v) {DataSet(0x88,v);}
     void setWMT4WaveFXMDepth(int v) {DataSet(0x89,v);}
     void setWMT4WaveTempoSync(int v) {DataSet(0x8A,v);}
-    void setWMT4WaveCoarseTune(int v) {DataSet(0x8B,v);}
-    void setWMT4WaveFineTune(int v) {DataSet(0x8C,v);}
-    void setWMT4WavePan(int v) {DataSet(0x8D,v);}
+    void setWMT4WaveCoarseTune(int v) {DataSetOffset(0x8B,v,64);}
+    void setWMT4WaveFineTune(int v) {DataSetOffset(0x8C,v,64);}
+    void setWMT4WavePan(int v) {DataSetOffset(0x8D,v,64);}
     void setWMT4WaveRandomPanSwitch(int v) {DataSet(0x8E,v);}
     void setWMT4WaveAlternatePanSwitch(int v) {DataSet(0x8F,v);}
     void setWMT4WaveLevel(int v) {DataSet(0x90,v);}
@@ -299,30 +301,30 @@ public slots:
     void setWMT4VelocityRangeUpper(int v) {DataSet(0x92,v);}
     void setWMT4VelocityFadeWidthLower(int v) {DataSet(0x93,v);}
     void setWMT4VelocityFadeWidthUpper(int v) {DataSet(0x94,v);}
-    void setPitchEnvDepth(int v) {DataSet(0x95,v);}
-    void setPitchEnvVelocitySens(int v) {DataSet(0x96,v);}
-    void setPitchEnvTime1VelocitySens(int v) {DataSet(0x97,v);}
-    void setPitchEnvTime4VelocitySens(int v) {DataSet(0x98,v);}
+    void setPitchEnvDepth(int v) {DataSetOffset(0x95,v,64);}
+    void setPitchEnvVelocitySens(int v) {DataSetOffset(0x96,v,64);}
+    void setPitchEnvTime1VelocitySens(int v) {DataSetOffset(0x97,v,64);}
+    void setPitchEnvTime4VelocitySens(int v) {DataSetOffset(0x98,v,64);}
     void setPitchEnvTime1(int v) {DataSet(0x99,v);}
     void setPitchEnvTime2(int v) {DataSet(0x9A,v);}
     void setPitchEnvTime3(int v) {DataSet(0x9B,v);}
     void setPitchEnvTime4(int v) {DataSet(0x9C,v);}
-    void setPitchEnvLevel0(int v) {DataSet(0x9D,v);}
-    void setPitchEnvLevel1(int v) {DataSet(0x9E,v);}
-    void setPitchEnvLevel2(int v) {DataSet(0x9F,v);}
-    void setPitchEnvLevel3(int v) {DataSet(0xA0,v);}
-    void setPitchEnvLevel4(int v) {DataSet(0xA1,v);}
+    void setPitchEnvLevel0(int v) {DataSetOffset(0x9D,v,64);}
+    void setPitchEnvLevel1(int v) {DataSetOffset(0x9E,v,64);}
+    void setPitchEnvLevel2(int v) {DataSetOffset(0x9F,v,64);}
+    void setPitchEnvLevel3(int v) {DataSetOffset(0xA0,v,64);}
+    void setPitchEnvLevel4(int v) {DataSetOffset(0xA1,v,64);}
     void setTVFFilterType(int v) {DataSet(0xA2,v);}
     void setTVFCutoffFrequency(int v) {DataSet(0xA3,v);}
     void setTVFCutoffVelocityCurve(int v) {DataSet(0xA4,v);}
-    void setTVFCutoffVelocitySens(int v) {DataSet(0xA5,v);}
+    void setTVFCutoffVelocitySens(int v) {DataSetOffset(0xA5,v,64);}
     void setTVFResonance(int v) {DataSet(0xA6,v);}
-    void setTVFResonanceVelocitySens(int v) {DataSet(0xA7,v);}
-    void setTVFEnvDepth(int v) {DataSet(0xA8,v);}
+    void setTVFResonanceVelocitySens(int v) {DataSetOffset(0xA7,v,64);}
+    void setTVFEnvDepth(int v) {DataSetOffset(0xA8,v,64);}
     void setTVFEnvVelocityCurveType(int v) {DataSet(0xA9,v);}
-    void setTVFEnvVelocitySens(int v) {DataSet(0xAA,v);}
-    void setTVFEnvTime1VelocitySens(int v) {DataSet(0xAB,v);}
-    void setTVFEnvTime4VelocitySens(int v) {DataSet(0xAC,v);}
+    void setTVFEnvVelocitySens(int v) {DataSetOffset(0xAA,v,64);}
+    void setTVFEnvTime1VelocitySens(int v) {DataSetOffset(0xAB,v,64);}
+    void setTVFEnvTime4VelocitySens(int v) {DataSetOffset(0xAC,v,64);}
     void setTVFEnvTime1(int v) {DataSet(0xAD,v);}
     void setTVFEnvTime2(int v) {DataSet(0xAE,v);}
     void setTVFEnvTime3(int v) {DataSet(0xAF,v);}
@@ -333,9 +335,9 @@ public slots:
     void setTVFEnvLevel3(int v) {DataSet(0xB4,v);}
     void setTVFEnvLevel4(int v) {DataSet(0xB5,v);}
     void setTVALevelVelocityCurve(int v) {DataSet(0xB6,v);}
-    void setTVALevelVelocitySens(int v) {DataSet(0xB7,v);}
-    void setTVAEnvTime1VelocitySens(int v) {DataSet(0xB8,v);}
-    void setTVAEnvTime4VelocitySens(int v) {DataSet(0xB9,v);}
+    void setTVALevelVelocitySens(int v) {DataSetOffset(0xB7,v,64);}
+    void setTVAEnvTime1VelocitySens(int v) {DataSetOffset(0xB8,v,64);}
+    void setTVAEnvTime4VelocitySens(int v) {DataSetOffset(0xB9,v,64);}
     void setTVAEnvTime1(int v) {DataSet(0xBA,v);}
     void setTVAEnvTime2(int v) {DataSet(0xBB,v);}
     void setTVAEnvTime3(int v) {DataSet(0xBC,v);}

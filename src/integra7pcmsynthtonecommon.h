@@ -40,11 +40,11 @@ public:
     int getPCMSynthToneName12() {return data[0x0B];}
     QLatin1StringView getPCMSynthToneName() {return QLatin1StringView((char*)&data[0],(char*)&data[0x0B]);}
     int getPCMSynthToneLevel() {return data[0x0E];}
-    int getPCMSynthTonePan() {return data[0x0F];}
+    int getPCMSynthTonePan() {return data[0x0F]-64;}
     int getPCMSynthTonePriority() {return data[0x10];}
-    int getPCMSynthToneCoarseTune() {return data[0x11];}
-    int getPCMSynthToneFineTune() {return data[0x12];}
-    int getOctaveShift() {return data[0x13];}
+    int getPCMSynthToneCoarseTune() {return data[0x11]-64;}
+    int getPCMSynthToneFineTune() {return data[0x12]-64;}
+    int getOctaveShift() {return data[0x13]-64;}
     int getStretchTuneDepth() {return data[0x14];}
     int getAnalogFeel() {return data[0x15];}
     int getMonoPoly() {return data[0x16];}
@@ -55,50 +55,50 @@ public:
     int getPortamentoType() {return data[0x1B];}
     int getPortamentoStart() {return data[0x1C];}
     int getPortamentoTime() {return data[0x1D];}
-    int getCutoffOffset() {return data[0x22];}
-    int getResonanceOffset() {return data[0x23];}
-    int getAttackTimeOffset() {return data[0x24];}
-    int getReleaseTimeOffset() {return data[0x25];}
-    int getVelocitySensOffset() {return data[0x26];}
+    int getCutoffOffset() {return data[0x22]-64;}
+    int getResonanceOffset() {return data[0x23]-64;}
+    int getAttackTimeOffset() {return data[0x24]-64;}
+    int getReleaseTimeOffset() {return data[0x25]-64;}
+    int getVelocitySensOffset() {return data[0x26]-64;}
     int getPMTControlSwitch() {return data[0x28];}
     int getPitchBendRangeUp() {return data[0x29];}
     int getPitchBendRangeDown() {return data[0x2A];}
     int getMatrixControl1Source() {return data[0x2B];}
     int getMatrixControl1Destination1() {return data[0x2C];}
-    int getMatrixControl1Sens1() {return data[0x2D];}
+    int getMatrixControl1Sens1() {return data[0x2D]-64;}
     int getMatrixControl1Destination2() {return data[0x2E];}
-    int getMatrixControl1Sens2() {return data[0x2F];}
+    int getMatrixControl1Sens2() {return data[0x2F]-64;}
     int getMatrixControl1Destination3() {return data[0x30];}
-    int getMatrixControl1Sens3() {return data[0x31];}
+    int getMatrixControl1Sens3() {return data[0x31]-64;}
     int getMatrixControl1Destination4() {return data[0x32];}
-    int getMatrixControl1Sens4() {return data[0x33];}
+    int getMatrixControl1Sens4() {return data[0x33]-64;}
     int getMatrixControl2Source() {return data[0x34];}
     int getMatrixControl2Destination1() {return data[0x35];}
-    int getMatrixControl2Sens1() {return data[0x36];}
+    int getMatrixControl2Sens1() {return data[0x36]-64;}
     int getMatrixControl2Destination2() {return data[0x37];}
-    int getMatrixControl2Sens2() {return data[0x38];}
+    int getMatrixControl2Sens2() {return data[0x38]-64;}
     int getMatrixControl2Destination3() {return data[0x39];}
-    int getMatrixControl2Sens3() {return data[0x3A];}
+    int getMatrixControl2Sens3() {return data[0x3A]-64;}
     int getMatrixControl2Destination4() {return data[0x3B];}
-    int getMatrixControl2Sens4() {return data[0x3C];}
+    int getMatrixControl2Sens4() {return data[0x3C]-64;}
     int getMatrixControl3Source() {return data[0x3D];}
     int getMatrixControl3Destination1() {return data[0x3E];}
-    int getMatrixControl3Sens1() {return data[0x3F];}
+    int getMatrixControl3Sens1() {return data[0x3F]-64;}
     int getMatrixControl3Destination2() {return data[0x40];}
-    int getMatrixControl3Sens2() {return data[0x41];}
+    int getMatrixControl3Sens2() {return data[0x41]-64;}
     int getMatrixControl3Destination3() {return data[0x42];}
-    int getMatrixControl3Sens3() {return data[0x43];}
+    int getMatrixControl3Sens3() {return data[0x43]-64;}
     int getMatrixControl3Destination4() {return data[0x44];}
-    int getMatrixControl3Sens4() {return data[0x45];}
+    int getMatrixControl3Sens4() {return data[0x45]-64;}
     int getMatrixControl4Source() {return data[0x46];}
     int getMatrixControl4Destination1() {return data[0x47];}
-    int getMatrixControl4Sens1() {return data[0x48];}
+    int getMatrixControl4Sens1() {return data[0x48]-64;}
     int getMatrixControl4Destination2() {return data[0x49];}
-    int getMatrixControl4Sens2() {return data[0x4A];}
+    int getMatrixControl4Sens2() {return data[0x4A]-64;}
     int getMatrixControl4Destination3() {return data[0x4B];}
-    int getMatrixControl4Sens3() {return data[0x4C];}
+    int getMatrixControl4Sens3() {return data[0x4C]-64;}
     int getMatrixControl4Destination4() {return data[0x4D];}
-    int getMatrixControl4Sens4() {return data[0x4E];}
+    int getMatrixControl4Sens4() {return data[0x4E]-64;}
 
     void DataReceive(const uint8_t *rdata, uint8_t a, int len);
 
@@ -120,11 +120,11 @@ public slots:
     void setPCMSynthToneName11(int v) {DataSet(0x0A,v);}
     void setPCMSynthToneName12(int v) {DataSet(0x0B,v);}
     void setPCMSynthToneLevel(int v) {DataSet(0x0E,v);}
-    void setPCMSynthTonePan(int v) {DataSet(0x0F,v);}
+    void setPCMSynthTonePan(int v) {DataSetOffset(0x0F,v,64);}
     void setPCMSynthTonePriority(int v) {DataSet(0x10,v);}
-    void setPCMSynthToneCoarseTune(int v) {DataSet(0x11,v);}
-    void setPCMSynthToneFineTune(int v) {DataSet(0x12,v);}
-    void setOctaveShift(int v) {DataSet(0x13,v);}
+    void setPCMSynthToneCoarseTune(int v) {DataSetOffset(0x11,v,64);}
+    void setPCMSynthToneFineTune(int v) {DataSetOffset(0x12,v,64);}
+    void setOctaveShift(int v) {DataSetOffset(0x13,v,64);}
     void setStretchTuneDepth(int v) {DataSet(0x14,v);}
     void setAnalogFeel(int v) {DataSet(0x15,v);}
     void setMonoPoly(int v) {DataSet(0x16,v);}
@@ -135,50 +135,50 @@ public slots:
     void setPortamentoType(int v) {DataSet(0x1B,v);}
     void setPortamentoStart(int v) {DataSet(0x1C,v);}
     void setPortamentoTime(int v) {DataSet(0x1D,v);}
-    void setCutoffOffset(int v) {DataSet(0x22,v);}
-    void setResonanceOffset(int v) {DataSet(0x23,v);}
-    void setAttackTimeOffset(int v) {DataSet(0x24,v);}
-    void setReleaseTimeOffset(int v) {DataSet(0x25,v);}
-    void setVelocitySensOffset(int v) {DataSet(0x26,v);}
+    void setCutoffOffset(int v) {DataSetOffset(0x22,v,64);}
+    void setResonanceOffset(int v) {DataSetOffset(0x23,v,64);}
+    void setAttackTimeOffset(int v) {DataSetOffset(0x24,v,64);}
+    void setReleaseTimeOffset(int v) {DataSetOffset(0x25,v,64);}
+    void setVelocitySensOffset(int v) {DataSetOffset(0x26,v,64);}
     void setPMTControlSwitch(int v) {DataSet(0x28,v);}
     void setPitchBendRangeUp(int v) {DataSet(0x29,v);}
     void setPitchBendRangeDown(int v) {DataSet(0x2A,v);}
     void setMatrixControl1Source(int v) {DataSet(0x2B,v);}
     void setMatrixControl1Destination1(int v) {DataSet(0x2C,v);}
-    void setMatrixControl1Sens1(int v) {DataSet(0x2D,v);}
+    void setMatrixControl1Sens1(int v) {DataSetOffset(0x2D,v,64);}
     void setMatrixControl1Destination2(int v) {DataSet(0x2E,v);}
-    void setMatrixControl1Sens2(int v) {DataSet(0x2F,v);}
+    void setMatrixControl1Sens2(int v) {DataSetOffset(0x2F,v,64);}
     void setMatrixControl1Destination3(int v) {DataSet(0x30,v);}
-    void setMatrixControl1Sens3(int v) {DataSet(0x31,v);}
+    void setMatrixControl1Sens3(int v) {DataSetOffset(0x31,v,64);}
     void setMatrixControl1Destination4(int v) {DataSet(0x32,v);}
-    void setMatrixControl1Sens4(int v) {DataSet(0x33,v);}
+    void setMatrixControl1Sens4(int v) {DataSetOffset(0x33,v,64);}
     void setMatrixControl2Source(int v) {DataSet(0x34,v);}
     void setMatrixControl2Destination1(int v) {DataSet(0x35,v);}
-    void setMatrixControl2Sens1(int v) {DataSet(0x36,v);}
+    void setMatrixControl2Sens1(int v) {DataSetOffset(0x36,v,64);}
     void setMatrixControl2Destination2(int v) {DataSet(0x37,v);}
-    void setMatrixControl2Sens2(int v) {DataSet(0x38,v);}
+    void setMatrixControl2Sens2(int v) {DataSetOffset(0x38,v,64);}
     void setMatrixControl2Destination3(int v) {DataSet(0x39,v);}
-    void setMatrixControl2Sens3(int v) {DataSet(0x3A,v);}
+    void setMatrixControl2Sens3(int v) {DataSetOffset(0x3A,v,64);}
     void setMatrixControl2Destination4(int v) {DataSet(0x3B,v);}
-    void setMatrixControl2Sens4(int v) {DataSet(0x3C,v);}
+    void setMatrixControl2Sens4(int v) {DataSetOffset(0x3C,v,64);}
     void setMatrixControl3Source(int v) {DataSet(0x3D,v);}
     void setMatrixControl3Destination1(int v) {DataSet(0x3E,v);}
-    void setMatrixControl3Sens1(int v) {DataSet(0x3F,v);}
+    void setMatrixControl3Sens1(int v) {DataSetOffset(0x3F,v,64);}
     void setMatrixControl3Destination2(int v) {DataSet(0x40,v);}
-    void setMatrixControl3Sens2(int v) {DataSet(0x41,v);}
+    void setMatrixControl3Sens2(int v) {DataSetOffset(0x41,v,64);}
     void setMatrixControl3Destination3(int v) {DataSet(0x42,v);}
-    void setMatrixControl3Sens3(int v) {DataSet(0x43,v);}
+    void setMatrixControl3Sens3(int v) {DataSetOffset(0x43,v,64);}
     void setMatrixControl3Destination4(int v) {DataSet(0x44,v);}
-    void setMatrixControl3Sens4(int v) {DataSet(0x45,v);}
+    void setMatrixControl3Sens4(int v) {DataSetOffset(0x45,v,64);}
     void setMatrixControl4Source(int v) {DataSet(0x46,v);}
     void setMatrixControl4Destination1(int v) {DataSet(0x47,v);}
-    void setMatrixControl4Sens1(int v) {DataSet(0x48,v);}
+    void setMatrixControl4Sens1(int v) {DataSetOffset(0x48,v,64);}
     void setMatrixControl4Destination2(int v) {DataSet(0x49,v);}
-    void setMatrixControl4Sens2(int v) {DataSet(0x4A,v);}
+    void setMatrixControl4Sens2(int v) {DataSetOffset(0x4A,v,64);}
     void setMatrixControl4Destination3(int v) {DataSet(0x4B,v);}
-    void setMatrixControl4Sens3(int v) {DataSet(0x4C,v);}
+    void setMatrixControl4Sens3(int v) {DataSetOffset(0x4C,v,64);}
     void setMatrixControl4Destination4(int v) {DataSet(0x4D,v);}
-    void setMatrixControl4Sens4(int v) {DataSet(0x4E,v);}
+    void setMatrixControl4Sens4(int v) {DataSetOffset(0x4E,v,64);}
 
 signals:
 

@@ -126,12 +126,12 @@ public slots:
     void setComp1OutputGain(int v) {DataSet(0x05,v);}
     void setEQ1Switch(int v) {DataSet(0x06,v);}
     void setEQ1LowFreq(int v) {DataSet(0x07,v);}
-    void setEQ1LowGain(int v) {DataSet(0x08,v);}
+    void setEQ1LowGain(int v) {DataSetOffset(0x08,v,15);}
     void setEQ1MidFreq(int v) {DataSet(0x09,v);}
-    void setEQ1MidGain(int v) {DataSet(0x0A,v);}
+    void setEQ1MidGain(int v) {DataSetOffset(0x0A,v,15);}
     void setEQ1MidQ(int v) {DataSet(0x0B,v);}
     void setEQ1HighFreq(int v) {DataSet(0x0C,v);}
-    void setEQ1HighGain(int v) {DataSet(0x0D,v);}
+    void setEQ1HighGain(int v) {DataSetOffset(0x0D,v,15);}
     void setComp2Switch(int v) {DataSet(0x0E,v);}
     void setComp2AttackTime(int v) {DataSet(0x0F,v);}
     void setComp2ReleaseTime(int v) {DataSet(0x10,v);}
@@ -140,12 +140,12 @@ public slots:
     void setComp2OutputGain(int v) {DataSet(0x13,v);}
     void setEQ2Switch(int v) {DataSet(0x14,v);}
     void setEQ2LowFreq(int v) {DataSet(0x15,v);}
-    void setEQ2LowGain(int v) {DataSet(0x16,v);}
+    void setEQ2LowGain(int v) {DataSetOffset(0x16,v,15);}
     void setEQ2MidFreq(int v) {DataSet(0x17,v);}
-    void setEQ2MidGain(int v) {DataSet(0x18,v);}
+    void setEQ2MidGain(int v) {DataSetOffset(0x18,v,15);}
     void setEQ2MidQ(int v) {DataSet(0x19,v);}
     void setEQ2HighFreq(int v) {DataSet(0x1A,v);}
-    void setEQ2HighGain(int v) {DataSet(0x1B,v);}
+    void setEQ2HighGain(int v) {DataSetOffset(0x1B,v,15);}
     void setComp3Switch(int v) {DataSet(0x1C,v);}
     void setComp3AttackTime(int v) {DataSet(0x1D,v);}
     void setComp3ReleaseTime(int v) {DataSet(0x1E,v);}
@@ -154,12 +154,12 @@ public slots:
     void setComp3OutputGain(int v) {DataSet(0x21,v);}
     void setEQ3Switch(int v) {DataSet(0x22,v);}
     void setEQ3LowFreq(int v) {DataSet(0x23,v);}
-    void setEQ3LowGain(int v) {DataSet(0x24,v);}
+    void setEQ3LowGain(int v) {DataSetOffset(0x24,v,15);}
     void setEQ3MidFreq(int v) {DataSet(0x25,v);}
-    void setEQ3MidGain(int v) {DataSet(0x26,v);}
+    void setEQ3MidGain(int v) {DataSetOffset(0x26,v,15);}
     void setEQ3MidQ(int v) {DataSet(0x27,v);}
     void setEQ3HighFreq(int v) {DataSet(0x28,v);}
-    void setEQ3HighGain(int v) {DataSet(0x29,v);}
+    void setEQ3HighGain(int v) {DataSetOffset(0x29,v,15);}
     void setComp4Switch(int v) {DataSet(0x2A,v);}
     void setComp4AttackTime(int v) {DataSet(0x2B,v);}
     void setComp4ReleaseTime(int v) {DataSet(0x2C,v);}
@@ -168,12 +168,12 @@ public slots:
     void setComp4OutputGain(int v) {DataSet(0x2F,v);}
     void setEQ4Switch(int v) {DataSet(0x30,v);}
     void setEQ4LowFreq(int v) {DataSet(0x31,v);}
-    void setEQ4LowGain(int v) {DataSet(0x32,v);}
+    void setEQ4LowGain(int v) {DataSetOffset(0x32,v,15);}
     void setEQ4MidFreq(int v) {DataSet(0x33,v);}
-    void setEQ4MidGain(int v) {DataSet(0x34,v);}
+    void setEQ4MidGain(int v) {DataSetOffset(0x34,v,15);}
     void setEQ4MidQ(int v) {DataSet(0x35,v);}
     void setEQ4HighFreq(int v) {DataSet(0x36,v);}
-    void setEQ4HighGain(int v) {DataSet(0x37,v);}
+    void setEQ4HighGain(int v) {DataSetOffset(0x37,v,15);}
     void setComp5Switch(int v) {DataSet(0x38,v);}
     void setComp5AttackTime(int v) {DataSet(0x39,v);}
     void setComp5ReleaseTime(int v) {DataSet(0x3A,v);}
@@ -182,12 +182,12 @@ public slots:
     void setComp5OutputGain(int v) {DataSet(0x3D,v);}
     void setEQ5Switch(int v) {DataSet(0x3E,v);}
     void setEQ5LowFreq(int v) {DataSet(0x3F,v);}
-    void setEQ5LowGain(int v) {DataSet(0x40,v);}
+    void setEQ5LowGain(int v) {DataSetOffset(0x40,v,15);}
     void setEQ5MidFreq(int v) {DataSet(0x41,v);}
-    void setEQ5MidGain(int v) {DataSet(0x42,v);}
+    void setEQ5MidGain(int v) {DataSetOffset(0x42,v,15);}
     void setEQ5MidQ(int v) {DataSet(0x43,v);}
     void setEQ5HighFreq(int v) {DataSet(0x44,v);}
-    void setEQ5HighGain(int v) {DataSet(0x45,v);}
+    void setEQ5HighGain(int v) {DataSetOffset(0x45,v,15);}
     void setComp6Switch(int v) {DataSet(0x46,v);}
     void setComp6AttackTime(int v) {DataSet(0x47,v);}
     void setComp6ReleaseTime(int v) {DataSet(0x48,v);}
@@ -196,12 +196,12 @@ public slots:
     void setComp6OutputGain(int v) {DataSet(0x4B,v);}
     void setEQ6Switch(int v) {DataSet(0x4C,v);}
     void setEQ6LowFreq(int v) {DataSet(0x4D,v);}
-    void setEQ6LowGain(int v) {DataSet(0x4E,v);}
+    void setEQ6LowGain(int v) {DataSetOffset(0x4E,v,15);}
     void setEQ6MidFreq(int v) {DataSet(0x4F,v);}
-    void setEQ6MidGain(int v) {DataSet(0x50,v);}
+    void setEQ6MidGain(int v) {DataSetOffset(0x50,v,15);}
     void setEQ6MidQ(int v) {DataSet(0x51,v);}
     void setEQ6HighFreq(int v) {DataSet(0x52,v);}
-    void setEQ6HighGain(int v) {DataSet(0x53,v);}
+    void setEQ6HighGain(int v) {DataSetOffset(0x53,v,15);}
 
 signals:
 

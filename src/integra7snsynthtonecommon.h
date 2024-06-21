@@ -44,7 +44,7 @@ public:
     int getPortamentoSwitch() {return data[0x12];}
     int getPortamentoTime() {return data[0x13];}
     int getMonoSwitch() {return data[0x14];}
-    int getOctaveShift() {return data[0x15];}
+    int getOctaveShift() {return data[0x15]-64;}
     int getPitchBendRangeUp() {return data[0x16];}
     int getPitchBendRangeDown() {return data[0x17];}
     int getPartial1Switch() {return data[0x19];}
@@ -62,7 +62,7 @@ public:
     int getWaveShape() {return data[0x35];}
     int getToneCategory() {return data[0x36];}
     int getPhraseNumber() {return data[0x37]<<12|data[0x38]<<8|data[0x39]<<4|data[0x3A];}
-    int getPhraseOctaveShift() {return data[0x3B];}
+    int getPhraseOctaveShift() {return data[0x3B]-64;}
     int getUnisonSize() {return data[0x3C];}
 
     void DataReceive(const uint8_t *rdata, uint8_t a, int len);
@@ -88,7 +88,7 @@ public slots:
     void setPortamentoSwitch(int v) {DataSet(0x12,v);}
     void setPortamentoTime(int v) {DataSet(0x13,v);}
     void setMonoSwitch(int v) {DataSet(0x14,v);}
-    void setOctaveShift(int v) {DataSet(0x15,v);}
+    void setOctaveShift(int v) {DataSetOffset(0x15,v,64);}
     void setPitchBendRangeUp(int v) {DataSet(0x16,v);}
     void setPitchBendRangeDown(int v) {DataSet(0x17,v);}
     void setPartial1Switch(int v) {DataSet(0x19,v);}
@@ -106,7 +106,7 @@ public slots:
     void setWaveShape(int v) {DataSet(0x35,v);}
     void setToneCategory(int v) {DataSet(0x36,v);}
     void setPhraseNumber(int v) {DataSet4x4B(0x37,v);}
-    void setPhraseOctaveShift(int v) {DataSet(0x3B,v);}
+    void setPhraseOctaveShift(int v) {DataSetOffset(0x3B,v,64);}
     void setUnisonSize(int v) {DataSet(0x3C,v);}
 
 signals:
