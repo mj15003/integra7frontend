@@ -36,25 +36,25 @@ void Integra7ToneMFX::EmitSignal(uint8_t a, int v)
         emit MFXControl1Source(v);
         break;
     case 0x06:
-        emit MFXControl1Sens(v);
+        emit MFXControl1Sens(getMFXControl1Sens());
         break;
     case 0x07:
         emit MFXControl2Source(v);
         break;
     case 0x08:
-        emit MFXControl2Sens(v);
+        emit MFXControl2Sens(getMFXControl2Sens());
         break;
     case 0x09:
         emit MFXControl3Source(v);
         break;
     case 0x0A:
-        emit MFXControl3Sens(v);
+        emit MFXControl3Sens(getMFXControl3Sens());
         break;
     case 0x0B:
         emit MFXControl4Source(v);
         break;
     case 0x0C:
-        emit MFXControl4Sens(v);
+        emit MFXControl4Sens(getMFXControl4Sens());
         break;
     case 0x0D:
         emit MFXControlAssign1(v);
@@ -175,8 +175,202 @@ void Integra7ToneMFX::DataReceive(const uint8_t *rdata, uint8_t a, int len)
     uint8_t r = 0;
 
     while (a < a2) {
-        data[a] = rdata[r++];
-        EmitSignal(a,data[a]);
-        ++a;
+        if (a == 0x11) {
+            data[a++] = rdata[r++];
+            data[a++] = rdata[r++];
+            data[a++] = rdata[r++];
+            data[a++] = rdata[r++];
+            EmitSignal(0x11,getMFXParameter1());
+        } else if (a == 0x15) {
+            data[a++] = rdata[r++];
+            data[a++] = rdata[r++];
+            data[a++] = rdata[r++];
+            data[a++] = rdata[r++];
+            EmitSignal(0x15,getMFXParameter2());
+        } else if (a == 0x19) {
+            data[a++] = rdata[r++];
+            data[a++] = rdata[r++];
+            data[a++] = rdata[r++];
+            data[a++] = rdata[r++];
+            EmitSignal(0x19,getMFXParameter3());
+        } else if (a == 0x1D) {
+            data[a++] = rdata[r++];
+            data[a++] = rdata[r++];
+            data[a++] = rdata[r++];
+            data[a++] = rdata[r++];
+            EmitSignal(0x1D,getMFXParameter4());
+        } else if (a == 0x21) {
+            data[a++] = rdata[r++];
+            data[a++] = rdata[r++];
+            data[a++] = rdata[r++];
+            data[a++] = rdata[r++];
+            EmitSignal(0x21,getMFXParameter5());
+        } else if (a == 0x25) {
+            data[a++] = rdata[r++];
+            data[a++] = rdata[r++];
+            data[a++] = rdata[r++];
+            data[a++] = rdata[r++];
+            EmitSignal(0x25,getMFXParameter6());
+        } else if (a == 0x29) {
+            data[a++] = rdata[r++];
+            data[a++] = rdata[r++];
+            data[a++] = rdata[r++];
+            data[a++] = rdata[r++];
+            EmitSignal(0x29,getMFXParameter7());
+        } else if (a == 0x2D) {
+            data[a++] = rdata[r++];
+            data[a++] = rdata[r++];
+            data[a++] = rdata[r++];
+            data[a++] = rdata[r++];
+            EmitSignal(0x2D,getMFXParameter8());
+        } else if (a == 0x31) {
+            data[a++] = rdata[r++];
+            data[a++] = rdata[r++];
+            data[a++] = rdata[r++];
+            data[a++] = rdata[r++];
+            EmitSignal(0x31,getMFXParameter9());
+        } else if (a == 0x35) {
+            data[a++] = rdata[r++];
+            data[a++] = rdata[r++];
+            data[a++] = rdata[r++];
+            data[a++] = rdata[r++];
+            EmitSignal(0x35,getMFXParameter10());
+        } else if (a == 0x39) {
+            data[a++] = rdata[r++];
+            data[a++] = rdata[r++];
+            data[a++] = rdata[r++];
+            data[a++] = rdata[r++];
+            EmitSignal(0x39,getMFXParameter11());
+        } else if (a == 0x3D) {
+            data[a++] = rdata[r++];
+            data[a++] = rdata[r++];
+            data[a++] = rdata[r++];
+            data[a++] = rdata[r++];
+            EmitSignal(0x3D,getMFXParameter12());
+        } else if (a == 0x41) {
+            data[a++] = rdata[r++];
+            data[a++] = rdata[r++];
+            data[a++] = rdata[r++];
+            data[a++] = rdata[r++];
+            EmitSignal(0x41,getMFXParameter13());
+        } else if (a == 0x45) {
+            data[a++] = rdata[r++];
+            data[a++] = rdata[r++];
+            data[a++] = rdata[r++];
+            data[a++] = rdata[r++];
+            EmitSignal(0x45,getMFXParameter14());
+        } else if (a == 0x49) {
+            data[a++] = rdata[r++];
+            data[a++] = rdata[r++];
+            data[a++] = rdata[r++];
+            data[a++] = rdata[r++];
+            EmitSignal(0x49,getMFXParameter15());
+        } else if (a == 0x4D) {
+            data[a++] = rdata[r++];
+            data[a++] = rdata[r++];
+            data[a++] = rdata[r++];
+            data[a++] = rdata[r++];
+            EmitSignal(0x4D,getMFXParameter16());
+        } else if (a == 0x51) {
+            data[a++] = rdata[r++];
+            data[a++] = rdata[r++];
+            data[a++] = rdata[r++];
+            data[a++] = rdata[r++];
+            EmitSignal(0x51,getMFXParameter17());
+        } else if (a == 0x55) {
+            data[a++] = rdata[r++];
+            data[a++] = rdata[r++];
+            data[a++] = rdata[r++];
+            data[a++] = rdata[r++];
+            EmitSignal(0x55,getMFXParameter18());
+        } else if (a == 0x59) {
+            data[a++] = rdata[r++];
+            data[a++] = rdata[r++];
+            data[a++] = rdata[r++];
+            data[a++] = rdata[r++];
+            EmitSignal(0x59,getMFXParameter19());
+        } else if (a == 0x5D) {
+            data[a++] = rdata[r++];
+            data[a++] = rdata[r++];
+            data[a++] = rdata[r++];
+            data[a++] = rdata[r++];
+            EmitSignal(0x5D,getMFXParameter20());
+        } else if (a == 0x61) {
+            data[a++] = rdata[r++];
+            data[a++] = rdata[r++];
+            data[a++] = rdata[r++];
+            data[a++] = rdata[r++];
+            EmitSignal(0x61,getMFXParameter21());
+        } else if (a == 0x65) {
+            data[a++] = rdata[r++];
+            data[a++] = rdata[r++];
+            data[a++] = rdata[r++];
+            data[a++] = rdata[r++];
+            EmitSignal(0x65,getMFXParameter22());
+        } else if (a == 0x69) {
+            data[a++] = rdata[r++];
+            data[a++] = rdata[r++];
+            data[a++] = rdata[r++];
+            data[a++] = rdata[r++];
+            EmitSignal(0x69,getMFXParameter23());
+        } else if (a == 0x6D) {
+            data[a++] = rdata[r++];
+            data[a++] = rdata[r++];
+            data[a++] = rdata[r++];
+            data[a++] = rdata[r++];
+            EmitSignal(0x6D,getMFXParameter24());
+        } else if (a == 0x71) {
+            data[a++] = rdata[r++];
+            data[a++] = rdata[r++];
+            data[a++] = rdata[r++];
+            data[a++] = rdata[r++];
+            EmitSignal(0x71,getMFXParameter25());
+        } else if (a == 0x75) {
+            data[a++] = rdata[r++];
+            data[a++] = rdata[r++];
+            data[a++] = rdata[r++];
+            data[a++] = rdata[r++];
+            EmitSignal(0x75,getMFXParameter26());
+        } else if (a == 0x79) {
+            data[a++] = rdata[r++];
+            data[a++] = rdata[r++];
+            data[a++] = rdata[r++];
+            data[a++] = rdata[r++];
+            EmitSignal(0x79,getMFXParameter27());
+        } else if (a == 0x7D) {
+            data[a++] = rdata[r++];
+            data[a++] = rdata[r++];
+            data[a++] = rdata[r++];
+            data[a++] = rdata[r++];
+            EmitSignal(0x7D,getMFXParameter28());
+        } else if (a == 0x81) {
+            data[a++] = rdata[r++];
+            data[a++] = rdata[r++];
+            data[a++] = rdata[r++];
+            data[a++] = rdata[r++];
+            EmitSignal(0x81,getMFXParameter29());
+        } else if (a == 0x85) {
+            data[a++] = rdata[r++];
+            data[a++] = rdata[r++];
+            data[a++] = rdata[r++];
+            data[a++] = rdata[r++];
+            EmitSignal(0x85,getMFXParameter30());
+        } else if (a == 0x89) {
+            data[a++] = rdata[r++];
+            data[a++] = rdata[r++];
+            data[a++] = rdata[r++];
+            data[a++] = rdata[r++];
+            EmitSignal(0x89,getMFXParameter31());
+        } else if (a == 0x8D) {
+            data[a++] = rdata[r++];
+            data[a++] = rdata[r++];
+            data[a++] = rdata[r++];
+            data[a++] = rdata[r++];
+            EmitSignal(0x8D,getMFXParameter32());
+        } else {
+            data[a] = rdata[r++];
+            EmitSignal(a,data[a]);
+            ++a;
+        }
     }
 }

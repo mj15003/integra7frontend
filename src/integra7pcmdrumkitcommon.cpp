@@ -58,6 +58,7 @@ void Integra7PCMDrumKitCommon::EmitSignal(uint8_t a, int v)
         break;
     case 0x0B:
         emit KitName12(v);
+        emit KitName(getKitName());
         break;
     case 0x0C:
         emit KitLevel(v);
@@ -81,5 +82,14 @@ void Integra7PCMDrumKitCommon::DataReceive(const uint8_t *rdata, uint8_t a, int 
             EmitSignal(a,data[a]);
             ++a;
         }
+    }
+}
+
+void Integra7PCMDrumKitCommon::setKitName(const QString name)
+{
+    uint8_t c = 0;
+    while (c < name.length() && c < 0xC){
+        data[c] = name.at(c).toLatin1();
+        c++;
     }
 }

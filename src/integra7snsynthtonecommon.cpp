@@ -58,6 +58,7 @@ void Integra7SNSynthToneCommon::EmitSignal(uint8_t a, int v)
         break;
     case 0x0B:
         emit ToneName12(v);
+        emit ToneName(getToneName());
         break;
     case 0x0C:
         emit ToneLevel(v);
@@ -72,7 +73,7 @@ void Integra7SNSynthToneCommon::EmitSignal(uint8_t a, int v)
         emit MonoSwitch(v);
         break;
     case 0x15:
-        emit OctaveShift(v);
+        emit OctaveShift(getOctaveShift());
         break;
     case 0x16:
         emit PitchBendRangeUp(v);
@@ -126,7 +127,7 @@ void Integra7SNSynthToneCommon::EmitSignal(uint8_t a, int v)
         emit PhraseNumber(getPhraseNumber());
         break;
     case 0x3B:
-        emit PhraseOctaveShift(v);
+        emit PhraseOctaveShift(getPhraseOctaveShift());
         break;
     case 0x3C:
         emit UnisonSize(v);
@@ -150,5 +151,14 @@ void Integra7SNSynthToneCommon::DataReceive(const uint8_t *rdata, uint8_t a, int
             EmitSignal(a,data[a]);
             ++a;
         }
+    }
+}
+
+void Integra7SNSynthToneCommon::setToneName(const QString name)
+{
+    uint8_t c = 0;
+    while (c < name.length() && c < 0xC){
+        data[c] = name.at(c).toLatin1();
+        c++;
     }
 }

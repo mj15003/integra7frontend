@@ -361,6 +361,7 @@ signals:
     void PartialName10(int v);
     void PartialName11(int v);
     void PartialName12(int v);
+    void PartialName(QString name);
     void AssignType(int v);
     void MuteGroup(int v);
     void PartialLevel(int v);
@@ -377,6 +378,7 @@ signals:
     void PartialOutputAssign(int v);
     void PartialPitchBendRange(int v);
     void PartialReceiveExpression(int v);
+    void PartialReceiveHold(int v);
     void WMTVelocityControl(int v);
     void WMT1WaveSwitch(int v);
     void WMT1WaveGroupType(int v);

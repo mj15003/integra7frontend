@@ -58,24 +58,25 @@ void Integra7PCMSynthToneCommon::EmitSignal(uint8_t a, int v)
         break;
     case 0x0B:
         emit PCMSynthToneName12(v);
+        emit PCMSynthToneName(getPCMSynthToneName());
         break;
     case 0x0E:
         emit PCMSynthToneLevel(v);
         break;
     case 0x0F:
-        emit PCMSynthTonePan(v);
+        emit PCMSynthTonePan(getPCMSynthTonePan());
         break;
     case 0x10:
         emit PCMSynthTonePriority(v);
         break;
     case 0x11:
-        emit PCMSynthToneCoarseTune(v);
+        emit PCMSynthToneCoarseTune(getPCMSynthToneCoarseTune());
         break;
     case 0x12:
-        emit PCMSynthToneFineTune(v);
+        emit PCMSynthToneFineTune(getPCMSynthToneFineTune());
         break;
     case 0x13:
-        emit OctaveShift(v);
+        emit OctaveShift(getOctaveShift());
         break;
     case 0x14:
         emit StretchTuneDepth(v);
@@ -108,19 +109,19 @@ void Integra7PCMSynthToneCommon::EmitSignal(uint8_t a, int v)
         emit PortamentoTime(v);
         break;
     case 0x22:
-        emit CutoffOffset(v);
+        emit CutoffOffset(getCutoffOffset());
         break;
     case 0x23:
-        emit ResonanceOffset(v);
+        emit ResonanceOffset(getResonanceOffset());
         break;
     case 0x24:
-        emit AttackTimeOffset(v);
+        emit AttackTimeOffset(getAttackTimeOffset());
         break;
     case 0x25:
-        emit ReleaseTimeOffset(v);
+        emit ReleaseTimeOffset(getReleaseTimeOffset());
         break;
     case 0x26:
-        emit VelocitySensOffset(v);
+        emit VelocitySensOffset(getVelocitySensOffset());
         break;
     case 0x28:
         emit PMTControlSwitch(v);
@@ -138,25 +139,25 @@ void Integra7PCMSynthToneCommon::EmitSignal(uint8_t a, int v)
         emit MatrixControl1Destination1(v);
         break;
     case 0x2D:
-        emit MatrixControl1Sens1(v);
+        emit MatrixControl1Sens1(getMatrixControl1Sens1());
         break;
     case 0x2E:
         emit MatrixControl1Destination2(v);
         break;
     case 0x2F:
-        emit MatrixControl1Sens2(v);
+        emit MatrixControl1Sens2(getMatrixControl1Sens2());
         break;
     case 0x30:
         emit MatrixControl1Destination3(v);
         break;
     case 0x31:
-        emit MatrixControl1Sens3(v);
+        emit MatrixControl1Sens3(getMatrixControl1Sens3());
         break;
     case 0x32:
         emit MatrixControl1Destination4(v);
         break;
     case 0x33:
-        emit MatrixControl1Sens4(v);
+        emit MatrixControl1Sens4(getMatrixControl1Sens4());
         break;
     case 0x34:
         emit MatrixControl2Source(v);
@@ -165,25 +166,25 @@ void Integra7PCMSynthToneCommon::EmitSignal(uint8_t a, int v)
         emit MatrixControl2Destination1(v);
         break;
     case 0x36:
-        emit MatrixControl2Sens1(v);
+        emit MatrixControl2Sens1(getMatrixControl2Sens1());
         break;
     case 0x37:
         emit MatrixControl2Destination2(v);
         break;
     case 0x38:
-        emit MatrixControl2Sens2(v);
+        emit MatrixControl2Sens2(getMatrixControl2Sens2());
         break;
     case 0x39:
         emit MatrixControl2Destination3(v);
         break;
     case 0x3A:
-        emit MatrixControl2Sens3(v);
+        emit MatrixControl2Sens3(getMatrixControl2Sens3());
         break;
     case 0x3B:
         emit MatrixControl2Destination4(v);
         break;
     case 0x3C:
-        emit MatrixControl2Sens4(v);
+        emit MatrixControl2Sens4(getMatrixControl2Sens4());
         break;
     case 0x3D:
         emit MatrixControl3Source(v);
@@ -192,25 +193,25 @@ void Integra7PCMSynthToneCommon::EmitSignal(uint8_t a, int v)
         emit MatrixControl3Destination1(v);
         break;
     case 0x3F:
-        emit MatrixControl3Sens1(v);
+        emit MatrixControl3Sens1(getMatrixControl3Sens1());
         break;
     case 0x40:
         emit MatrixControl3Destination2(v);
         break;
     case 0x41:
-        emit MatrixControl3Sens2(v);
+        emit MatrixControl3Sens2(getMatrixControl3Sens2());
         break;
     case 0x42:
         emit MatrixControl3Destination3(v);
         break;
     case 0x43:
-        emit MatrixControl3Sens3(v);
+        emit MatrixControl3Sens3(getMatrixControl3Sens3());
         break;
     case 0x44:
         emit MatrixControl3Destination4(v);
         break;
     case 0x45:
-        emit MatrixControl3Sens4(v);
+        emit MatrixControl3Sens4(getMatrixControl3Sens4());
         break;
     case 0x46:
         emit MatrixControl4Source(v);
@@ -219,25 +220,25 @@ void Integra7PCMSynthToneCommon::EmitSignal(uint8_t a, int v)
         emit MatrixControl4Destination1(v);
         break;
     case 0x48:
-        emit MatrixControl4Sens1(v);
+        emit MatrixControl4Sens1(getMatrixControl4Sens1());
         break;
     case 0x49:
         emit MatrixControl4Destination2(v);
         break;
     case 0x4A:
-        emit MatrixControl4Sens2(v);
+        emit MatrixControl4Sens2(getMatrixControl4Sens2());
         break;
     case 0x4B:
         emit MatrixControl4Destination3(v);
         break;
     case 0x4C:
-        emit MatrixControl4Sens3(v);
+        emit MatrixControl4Sens3(getMatrixControl4Sens3());
         break;
     case 0x4D:
         emit MatrixControl4Destination4(v);
         break;
     case 0x4E:
-        emit MatrixControl4Sens4(v);
+        emit MatrixControl4Sens4(getMatrixControl4Sens4());
         break;
     default:
         break;
@@ -258,5 +259,14 @@ void Integra7PCMSynthToneCommon::DataReceive(const uint8_t *rdata, uint8_t a, in
             EmitSignal(a,data[a]);
             ++a;
         }
+    }
+}
+
+void Integra7PCMSynthToneCommon::setToneName(const QString name)
+{
+    uint8_t c = 0;
+    while (c < name.length() && c < 0xC){
+        data[c] = name.at(c).toLatin1();
+        c++;
     }
 }

@@ -30,10 +30,10 @@ void Integra7SNSynthTonePartial::EmitSignal(uint8_t a, int v)
         emit OSCWaveVariation(v);
         break;
     case 0x03:
-        emit OSCPitch(v);
+        emit OSCPitch(getOSCPitch());
         break;
     case 0x04:
-        emit OSCDetune(v);
+        emit OSCDetune(getOSCDetune());
         break;
     case 0x05:
         emit OSCPulseWidthModDepth(v);
@@ -48,7 +48,7 @@ void Integra7SNSynthTonePartial::EmitSignal(uint8_t a, int v)
         emit OSCPitchEnvDecay(v);
         break;
     case 0x09:
-        emit OSCPitchEnvDepth(v);
+        emit OSCPitchEnvDepth(getOSCPitchEnvDepth());
         break;
     case 0x0A:
         emit FILTERMode(v);
@@ -60,10 +60,10 @@ void Integra7SNSynthTonePartial::EmitSignal(uint8_t a, int v)
         emit FILTERCutoff(v);
         break;
     case 0x0D:
-        emit FILTERCutoffKeyfollow(v);
+        emit FILTERCutoffKeyfollow(getFILTERCutoffKeyfollow());
         break;
     case 0x0E:
-        emit FILTEREnvVelocitySens(v);
+        emit FILTEREnvVelocitySens(getFILTEREnvVelocitySens());
         break;
     case 0x0F:
         emit FILTERResonance(v);
@@ -81,13 +81,13 @@ void Integra7SNSynthTonePartial::EmitSignal(uint8_t a, int v)
         emit FILTEREnvReleaseTime(v);
         break;
     case 0x14:
-        emit FILTEREnvDepth(v);
+        emit FILTEREnvDepth(getFILTEREnvDepth());
         break;
     case 0x15:
         emit AMPLevel(v);
         break;
     case 0x16:
-        emit AMPLevelVelocitySens(v);
+        emit AMPLevelVelocitySens(getAMPLevelVelocitySens());
         break;
     case 0x17:
         emit AMPEnvAttackTime(v);
@@ -102,7 +102,7 @@ void Integra7SNSynthTonePartial::EmitSignal(uint8_t a, int v)
         emit AMPEnvReleaseTime(v);
         break;
     case 0x1B:
-        emit AMPPan(v);
+        emit AMPPan(getAMPPan());
         break;
     case 0x1C:
         emit LFOShape(v);
@@ -123,16 +123,16 @@ void Integra7SNSynthTonePartial::EmitSignal(uint8_t a, int v)
         emit LFOKeyTrigger(v);
         break;
     case 0x22:
-        emit LFOPitchDepth(v);
+        emit LFOPitchDepth(getLFOPitchDepth());
         break;
     case 0x23:
-        emit LFOFilterDepth(v);
+        emit LFOFilterDepth(getLFOFilterDepth());
         break;
     case 0x24:
-        emit LFOAmpDepth(v);
+        emit LFOAmpDepth(getLFOAmpDepth());
         break;
     case 0x25:
-        emit LFOPanDepth(v);
+        emit LFOPanDepth(getLFOPanDepth());
         break;
     case 0x26:
         emit ModulationLFOShape(v);
@@ -150,22 +150,22 @@ void Integra7SNSynthTonePartial::EmitSignal(uint8_t a, int v)
         emit OSCPulseWidthShift(v);
         break;
     case 0x2C:
-        emit ModulationLFOPitchDepth(v);
+        emit ModulationLFOPitchDepth(getModulationLFOPitchDepth());
         break;
     case 0x2D:
-        emit ModulationLFOFilterDepth(v);
+        emit ModulationLFOFilterDepth(getModulationLFOFilterDepth());
         break;
     case 0x2E:
-        emit ModulationLFOAmpDepth(v);
+        emit ModulationLFOAmpDepth(getModulationLFOAmpDepth());
         break;
     case 0x2F:
-        emit ModulationLFOPanDepth(v);
+        emit ModulationLFOPanDepth(getModulationLFOPanDepth());
         break;
     case 0x30:
-        emit CutoffAftertouchSens(v);
+        emit CutoffAftertouchSens(getCutoffAftertouchSens());
         break;
     case 0x31:
-        emit LevelAftertouchSens(v);
+        emit LevelAftertouchSens(getLevelAftertouchSens());
         break;
     case 0x34:
         emit WaveGain(v);
@@ -180,10 +180,10 @@ void Integra7SNSynthTonePartial::EmitSignal(uint8_t a, int v)
         emit SuperSawDetune(v);
         break;
     case 0x3B:
-        emit ModulationLFORateControl(v);
+        emit ModulationLFORateControl(getModulationLFORateControl());
         break;
     case 0x3C:
-        emit AMPLevelKeyfollow(v);
+        emit AMPLevelKeyfollow(getAMPLevelKeyfollow());
         break;
     default:
         break;
@@ -196,8 +196,16 @@ void Integra7SNSynthTonePartial::DataReceive(const uint8_t *rdata, uint8_t a, in
     uint8_t r = 0;
 
     while (a < a2) {
-        data[a] = rdata[r++];
-        EmitSignal(a,data[a]);
-        ++a;
+        if (a == 0x35) {
+            data[a++] = rdata[r++];
+            data[a++] = rdata[r++];
+            data[a++] = rdata[r++];
+            data[a++] = rdata[r++];
+            EmitSignal(0x35,getWaveNumber());
+        } else {
+            data[a] = rdata[r++];
+            EmitSignal(a,data[a]);
+            ++a;
+        }
     }
 }

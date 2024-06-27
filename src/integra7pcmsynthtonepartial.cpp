@@ -27,25 +27,25 @@ void Integra7PCMSynthTonePartial::EmitSignal(uint8_t a, int v)
         emit PartialLevel(v);
         break;
     case 0x01:
-        emit PartialCoarseTune(v);
+        emit PartialCoarseTune(getPartialCoarseTune());
         break;
     case 0x02:
-        emit PartialFineTune(v);
+        emit PartialFineTune(getPartialFineTune());
         break;
     case 0x03:
         emit PartialRandomPitchDepth(v);
         break;
     case 0x04:
-        emit PartialPan(v);
+        emit PartialPan(getPartialPan());
         break;
     case 0x05:
-        emit PartialPanKeyfollow(v);
+        emit PartialPanKeyfollow(getPartialPanKeyfollow());
         break;
     case 0x06:
         emit PartialRandomPanDepth(v);
         break;
     case 0x07:
-        emit PartialAlternatePanDepth(v);
+        emit PartialAlternatePanDepth(getPartialAlternatePanDepth());
         break;
     case 0x08:
         emit PartialEnvMode(v);
@@ -70,6 +70,9 @@ void Integra7PCMSynthTonePartial::EmitSignal(uint8_t a, int v)
         break;
     case 0x13:
         emit PartialReceiveExpression(v);
+        break;
+    case 0x14:
+        emit PartialReceiveHold(v);
         break;
     case 0x16:
         emit PartialRedamperSwitch(v);
@@ -150,22 +153,22 @@ void Integra7PCMSynthTonePartial::EmitSignal(uint8_t a, int v)
         emit WaveTempoSync(v);
         break;
     case 0x39:
-        emit WavePitchKeyfollow(v);
+        emit WavePitchKeyfollow(getWavePitchKeyfollow());
         break;
     case 0x3A:
-        emit PitchEnvDepth(v);
+        emit PitchEnvDepth(getPitchEnvDepth());
         break;
     case 0x3B:
-        emit PitchEnvVelocitySens(v);
+        emit PitchEnvVelocitySens(getPitchEnvVelocitySens());
         break;
     case 0x3C:
-        emit PitchEnvTime1VelocitySens(v);
+        emit PitchEnvTime1VelocitySens(getPitchEnvTime1VelocitySens());
         break;
     case 0x3D:
-        emit PitchEnvTime4VelocitySens(v);
+        emit PitchEnvTime4VelocitySens(getPitchEnvTime4VelocitySens());
         break;
     case 0x3E:
-        emit PitchEnvTimeKeyfollow(v);
+        emit PitchEnvTimeKeyfollow(getPitchEnvTimeKeyfollow());
         break;
     case 0x3F:
         emit PitchEnvTime1(v);
@@ -180,19 +183,19 @@ void Integra7PCMSynthTonePartial::EmitSignal(uint8_t a, int v)
         emit PitchEnvTime4(v);
         break;
     case 0x43:
-        emit PitchEnvLevel0(v);
+        emit PitchEnvLevel0(getPitchEnvLevel0());
         break;
     case 0x44:
-        emit PitchEnvLevel1(v);
+        emit PitchEnvLevel1(getPitchEnvLevel1());
         break;
     case 0x45:
-        emit PitchEnvLevel2(v);
+        emit PitchEnvLevel2(getPitchEnvLevel2());
         break;
     case 0x46:
-        emit PitchEnvLevel3(v);
+        emit PitchEnvLevel3(getPitchEnvLevel3());
         break;
     case 0x47:
-        emit PitchEnvLevel4(v);
+        emit PitchEnvLevel4(getPitchEnvLevel4());
         break;
     case 0x48:
         emit TVFFilterType(v);
@@ -201,37 +204,37 @@ void Integra7PCMSynthTonePartial::EmitSignal(uint8_t a, int v)
         emit TVFCutoffFrequency(v);
         break;
     case 0x4A:
-        emit TVFCutoffKeyfollow(v);
+        emit TVFCutoffKeyfollow(getTVFCutoffKeyfollow());
         break;
     case 0x4B:
         emit TVFCutoffVelocityCurve(v);
         break;
     case 0x4C:
-        emit TVFCutoffVelocitySens(v);
+        emit TVFCutoffVelocitySens(getTVFCutoffVelocitySens());
         break;
     case 0x4D:
         emit TVFResonance(v);
         break;
     case 0x4E:
-        emit TVFResonanceVelocitySens(v);
+        emit TVFResonanceVelocitySens(getTVFResonanceVelocitySens());
         break;
     case 0x4F:
-        emit TVFEnvDepth(v);
+        emit TVFEnvDepth(getTVFEnvDepth());
         break;
     case 0x50:
         emit TVFEnvVelocityCurve(v);
         break;
     case 0x51:
-        emit TVFEnvVelocitySens(v);
+        emit TVFEnvVelocitySens(getTVFEnvVelocitySens());
         break;
     case 0x52:
-        emit TVFEnvTime1VelocitySens(v);
+        emit TVFEnvTime1VelocitySens(getTVFEnvTime1VelocitySens());
         break;
     case 0x53:
-        emit TVFEnvTime4VelocitySens(v);
+        emit TVFEnvTime4VelocitySens(getTVFEnvTime4VelocitySens());
         break;
     case 0x54:
-        emit TVFEnvTimeKeyfollow(v);
+        emit TVFEnvTimeKeyfollow(getTVFEnvTimeKeyfollow());
         break;
     case 0x55:
         emit TVFEnvTime1(v);
@@ -261,7 +264,7 @@ void Integra7PCMSynthTonePartial::EmitSignal(uint8_t a, int v)
         emit TVFEnvLevel4(v);
         break;
     case 0x5E:
-        emit BiasLevel(v);
+        emit BiasLevel(getBiasLevel());
         break;
     case 0x5F:
         emit BiasPosition(v);
@@ -273,16 +276,16 @@ void Integra7PCMSynthTonePartial::EmitSignal(uint8_t a, int v)
         emit TVALevelVelocityCurve(v);
         break;
     case 0x62:
-        emit TVALevelVelocitySens(v);
+        emit TVALevelVelocitySens(getTVALevelVelocitySens());
         break;
     case 0x63:
-        emit TVAEnvTime1VelocitySens(v);
+        emit TVAEnvTime1VelocitySens(getTVAEnvTime1VelocitySens());
         break;
     case 0x64:
-        emit TVAEnvTime4VelocitySens(v);
+        emit TVAEnvTime4VelocitySens(getTVAEnvTime4VelocitySens());
         break;
     case 0x65:
-        emit TVAEnvTimeKeyfollow(v);
+        emit TVAEnvTimeKeyfollow(getTVAEnvTimeKeyfollow());
         break;
     case 0x66:
         emit TVAEnvTime1(v);
@@ -321,7 +324,7 @@ void Integra7PCMSynthTonePartial::EmitSignal(uint8_t a, int v)
         emit LFO1DelayTime(v);
         break;
     case 0x73:
-        emit LFO1DelayTimeKeyfollow(v);
+        emit LFO1DelayTimeKeyfollow(getLFO1DelayTimeKeyfollow());
         break;
     case 0x74:
         emit LFO1FadeMode(v);
@@ -333,16 +336,16 @@ void Integra7PCMSynthTonePartial::EmitSignal(uint8_t a, int v)
         emit LFO1KeyTrigger(v);
         break;
     case 0x77:
-        emit LFO1PitchDepth(v);
+        emit LFO1PitchDepth(getLFO1PitchDepth());
         break;
     case 0x78:
-        emit LFO1TVFDepth(v);
+        emit LFO1TVFDepth(getLFO1TVFDepth());
         break;
     case 0x79:
-        emit LFO1TVADepth(v);
+        emit LFO1TVADepth(getLFO1TVADepth());
         break;
     case 0x7A:
-        emit LFO1PanDepth(v);
+        emit LFO1PanDepth(getLFO1PanDepth());
         break;
     case 0x7B:
         emit LFO2Waveform(v);
@@ -360,7 +363,7 @@ void Integra7PCMSynthTonePartial::EmitSignal(uint8_t a, int v)
         emit LFO2DelayTime(v);
         break;
     case 0x81:
-        emit LFO2DelayTimeKeyfollow(v);
+        emit LFO2DelayTimeKeyfollow(getLFO2DelayTimeKeyfollow());
         break;
     case 0x82:
         emit LFO2FadeMode(v);
@@ -372,67 +375,67 @@ void Integra7PCMSynthTonePartial::EmitSignal(uint8_t a, int v)
         emit LFO2KeyTrigger(v);
         break;
     case 0x85:
-        emit LFO2PitchDepth(v);
+        emit LFO2PitchDepth(getLFO2PitchDepth());
         break;
     case 0x86:
-        emit LFO2TVFDepth(v);
+        emit LFO2TVFDepth(getLFO2TVFDepth());
         break;
     case 0x87:
-        emit LFO2TVADepth(v);
+        emit LFO2TVADepth(getLFO2TVADepth());
         break;
     case 0x88:
-        emit LFO2PanDepth(v);
+        emit LFO2PanDepth(getLFO2PanDepth());
         break;
     case 0x89:
         emit LFOStepType(v);
         break;
     case 0x8A:
-        emit LFOStep1(v);
+        emit LFOStep1(getLFOStep1());
         break;
     case 0x8B:
-        emit LFOStep2(v);
+        emit LFOStep2(getLFOStep2());
         break;
     case 0x8C:
-        emit LFOStep3(v);
+        emit LFOStep3(getLFOStep3());
         break;
     case 0x8D:
-        emit LFOStep4(v);
+        emit LFOStep4(getLFOStep4());
         break;
     case 0x8E:
-        emit LFOStep5(v);
+        emit LFOStep5(getLFOStep5());
         break;
     case 0x8F:
-        emit LFOStep6(v);
+        emit LFOStep6(getLFOStep6());
         break;
     case 0x90:
-        emit LFOStep7(v);
+        emit LFOStep7(getLFOStep7());
         break;
     case 0x91:
-        emit LFOStep8(v);
+        emit LFOStep8(getLFOStep8());
         break;
     case 0x92:
-        emit LFOStep9(v);
+        emit LFOStep9(getLFOStep9());
         break;
     case 0x93:
-        emit LFOStep10(v);
+        emit LFOStep10(getLFOStep10());
         break;
     case 0x94:
-        emit LFOStep11(v);
+        emit LFOStep11(getLFOStep11());
         break;
     case 0x95:
-        emit LFOStep12(v);
+        emit LFOStep12(getLFOStep12());
         break;
     case 0x96:
-        emit LFOStep13(v);
+        emit LFOStep13(getLFOStep13());
         break;
     case 0x97:
-        emit LFOStep14(v);
+        emit LFOStep14(getLFOStep14());
         break;
     case 0x98:
-        emit LFOStep15(v);
+        emit LFOStep15(getLFOStep15());
         break;
     case 0x99:
-        emit LFOStep16(v);
+        emit LFOStep16(getLFOStep16());
         break;
     default:
         break;
@@ -445,8 +448,40 @@ void Integra7PCMSynthTonePartial::DataReceive(const uint8_t *rdata, uint8_t a, i
     uint8_t r = 0;
 
     while (a < a2) {
-        data[a] = rdata[r++];
-        EmitSignal(a,data[a]);
-        ++a;
+        if (a == 0x0A) {
+            data[a++] = rdata[r++];
+            data[a++] = rdata[r++];
+            EmitSignal(0x0A,getPartialDelayTime());
+        } else if (a == 0x28) {
+            data[a++] = rdata[r++];
+            data[a++] = rdata[r++];
+            data[a++] = rdata[r++];
+            data[a++] = rdata[r++];
+            EmitSignal(0x28,getWaveGroupID());
+        } else if (a == 0x2C) {
+            data[a++] = rdata[r++];
+            data[a++] = rdata[r++];
+            data[a++] = rdata[r++];
+            data[a++] = rdata[r++];
+            EmitSignal(0x2C,getWaveNumberL());
+        } else if (a == 0x30) {
+            data[a++] = rdata[r++];
+            data[a++] = rdata[r++];
+            data[a++] = rdata[r++];
+            data[a++] = rdata[r++];
+            EmitSignal(0x30,getWaveNumberR());
+        } else if (a == 0x6E) {
+            data[a++] = rdata[r++];
+            data[a++] = rdata[r++];
+            EmitSignal(0x6E,getLFO1Rate());
+        } else if (a == 0x7C) {
+            data[a++] = rdata[r++];
+            data[a++] = rdata[r++];
+            EmitSignal(0x7C,getLFO2Rate());
+        } else {
+            data[a] = rdata[r++];
+            EmitSignal(a,data[a]);
+            ++a;
+        }
     }
 }

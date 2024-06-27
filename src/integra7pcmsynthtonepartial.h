@@ -330,6 +330,7 @@ signals:
     void PartialReverbSendLevel(int v);
     void PartialReceiveBender(int v);
     void PartialReceiveExpression(int v);
+    void PartialReceiveHold(int v);
     void PartialRedamperSwitch(int v);
     void PartialControl1Switch1(int v);
     void PartialControl1Switch2(int v);

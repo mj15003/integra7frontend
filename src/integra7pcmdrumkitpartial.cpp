@@ -58,6 +58,7 @@ void Integra7PCMDrumKitPartial::EmitSignal(uint8_t a, int v)
         break;
     case 0x0B:
         emit PartialName12(v);
+        emit PartialName(getPartialName());
         break;
     case 0x0C:
         emit AssignType(v);
@@ -72,19 +73,19 @@ void Integra7PCMDrumKitPartial::EmitSignal(uint8_t a, int v)
         emit PartialCoarseTune(v);
         break;
     case 0x10:
-        emit PartialFineTune(v);
+        emit PartialFineTune(getPartialFineTune());
         break;
     case 0x11:
         emit PartialRandomPitchDepth(v);
         break;
     case 0x12:
-        emit PartialPan(v);
+        emit PartialPan(getPartialPan());
         break;
     case 0x13:
         emit PartialRandomPanDepth(v);
         break;
     case 0x14:
-        emit PartialAlternatePanDepth(v);
+        emit PartialAlternatePanDepth(getPartialAlternatePanDepth());
         break;
     case 0x15:
         emit PartialEnvMode(v);
@@ -106,6 +107,9 @@ void Integra7PCMDrumKitPartial::EmitSignal(uint8_t a, int v)
         break;
     case 0x1D:
         emit PartialReceiveExpression(v);
+        break;
+    case 0x1E:
+        emit PartialReceiveHold(v);
         break;
     case 0x20:
         emit WMTVelocityControl(v);
@@ -141,13 +145,13 @@ void Integra7PCMDrumKitPartial::EmitSignal(uint8_t a, int v)
         emit WMT1WaveTempoSync(v);
         break;
     case 0x34:
-        emit WMT1WaveCoarseTune(v);
+        emit WMT1WaveCoarseTune(getWMT1WaveCoarseTune());
         break;
     case 0x35:
-        emit WMT1WaveFineTune(v);
+        emit WMT1WaveFineTune(getWMT1WaveFineTune());
         break;
     case 0x36:
-        emit WMT1WavePan(v);
+        emit WMT1WavePan(getWMT1WavePan());
         break;
     case 0x37:
         emit WMT1WaveRandomPanSwitch(v);
@@ -201,13 +205,13 @@ void Integra7PCMDrumKitPartial::EmitSignal(uint8_t a, int v)
         emit WMT2WaveTempoSync(v);
         break;
     case 0x51:
-        emit WMT2WaveCoarseTune(v);
+        emit WMT2WaveCoarseTune(getWMT2WaveCoarseTune());
         break;
     case 0x52:
-        emit WMT2WaveFineTune(v);
+        emit WMT2WaveFineTune(getWMT2WaveFineTune());
         break;
     case 0x53:
-        emit WMT2WavePan(v);
+        emit WMT2WavePan(getWMT2WavePan());
         break;
     case 0x54:
         emit WMT2WaveRandomPanSwitch(v);
@@ -261,13 +265,13 @@ void Integra7PCMDrumKitPartial::EmitSignal(uint8_t a, int v)
         emit WMT3WaveTempoSync(v);
         break;
     case 0x6E:
-        emit WMT3WaveCoarseTune(v);
+        emit WMT3WaveCoarseTune(getWMT3WaveCoarseTune());
         break;
     case 0x6F:
-        emit WMT3WaveFineTune(v);
+        emit WMT3WaveFineTune(getWMT3WaveFineTune());
         break;
     case 0x70:
-        emit WMT3WavePan(v);
+        emit WMT3WavePan(getWMT3WavePan());
         break;
     case 0x71:
         emit WMT3WaveRandomPanSwitch(v);
@@ -321,13 +325,13 @@ void Integra7PCMDrumKitPartial::EmitSignal(uint8_t a, int v)
         emit WMT4WaveTempoSync(v);
         break;
     case 0x8B:
-        emit WMT4WaveCoarseTune(v);
+        emit WMT4WaveCoarseTune(getWMT4WaveCoarseTune());
         break;
     case 0x8C:
-        emit WMT4WaveFineTune(v);
+        emit WMT4WaveFineTune(getWMT4WaveFineTune());
         break;
     case 0x8D:
-        emit WMT4WavePan(v);
+        emit WMT4WavePan(getWMT4WavePan());
         break;
     case 0x8E:
         emit WMT4WaveRandomPanSwitch(v);
@@ -351,16 +355,16 @@ void Integra7PCMDrumKitPartial::EmitSignal(uint8_t a, int v)
         emit WMT4VelocityFadeWidthUpper(v);
         break;
     case 0x95:
-        emit PitchEnvDepth(v);
+        emit PitchEnvDepth(getPitchEnvDepth());
         break;
     case 0x96:
-        emit PitchEnvVelocitySens(v);
+        emit PitchEnvVelocitySens(getPitchEnvVelocitySens());
         break;
     case 0x97:
-        emit PitchEnvTime1VelocitySens(v);
+        emit PitchEnvTime1VelocitySens(getPitchEnvTime1VelocitySens());
         break;
     case 0x98:
-        emit PitchEnvTime4VelocitySens(v);
+        emit PitchEnvTime4VelocitySens(getPitchEnvTime4VelocitySens());
         break;
     case 0x99:
         emit PitchEnvTime1(v);
@@ -375,19 +379,19 @@ void Integra7PCMDrumKitPartial::EmitSignal(uint8_t a, int v)
         emit PitchEnvTime4(v);
         break;
     case 0x9D:
-        emit PitchEnvLevel0(v);
+        emit PitchEnvLevel0(getPitchEnvLevel0());
         break;
     case 0x9E:
-        emit PitchEnvLevel1(v);
+        emit PitchEnvLevel1(getPitchEnvLevel1());
         break;
     case 0x9F:
-        emit PitchEnvLevel2(v);
+        emit PitchEnvLevel2(getPitchEnvLevel2());
         break;
     case 0xA0:
-        emit PitchEnvLevel3(v);
+        emit PitchEnvLevel3(getPitchEnvLevel3());
         break;
     case 0xA1:
-        emit PitchEnvLevel4(v);
+        emit PitchEnvLevel4(getPitchEnvLevel4());
         break;
     case 0xA2:
         emit TVFFilterType(v);
@@ -399,28 +403,28 @@ void Integra7PCMDrumKitPartial::EmitSignal(uint8_t a, int v)
         emit TVFCutoffVelocityCurve(v);
         break;
     case 0xA5:
-        emit TVFCutoffVelocitySens(v);
+        emit TVFCutoffVelocitySens(getTVFCutoffVelocitySens());
         break;
     case 0xA6:
         emit TVFResonance(v);
         break;
     case 0xA7:
-        emit TVFResonanceVelocitySens(v);
+        emit TVFResonanceVelocitySens(getTVFResonanceVelocitySens());
         break;
     case 0xA8:
-        emit TVFEnvDepth(v);
+        emit TVFEnvDepth(getTVFEnvDepth());
         break;
     case 0xA9:
         emit TVFEnvVelocityCurveType(v);
         break;
     case 0xAA:
-        emit TVFEnvVelocitySens(v);
+        emit TVFEnvVelocitySens(getTVFEnvVelocitySens());
         break;
     case 0xAB:
-        emit TVFEnvTime1VelocitySens(v);
+        emit TVFEnvTime1VelocitySens(getTVFEnvTime1VelocitySens());
         break;
     case 0xAC:
-        emit TVFEnvTime4VelocitySens(v);
+        emit TVFEnvTime4VelocitySens(getTVFEnvTime4VelocitySens());
         break;
     case 0xAD:
         emit TVFEnvTime1(v);
@@ -453,13 +457,13 @@ void Integra7PCMDrumKitPartial::EmitSignal(uint8_t a, int v)
         emit TVALevelVelocityCurve(v);
         break;
     case 0xB7:
-        emit TVALevelVelocitySens(v);
+        emit TVALevelVelocitySens(getTVALevelVelocitySens());
         break;
     case 0xB8:
-        emit TVAEnvTime1VelocitySens(v);
+        emit TVAEnvTime1VelocitySens(getTVAEnvTime1VelocitySens());
         break;
     case 0xB9:
-        emit TVAEnvTime4VelocitySens(v);
+        emit TVAEnvTime4VelocitySens(getTVAEnvTime4VelocitySens());
         break;
     case 0xBA:
         emit TVAEnvTime1(v);
@@ -496,8 +500,82 @@ void Integra7PCMDrumKitPartial::DataReceive(const uint8_t *rdata, uint8_t a, int
     uint8_t r = 0;
 
     while (a < a2) {
-        data[a] = rdata[r++];
-        EmitSignal(a,data[a]);
-        ++a;
+        if (a == 0x23) {
+            data[a++] = rdata[r++];
+            data[a++] = rdata[r++];
+            data[a++] = rdata[r++];
+            data[a++] = rdata[r++];
+            EmitSignal(0x23,getWMT1WaveGroupID());
+        } else if (a == 0x27) {
+            data[a++] = rdata[r++];
+            data[a++] = rdata[r++];
+            data[a++] = rdata[r++];
+            data[a++] = rdata[r++];
+            EmitSignal(0x27,getWMT1WaveNumberL());
+        } else if (a == 0x2B) {
+            data[a++] = rdata[r++];
+            data[a++] = rdata[r++];
+            data[a++] = rdata[r++];
+            data[a++] = rdata[r++];
+            EmitSignal(0x2B,getWMT1WaveNumberR());
+        } else if (a == 0x40) {
+            data[a++] = rdata[r++];
+            data[a++] = rdata[r++];
+            data[a++] = rdata[r++];
+            data[a++] = rdata[r++];
+            EmitSignal(0x40,getWMT2WaveGroupID());
+        } else if (a == 0x44) {
+            data[a++] = rdata[r++];
+            data[a++] = rdata[r++];
+            data[a++] = rdata[r++];
+            data[a++] = rdata[r++];
+            EmitSignal(0x44,getWMT2WaveNumberL());
+        } else if (a == 0x48) {
+            data[a++] = rdata[r++];
+            data[a++] = rdata[r++];
+            data[a++] = rdata[r++];
+            data[a++] = rdata[r++];
+            EmitSignal(0x48,getWMT2WaveNumberR());
+        } else if (a == 0x5D) {
+            data[a++] = rdata[r++];
+            data[a++] = rdata[r++];
+            data[a++] = rdata[r++];
+            data[a++] = rdata[r++];
+            EmitSignal(0x5D,getWMT3WaveGroupID());
+        } else if (a == 0x61) {
+            data[a++] = rdata[r++];
+            data[a++] = rdata[r++];
+            data[a++] = rdata[r++];
+            data[a++] = rdata[r++];
+            EmitSignal(0x61,getWMT3WaveNumberL());
+        } else if (a == 0x65) {
+            data[a++] = rdata[r++];
+            data[a++] = rdata[r++];
+            data[a++] = rdata[r++];
+            data[a++] = rdata[r++];
+            EmitSignal(0x65,getWMT3WaveNumberR());
+        } else if (a == 0x7A) {
+            data[a++] = rdata[r++];
+            data[a++] = rdata[r++];
+            data[a++] = rdata[r++];
+            data[a++] = rdata[r++];
+            EmitSignal(0x7A,getWMT4WaveGroupID());
+        } else if (a == 0x7E) {
+            data[a++] = rdata[r++];
+            data[a++] = rdata[r++];
+            data[a++] = rdata[r++];
+            data[a++] = rdata[r++];
+            EmitSignal(0x7E,getWMT4WaveNumberL());
+        } else if (a == 0x82) {
+            data[a++] = rdata[r++];
+            data[a++] = rdata[r++];
+            data[a++] = rdata[r++];
+            data[a++] = rdata[r++];
+            EmitSignal(0x82,getWMT4WaveNumberR());
+        } else {
+            data[a] = rdata[r++];
+            EmitSignal(a,data[a]);
+            ++a;
+        }
     }
 }

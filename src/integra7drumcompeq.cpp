@@ -48,13 +48,13 @@ void Integra7DrumCompEQ::EmitSignal(uint8_t a, int v)
         emit EQ1LowFreq(v);
         break;
     case 0x08:
-        emit EQ1LowGain(v);
+        emit EQ1LowGain(getEQ1LowGain());
         break;
     case 0x09:
         emit EQ1MidFreq(v);
         break;
     case 0x0A:
-        emit EQ1MidGain(v);
+        emit EQ1MidGain(getEQ1MidGain());
         break;
     case 0x0B:
         emit EQ1MidQ(v);
@@ -63,7 +63,7 @@ void Integra7DrumCompEQ::EmitSignal(uint8_t a, int v)
         emit EQ1HighFreq(v);
         break;
     case 0x0D:
-        emit EQ1HighGain(v);
+        emit EQ1HighGain(getEQ1HighGain());
         break;
     case 0x0E:
         emit Comp2Switch(v);
@@ -90,13 +90,13 @@ void Integra7DrumCompEQ::EmitSignal(uint8_t a, int v)
         emit EQ2LowFreq(v);
         break;
     case 0x16:
-        emit EQ2LowGain(v);
+        emit EQ2LowGain(getEQ2LowGain());
         break;
     case 0x17:
         emit EQ2MidFreq(v);
         break;
     case 0x18:
-        emit EQ2MidGain(v);
+        emit EQ2MidGain(getEQ2MidGain());
         break;
     case 0x19:
         emit EQ2MidQ(v);
@@ -105,7 +105,7 @@ void Integra7DrumCompEQ::EmitSignal(uint8_t a, int v)
         emit EQ2HighFreq(v);
         break;
     case 0x1B:
-        emit EQ2HighGain(v);
+        emit EQ2HighGain(getEQ2HighGain());
         break;
     case 0x1C:
         emit Comp3Switch(v);
@@ -132,13 +132,13 @@ void Integra7DrumCompEQ::EmitSignal(uint8_t a, int v)
         emit EQ3LowFreq(v);
         break;
     case 0x24:
-        emit EQ3LowGain(v);
+        emit EQ3LowGain(getEQ3LowGain());
         break;
     case 0x25:
         emit EQ3MidFreq(v);
         break;
     case 0x26:
-        emit EQ3MidGain(v);
+        emit EQ3MidGain(getEQ3MidGain());
         break;
     case 0x27:
         emit EQ3MidQ(v);
@@ -147,7 +147,7 @@ void Integra7DrumCompEQ::EmitSignal(uint8_t a, int v)
         emit EQ3HighFreq(v);
         break;
     case 0x29:
-        emit EQ3HighGain(v);
+        emit EQ3HighGain(getEQ3HighGain());
         break;
     case 0x2A:
         emit Comp4Switch(v);
@@ -174,13 +174,13 @@ void Integra7DrumCompEQ::EmitSignal(uint8_t a, int v)
         emit EQ4LowFreq(v);
         break;
     case 0x32:
-        emit EQ4LowGain(v);
+        emit EQ4LowGain(getEQ4LowGain());
         break;
     case 0x33:
         emit EQ4MidFreq(v);
         break;
     case 0x34:
-        emit EQ4MidGain(v);
+        emit EQ4MidGain(getEQ4MidGain());
         break;
     case 0x35:
         emit EQ4MidQ(v);
@@ -189,7 +189,7 @@ void Integra7DrumCompEQ::EmitSignal(uint8_t a, int v)
         emit EQ4HighFreq(v);
         break;
     case 0x37:
-        emit EQ4HighGain(v);
+        emit EQ4HighGain(getEQ4HighGain());
         break;
     case 0x38:
         emit Comp5Switch(v);
@@ -216,13 +216,13 @@ void Integra7DrumCompEQ::EmitSignal(uint8_t a, int v)
         emit EQ5LowFreq(v);
         break;
     case 0x40:
-        emit EQ5LowGain(v);
+        emit EQ5LowGain(getEQ5LowGain());
         break;
     case 0x41:
         emit EQ5MidFreq(v);
         break;
     case 0x42:
-        emit EQ5MidGain(v);
+        emit EQ5MidGain(getEQ5MidGain());
         break;
     case 0x43:
         emit EQ5MidQ(v);
@@ -231,7 +231,7 @@ void Integra7DrumCompEQ::EmitSignal(uint8_t a, int v)
         emit EQ5HighFreq(v);
         break;
     case 0x45:
-        emit EQ5HighGain(v);
+        emit EQ5HighGain(getEQ5HighGain());
         break;
     case 0x46:
         emit Comp6Switch(v);
@@ -258,13 +258,13 @@ void Integra7DrumCompEQ::EmitSignal(uint8_t a, int v)
         emit EQ6LowFreq(v);
         break;
     case 0x4E:
-        emit EQ6LowGain(v);
+        emit EQ6LowGain(getEQ6LowGain());
         break;
     case 0x4F:
         emit EQ6MidFreq(v);
         break;
     case 0x50:
-        emit EQ6MidGain(v);
+        emit EQ6MidGain(getEQ6MidGain());
         break;
     case 0x51:
         emit EQ6MidQ(v);
@@ -273,7 +273,7 @@ void Integra7DrumCompEQ::EmitSignal(uint8_t a, int v)
         emit EQ6HighFreq(v);
         break;
     case 0x53:
-        emit EQ6HighGain(v);
+        emit EQ6HighGain(getEQ6HighGain());
         break;
     default:
         break;

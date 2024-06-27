@@ -107,6 +107,7 @@ public:
 
 public slots:
 
+    void setToneName(const QString name);
     void setPCMSynthToneName1(int v) {DataSet(0x00,v);}
     void setPCMSynthToneName2(int v) {DataSet(0x01,v);}
     void setPCMSynthToneName3(int v) {DataSet(0x02,v);}

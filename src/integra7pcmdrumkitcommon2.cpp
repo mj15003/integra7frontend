@@ -40,8 +40,14 @@ void Integra7PCMDrumKitCommon2::DataReceive(const uint8_t *rdata, uint8_t a, int
     uint8_t r = 0;
 
     while (a < a2) {
-        data[a] = rdata[r++];
-        EmitSignal(a,data[a]);
-        ++a;
+        if (a == 0x10) {
+            data[a++] = rdata[r++];
+            data[a++] = rdata[r++];
+            EmitSignal(0x10,getPhraseNumber());
+        } else {
+            data[a] = rdata[r++];
+            EmitSignal(a,data[a]);
+            ++a;
+        }
     }
 }

@@ -58,6 +58,7 @@ void Integra7SNAcousticToneCommon::EmitSignal(uint8_t a, int v)
         break;
     case 0x0B:
         emit ToneName12(v);
+        emit ToneName(getToneName());
         break;
     case 0x10:
         emit ToneLevel(v);
@@ -66,31 +67,31 @@ void Integra7SNAcousticToneCommon::EmitSignal(uint8_t a, int v)
         emit MonoPoly(v);
         break;
     case 0x12:
-        emit PortamentoTimeOffset(v);
+        emit PortamentoTimeOffset(getPortamentoTimeOffset());
         break;
     case 0x13:
-        emit CutoffOffset(v);
+        emit CutoffOffset(getCutoffOffset());
         break;
     case 0x14:
-        emit ResonanceOffset(v);
+        emit ResonanceOffset(getResonanceOffset());
         break;
     case 0x15:
-        emit AttackTimeOffset(v);
+        emit AttackTimeOffset(getAttackTimeOffset());
         break;
     case 0x16:
-        emit ReleaseTimeOffset(v);
+        emit ReleaseTimeOffset(getReleaseTimeOffset());
         break;
     case 0x17:
-        emit VibratoRate(v);
+        emit VibratoRate(getVibratoRate());
         break;
     case 0x18:
-        emit VibratoDepth(v);
+        emit VibratoDepth(getVibratoDepth());
         break;
     case 0x19:
-        emit VibratoDelay(v);
+        emit VibratoDelay(getVibratoDelay());
         break;
     case 0x1A:
-        emit OctaveShift(v);
+        emit OctaveShift(getOctaveShift());
         break;
     case 0x1B:
         emit Category(v);
@@ -99,7 +100,7 @@ void Integra7SNAcousticToneCommon::EmitSignal(uint8_t a, int v)
         emit PhraseNumber(getPhraseNumber());
         break;
     case 0x1E:
-        emit PhraseOctaveShift(v);
+        emit PhraseOctaveShift(getPhraseOctaveShift());
         break;
     case 0x1F:
         emit TFXSwitch(v);
@@ -220,10 +221,23 @@ void Integra7SNAcousticToneCommon::DataReceive(const uint8_t *rdata, uint8_t a, 
         if (a == 0x0){
             while (r<0x0C) data[a++] = rdata[r++];
             emit ToneName(getToneName());
+        } else if (a == 0x1C) {
+            data[a++] = rdata[r++];
+            data[a++] = rdata[r++];
+            EmitSignal(0x1C,getPhraseNumber());
         } else {
             data[a] = rdata[r++];
             EmitSignal(a,data[a]);
             ++a;
         }
+    }
+}
+
+void Integra7SNAcousticToneCommon::setToneName(const QString name)
+{
+    uint8_t c = 0;
+    while (c < name.length() && c < 0xC){
+        data[c] = name.at(c).toLatin1();
+        c++;
     }
 }

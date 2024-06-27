@@ -30,7 +30,7 @@ void Integra7SNDrumKitNote::EmitSignal(uint8_t a, int v)
         emit Level(v);
         break;
     case 0x05:
-        emit Pan(v);
+        emit Pan(getPan());
         break;
     case 0x06:
         emit ChorusSendLevel(v);
@@ -48,7 +48,7 @@ void Integra7SNDrumKitNote::EmitSignal(uint8_t a, int v)
         emit Decay(v);
         break;
     case 0x0E:
-        emit Brilliance(v);
+        emit Brilliance(getBrilliance());
         break;
     case 0x0F:
         emit Variation(v);
@@ -73,8 +73,22 @@ void Integra7SNDrumKitNote::DataReceive(const uint8_t *rdata, uint8_t a, int len
     uint8_t r = 0;
 
     while (a < a2) {
-        data[a] = rdata[r++];
-        EmitSignal(a,data[a]);
-        ++a;
+        if (a == 0x00) {
+            data[a++] = rdata[r++];
+            data[a++] = rdata[r++];
+            data[a++] = rdata[r++];
+            data[a++] = rdata[r++];
+            EmitSignal(0x00,getInstNumber());
+        } else if (a == 0x08) {
+            data[a++] = rdata[r++];
+            data[a++] = rdata[r++];
+            data[a++] = rdata[r++];
+            data[a++] = rdata[r++];
+            EmitSignal(0x08,getTune());
+        } else {
+            data[a] = rdata[r++];
+            EmitSignal(a,data[a]);
+            ++a;
+        }
     }
 }

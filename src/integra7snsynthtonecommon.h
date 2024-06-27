@@ -72,6 +72,7 @@ public:
 
 public slots:
 
+    void setToneName(const QString name);
     void setToneName1(int v) {DataSet(0x00,v);}
     void setToneName2(int v) {DataSet(0x01,v);}
     void setToneName3(int v) {DataSet(0x02,v);}

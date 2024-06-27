@@ -50,6 +50,7 @@ public:
 
 public slots:
 
+    void setKitName(const QString name);
     void setKitName1(int v) {DataSet(0x00,v);}
     void setKitName2(int v) {DataSet(0x01,v);}
     void setKitName3(int v) {DataSet(0x02,v);}

@@ -27,7 +27,7 @@ void Integra7PCMSynthToneCommon2::EmitSignal(uint8_t a, int v)
         emit ToneCategory(v);
         break;
     case 0x13:
-        emit PhraseOctaveShift(v);
+        emit PhraseOctaveShift(getPhraseOctaveShift());
         break;
     case 0x33:
         emit TFXSwitch(v);
@@ -46,8 +46,16 @@ void Integra7PCMSynthToneCommon2::DataReceive(const uint8_t *rdata, uint8_t a, i
     uint8_t r = 0;
 
     while (a < a2) {
-        data[a] = rdata[r++];
-        EmitSignal(a,data[a]);
-        ++a;
+        if (a == 0x38) {
+            data[a++] = rdata[r++];
+            data[a++] = rdata[r++];
+            data[a++] = rdata[r++];
+            data[a++] = rdata[r++];
+            EmitSignal(0x38,getPhraseNumber());
+        } else {
+            data[a] = rdata[r++];
+            EmitSignal(a,data[a]);
+            ++a;
+        }
     }
 }
