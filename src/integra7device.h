@@ -499,7 +499,7 @@ public:
         return list;
     }
 
-    static QStringList& NumberedCustomList(int n, QString txt);
+    static QStringList& NumberedCustomList(QString ptxt,int n1,int n2, QString atxt);
 
     void LoadVirtualSlots(uint8_t s1,uint8_t s2,uint8_t s3,uint8_t s4);
 

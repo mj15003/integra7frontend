@@ -602,13 +602,24 @@ int Integra7Device::getBankName(QString &type, QString &bank, int index)
     return -1;
 }
 
-QStringList& Integra7Device::NumberedCustomList(int n, QString txt)
+QStringList& Integra7Device::NumberedCustomList(QString ptxt,int n1,int n2, QString atxt)
 {
     static QStringList list;
-    int i = 0;
+    int i = n1;
     list.clear();
-    list.reserve(n);
-    while (i < n) list.append(QString::number(++i) + txt);
+    list.reserve(n2-n1+1);
+    if (ptxt.length() > 0 && atxt.length() > 0) {
+        while (i <= n2) list.append(ptxt % QString::number(i++) % atxt);
+    }
+    else if (ptxt.length() > 0 && atxt.length() == 0) {
+        while (i <= n2) list.append(ptxt % QString::number(i++));
+    }
+    else if (ptxt.length() == 0 && atxt.length() > 0) {
+        while (i <= n2) list.append(QString::number(i++) % atxt);
+    } else {
+        while (i <= n2) list.append(QString::number(i++));
+    }
+
     return list;
 }
 
@@ -737,15 +748,15 @@ QStringList& Integra7Device::GetToneList(QString type, QString bank)
             return Integra7Device::GM2Presets();
     } else if (bank == "USER") {
         if (type == "SN-A")
-            return Integra7Device::NumberedCustomList(256,":USER");
+            return Integra7Device::NumberedCustomList("",1,256,":USER");
         else if (type == "SN-S")
-            return Integra7Device::NumberedCustomList(512,":USER");
+            return Integra7Device::NumberedCustomList("",1,512,":USER");
         else if (type == "SN-D")
-            return Integra7Device::NumberedCustomList(64,":USER");
+            return Integra7Device::NumberedCustomList("",1,64,":USER");
         else if (type == "PCM-S")
-            return Integra7Device::NumberedCustomList(256,":USER");
+            return Integra7Device::NumberedCustomList("",1,256,":USER");
         else if (type == "PCM-D")
-            return Integra7Device::NumberedCustomList(32,":USER");
+            return Integra7Device::NumberedCustomList("",1,32,":USER");
     }
     else if (bank == "ExSN1:Ethnic")
         return Integra7Device::ExSN1Presets();
