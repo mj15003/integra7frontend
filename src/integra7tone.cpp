@@ -301,6 +301,49 @@ int Integra7Tone::OutputDump(uint8_t *data, int *len)
     }
     return 0;
 }
+
+void Integra7Tone::TriggerSignals(const QString &type, int drumnote)
+{
+    if (type == "PCM-S") {
+
+        PCMSynthToneCommon->TriggerAllSignals();
+        PCMSynthToneCommonMFX->TriggerAllSignals();
+        PCMSynthTonePMT->TriggerAllSignals();
+        PCMSynthTonePartial[0]->TriggerAllSignals();
+        PCMSynthTonePartial[1]->TriggerAllSignals();
+        PCMSynthTonePartial[2]->TriggerAllSignals();
+        PCMSynthTonePartial[3]->TriggerAllSignals();
+        PCMSynthToneCommon2->TriggerAllSignals();
+
+    } else if (type == "SN-S") {
+
+        SNSynthToneCommon->TriggerAllSignals();
+        SNSynthToneCommonMFX->TriggerAllSignals();
+        SNSynthTonePartial[0]->TriggerAllSignals();
+        SNSynthTonePartial[1]->TriggerAllSignals();
+        SNSynthTonePartial[2]->TriggerAllSignals();
+
+    } else if (type == "SN-A") {
+
+        SNAcousticToneCommon->TriggerAllSignals();
+        SNAcousticToneMFX->TriggerAllSignals();
+
+    } else if (type == "SN-D") {
+
+        SNDrumKitCommon->TriggerAllSignals();
+        SNDrumKitMFX->TriggerAllSignals();
+        SNDrumKitCommonCompEQ->TriggerAllSignals();
+        SNDrumKitNote[drumnote]->TriggerAllSignals();
+
+    } else if (type == "PCM-D") {
+
+        PCMDrumKitCommon->TriggerAllSignals();
+        PCMDrumKitCommonMFX->TriggerAllSignals();
+        PCMDrumKitCommonCompEQ->TriggerAllSignals();
+        PCMDrumKitPartial[drumnote]->TriggerAllSignals();
+        PCMDrumKitCommon2->TriggerAllSignals();
+    }
+}
 void Integra7Tone::setToneType(const QString &ts)
 {
     ToneType = ts;

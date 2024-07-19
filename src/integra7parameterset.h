@@ -31,6 +31,7 @@ public:
     uint8_t GetAddress(uint8_t i) const { return address[i]; };
     void GetRequestArray(uint8_t *req);
     int OutputDump(uint8_t *dump);
+    void TriggerAllSignals();
     virtual void DataReceive(const uint8_t *rdata, uint8_t a, int len) = 0;
 
 protected:    

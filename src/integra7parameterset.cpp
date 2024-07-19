@@ -55,6 +55,14 @@ int Integra7ParameterSet::OutputDump(uint8_t *dump)
     return len+4;
 }
 
+void Integra7ParameterSet::TriggerAllSignals()
+{
+    int len = GetLength();
+    for (int k=0;k<len;++k){
+        EmitSignal(k,data[k]);
+    }
+}
+
 void Integra7ParameterSet::DataSet(uint8_t a, int v)
 {
     if (v == data[a]) return;
