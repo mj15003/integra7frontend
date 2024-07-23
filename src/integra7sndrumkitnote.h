@@ -46,6 +46,16 @@ public:
     int GetLength() {return 0x13;}
     int GetItemsNumber() {return 13;}
 
+    static QStringList& VariationList() {
+        static QStringList list = { "OFF","FLAM1","FLAM2","FLAM3","BUZZ1","BUZZ2","BUZZ3","ROLL" };
+        return list;
+    }
+
+    static QStringList& OutputAssignList() {
+        static QStringList list = { "PART","COMP+EQ1","COMP+EQ2","COMP+EQ3","COMP+EQ4","COMP+EQ5","COMP+EQ6" };
+        return list;
+    }
+
 public slots:
 
     void setInstNumber(int v) {DataSet4x4B(0x00,v);}

@@ -62,6 +62,10 @@ private:
     QComboBox *BankBoxes[16][2];
     QComboBox *ToneBoxes[16][2];
 
+    Integra7ToneType GUIPartConnection[16];
+    int GUIPCMDrumKitPartial[16];
+    int GUISNDrumKitNote[16];
+
     bool BlockToneChangeSignal = 0;
 
     void TypeBoxChangeLogic(QComboBox *TypeBox, QComboBox *BankBox, QComboBox *ToneBox);
@@ -93,24 +97,43 @@ private slots:
     void ShowReverbCard() {ui->RightContent->setCurrentWidget(ui->ReverbCard);}
     void ShowReverbParams(int tp);
     void ShowPCMSynthCommon(){ui->RightContent->setCurrentWidget(ui->PCMSynthToneCommonCard);}
-    void ShowPCMSynthMFX(){ui->RightContent->setCurrentWidget(ui->PCMSynthToneMFXCard);}
+    void ShowPCMSynthMFX();
     void ShowPCMSynthPMT(){ui->RightContent->setCurrentWidget(ui->PCMSynthTonePMTCard);}
     void ShowPCMSynthPartial(){ui->RightContent->setCurrentWidget(ui->PCMSynthTonePartialCard);}
     void ShowSNSynthCommon(){ui->RightContent->setCurrentWidget(ui->SNSynthToneCommonCard);}
-    void ShowSNSynthMFX(){ui->RightContent->setCurrentWidget(ui->SNSynthToneMFXCard);}
-    void ShowSNSynthPartial(){ui->RightContent->setCurrentWidget(ui->SNSynthTonePartial);}
+    void ShowSNSynthMFX();
+    void ShowSNSynthPartial(){ui->RightContent->setCurrentWidget(ui->SNSynthTonePartialCard);}
     void ShowSNAcousticCommon(){ui->RightContent->setCurrentWidget(ui->SNAcousticToneCard);}
-    void ShowSNAcousticMFX(){ui->RightContent->setCurrentWidget(ui->SNAcousticToneMFXCard);}
+    void ShowSNAcousticMFX();
     void ShowSNDrumKitCommon(){ui->RightContent->setCurrentWidget(ui->SNDrumKitCommonCard);}
-    void ShowSNDrumKitMFX(){ui->RightContent->setCurrentWidget(ui->SNDrumKitMFXCard);}
-    void ShowSNDrumKitCompEQ(){ui->RightContent->setCurrentWidget(ui->SNDrumKitCompEQCard);}
+    void ShowSNDrumKitMFX();
+    void ShowSNDrumKitCompEQ();
     void ShowSNDrumKitNote(){ui->RightContent->setCurrentWidget(ui->SNDrumKitNoteCard);}
     void ShowPCMDrumKitCommon(){ui->RightContent->setCurrentWidget(ui->PCMDrumKitCommonCard);}
-    void ShowPCMDrumKitMFX(){ui->RightContent->setCurrentWidget(ui->PCMDrumKitMFXCard);}
-    void ShowPCMDrumKitCompEQ(){ui->RightContent->setCurrentWidget(ui->PCMDrumKitCompEQCard);}
+    void ShowPCMDrumKitMFX();
+    void ShowPCMDrumKitCompEQ();
     void ShowPCMDrumKitPartial(){ui->RightContent->setCurrentWidget(ui->PCMDrumKitPartialCard);}
     void ShowVirtualSlotsCard();
     void ShowUtilityCard();
+
+    void ConnectPCMSynthTone(int part);
+    void DisconnectPCMSynthTone(int part);
+
+    void ConnectPCMDrumKit(int part);
+    void ConnectPCMDrumKitPartial(int part, int note);
+    void DisconnectPCMDrumKit(int part);
+    void DisconnectPCMDrumKitPartial(int part, int note);
+
+    void ConnectSNAcousticTone(int part);
+    void DisconnectSNAcousticTone(int part);
+
+    void ConnectSNSynthTone(int part);
+    void DisconnectSNSynthTone(int part);
+
+    void ConnectSNDrumKit(int part);
+    void ConnectSNDrumKitNote(int part, int note);
+    void DisconnectSNDrumKit(int part);
+    void DisconnectSNDrumKitNote(int part, int note);
 
     void SoloButtonsLogic(int id, bool checked);
 

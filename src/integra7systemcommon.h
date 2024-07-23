@@ -52,7 +52,7 @@ public:
     int get51CHSubWooferSwitch() {return data[0x2C];}
     int get2CHOutputMode() {return data[0x2D];}
 
-    static QStringList& MIDIChListOff() {
+    static QStringList& MIDIChList() {
         static QStringList list = { "1","2","3","4","5","6","7","8",
                                    "9","10","11","12","13","14","15","16","OFF" };
         return list;
@@ -70,6 +70,23 @@ public:
 
     static QStringList& SpeakerPhonesList() {
         static QStringList list = { "SPEAKER","PHONES" };
+        return list;
+    }
+
+    static QStringList& ControlSourceList() {
+        static QStringList list = { "OFF",
+                                   "CC01","CC02","CC03","CC04","CC05","CC06","CC07","CC08","CC09",
+                                   "CC10","CC11","CC12","CC13","CC14","CC15","CC16","CC17","CC18","CC19",
+                                   "CC20","CC21","CC22","CC23","CC24","CC25","CC26","CC27","CC28","CC29",
+                                   "CC30","CC31","CC33","CC34","CC35","CC36","CC37","CC38","CC39",
+                                   "CC40","CC41","CC42","CC43","CC44","CC45","CC46","CC47","CC48","CC49",
+                                   "CC50","CC51","CC52","CC53","CC54","CC55","CC56","CC57","CC58","CC59",
+                                   "CC60","CC61","CC62","CC63","CC64","CC65","CC66","CC67","CC68","CC69",
+                                   "CC70","CC71","CC72","CC73","CC74","CC75","CC76","CC77","CC78","CC79",
+                                   "CC80","CC81","CC82","CC83","CC84","CC85","CC86","CC87","CC88","CC89",
+                                   "CC90","CC91","CC92","CC93","CC94","CC95",
+                                   "BEND","AFT" };
+
         return list;
     }
 

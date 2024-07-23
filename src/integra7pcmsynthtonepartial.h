@@ -171,6 +171,65 @@ public:
     int GetLength() {return 154;}
     int GetItemsNumber() {return 140;}
 
+    static QStringList& PartialRandomPitchDepthList() {
+        static QStringList list = { "0","1","2","3","4","5","6","7","8","9","10",
+                                   "20","30","40","50","60","70","80","90",
+                                   "100","200","300","400","500","600","700",
+                                   "800","900","1000","1100","1200" };
+        return list;
+    }
+
+    static QStringList& PartialEnvModeList() {
+        static QStringList list = { "NO-SUS","SUSTAIN" };
+        return list;
+    }
+
+    static QStringList& PartialDelayModeList() {
+        static QStringList list = { "NORMAL","HOLD","KEY-OFF-NORMAL" };
+        return list;
+    }
+
+    static QStringList& PartialControlSwitchList() {
+        static QStringList list = { "OFF","ON","REVERSE" };
+        return list;
+    }
+
+    static QStringList& WaveGroupTypeList() {
+        static QStringList list = { "INT","SRX","---","---" };
+        return list;
+    }
+
+    static QStringList& WaveGainList() {
+        static QStringList list = { "-6","0","+6","+12" };
+        return list;
+    }
+
+    static QStringList& TVFFilterTypeList() {
+        static QStringList list = { "OFF","LPF","BPF","HPF","PKG","LPF2","LPF3" };
+        return list;
+    }
+
+    static QStringList& BiasDirectionList() {
+        static QStringList list = { "LOWER","UPPER","LOWERUPPER","ALL" };
+        return list;
+    }
+
+    static QStringList& LFOWaveformList() {
+        static QStringList list = { "SIN","TRI","SAW-UP","SAW-DW","SQR","RND","BEND-UP",
+                                    "BEND-DW","TRP","SH","CHS","VSIN","STEP" };
+        return list;
+    }
+
+    static QStringList& LFOOffsetList() {
+        static QStringList list = { "-100","-50","0","+50","+100" };
+        return list;
+    }
+
+    static QStringList& LFOFadeModeList() {
+        static QStringList list = { "ON-IN","ON-OUT","OFF-IN","OFF-OUT" };
+        return list;
+    }
+
 public slots:
 
     void setPartialLevel(int v) {DataSet(0x00,v);}

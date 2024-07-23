@@ -137,6 +137,11 @@ public:
         return list;
     }
 
+    static QStringList& OutputAssignList() {
+        static QStringList list = { "A","B","C","D" };
+        return list;
+    }
+
 public slots:
     void setChorusType(int v) { DataSet(0x00,v); }
     void setChorusLevel(int v) { DataSet(0x01,v); }

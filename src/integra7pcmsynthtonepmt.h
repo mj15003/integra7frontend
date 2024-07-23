@@ -57,6 +57,21 @@ public:
     int GetLength() {return 0x29;}
     int GetItemsNumber() {return 0x29;}
 
+    static QStringList& Booster12List() {
+        static QStringList list = { "0","+6","+12","+18" };
+        return list;
+    }
+
+    static QStringList& Booster34List() {
+        static QStringList list = { "0","+6","+12","+18" };
+        return list;
+    }
+
+    static QStringList& PMTVelocityControlList() {
+        static QStringList list = { "OFF","ON","RANDOM","CYCLE" };
+        return list;
+    }
+
 public slots:
 
     void setStructureType12(int v) {DataSet(0x00,v);}

@@ -70,6 +70,21 @@ public:
     int GetLength() {return 0x40;}
     int GetItemsNumber() {return 0x40;}
 
+    static QStringList& RINGSwitchList() {
+        static QStringList list = { "OFF","---","ON" };
+        return list;
+    }
+
+    static QStringList& PortamentoModeList() {
+        static QStringList list = { "NORMAL","LEGATO" };
+        return list;
+    }
+
+    static QStringList& UnisonSizeList() {
+        static QStringList list = { "2","4","6","8" };
+        return list;
+    }
+
 public slots:
 
     void setToneName(const QString name);

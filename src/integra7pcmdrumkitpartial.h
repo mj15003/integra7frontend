@@ -189,6 +189,48 @@ public:
     int GetLength() {return 195;}
     int GetItemsNumber() {return 159;}
 
+    static QStringList& AssignTypeList() {
+        static QStringList list = { "MULTI","SINGLE" };
+        return list;
+    }
+
+    static QStringList& PartialRandomPitchDepthList() {
+        static QStringList list = { "0","1","2","3","4","5","6","7","8","9",
+                                   "10","20","30","40","50","60","70","80","90",
+                                   "100","200","300","400","500","600","700","800","900","1000","1100","1200" };
+        return list;
+    }
+
+    static QStringList& PartialEnvModeList() {
+        static QStringList list = { "NO-SUS","SUSTAIN" };
+        return list;
+    }
+
+    static QStringList& PartialOutputAssignList() {
+        static QStringList list = { "PART","COMP+EQ1","COMP+EQ2","COMP+EQ3","COMP+EQ4","COMP+EQ5","COMP+EQ6" };
+        return list;
+    }
+
+    static QStringList& WMTVelocityControlList() {
+        static QStringList list = { "OFF","ON","RANDOM" };
+        return list;
+    }
+
+    static QStringList& WMTWaveGroupTypeList() {
+        static QStringList list = { "INT","SRX","---","---" };
+        return list;
+    }
+
+    static QStringList& WMTWaveGainList() {
+        static QStringList list = { "-6","0","+6","+12" };
+        return list;
+    }
+
+    static QStringList& WMTWaveAlternatePanSwitchList() {
+        static QStringList list = { "OFF","ON","REVERSE" };
+        return list;
+    }
+
 public slots:
 
     void setPartialName1(int v) {DataSet(0x00,v);}

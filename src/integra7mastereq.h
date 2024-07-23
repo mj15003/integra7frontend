@@ -40,6 +40,27 @@ public:
     int GetEQHighFreq() {return data[5];}
     int GetEQHighGain() {return data[6]-15;}
 
+    static QStringList& LowFreqList() {
+        static QStringList list = { "200","400" };
+        return list;
+    }
+
+    static QStringList& MidFreqList() {
+        static QStringList list = { "200","250","315","400","500","630","800","1000","1250","1600",
+                                   "2000","2500","3150","4000","5000","6300","8000" };
+        return list;
+    }
+
+    static QStringList& MidQList() {
+        static QStringList list = { "0.5","1.0","2.0","4.0","8.0" };
+        return list;
+    }
+
+    static QStringList& HighFreqList() {
+        static QStringList list = { "2000","4000","8000" };
+        return list;
+    }
+
 public slots:
     void setEQLowFreq(int v) {DataSet(0,v);}
     void setEQLowGain(int v) {DataSetOffset(1,v,15);}

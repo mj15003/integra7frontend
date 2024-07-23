@@ -87,6 +87,42 @@ public:
     int GetLength() {return 0x3D;}
     int GetItemsNumber() {return 0x3A;}
 
+    static QStringList& OSCWaveList() {
+        static QStringList list = { "SAW","SQR","PW-SQR","TRI","SINE","NOISE","SUPER-SAW","PCM" };
+        return list;
+    }
+
+    static QStringList& OSCWaveVariationList() {
+        static QStringList list = { "A","B","C" };
+        return list;
+    }
+
+    static QStringList& FILTERModeList() {
+        static QStringList list = { "BYPASS","LPF","HPF","BPF","PKG","LPF2","LPF3","LPF4" };
+        return list;
+    }
+
+    static QStringList& FILTERSlopeList() {
+        static QStringList list = { "-12","-24" };
+        return list;
+    }
+
+    static QStringList& LFOShapeList() {
+        static QStringList list = { "TRI","SIN","SAW","SQR","S&H","RND" };
+        return list;
+    }
+
+    static QStringList& LFOTempoSyncNoteList() {
+        static QStringList list = { "16","12","8","4","2","1","3/4","2/3","1/2","3/8","1/3",
+                                   "1/4","3/16","1/6","1/8","3/32","1/12","1/16","1/24","1/32" };
+        return list;
+    }
+
+    static QStringList& WaveGainList() {
+        static QStringList list = { "-6","0","+6","+12" };
+        return list;
+    }
+
 public slots:
 
     void setOSCWave(int v) {DataSet(0x00,v);}

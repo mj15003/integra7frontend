@@ -95,6 +95,11 @@ public:
     int GetLength() {return 0x46;}
     int GetItemsNumber() {return 0x45;}
 
+    static QStringList& MonoPolyList() {
+        static QStringList list = { "MONO","POLY" };
+        return list;
+    }
+
 public slots:
 
     void setToneName(const QString name);

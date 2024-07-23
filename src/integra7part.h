@@ -101,6 +101,42 @@ public:
     int getMotionalSurroundWidth() {return data[0x48];}
     int getMotionalSurroundAmbienceSendLevel() {return data[0x49];}
 
+    static QStringList& OutputList() {
+        static QStringList list = { "A","B","C","D","1","2","3","4","5","6","7","8" };
+        return list;
+    }
+
+    static QStringList& MIDIChList() {
+        static QStringList list = { "1","2","3","4","5","6","7","8",
+                                   "9","10","11","12","13","14","15","16" };
+        return list;
+    }
+
+    static QStringList& MonoPolyList() {
+        static QStringList list = { "MONO","POLY","TONE" };
+        return list;
+    }
+
+    static QStringList& LegatoSwitchList() {
+        static QStringList list = { "OFF","ON","TONE" };
+        return list;
+    }
+
+    static QStringList& PartOutputAssignList() {
+        static QStringList list = { "A","B","C","D","1","2","3","4","5","6","7","8" };
+        return list;
+    }
+
+    static QStringList& PartScaleTuneTypeList() {
+        static QStringList list = { "CUSTOM","EQUAL","JUST-MAJ","JUST-MIN","PYTHAGORE","KIRNBERGE","MEANTONE","WERCKMEIS","ARABIC" };
+        return list;
+    }
+
+    static QStringList& PartScaleTuneKeyList() {
+        static QStringList list = { "C","C#","D","D#","E","F","F#","G","G#","A","A#","B" };
+        return list;
+    }
+
 public slots:
 
     void setReceiveChannel(int v) { DataSet(0x00,v); }

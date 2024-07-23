@@ -138,6 +138,12 @@ integra7MainWindow::integra7MainWindow(QWidget *parent)
     ToneBoxes[14][1] = ui->Ch15ToneBox1;
     ToneBoxes[15][1] = ui->Ch16ToneBox1;
 
+    for (int k=0;k<16;++k) {
+        GUIPartConnection[k] = Integra7ToneType::None;
+        GUIPCMDrumKitPartial[k] = -1;
+        GUISNDrumKitNote[k] = -1;
+    }
+
     /* Setup Custom SpinBoxes */
     ui->Ch1BendRangeBox->SetMaxText("TONE");
     ui->Ch1PortaTimeBox->SetMaxText("TONE");
@@ -421,7 +427,7 @@ integra7MainWindow::integra7MainWindow(QWidget *parent)
                      this,&integra7MainWindow::ReadDumpFromFile);
 
     /* Setup Main Combo box lists*/
-    ui->StudioSetBox->addItems(Integra7Device::NumberedCustomList(64,":INIT"));
+    ui->StudioSetBox->addItems(Integra7Device::NumberedCustomList("",1,64,":INIT"));
     ui->TypeBox->addItems(Integra7Device::TypeLabels());
     ui->BankBox->addItems(Integra7Device::SNAcousticBanks());
     ui->ToneBox->addItems(Integra7Device::SNAcousticPresets());
@@ -564,163 +570,163 @@ integra7MainWindow::integra7MainWindow(QWidget *parent)
     ui->Ch15ToneBox1->addItems(Integra7Device::SNAcousticPresets());
     ui->Ch16ToneBox1->addItems(Integra7Device::SNAcousticPresets());
 
-    ui->Ch1OutputBox->addItems(Integra7Device::OutputList());
-    ui->Ch2OutputBox->addItems(Integra7Device::OutputList());
-    ui->Ch3OutputBox->addItems(Integra7Device::OutputList());
-    ui->Ch4OutputBox->addItems(Integra7Device::OutputList());
-    ui->Ch5OutputBox->addItems(Integra7Device::OutputList());
-    ui->Ch6OutputBox->addItems(Integra7Device::OutputList());
-    ui->Ch7OutputBox->addItems(Integra7Device::OutputList());
-    ui->Ch8OutputBox->addItems(Integra7Device::OutputList());
-    ui->Ch9OutputBox->addItems(Integra7Device::OutputList());
-    ui->Ch10OutputBox->addItems(Integra7Device::OutputList());
-    ui->Ch11OutputBox->addItems(Integra7Device::OutputList());
-    ui->Ch12OutputBox->addItems(Integra7Device::OutputList());
-    ui->Ch13OutputBox->addItems(Integra7Device::OutputList());
-    ui->Ch14OutputBox->addItems(Integra7Device::OutputList());
-    ui->Ch15OutputBox->addItems(Integra7Device::OutputList());
-    ui->Ch16OutputBox->addItems(Integra7Device::OutputList());
+    ui->Ch1OutputBox->addItems(Integra7Part::OutputList());
+    ui->Ch2OutputBox->addItems(Integra7Part::OutputList());
+    ui->Ch3OutputBox->addItems(Integra7Part::OutputList());
+    ui->Ch4OutputBox->addItems(Integra7Part::OutputList());
+    ui->Ch5OutputBox->addItems(Integra7Part::OutputList());
+    ui->Ch6OutputBox->addItems(Integra7Part::OutputList());
+    ui->Ch7OutputBox->addItems(Integra7Part::OutputList());
+    ui->Ch8OutputBox->addItems(Integra7Part::OutputList());
+    ui->Ch9OutputBox->addItems(Integra7Part::OutputList());
+    ui->Ch10OutputBox->addItems(Integra7Part::OutputList());
+    ui->Ch11OutputBox->addItems(Integra7Part::OutputList());
+    ui->Ch12OutputBox->addItems(Integra7Part::OutputList());
+    ui->Ch13OutputBox->addItems(Integra7Part::OutputList());
+    ui->Ch14OutputBox->addItems(Integra7Part::OutputList());
+    ui->Ch15OutputBox->addItems(Integra7Part::OutputList());
+    ui->Ch16OutputBox->addItems(Integra7Part::OutputList());
 
-    ui->Ch1RxChBox->addItems(Integra7Device::MIDIChList());
-    ui->Ch2RxChBox->addItems(Integra7Device::MIDIChList());
-    ui->Ch3RxChBox->addItems(Integra7Device::MIDIChList());
-    ui->Ch4RxChBox->addItems(Integra7Device::MIDIChList());
-    ui->Ch5RxChBox->addItems(Integra7Device::MIDIChList());
-    ui->Ch6RxChBox->addItems(Integra7Device::MIDIChList());
-    ui->Ch7RxChBox->addItems(Integra7Device::MIDIChList());
-    ui->Ch8RxChBox->addItems(Integra7Device::MIDIChList());
-    ui->Ch9RxChBox->addItems(Integra7Device::MIDIChList());
-    ui->Ch10RxChBox->addItems(Integra7Device::MIDIChList());
-    ui->Ch11RxChBox->addItems(Integra7Device::MIDIChList());
-    ui->Ch12RxChBox->addItems(Integra7Device::MIDIChList());
-    ui->Ch13RxChBox->addItems(Integra7Device::MIDIChList());
-    ui->Ch14RxChBox->addItems(Integra7Device::MIDIChList());
-    ui->Ch15RxChBox->addItems(Integra7Device::MIDIChList());
-    ui->Ch16RxChBox->addItems(Integra7Device::MIDIChList());
+    ui->Ch1RxChBox->addItems(Integra7Part::MIDIChList());
+    ui->Ch2RxChBox->addItems(Integra7Part::MIDIChList());
+    ui->Ch3RxChBox->addItems(Integra7Part::MIDIChList());
+    ui->Ch4RxChBox->addItems(Integra7Part::MIDIChList());
+    ui->Ch5RxChBox->addItems(Integra7Part::MIDIChList());
+    ui->Ch6RxChBox->addItems(Integra7Part::MIDIChList());
+    ui->Ch7RxChBox->addItems(Integra7Part::MIDIChList());
+    ui->Ch8RxChBox->addItems(Integra7Part::MIDIChList());
+    ui->Ch9RxChBox->addItems(Integra7Part::MIDIChList());
+    ui->Ch10RxChBox->addItems(Integra7Part::MIDIChList());
+    ui->Ch11RxChBox->addItems(Integra7Part::MIDIChList());
+    ui->Ch12RxChBox->addItems(Integra7Part::MIDIChList());
+    ui->Ch13RxChBox->addItems(Integra7Part::MIDIChList());
+    ui->Ch14RxChBox->addItems(Integra7Part::MIDIChList());
+    ui->Ch15RxChBox->addItems(Integra7Part::MIDIChList());
+    ui->Ch16RxChBox->addItems(Integra7Part::MIDIChList());
 
-    ui->Ch1MonoPolyBox->addItems(Integra7Device::MonoPolyList());
-    ui->Ch2MonoPolyBox->addItems(Integra7Device::MonoPolyList());
-    ui->Ch3MonoPolyBox->addItems(Integra7Device::MonoPolyList());
-    ui->Ch4MonoPolyBox->addItems(Integra7Device::MonoPolyList());
-    ui->Ch5MonoPolyBox->addItems(Integra7Device::MonoPolyList());
-    ui->Ch6MonoPolyBox->addItems(Integra7Device::MonoPolyList());
-    ui->Ch7MonoPolyBox->addItems(Integra7Device::MonoPolyList());
-    ui->Ch8MonoPolyBox->addItems(Integra7Device::MonoPolyList());
-    ui->Ch9MonoPolyBox->addItems(Integra7Device::MonoPolyList());
-    ui->Ch10MonoPolyBox->addItems(Integra7Device::MonoPolyList());
-    ui->Ch11MonoPolyBox->addItems(Integra7Device::MonoPolyList());
-    ui->Ch12MonoPolyBox->addItems(Integra7Device::MonoPolyList());
-    ui->Ch13MonoPolyBox->addItems(Integra7Device::MonoPolyList());
-    ui->Ch14MonoPolyBox->addItems(Integra7Device::MonoPolyList());
-    ui->Ch15MonoPolyBox->addItems(Integra7Device::MonoPolyList());
-    ui->Ch16MonoPolyBox->addItems(Integra7Device::MonoPolyList());
+    ui->Ch1MonoPolyBox->addItems(Integra7Part::MonoPolyList());
+    ui->Ch2MonoPolyBox->addItems(Integra7Part::MonoPolyList());
+    ui->Ch3MonoPolyBox->addItems(Integra7Part::MonoPolyList());
+    ui->Ch4MonoPolyBox->addItems(Integra7Part::MonoPolyList());
+    ui->Ch5MonoPolyBox->addItems(Integra7Part::MonoPolyList());
+    ui->Ch6MonoPolyBox->addItems(Integra7Part::MonoPolyList());
+    ui->Ch7MonoPolyBox->addItems(Integra7Part::MonoPolyList());
+    ui->Ch8MonoPolyBox->addItems(Integra7Part::MonoPolyList());
+    ui->Ch9MonoPolyBox->addItems(Integra7Part::MonoPolyList());
+    ui->Ch10MonoPolyBox->addItems(Integra7Part::MonoPolyList());
+    ui->Ch11MonoPolyBox->addItems(Integra7Part::MonoPolyList());
+    ui->Ch12MonoPolyBox->addItems(Integra7Part::MonoPolyList());
+    ui->Ch13MonoPolyBox->addItems(Integra7Part::MonoPolyList());
+    ui->Ch14MonoPolyBox->addItems(Integra7Part::MonoPolyList());
+    ui->Ch15MonoPolyBox->addItems(Integra7Part::MonoPolyList());
+    ui->Ch16MonoPolyBox->addItems(Integra7Part::MonoPolyList());
 
-    ui->Ch1LegatoBox->addItems(Integra7Device::LegatoSwitchList());
-    ui->Ch2LegatoBox->addItems(Integra7Device::LegatoSwitchList());
-    ui->Ch3LegatoBox->addItems(Integra7Device::LegatoSwitchList());
-    ui->Ch4LegatoBox->addItems(Integra7Device::LegatoSwitchList());
-    ui->Ch5LegatoBox->addItems(Integra7Device::LegatoSwitchList());
-    ui->Ch6LegatoBox->addItems(Integra7Device::LegatoSwitchList());
-    ui->Ch7LegatoBox->addItems(Integra7Device::LegatoSwitchList());
-    ui->Ch8LegatoBox->addItems(Integra7Device::LegatoSwitchList());
-    ui->Ch9LegatoBox->addItems(Integra7Device::LegatoSwitchList());
-    ui->Ch10LegatoBox->addItems(Integra7Device::LegatoSwitchList());
-    ui->Ch11LegatoBox->addItems(Integra7Device::LegatoSwitchList());
-    ui->Ch12LegatoBox->addItems(Integra7Device::LegatoSwitchList());
-    ui->Ch13LegatoBox->addItems(Integra7Device::LegatoSwitchList());
-    ui->Ch14LegatoBox->addItems(Integra7Device::LegatoSwitchList());
-    ui->Ch15LegatoBox->addItems(Integra7Device::LegatoSwitchList());
-    ui->Ch16LegatoBox->addItems(Integra7Device::LegatoSwitchList());
+    ui->Ch1LegatoBox->addItems(Integra7Part::LegatoSwitchList());
+    ui->Ch2LegatoBox->addItems(Integra7Part::LegatoSwitchList());
+    ui->Ch3LegatoBox->addItems(Integra7Part::LegatoSwitchList());
+    ui->Ch4LegatoBox->addItems(Integra7Part::LegatoSwitchList());
+    ui->Ch5LegatoBox->addItems(Integra7Part::LegatoSwitchList());
+    ui->Ch6LegatoBox->addItems(Integra7Part::LegatoSwitchList());
+    ui->Ch7LegatoBox->addItems(Integra7Part::LegatoSwitchList());
+    ui->Ch8LegatoBox->addItems(Integra7Part::LegatoSwitchList());
+    ui->Ch9LegatoBox->addItems(Integra7Part::LegatoSwitchList());
+    ui->Ch10LegatoBox->addItems(Integra7Part::LegatoSwitchList());
+    ui->Ch11LegatoBox->addItems(Integra7Part::LegatoSwitchList());
+    ui->Ch12LegatoBox->addItems(Integra7Part::LegatoSwitchList());
+    ui->Ch13LegatoBox->addItems(Integra7Part::LegatoSwitchList());
+    ui->Ch14LegatoBox->addItems(Integra7Part::LegatoSwitchList());
+    ui->Ch15LegatoBox->addItems(Integra7Part::LegatoSwitchList());
+    ui->Ch16LegatoBox->addItems(Integra7Part::LegatoSwitchList());
 
-    ui->MEQLFFreqBox->addItems(Integra7Device::EQLowFreqList());
-    ui->MEQMFFreqBox->addItems(Integra7Device::EQMidFreqList());
-    ui->MEQMFQBox->addItems(Integra7Device::EQMidQList());
-    ui->MEQHFFreqBox->addItems(Integra7Device::EQHighFreqList());
+    ui->MEQLFFreqBox->addItems(Integra7MasterEQ::LowFreqList());
+    ui->MEQMFFreqBox->addItems(Integra7MasterEQ::MidFreqList());
+    ui->MEQMFQBox->addItems(Integra7MasterEQ::MidQList());
+    ui->MEQHFFreqBox->addItems(Integra7MasterEQ::HighFreqList());
 
-    ui->Ch1EQLFFreqBox->addItems(Integra7Device::EQLowFreqList());
-    ui->Ch1EQMFFreqBox->addItems(Integra7Device::EQMidFreqList());
-    ui->Ch1EQMFQBox->addItems(Integra7Device::EQMidQList());
-    ui->Ch1EQHFFreqBox->addItems(Integra7Device::EQHighFreqList());
+    ui->Ch1EQLFFreqBox->addItems(Integra7MasterEQ::LowFreqList());
+    ui->Ch1EQMFFreqBox->addItems(Integra7MasterEQ::MidFreqList());
+    ui->Ch1EQMFQBox->addItems(Integra7MasterEQ::MidQList());
+    ui->Ch1EQHFFreqBox->addItems(Integra7MasterEQ::HighFreqList());
 
-    ui->Ch2EQLFFreqBox->addItems(Integra7Device::EQLowFreqList());
-    ui->Ch2EQMFFreqBox->addItems(Integra7Device::EQMidFreqList());
-    ui->Ch2EQMFQBox->addItems(Integra7Device::EQMidQList());
-    ui->Ch2EQHFFreqBox->addItems(Integra7Device::EQHighFreqList());
+    ui->Ch2EQLFFreqBox->addItems(Integra7MasterEQ::LowFreqList());
+    ui->Ch2EQMFFreqBox->addItems(Integra7MasterEQ::MidFreqList());
+    ui->Ch2EQMFQBox->addItems(Integra7MasterEQ::MidQList());
+    ui->Ch2EQHFFreqBox->addItems(Integra7MasterEQ::HighFreqList());
 
-    ui->Ch3EQLFFreqBox->addItems(Integra7Device::EQLowFreqList());
-    ui->Ch3EQMFFreqBox->addItems(Integra7Device::EQMidFreqList());
-    ui->Ch3EQMFQBox->addItems(Integra7Device::EQMidQList());
-    ui->Ch3EQHFFreqBox->addItems(Integra7Device::EQHighFreqList());
+    ui->Ch3EQLFFreqBox->addItems(Integra7MasterEQ::LowFreqList());
+    ui->Ch3EQMFFreqBox->addItems(Integra7MasterEQ::MidFreqList());
+    ui->Ch3EQMFQBox->addItems(Integra7MasterEQ::MidQList());
+    ui->Ch3EQHFFreqBox->addItems(Integra7MasterEQ::HighFreqList());
 
-    ui->Ch4EQLFFreqBox->addItems(Integra7Device::EQLowFreqList());
-    ui->Ch4EQMFFreqBox->addItems(Integra7Device::EQMidFreqList());
-    ui->Ch4EQMFQBox->addItems(Integra7Device::EQMidQList());
-    ui->Ch4EQHFFreqBox->addItems(Integra7Device::EQHighFreqList());
+    ui->Ch4EQLFFreqBox->addItems(Integra7MasterEQ::LowFreqList());
+    ui->Ch4EQMFFreqBox->addItems(Integra7MasterEQ::MidFreqList());
+    ui->Ch4EQMFQBox->addItems(Integra7MasterEQ::MidQList());
+    ui->Ch4EQHFFreqBox->addItems(Integra7MasterEQ::HighFreqList());
 
-    ui->Ch5EQLFFreqBox->addItems(Integra7Device::EQLowFreqList());
-    ui->Ch5EQMFFreqBox->addItems(Integra7Device::EQMidFreqList());
-    ui->Ch5EQMFQBox->addItems(Integra7Device::EQMidQList());
-    ui->Ch5EQHFFreqBox->addItems(Integra7Device::EQHighFreqList());
+    ui->Ch5EQLFFreqBox->addItems(Integra7MasterEQ::LowFreqList());
+    ui->Ch5EQMFFreqBox->addItems(Integra7MasterEQ::MidFreqList());
+    ui->Ch5EQMFQBox->addItems(Integra7MasterEQ::MidQList());
+    ui->Ch5EQHFFreqBox->addItems(Integra7MasterEQ::HighFreqList());
 
-    ui->Ch6EQLFFreqBox->addItems(Integra7Device::EQLowFreqList());
-    ui->Ch6EQMFFreqBox->addItems(Integra7Device::EQMidFreqList());
-    ui->Ch6EQMFQBox->addItems(Integra7Device::EQMidQList());
-    ui->Ch6EQHFFreqBox->addItems(Integra7Device::EQHighFreqList());
+    ui->Ch6EQLFFreqBox->addItems(Integra7MasterEQ::LowFreqList());
+    ui->Ch6EQMFFreqBox->addItems(Integra7MasterEQ::MidFreqList());
+    ui->Ch6EQMFQBox->addItems(Integra7MasterEQ::MidQList());
+    ui->Ch6EQHFFreqBox->addItems(Integra7MasterEQ::HighFreqList());
 
-    ui->Ch7EQLFFreqBox->addItems(Integra7Device::EQLowFreqList());
-    ui->Ch7EQMFFreqBox->addItems(Integra7Device::EQMidFreqList());
-    ui->Ch7EQMFQBox->addItems(Integra7Device::EQMidQList());
-    ui->Ch7EQHFFreqBox->addItems(Integra7Device::EQHighFreqList());
+    ui->Ch7EQLFFreqBox->addItems(Integra7MasterEQ::LowFreqList());
+    ui->Ch7EQMFFreqBox->addItems(Integra7MasterEQ::MidFreqList());
+    ui->Ch7EQMFQBox->addItems(Integra7MasterEQ::MidQList());
+    ui->Ch7EQHFFreqBox->addItems(Integra7MasterEQ::HighFreqList());
 
-    ui->Ch8EQLFFreqBox->addItems(Integra7Device::EQLowFreqList());
-    ui->Ch8EQMFFreqBox->addItems(Integra7Device::EQMidFreqList());
-    ui->Ch8EQMFQBox->addItems(Integra7Device::EQMidQList());
-    ui->Ch8EQHFFreqBox->addItems(Integra7Device::EQHighFreqList());
+    ui->Ch8EQLFFreqBox->addItems(Integra7MasterEQ::LowFreqList());
+    ui->Ch8EQMFFreqBox->addItems(Integra7MasterEQ::MidFreqList());
+    ui->Ch8EQMFQBox->addItems(Integra7MasterEQ::MidQList());
+    ui->Ch8EQHFFreqBox->addItems(Integra7MasterEQ::HighFreqList());
 
-    ui->Ch9EQLFFreqBox->addItems(Integra7Device::EQLowFreqList());
-    ui->Ch9EQMFFreqBox->addItems(Integra7Device::EQMidFreqList());
-    ui->Ch9EQMFQBox->addItems(Integra7Device::EQMidQList());
-    ui->Ch9EQHFFreqBox->addItems(Integra7Device::EQHighFreqList());
+    ui->Ch9EQLFFreqBox->addItems(Integra7MasterEQ::LowFreqList());
+    ui->Ch9EQMFFreqBox->addItems(Integra7MasterEQ::MidFreqList());
+    ui->Ch9EQMFQBox->addItems(Integra7MasterEQ::MidQList());
+    ui->Ch9EQHFFreqBox->addItems(Integra7MasterEQ::HighFreqList());
 
-    ui->Ch10EQLFFreqBox->addItems(Integra7Device::EQLowFreqList());
-    ui->Ch10EQMFFreqBox->addItems(Integra7Device::EQMidFreqList());
-    ui->Ch10EQMFQBox->addItems(Integra7Device::EQMidQList());
-    ui->Ch10EQHFFreqBox->addItems(Integra7Device::EQHighFreqList());
+    ui->Ch10EQLFFreqBox->addItems(Integra7MasterEQ::LowFreqList());
+    ui->Ch10EQMFFreqBox->addItems(Integra7MasterEQ::MidFreqList());
+    ui->Ch10EQMFQBox->addItems(Integra7MasterEQ::MidQList());
+    ui->Ch10EQHFFreqBox->addItems(Integra7MasterEQ::HighFreqList());
 
-    ui->Ch11EQLFFreqBox->addItems(Integra7Device::EQLowFreqList());
-    ui->Ch11EQMFFreqBox->addItems(Integra7Device::EQMidFreqList());
-    ui->Ch11EQMFQBox->addItems(Integra7Device::EQMidQList());
-    ui->Ch11EQHFFreqBox->addItems(Integra7Device::EQHighFreqList());
+    ui->Ch11EQLFFreqBox->addItems(Integra7MasterEQ::LowFreqList());
+    ui->Ch11EQMFFreqBox->addItems(Integra7MasterEQ::MidFreqList());
+    ui->Ch11EQMFQBox->addItems(Integra7MasterEQ::MidQList());
+    ui->Ch11EQHFFreqBox->addItems(Integra7MasterEQ::HighFreqList());
 
-    ui->Ch12EQLFFreqBox->addItems(Integra7Device::EQLowFreqList());
-    ui->Ch12EQMFFreqBox->addItems(Integra7Device::EQMidFreqList());
-    ui->Ch12EQMFQBox->addItems(Integra7Device::EQMidQList());
-    ui->Ch12EQHFFreqBox->addItems(Integra7Device::EQHighFreqList());
+    ui->Ch12EQLFFreqBox->addItems(Integra7MasterEQ::LowFreqList());
+    ui->Ch12EQMFFreqBox->addItems(Integra7MasterEQ::MidFreqList());
+    ui->Ch12EQMFQBox->addItems(Integra7MasterEQ::MidQList());
+    ui->Ch12EQHFFreqBox->addItems(Integra7MasterEQ::HighFreqList());
 
-    ui->Ch13EQLFFreqBox->addItems(Integra7Device::EQLowFreqList());
-    ui->Ch13EQMFFreqBox->addItems(Integra7Device::EQMidFreqList());
-    ui->Ch13EQMFQBox->addItems(Integra7Device::EQMidQList());
-    ui->Ch13EQHFFreqBox->addItems(Integra7Device::EQHighFreqList());
+    ui->Ch13EQLFFreqBox->addItems(Integra7MasterEQ::LowFreqList());
+    ui->Ch13EQMFFreqBox->addItems(Integra7MasterEQ::MidFreqList());
+    ui->Ch13EQMFQBox->addItems(Integra7MasterEQ::MidQList());
+    ui->Ch13EQHFFreqBox->addItems(Integra7MasterEQ::HighFreqList());
 
-    ui->Ch14EQLFFreqBox->addItems(Integra7Device::EQLowFreqList());
-    ui->Ch14EQMFFreqBox->addItems(Integra7Device::EQMidFreqList());
-    ui->Ch14EQMFQBox->addItems(Integra7Device::EQMidQList());
-    ui->Ch14EQHFFreqBox->addItems(Integra7Device::EQHighFreqList());
+    ui->Ch14EQLFFreqBox->addItems(Integra7MasterEQ::LowFreqList());
+    ui->Ch14EQMFFreqBox->addItems(Integra7MasterEQ::MidFreqList());
+    ui->Ch14EQMFQBox->addItems(Integra7MasterEQ::MidQList());
+    ui->Ch14EQHFFreqBox->addItems(Integra7MasterEQ::HighFreqList());
 
-    ui->Ch15EQLFFreqBox->addItems(Integra7Device::EQLowFreqList());
-    ui->Ch15EQMFFreqBox->addItems(Integra7Device::EQMidFreqList());
-    ui->Ch15EQMFQBox->addItems(Integra7Device::EQMidQList());
-    ui->Ch15EQHFFreqBox->addItems(Integra7Device::EQHighFreqList());
+    ui->Ch15EQLFFreqBox->addItems(Integra7MasterEQ::LowFreqList());
+    ui->Ch15EQMFFreqBox->addItems(Integra7MasterEQ::MidFreqList());
+    ui->Ch15EQMFQBox->addItems(Integra7MasterEQ::MidQList());
+    ui->Ch15EQHFFreqBox->addItems(Integra7MasterEQ::HighFreqList());
 
-    ui->Ch16EQLFFreqBox->addItems(Integra7Device::EQLowFreqList());
-    ui->Ch16EQMFFreqBox->addItems(Integra7Device::EQMidFreqList());
-    ui->Ch16EQMFQBox->addItems(Integra7Device::EQMidQList());
-    ui->Ch16EQHFFreqBox->addItems(Integra7Device::EQHighFreqList());
+    ui->Ch16EQLFFreqBox->addItems(Integra7MasterEQ::LowFreqList());
+    ui->Ch16EQMFFreqBox->addItems(Integra7MasterEQ::MidFreqList());
+    ui->Ch16EQMFQBox->addItems(Integra7MasterEQ::MidQList());
+    ui->Ch16EQHFFreqBox->addItems(Integra7MasterEQ::HighFreqList());
 
     /* Chorus and Reverb Combo boxes */
     ui->ChorusTypeBox->addItems(Integra7Chorus::TypeList());
     ui->ChorusOutSelectBox->addItems(Integra7Chorus::OutputSelectList());
-    ui->ChorusOutAssignBox->addItems(Integra7Device::OutputAssignList());
+    ui->ChorusOutAssignBox->addItems(Integra7Chorus::OutputAssignList());
 
     ui->ChorusFilterTypeBox->addItems(Integra7Chorus::FilterTypeList());
     ui->ChorusFilterCutoffBox->addItems(Integra7Chorus::FilterFreqList());
@@ -739,24 +745,27 @@ integra7MainWindow::integra7MainWindow(QWidget *parent)
     ui->DelayHFDampBox->addItems(Integra7Chorus::HFDumpList());
 
     ui->ReverbTypeBox->addItems(Integra7Reverb::TypeList());
-    ui->ReverbOutputAssignBox->addItems(Integra7Device::OutputAssignList());
+    ui->ReverbOutputAssignBox->addItems(Integra7Chorus::OutputAssignList());
     ui->ReverbTimeBox->addItems(Integra7Reverb::TimeList());
     ui->ReverbGM2CharBox->addItems(Integra7Reverb::GM2CharacterList());
 
     ui->ChorusParams->setCurrentWidget(ui->ChorusEmptyPage);
     ui->ReverbParams->setCurrentWidget(ui->ReverbEmptyPage);
 
-    ui->SysCtrl1SrcBox->addItems(Integra7Device::ControlSourceList());
-    ui->SysCtrl2SrcBox->addItems(Integra7Device::ControlSourceList());
-    ui->SysCtrl3SrcBox->addItems(Integra7Device::ControlSourceList());
-    ui->SysCtrl4SrcBox->addItems(Integra7Device::ControlSourceList());
+    ui->SysCtrl1SrcBox->addItems(Integra7SystemCommon::ControlSourceList());
+    ui->SysCtrl2SrcBox->addItems(Integra7SystemCommon::ControlSourceList());
+    ui->SysCtrl3SrcBox->addItems(Integra7SystemCommon::ControlSourceList());
+    ui->SysCtrl4SrcBox->addItems(Integra7SystemCommon::ControlSourceList());
 
     ui->SystemControlSourceBox->addItems(Integra7SystemCommon::SystemStudioSetList());
     ui->SystemClockSourceBox->addItems(Integra7SystemCommon::SystemClockSourceList());
     ui->SystemTempoAssignSourceBox->addItems(Integra7SystemCommon::SystemStudioSetList());
-    ui->StudioSetCtrlChBox->addItems(Integra7SystemCommon::MIDIChListOff());
+    ui->StudioSetCtrlChBox->addItems(Integra7SystemCommon::MIDIChList());
     ui->SpkOutModeBox->addItems(Integra7SystemCommon::SpeakerPhonesList());
     ui->SoundModeBox->addItems(Integra7Setup::SoundModeLabels());
+
+    ui->PCMDrumKitPartialSelector->addItems(Integra7Device::NumberedCustomList("",21,108,""));
+    ui->SNDrumKitPartialSelector->addItems(Integra7Device::NumberedCustomList("",27,88,""));
 
     /* ComboBoxes change value logic connections */
     QObject::connect(ui->Ch1TypeBox,&QComboBox::currentIndexChanged,this,
@@ -5965,24 +5974,154 @@ void integra7MainWindow::ShowEffects()
 
 void integra7MainWindow::ShowTone()
 {
-    QString ToneType = TypeBoxes[PartBtnGrp.checkedId()][0]->currentText();
+    int part = PartBtnGrp.checkedId();
+    QString ToneType = TypeBoxes[part][0]->currentText();
 
     if (ToneType == "SN-A") {
+
+        switch (GUIPartConnection[part]) {
+            case Integra7ToneType::PCMDrumKit:
+                DisconnectPCMDrumKit(part);
+                break;
+            case Integra7ToneType::SNDrumKit:
+                DisconnectSNDrumKit(part);
+                break;
+            case Integra7ToneType::SNSynth:
+                DisconnectSNSynthTone(part);
+                break;
+            case Integra7ToneType::PCMSynth:
+                DisconnectPCMSynthTone(part);
+                break;
+            default:
+                break;
+        }
+
+        if (GUIPartConnection[part] != Integra7ToneType::SNAcoustic) {
+            ConnectSNAcousticTone(part);
+            GUIPartConnection[part] = Integra7ToneType::SNAcoustic;
+        }
+
         ui->LeftMenu->setCurrentWidget(ui->SNAcousticMenu);
         ui->RightContent->setCurrentWidget(ui->SNAcousticToneCard);
+
     } else if (ToneType == "SN-S") {
+
+        switch (GUIPartConnection[part]) {
+            case Integra7ToneType::PCMDrumKit:
+                DisconnectPCMDrumKit(part);
+                break;
+            case Integra7ToneType::SNDrumKit:
+                DisconnectSNDrumKit(part);
+                break;
+            case Integra7ToneType::SNAcoustic:
+                DisconnectSNAcousticTone(part);
+                break;
+            case Integra7ToneType::PCMSynth:
+                DisconnectPCMSynthTone(part);
+                break;
+            default:
+                break;
+        }
+
+        if (GUIPartConnection[part] != Integra7ToneType::SNSynth) {
+            ConnectSNSynthTone(part);
+            GUIPartConnection[part] = Integra7ToneType::SNSynth;
+        }
+
         ui->LeftMenu->setCurrentWidget(ui->SNSynthMenu);
         ui->RightContent->setCurrentWidget(ui->SNSynthToneCommonCard);
+
     } else if (ToneType == "SN-D") {
+
+        switch (GUIPartConnection[part]) {
+            case Integra7ToneType::PCMDrumKit:
+                DisconnectPCMDrumKit(part);
+                break;
+            case Integra7ToneType::SNSynth:
+                DisconnectSNSynthTone(part);
+                break;
+            case Integra7ToneType::SNAcoustic:
+                DisconnectSNAcousticTone(part);
+                break;
+            case Integra7ToneType::PCMSynth:
+                DisconnectPCMSynthTone(part);
+                break;
+            default:
+                break;
+        }
+
+        if (GUIPartConnection[part] != Integra7ToneType::SNDrumKit) {
+            ConnectSNDrumKit(part);
+            GUIPartConnection[part] = Integra7ToneType::SNDrumKit;
+        }
+        if (GUISNDrumKitNote[part] != ui->SNDrumKitPartialSelector->currentIndex()) {
+            ConnectSNDrumKitNote(part,ui->SNDrumKitPartialSelector->currentIndex());
+            GUISNDrumKitNote[part] = ui->SNDrumKitPartialSelector->currentIndex();
+        }
+
         ui->LeftMenu->setCurrentWidget(ui->SNDrumKitMenu);
         ui->RightContent->setCurrentWidget(ui->SNDrumKitCommonCard);
+
     } else if (ToneType == "PCM-S") {
+
+        switch (GUIPartConnection[part]) {
+            case Integra7ToneType::PCMDrumKit:
+                DisconnectPCMDrumKit(part);
+                break;
+            case Integra7ToneType::SNSynth:
+                DisconnectSNSynthTone(part);
+                break;
+            case Integra7ToneType::SNAcoustic:
+                DisconnectSNAcousticTone(part);
+                break;
+            case Integra7ToneType::SNDrumKit:
+                DisconnectSNDrumKit(part);
+                break;
+            default:
+                break;
+        }
+
+        if (GUIPartConnection[part] != Integra7ToneType::PCMSynth) {
+            ConnectPCMSynthTone(part);
+            GUIPartConnection[part] = Integra7ToneType::PCMSynth;
+        }
+
         ui->LeftMenu->setCurrentWidget(ui->PCMSynthMenu);
         ui->RightContent->setCurrentWidget(ui->PCMSynthToneCommonCard);
+
     } else if (ToneType == "PCM-D") {
+
+        switch (GUIPartConnection[part]) {
+            case Integra7ToneType::PCMSynth:
+                DisconnectPCMSynthTone(part);
+                break;
+            case Integra7ToneType::SNSynth:
+                DisconnectSNSynthTone(part);
+                break;
+            case Integra7ToneType::SNAcoustic:
+                DisconnectSNAcousticTone(part);
+                break;
+            case Integra7ToneType::SNDrumKit:
+                DisconnectSNDrumKit(part);
+                break;
+            default:
+                break;
+        }
+
+        if (GUIPartConnection[part] != Integra7ToneType::PCMDrumKit) {
+            ConnectPCMDrumKit(part);
+            GUIPartConnection[part] = Integra7ToneType::PCMDrumKit;
+        }
+        if (GUIPCMDrumKitPartial[part] != ui->PCMDrumKitPartialSelector->currentIndex()) {
+            ConnectPCMDrumKitPartial(part,ui->PCMDrumKitPartialSelector->currentIndex());
+            GUISNDrumKitNote[part] = ui->PCMDrumKitPartialSelector->currentIndex();
+        }
+
         ui->LeftMenu->setCurrentWidget(ui->PCMDrumKitMenu);
         ui->RightContent->setCurrentWidget(ui->PCMDrumKitCommonCard);
+
     } else {
+
         ui->LeftMenu->setCurrentWidget(ui->EmptyMenu);
         ui->RightContent->setCurrentWidget(ui->EmptyToneCard);
     }
@@ -6025,6 +6164,48 @@ void integra7MainWindow::ShowReverbParams(int tp)
         ui->ReverbParams->setCurrentWidget(ui->ReverbEmptyPage);
         break;
     }
+}
+
+void integra7MainWindow::ShowPCMSynthMFX()
+{
+    ui->ToneMFXLabel->setText("PCM Synth Tone MFX");
+    ui->RightContent->setCurrentWidget(ui->ToneMFXCard);
+}
+
+void integra7MainWindow::ShowSNSynthMFX()
+{
+    ui->ToneMFXLabel->setText("SuperNATURAL Synth Tone MFX");
+    ui->RightContent->setCurrentWidget(ui->ToneMFXCard);
+}
+
+void integra7MainWindow::ShowSNAcousticMFX()
+{
+    ui->ToneMFXLabel->setText("SuperNATURAL Acoustic Tone MFX");
+    ui->RightContent->setCurrentWidget(ui->ToneMFXCard);
+}
+
+void integra7MainWindow::ShowSNDrumKitMFX()
+{
+    ui->ToneMFXLabel->setText("SuperNATURAL Drum Kit MFX");
+    ui->RightContent->setCurrentWidget(ui->ToneMFXCard);
+}
+
+void integra7MainWindow::ShowSNDrumKitCompEQ()
+{
+    ui->ToneMFXLabel->setText("SuperNATURAL Drum Kit COMP/EQ");
+    ui->RightContent->setCurrentWidget(ui->DrumKitCompEQCard);
+}
+
+void integra7MainWindow::ShowPCMDrumKitMFX()
+{
+    ui->ToneMFXLabel->setText("PCM Drum Kit MFX");
+    ui->RightContent->setCurrentWidget(ui->ToneMFXCard);
+}
+
+void integra7MainWindow::ShowPCMDrumKitCompEQ()
+{
+    ui->ToneMFXLabel->setText("PCM Drum Kit COMP/EQ");
+    ui->RightContent->setCurrentWidget(ui->DrumKitCompEQCard);
 }
 
 void integra7MainWindow::ShowVirtualSlotsCard()
