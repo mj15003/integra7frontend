@@ -148,7 +148,7 @@ public:
         return list;
     }
 
-    static QStringList& MatrixControlDestination1List() {
+    static QStringList& MatrixControlDestinationList() {
         static QStringList list = { "OFF","PCH","CUT","RES","LEV","PAN","DRY","CHO","REV",
                                    "PIT-LFO1","PIT-LFO2","TVF-LFO1","TVF-LFO2","TVA-LFO1",
                                    "TVA-LFO2","PAN-LFO1","PAN-LFO2","LFO1-RATE","LFO2-RATE",

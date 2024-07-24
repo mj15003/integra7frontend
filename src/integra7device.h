@@ -38,8 +38,6 @@ class Integra7Chorus;
 class Integra7Reverb;
 class Integra7Tone;
 
-enum Integra7ToneType {None,PCMSynth,PCMDrumKit,SNAcoustic,SNSynth,SNDrumKit};
-
 class Integra7Device : public QObject
 {
     Q_OBJECT
