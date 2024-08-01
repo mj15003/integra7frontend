@@ -138,12 +138,6 @@ integra7MainWindow::integra7MainWindow(QWidget *parent)
     ToneBoxes[14][1] = ui->Ch15ToneBox1;
     ToneBoxes[15][1] = ui->Ch16ToneBox1;
 
-    for (int k=0;k<16;++k) {
-        GUIPartConnection[k] = Integra7ToneType::None;
-        GUIPCMDrumKitPartial[k] = -1;
-        GUISNDrumKitNote[k] = -1;
-    }
-
     /* Setup Custom SpinBoxes */
     ui->Ch1BendRangeBox->SetMaxText("TONE");
     ui->Ch1PortaTimeBox->SetMaxText("TONE");
@@ -425,6 +419,12 @@ integra7MainWindow::integra7MainWindow(QWidget *parent)
 
     QObject::connect(ui->ReadFromFileBtn,&QAbstractButton::clicked,
                      this,&integra7MainWindow::ReadDumpFromFile);
+
+    QObject::connect(ui->PCMDrumKitPartialSelector,&QComboBox::currentIndexChanged,
+                     this,&integra7MainWindow::PCMDrumKitNoteSelect);
+
+    QObject::connect(ui->SNDrumKitPartialSelector,&QComboBox::currentIndexChanged,
+                     this,&integra7MainWindow::SNDrumKitNoteSelect);
 
     /* Setup Main Combo box lists*/
     ui->StudioSetBox->addItems(Integra7Device::NumberedCustomList("",1,64,":INIT"));
@@ -766,6 +766,254 @@ integra7MainWindow::integra7MainWindow(QWidget *parent)
 
     ui->PCMDrumKitPartialSelector->addItems(Integra7Device::NumberedCustomList("",21,108,""));
     ui->SNDrumKitPartialSelector->addItems(Integra7Device::NumberedCustomList("",27,88,""));
+
+    ui->PCMSynthTonePriorityBox->addItems(Integra7PCMSynthToneCommon::PCMSynthTonePriorityList());
+    ui->MonoPolyBox->addItems(Integra7PCMSynthToneCommon::MonoPolyList());
+    ui->PortamentoModeBox->addItems(Integra7PCMSynthToneCommon::PortamentoModeList());
+    ui->PortamentoTypeBox->addItems(Integra7PCMSynthToneCommon::PortamentoTypeList());
+    ui->PortamentoStartBox->addItems(Integra7PCMSynthToneCommon::PortamentoStartList());
+    ui->MatrixControl1SourceBox->addItems(Integra7PCMSynthToneCommon::MatrixControlSourceList());
+    ui->MatrixControl1Destination1Box->addItems(Integra7PCMSynthToneCommon::MatrixControlDestinationList());
+    ui->MatrixControl1Destination2Box->addItems(Integra7PCMSynthToneCommon::MatrixControlDestinationList());
+    ui->MatrixControl1Destination3Box->addItems(Integra7PCMSynthToneCommon::MatrixControlDestinationList());
+    ui->MatrixControl1Destination4Box->addItems(Integra7PCMSynthToneCommon::MatrixControlDestinationList());
+    ui->MatrixControl2SourceBox->addItems(Integra7PCMSynthToneCommon::MatrixControlSourceList());
+    ui->MatrixControl2Destination1Box->addItems(Integra7PCMSynthToneCommon::MatrixControlDestinationList());
+    ui->MatrixControl2Destination2Box->addItems(Integra7PCMSynthToneCommon::MatrixControlDestinationList());
+    ui->MatrixControl2Destination3Box->addItems(Integra7PCMSynthToneCommon::MatrixControlDestinationList());
+    ui->MatrixControl2Destination4Box->addItems(Integra7PCMSynthToneCommon::MatrixControlDestinationList());
+    ui->MatrixControl3SourceBox->addItems(Integra7PCMSynthToneCommon::MatrixControlSourceList());
+    ui->MatrixControl3Destination1Box->addItems(Integra7PCMSynthToneCommon::MatrixControlDestinationList());
+    ui->MatrixControl3Destination2Box->addItems(Integra7PCMSynthToneCommon::MatrixControlDestinationList());
+    ui->MatrixControl3Destination3Box->addItems(Integra7PCMSynthToneCommon::MatrixControlDestinationList());
+    ui->MatrixControl3Destination4Box->addItems(Integra7PCMSynthToneCommon::MatrixControlDestinationList());
+    ui->MatrixControl4SourceBox->addItems(Integra7PCMSynthToneCommon::MatrixControlSourceList());
+    ui->MatrixControl4Destination1Box->addItems(Integra7PCMSynthToneCommon::MatrixControlDestinationList());
+    ui->MatrixControl4Destination2Box->addItems(Integra7PCMSynthToneCommon::MatrixControlDestinationList());
+    ui->MatrixControl4Destination3Box->addItems(Integra7PCMSynthToneCommon::MatrixControlDestinationList());
+    ui->MatrixControl4Destination4Box->addItems(Integra7PCMSynthToneCommon::MatrixControlDestinationList());
+
+    ui->MFXControl1SourceBox->addItems(Integra7ToneMFX::MFXControlSourceList());
+    ui->MFXControl2SourceBox->addItems(Integra7ToneMFX::MFXControlSourceList());
+    ui->MFXControl3SourceBox->addItems(Integra7ToneMFX::MFXControlSourceList());
+    ui->MFXControl4SourceBox->addItems(Integra7ToneMFX::MFXControlSourceList());
+
+    ui->Booster12Box->addItems(Integra7PCMSynthTonePMT::Booster12List());
+    ui->Booster34Box->addItems(Integra7PCMSynthTonePMT::Booster34List());
+    ui->PMTVelocityControlBox->addItems(Integra7PCMSynthTonePMT::PMTVelocityControlList());
+
+    ui->PartialRandomPitchDepthBox1->addItems(Integra7PCMSynthTonePartial::PartialRandomPitchDepthList());
+    ui->PartialEnvModeBox1->addItems(Integra7PCMSynthTonePartial::PartialEnvModeList());
+    ui->PartialDelayModeBox1->addItems(Integra7PCMSynthTonePartial::PartialDelayModeList());
+    ui->PartialControl1Switch1Box1->addItems(Integra7PCMSynthTonePartial::PartialControlSwitchList());
+    ui->PartialControl1Switch2Box1->addItems(Integra7PCMSynthTonePartial::PartialControlSwitchList());
+    ui->PartialControl1Switch3Box1->addItems(Integra7PCMSynthTonePartial::PartialControlSwitchList());
+    ui->PartialControl1Switch4Box1->addItems(Integra7PCMSynthTonePartial::PartialControlSwitchList());
+    ui->PartialControl2Switch1Box1->addItems(Integra7PCMSynthTonePartial::PartialControlSwitchList());
+    ui->PartialControl2Switch2Box1->addItems(Integra7PCMSynthTonePartial::PartialControlSwitchList());
+    ui->PartialControl2Switch3Box1->addItems(Integra7PCMSynthTonePartial::PartialControlSwitchList());
+    ui->PartialControl2Switch4Box1->addItems(Integra7PCMSynthTonePartial::PartialControlSwitchList());
+    ui->PartialControl3Switch1Box1->addItems(Integra7PCMSynthTonePartial::PartialControlSwitchList());
+    ui->PartialControl3Switch2Box1->addItems(Integra7PCMSynthTonePartial::PartialControlSwitchList());
+    ui->PartialControl3Switch3Box1->addItems(Integra7PCMSynthTonePartial::PartialControlSwitchList());
+    ui->PartialControl3Switch4Box1->addItems(Integra7PCMSynthTonePartial::PartialControlSwitchList());
+    ui->PartialControl4Switch1Box1->addItems(Integra7PCMSynthTonePartial::PartialControlSwitchList());
+    ui->PartialControl4Switch2Box1->addItems(Integra7PCMSynthTonePartial::PartialControlSwitchList());
+    ui->PartialControl4Switch3Box1->addItems(Integra7PCMSynthTonePartial::PartialControlSwitchList());
+    ui->PartialControl4Switch4Box1->addItems(Integra7PCMSynthTonePartial::PartialControlSwitchList());
+    ui->WaveGroupTypeBox1->addItems(Integra7PCMSynthTonePartial::WaveGroupTypeList());
+    ui->WaveGainBox1->addItems(Integra7PCMSynthTonePartial::WaveGainList());
+    ui->TVFFilterTypeBox1->addItems(Integra7PCMSynthTonePartial::TVFFilterTypeList());
+    ui->BiasDirectionBox1->addItems(Integra7PCMSynthTonePartial::BiasDirectionList());
+    ui->LFO1WaveformBox1->addItems(Integra7PCMSynthTonePartial::LFOWaveformList());
+    ui->LFO1OffsetBox1->addItems(Integra7PCMSynthTonePartial::LFOOffsetList());
+    ui->LFO1FadeModeBox1->addItems(Integra7PCMSynthTonePartial::LFOFadeModeList());
+    ui->LFO2WaveformBox1->addItems(Integra7PCMSynthTonePartial::LFOWaveformList());
+
+    ui->PartialRandomPitchDepthBox2->addItems(Integra7PCMSynthTonePartial::PartialRandomPitchDepthList());
+    ui->PartialEnvModeBox2->addItems(Integra7PCMSynthTonePartial::PartialEnvModeList());
+    ui->PartialDelayModeBox2->addItems(Integra7PCMSynthTonePartial::PartialDelayModeList());
+    ui->PartialControl1Switch1Box2->addItems(Integra7PCMSynthTonePartial::PartialControlSwitchList());
+    ui->PartialControl1Switch2Box2->addItems(Integra7PCMSynthTonePartial::PartialControlSwitchList());
+    ui->PartialControl1Switch3Box2->addItems(Integra7PCMSynthTonePartial::PartialControlSwitchList());
+    ui->PartialControl1Switch4Box2->addItems(Integra7PCMSynthTonePartial::PartialControlSwitchList());
+    ui->PartialControl2Switch1Box2->addItems(Integra7PCMSynthTonePartial::PartialControlSwitchList());
+    ui->PartialControl2Switch2Box2->addItems(Integra7PCMSynthTonePartial::PartialControlSwitchList());
+    ui->PartialControl2Switch3Box2->addItems(Integra7PCMSynthTonePartial::PartialControlSwitchList());
+    ui->PartialControl2Switch4Box2->addItems(Integra7PCMSynthTonePartial::PartialControlSwitchList());
+    ui->PartialControl3Switch1Box2->addItems(Integra7PCMSynthTonePartial::PartialControlSwitchList());
+    ui->PartialControl3Switch2Box2->addItems(Integra7PCMSynthTonePartial::PartialControlSwitchList());
+    ui->PartialControl3Switch3Box2->addItems(Integra7PCMSynthTonePartial::PartialControlSwitchList());
+    ui->PartialControl3Switch4Box2->addItems(Integra7PCMSynthTonePartial::PartialControlSwitchList());
+    ui->PartialControl4Switch1Box2->addItems(Integra7PCMSynthTonePartial::PartialControlSwitchList());
+    ui->PartialControl4Switch2Box2->addItems(Integra7PCMSynthTonePartial::PartialControlSwitchList());
+    ui->PartialControl4Switch3Box2->addItems(Integra7PCMSynthTonePartial::PartialControlSwitchList());
+    ui->PartialControl4Switch4Box2->addItems(Integra7PCMSynthTonePartial::PartialControlSwitchList());
+    ui->WaveGroupTypeBox2->addItems(Integra7PCMSynthTonePartial::WaveGroupTypeList());
+    ui->WaveGainBox2->addItems(Integra7PCMSynthTonePartial::WaveGainList());
+    ui->TVFFilterTypeBox2->addItems(Integra7PCMSynthTonePartial::TVFFilterTypeList());
+    ui->BiasDirectionBox2->addItems(Integra7PCMSynthTonePartial::BiasDirectionList());
+    ui->LFO1WaveformBox2->addItems(Integra7PCMSynthTonePartial::LFOWaveformList());
+    ui->LFO1OffsetBox2->addItems(Integra7PCMSynthTonePartial::LFOOffsetList());
+    ui->LFO1FadeModeBox2->addItems(Integra7PCMSynthTonePartial::LFOFadeModeList());
+    ui->LFO2WaveformBox2->addItems(Integra7PCMSynthTonePartial::LFOWaveformList());
+
+    ui->PartialRandomPitchDepthBox3->addItems(Integra7PCMSynthTonePartial::PartialRandomPitchDepthList());
+    ui->PartialEnvModeBox3->addItems(Integra7PCMSynthTonePartial::PartialEnvModeList());
+    ui->PartialDelayModeBox3->addItems(Integra7PCMSynthTonePartial::PartialDelayModeList());
+    ui->PartialControl1Switch1Box3->addItems(Integra7PCMSynthTonePartial::PartialControlSwitchList());
+    ui->PartialControl1Switch2Box3->addItems(Integra7PCMSynthTonePartial::PartialControlSwitchList());
+    ui->PartialControl1Switch3Box3->addItems(Integra7PCMSynthTonePartial::PartialControlSwitchList());
+    ui->PartialControl1Switch4Box3->addItems(Integra7PCMSynthTonePartial::PartialControlSwitchList());
+    ui->PartialControl2Switch1Box3->addItems(Integra7PCMSynthTonePartial::PartialControlSwitchList());
+    ui->PartialControl2Switch2Box3->addItems(Integra7PCMSynthTonePartial::PartialControlSwitchList());
+    ui->PartialControl2Switch3Box3->addItems(Integra7PCMSynthTonePartial::PartialControlSwitchList());
+    ui->PartialControl2Switch4Box3->addItems(Integra7PCMSynthTonePartial::PartialControlSwitchList());
+    ui->PartialControl3Switch1Box3->addItems(Integra7PCMSynthTonePartial::PartialControlSwitchList());
+    ui->PartialControl3Switch2Box3->addItems(Integra7PCMSynthTonePartial::PartialControlSwitchList());
+    ui->PartialControl3Switch3Box3->addItems(Integra7PCMSynthTonePartial::PartialControlSwitchList());
+    ui->PartialControl3Switch4Box3->addItems(Integra7PCMSynthTonePartial::PartialControlSwitchList());
+    ui->PartialControl4Switch1Box3->addItems(Integra7PCMSynthTonePartial::PartialControlSwitchList());
+    ui->PartialControl4Switch2Box3->addItems(Integra7PCMSynthTonePartial::PartialControlSwitchList());
+    ui->PartialControl4Switch3Box3->addItems(Integra7PCMSynthTonePartial::PartialControlSwitchList());
+    ui->PartialControl4Switch4Box3->addItems(Integra7PCMSynthTonePartial::PartialControlSwitchList());
+    ui->WaveGroupTypeBox3->addItems(Integra7PCMSynthTonePartial::WaveGroupTypeList());
+    ui->WaveGainBox3->addItems(Integra7PCMSynthTonePartial::WaveGainList());
+    ui->TVFFilterTypeBox3->addItems(Integra7PCMSynthTonePartial::TVFFilterTypeList());
+    ui->BiasDirectionBox3->addItems(Integra7PCMSynthTonePartial::BiasDirectionList());
+    ui->LFO1WaveformBox3->addItems(Integra7PCMSynthTonePartial::LFOWaveformList());
+    ui->LFO1OffsetBox3->addItems(Integra7PCMSynthTonePartial::LFOOffsetList());
+    ui->LFO1FadeModeBox3->addItems(Integra7PCMSynthTonePartial::LFOFadeModeList());
+    ui->LFO2WaveformBox3->addItems(Integra7PCMSynthTonePartial::LFOWaveformList());
+
+    ui->PartialRandomPitchDepthBox4->addItems(Integra7PCMSynthTonePartial::PartialRandomPitchDepthList());
+    ui->PartialEnvModeBox4->addItems(Integra7PCMSynthTonePartial::PartialEnvModeList());
+    ui->PartialDelayModeBox4->addItems(Integra7PCMSynthTonePartial::PartialDelayModeList());
+    ui->PartialControl1Switch1Box4->addItems(Integra7PCMSynthTonePartial::PartialControlSwitchList());
+    ui->PartialControl1Switch2Box4->addItems(Integra7PCMSynthTonePartial::PartialControlSwitchList());
+    ui->PartialControl1Switch3Box4->addItems(Integra7PCMSynthTonePartial::PartialControlSwitchList());
+    ui->PartialControl1Switch4Box4->addItems(Integra7PCMSynthTonePartial::PartialControlSwitchList());
+    ui->PartialControl2Switch1Box4->addItems(Integra7PCMSynthTonePartial::PartialControlSwitchList());
+    ui->PartialControl2Switch2Box4->addItems(Integra7PCMSynthTonePartial::PartialControlSwitchList());
+    ui->PartialControl2Switch3Box4->addItems(Integra7PCMSynthTonePartial::PartialControlSwitchList());
+    ui->PartialControl2Switch4Box4->addItems(Integra7PCMSynthTonePartial::PartialControlSwitchList());
+    ui->PartialControl3Switch1Box4->addItems(Integra7PCMSynthTonePartial::PartialControlSwitchList());
+    ui->PartialControl3Switch2Box4->addItems(Integra7PCMSynthTonePartial::PartialControlSwitchList());
+    ui->PartialControl3Switch3Box4->addItems(Integra7PCMSynthTonePartial::PartialControlSwitchList());
+    ui->PartialControl3Switch4Box4->addItems(Integra7PCMSynthTonePartial::PartialControlSwitchList());
+    ui->PartialControl4Switch1Box4->addItems(Integra7PCMSynthTonePartial::PartialControlSwitchList());
+    ui->PartialControl4Switch2Box4->addItems(Integra7PCMSynthTonePartial::PartialControlSwitchList());
+    ui->PartialControl4Switch3Box4->addItems(Integra7PCMSynthTonePartial::PartialControlSwitchList());
+    ui->PartialControl4Switch4Box4->addItems(Integra7PCMSynthTonePartial::PartialControlSwitchList());
+    ui->WaveGroupTypeBox4->addItems(Integra7PCMSynthTonePartial::WaveGroupTypeList());
+    ui->WaveGainBox4->addItems(Integra7PCMSynthTonePartial::WaveGainList());
+    ui->TVFFilterTypeBox4->addItems(Integra7PCMSynthTonePartial::TVFFilterTypeList());
+    ui->BiasDirectionBox4->addItems(Integra7PCMSynthTonePartial::BiasDirectionList());
+    ui->LFO1WaveformBox4->addItems(Integra7PCMSynthTonePartial::LFOWaveformList());
+    ui->LFO1OffsetBox4->addItems(Integra7PCMSynthTonePartial::LFOOffsetList());
+    ui->LFO1FadeModeBox4->addItems(Integra7PCMSynthTonePartial::LFOFadeModeList());
+    ui->LFO2WaveformBox4->addItems(Integra7PCMSynthTonePartial::LFOWaveformList());
+
+    ui->Comp1AttackTimeBox->addItems(Integra7DrumCompEQ::CompAttackTimeList());
+    ui->Comp1ReleaseTimeBox->addItems(Integra7DrumCompEQ::CompReleaseTimeList());
+    ui->Comp1RatioBox->addItems(Integra7DrumCompEQ::CompRatioList());
+    ui->EQ1LowFreqBox->addItems(Integra7MasterEQ::LowFreqList());
+    ui->EQ1MidFreqBox->addItems(Integra7MasterEQ::MidFreqList());
+    ui->EQ1MidQBox->addItems(Integra7MasterEQ::MidQList());
+    ui->EQ1HighFreqBox->addItems(Integra7MasterEQ::HighFreqList());
+    ui->Comp2AttackTimeBox->addItems(Integra7DrumCompEQ::CompAttackTimeList());
+    ui->Comp2ReleaseTimeBox->addItems(Integra7DrumCompEQ::CompReleaseTimeList());
+    ui->Comp2RatioBox->addItems(Integra7DrumCompEQ::CompRatioList());
+    ui->EQ2LowFreqBox->addItems(Integra7MasterEQ::LowFreqList());
+    ui->EQ2MidFreqBox->addItems(Integra7MasterEQ::MidFreqList());
+    ui->EQ2MidQBox->addItems(Integra7MasterEQ::MidQList());
+    ui->EQ2HighFreqBox->addItems(Integra7MasterEQ::HighFreqList());
+    ui->Comp3AttackTimeBox->addItems(Integra7DrumCompEQ::CompAttackTimeList());
+    ui->Comp3ReleaseTimeBox->addItems(Integra7DrumCompEQ::CompReleaseTimeList());
+    ui->Comp3RatioBox->addItems(Integra7DrumCompEQ::CompRatioList());
+    ui->EQ3LowFreqBox->addItems(Integra7MasterEQ::LowFreqList());
+    ui->EQ3MidFreqBox->addItems(Integra7MasterEQ::MidFreqList());
+    ui->EQ3MidQBox->addItems(Integra7MasterEQ::MidQList());
+    ui->EQ3HighFreqBox->addItems(Integra7MasterEQ::HighFreqList());
+    ui->Comp4AttackTimeBox->addItems(Integra7DrumCompEQ::CompAttackTimeList());
+    ui->Comp4ReleaseTimeBox->addItems(Integra7DrumCompEQ::CompReleaseTimeList());
+    ui->Comp4RatioBox->addItems(Integra7DrumCompEQ::CompRatioList());
+    ui->EQ4LowFreqBox->addItems(Integra7MasterEQ::LowFreqList());
+    ui->EQ4MidFreqBox->addItems(Integra7MasterEQ::MidFreqList());
+    ui->EQ4MidQBox->addItems(Integra7MasterEQ::MidQList());
+    ui->EQ4HighFreqBox->addItems(Integra7MasterEQ::HighFreqList());
+    ui->Comp5AttackTimeBox->addItems(Integra7DrumCompEQ::CompAttackTimeList());
+    ui->Comp5ReleaseTimeBox->addItems(Integra7DrumCompEQ::CompReleaseTimeList());
+    ui->Comp5RatioBox->addItems(Integra7DrumCompEQ::CompRatioList());
+    ui->EQ5LowFreqBox->addItems(Integra7MasterEQ::LowFreqList());
+    ui->EQ5MidFreqBox->addItems(Integra7MasterEQ::MidFreqList());
+    ui->EQ5MidQBox->addItems(Integra7MasterEQ::MidQList());
+    ui->EQ5HighFreqBox->addItems(Integra7MasterEQ::HighFreqList());
+    ui->Comp6AttackTimeBox->addItems(Integra7DrumCompEQ::CompAttackTimeList());
+    ui->Comp6ReleaseTimeBox->addItems(Integra7DrumCompEQ::CompReleaseTimeList());
+    ui->Comp6RatioBox->addItems(Integra7DrumCompEQ::CompRatioList());
+    ui->EQ6LowFreqBox->addItems(Integra7MasterEQ::LowFreqList());
+    ui->EQ6MidFreqBox->addItems(Integra7MasterEQ::MidFreqList());
+    ui->EQ6MidQBox->addItems(Integra7MasterEQ::MidQList());
+    ui->EQ6HighFreqBox->addItems(Integra7MasterEQ::HighFreqList());
+
+    ui->AssignTypeBox->addItems(Integra7PCMDrumKitPartial::AssignTypeList());
+    ui->PCMDPartialRandomPitchDepthBox->addItems(Integra7PCMDrumKitPartial::PartialRandomPitchDepthList());
+    ui->PCMDPartialEnvModeBox->addItems(Integra7PCMDrumKitPartial::PartialEnvModeList());
+    ui->PartialOutputAssignBox->addItems(Integra7PCMDrumKitPartial::PartialOutputAssignList());
+    ui->WMTVelocityControlBox->addItems(Integra7PCMDrumKitPartial::WMTVelocityControlList());
+    ui->WMT1WaveGroupTypeBox->addItems(Integra7PCMDrumKitPartial::WMTWaveGroupTypeList());
+    ui->WMT1WaveGainBox->addItems(Integra7PCMDrumKitPartial::WMTWaveGainList());
+    ui->WMT1WaveAlternatePanSwitchBox->addItems(Integra7PCMDrumKitPartial::WMTWaveAlternatePanSwitchList());
+    ui->WMT2WaveGroupTypeBox->addItems(Integra7PCMDrumKitPartial::WMTWaveGroupTypeList());
+    ui->WMT2WaveGainBox->addItems(Integra7PCMDrumKitPartial::WMTWaveGainList());
+    ui->WMT2WaveAlternatePanSwitchBox->addItems(Integra7PCMDrumKitPartial::WMTWaveAlternatePanSwitchList());
+    ui->WMT3WaveGroupTypeBox->addItems(Integra7PCMDrumKitPartial::WMTWaveGroupTypeList());
+    ui->WMT3WaveGainBox->addItems(Integra7PCMDrumKitPartial::WMTWaveGainList());
+    ui->WMT3WaveAlternatePanSwitchBox->addItems(Integra7PCMDrumKitPartial::WMTWaveAlternatePanSwitchList());
+    ui->WMT4WaveGroupTypeBox->addItems(Integra7PCMDrumKitPartial::WMTWaveGroupTypeList());
+    ui->WMT4WaveGainBox->addItems(Integra7PCMDrumKitPartial::WMTWaveGainList());
+    ui->WMT4WaveAlternatePanSwitchBox->addItems(Integra7PCMDrumKitPartial::WMTWaveAlternatePanSwitchList());
+    ui->PCMDTVFFilterTypeBox->addItems(Integra7PCMSynthTonePartial::TVFFilterTypeList());
+
+    ui->RINGSwitchBox->addItems(Integra7SNSynthToneCommon::RINGSwitchList());
+    ui->PortamentoModeBox->addItems(Integra7SNSynthToneCommon::PortamentoModeList());
+    ui->UnisonSizeBox->addItems(Integra7SNSynthToneCommon::UnisonSizeList());
+
+    ui->OSCWaveBox1->addItems(Integra7SNSynthTonePartial::OSCWaveList());
+    ui->OSCWaveVariationBox1->addItems(Integra7SNSynthTonePartial::OSCWaveVariationList());
+    ui->FILTERModeBox1->addItems(Integra7SNSynthTonePartial::FILTERModeList());
+    ui->FILTERSlopeBox1->addItems(Integra7SNSynthTonePartial::FILTERSlopeList());
+    ui->LFOShapeBox1->addItems(Integra7SNSynthTonePartial::LFOShapeList());
+    ui->LFOTempoSyncNoteBox1->addItems(Integra7SNSynthTonePartial::LFOTempoSyncNoteList());
+    ui->ModulationLFOShapeBox1->addItems(Integra7SNSynthTonePartial::LFOShapeList());
+    ui->ModulationLFOTempoSyncNoteBox1->addItems(Integra7SNSynthTonePartial::LFOTempoSyncNoteList());
+    ui->SNSWaveGainBox1->addItems(Integra7SNSynthTonePartial::WaveGainList());
+
+    ui->OSCWaveBox2->addItems(Integra7SNSynthTonePartial::OSCWaveList());
+    ui->OSCWaveVariationBox2->addItems(Integra7SNSynthTonePartial::OSCWaveVariationList());
+    ui->FILTERModeBox2->addItems(Integra7SNSynthTonePartial::FILTERModeList());
+    ui->FILTERSlopeBox2->addItems(Integra7SNSynthTonePartial::FILTERSlopeList());
+    ui->LFOShapeBox2->addItems(Integra7SNSynthTonePartial::LFOShapeList());
+    ui->LFOTempoSyncNoteBox2->addItems(Integra7SNSynthTonePartial::LFOTempoSyncNoteList());
+    ui->ModulationLFOShapeBox2->addItems(Integra7SNSynthTonePartial::LFOShapeList());
+    ui->ModulationLFOTempoSyncNoteBox2->addItems(Integra7SNSynthTonePartial::LFOTempoSyncNoteList());
+    ui->SNSWaveGainBox2->addItems(Integra7SNSynthTonePartial::WaveGainList());
+
+    ui->OSCWaveBox3->addItems(Integra7SNSynthTonePartial::OSCWaveList());
+    ui->OSCWaveVariationBox3->addItems(Integra7SNSynthTonePartial::OSCWaveVariationList());
+    ui->FILTERModeBox3->addItems(Integra7SNSynthTonePartial::FILTERModeList());
+    ui->FILTERSlopeBox3->addItems(Integra7SNSynthTonePartial::FILTERSlopeList());
+    ui->LFOShapeBox3->addItems(Integra7SNSynthTonePartial::LFOShapeList());
+    ui->LFOTempoSyncNoteBox3->addItems(Integra7SNSynthTonePartial::LFOTempoSyncNoteList());
+    ui->ModulationLFOShapeBox3->addItems(Integra7SNSynthTonePartial::LFOShapeList());
+    ui->ModulationLFOTempoSyncNoteBox3->addItems(Integra7SNSynthTonePartial::LFOTempoSyncNoteList());
+    ui->SNSWaveGainBox3->addItems(Integra7SNSynthTonePartial::WaveGainList());
+
+    ui->SNAMonoPolyBox->addItems(Integra7SNAcousticToneCommon::MonoPolyList());
+
+    ui->VariationBox->addItems(Integra7SNDrumKitNote::VariationList());
+    ui->OutputAssignBox->addItems(Integra7SNDrumKitNote::OutputAssignList());
 
     /* ComboBoxes change value logic connections */
     QObject::connect(ui->Ch1TypeBox,&QComboBox::currentIndexChanged,this,
@@ -5976,149 +6224,131 @@ void integra7MainWindow::ShowTone()
 {
     int part = PartBtnGrp.checkedId();
     QString ToneType = TypeBoxes[part][0]->currentText();
+    Integra7Tone *ntone = pI7d->Tones[part];
 
     if (ToneType == "SN-A") {
 
-        switch (GUIPartConnection[part]) {
-            case Integra7ToneType::PCMDrumKit:
-                DisconnectPCMDrumKit(part);
-                break;
-            case Integra7ToneType::SNDrumKit:
-                DisconnectSNDrumKit(part);
-                break;
-            case Integra7ToneType::SNSynth:
-                DisconnectSNSynthTone(part);
-                break;
-            case Integra7ToneType::PCMSynth:
-                DisconnectPCMSynthTone(part);
-                break;
-            default:
-                break;
+        if (SNATarget != ntone) {
+
+            DisconnectSNAcousticTone(SNATarget);
+            SNATarget = ntone;
+            ConnectSNAcousticTone(SNATarget);
         }
 
-        if (GUIPartConnection[part] != Integra7ToneType::SNAcoustic) {
-            ConnectSNAcousticTone(part);
-            GUIPartConnection[part] = Integra7ToneType::SNAcoustic;
+        if (MFXTarget != ntone->SNAcousticToneMFX) {
+            DisconnectMFX(MFXTarget);
+            MFXTarget = ntone->SNAcousticToneMFX;
+            ConnectMFX(MFXTarget);
         }
 
         ui->LeftMenu->setCurrentWidget(ui->SNAcousticMenu);
         ui->RightContent->setCurrentWidget(ui->SNAcousticToneCard);
 
+        ntone->TriggerSignals(ToneType,0);
+
     } else if (ToneType == "SN-S") {
 
-        switch (GUIPartConnection[part]) {
-            case Integra7ToneType::PCMDrumKit:
-                DisconnectPCMDrumKit(part);
-                break;
-            case Integra7ToneType::SNDrumKit:
-                DisconnectSNDrumKit(part);
-                break;
-            case Integra7ToneType::SNAcoustic:
-                DisconnectSNAcousticTone(part);
-                break;
-            case Integra7ToneType::PCMSynth:
-                DisconnectPCMSynthTone(part);
-                break;
-            default:
-                break;
+        if (SNSTarget != ntone) {
+
+            DisconnectSNSynthTone(SNSTarget);
+            SNSTarget = ntone;
+            ConnectSNSynthTone(SNSTarget);
         }
 
-        if (GUIPartConnection[part] != Integra7ToneType::SNSynth) {
-            ConnectSNSynthTone(part);
-            GUIPartConnection[part] = Integra7ToneType::SNSynth;
+        if (MFXTarget != ntone->SNSynthToneCommonMFX) {
+            DisconnectMFX(MFXTarget);
+            MFXTarget = ntone->SNSynthToneCommonMFX;
+            ConnectMFX(MFXTarget);
         }
 
         ui->LeftMenu->setCurrentWidget(ui->SNSynthMenu);
         ui->RightContent->setCurrentWidget(ui->SNSynthToneCommonCard);
 
+        ntone->TriggerSignals(ToneType,0);
+
     } else if (ToneType == "SN-D") {
 
-        switch (GUIPartConnection[part]) {
-            case Integra7ToneType::PCMDrumKit:
-                DisconnectPCMDrumKit(part);
-                break;
-            case Integra7ToneType::SNSynth:
-                DisconnectSNSynthTone(part);
-                break;
-            case Integra7ToneType::SNAcoustic:
-                DisconnectSNAcousticTone(part);
-                break;
-            case Integra7ToneType::PCMSynth:
-                DisconnectPCMSynthTone(part);
-                break;
-            default:
-                break;
+        int note = ui->SNDrumKitPartialSelector->currentIndex();
+
+        if (SNDKTarget != ntone) {
+
+            DisconnectSNDrumKitNote(SNDKNoteTarget);
+            SNDKNoteTarget = ntone->SNDrumKitNote[note];
+            ConnectSNDrumKitNote(SNDKNoteTarget);
+
+            DisconnectSNDrumKit(SNDKTarget);
+            SNDKTarget = ntone;
+            ConnectSNDrumKit(ntone);
         }
 
-        if (GUIPartConnection[part] != Integra7ToneType::SNDrumKit) {
-            ConnectSNDrumKit(part);
-            GUIPartConnection[part] = Integra7ToneType::SNDrumKit;
+        if (MFXTarget != ntone->SNDrumKitMFX) {
+            DisconnectMFX(MFXTarget);
+            MFXTarget = ntone->SNSynthToneCommonMFX;
+            ConnectMFX(MFXTarget);
         }
-        if (GUISNDrumKitNote[part] != ui->SNDrumKitPartialSelector->currentIndex()) {
-            ConnectSNDrumKitNote(part,ui->SNDrumKitPartialSelector->currentIndex());
-            GUISNDrumKitNote[part] = ui->SNDrumKitPartialSelector->currentIndex();
+
+        if (CompEQTarget != ntone->SNDrumKitCommonCompEQ) {
+            DisconnectDrumCompEQ(CompEQTarget);
+            CompEQTarget = ntone->SNDrumKitCommonCompEQ;
+            ConnectDrumCompEQ(CompEQTarget);
         }
 
         ui->LeftMenu->setCurrentWidget(ui->SNDrumKitMenu);
         ui->RightContent->setCurrentWidget(ui->SNDrumKitCommonCard);
 
+        ntone->TriggerSignals(ToneType,note);
+
     } else if (ToneType == "PCM-S") {
 
-        switch (GUIPartConnection[part]) {
-            case Integra7ToneType::PCMDrumKit:
-                DisconnectPCMDrumKit(part);
-                break;
-            case Integra7ToneType::SNSynth:
-                DisconnectSNSynthTone(part);
-                break;
-            case Integra7ToneType::SNAcoustic:
-                DisconnectSNAcousticTone(part);
-                break;
-            case Integra7ToneType::SNDrumKit:
-                DisconnectSNDrumKit(part);
-                break;
-            default:
-                break;
+        if (PCMSTarget != ntone) {
+
+            DisconnectPCMSynthTone(PCMSTarget);
+            PCMSTarget = ntone;
+            ConnectPCMSynthTone(ntone);
         }
 
-        if (GUIPartConnection[part] != Integra7ToneType::PCMSynth) {
-            ConnectPCMSynthTone(part);
-            GUIPartConnection[part] = Integra7ToneType::PCMSynth;
+        if (MFXTarget != ntone->PCMSynthToneCommonMFX) {
+            DisconnectMFX(MFXTarget);
+            MFXTarget = ntone->PCMSynthToneCommonMFX;
+            ConnectMFX(MFXTarget);
         }
 
         ui->LeftMenu->setCurrentWidget(ui->PCMSynthMenu);
         ui->RightContent->setCurrentWidget(ui->PCMSynthToneCommonCard);
 
+        ntone->TriggerSignals(ToneType,0);
+
     } else if (ToneType == "PCM-D") {
 
-        switch (GUIPartConnection[part]) {
-            case Integra7ToneType::PCMSynth:
-                DisconnectPCMSynthTone(part);
-                break;
-            case Integra7ToneType::SNSynth:
-                DisconnectSNSynthTone(part);
-                break;
-            case Integra7ToneType::SNAcoustic:
-                DisconnectSNAcousticTone(part);
-                break;
-            case Integra7ToneType::SNDrumKit:
-                DisconnectSNDrumKit(part);
-                break;
-            default:
-                break;
+        int note = ui->PCMDrumKitPartialSelector->currentIndex();
+
+        if (PCMDKTarget != ntone) {
+
+            DisconnectPCMDrumKitPartial(PCMDKPartialTarget);
+            PCMDKPartialTarget = ntone->PCMDrumKitPartial[note];
+            ConnectPCMDrumKitPartial(PCMDKPartialTarget);
+
+            DisconnectPCMDrumKit(PCMDKTarget);
+            PCMDKTarget = ntone;
+            ConnectPCMDrumKit(ntone);
         }
 
-        if (GUIPartConnection[part] != Integra7ToneType::PCMDrumKit) {
-            ConnectPCMDrumKit(part);
-            GUIPartConnection[part] = Integra7ToneType::PCMDrumKit;
+        if (MFXTarget != ntone->PCMDrumKitCommonMFX) {
+            DisconnectMFX(MFXTarget);
+            MFXTarget = ntone->PCMDrumKitCommonMFX;
+            ConnectMFX(MFXTarget);
         }
-        if (GUIPCMDrumKitPartial[part] != ui->PCMDrumKitPartialSelector->currentIndex()) {
-            ConnectPCMDrumKitPartial(part,ui->PCMDrumKitPartialSelector->currentIndex());
-            GUISNDrumKitNote[part] = ui->PCMDrumKitPartialSelector->currentIndex();
+
+        if (CompEQTarget != ntone->PCMDrumKitCommonCompEQ) {
+            DisconnectDrumCompEQ(CompEQTarget);
+            CompEQTarget = ntone->PCMDrumKitCommonCompEQ;
+            ConnectDrumCompEQ(CompEQTarget);
         }
 
         ui->LeftMenu->setCurrentWidget(ui->PCMDrumKitMenu);
         ui->RightContent->setCurrentWidget(ui->PCMDrumKitCommonCard);
+
+        ntone->TriggerSignals(ToneType,note);
 
     } else {
 
@@ -6192,7 +6422,7 @@ void integra7MainWindow::ShowSNDrumKitMFX()
 
 void integra7MainWindow::ShowSNDrumKitCompEQ()
 {
-    ui->ToneMFXLabel->setText("SuperNATURAL Drum Kit COMP/EQ");
+    ui->DrumKitCompEQLabel->setText("SuperNATURAL Drum Kit COMP/EQ");
     ui->RightContent->setCurrentWidget(ui->DrumKitCompEQCard);
 }
 
@@ -6204,7 +6434,7 @@ void integra7MainWindow::ShowPCMDrumKitMFX()
 
 void integra7MainWindow::ShowPCMDrumKitCompEQ()
 {
-    ui->ToneMFXLabel->setText("PCM Drum Kit COMP/EQ");
+    ui->DrumKitCompEQLabel->setText("PCM Drum Kit COMP/EQ");
     ui->RightContent->setCurrentWidget(ui->DrumKitCompEQCard);
 }
 
@@ -6291,7 +6521,10 @@ void integra7MainWindow::ToneBoxChangeLogic(uint8_t part, int index, QComboBox *
 
     if (ToneBoxes[part][0]->currentText() == ToneBoxes[part][1]->currentText() &&
         ToneBoxes[part][0]->currentText() == mTone)
+    {
         pI7d->Parts[part]->setToneBankProgram(bi,index);
+        if (ui->ToneBtn->isChecked()) ShowTone();
+    }
 
 }
 
@@ -6301,6 +6534,26 @@ void integra7MainWindow::VSlotLoadBtn_clicked()
                            ui->VSlotBBox->currentIndex(),
                            ui->VSlotCBox->currentIndex(),
                            ui->VSlotDBox->currentIndex());
+}
+
+void integra7MainWindow::PCMDrumKitNoteSelect(int note)
+{
+    if (note < 0) return;
+    if (PCMDKTarget == NULL) return;
+
+    DisconnectPCMDrumKitPartial(PCMDKPartialTarget);
+    PCMDKPartialTarget = PCMDKTarget->PCMDrumKitPartial[note];
+    ConnectPCMDrumKitPartial(PCMDKPartialTarget);
+}
+
+void integra7MainWindow::SNDrumKitNoteSelect(int note)
+{
+    if (note < 0) return;
+    if (SNDKTarget == NULL) return;
+
+    DisconnectSNDrumKitNote(SNDKNoteTarget);
+    SNDKNoteTarget = SNDKTarget->SNDrumKitNote[note];
+    ConnectSNDrumKitNote(SNDKNoteTarget);
 }
 
 void integra7MainWindow::BulkDumpRequest()

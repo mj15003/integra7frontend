@@ -19,6 +19,7 @@
 #define INTEGRA7MAINWINDOW_H
 
 #include "integra7device.h"
+#include "integra7tone.h"
 #include "./ui_integra7mainwindow.h"
 
 #include <QButtonGroup>
@@ -60,21 +61,49 @@ private:
 
     QComboBox *TypeBoxes[16][2];
     QComboBox *BankBoxes[16][2];
-    QComboBox *ToneBoxes[16][2];
-
-    Integra7ToneType GUIPartConnection[16];
-    int GUIPCMDrumKitPartial[16];
-    int GUISNDrumKitNote[16];
+    QComboBox *ToneBoxes[16][2];    
 
     bool BlockToneChangeSignal = 0;
+
+    Integra7ToneMFX *MFXTarget;
+    Integra7DrumCompEQ *CompEQTarget;
+    Integra7Tone *PCMSTarget;
+    Integra7Tone *PCMDKTarget;
+    Integra7PCMDrumKitPartial *PCMDKPartialTarget;
+    Integra7Tone *SNATarget;
+    Integra7Tone *SNSTarget;
+    Integra7Tone *SNDKTarget;
+    Integra7SNDrumKitNote *SNDKNoteTarget;
 
     void TypeBoxChangeLogic(QComboBox *TypeBox, QComboBox *BankBox, QComboBox *ToneBox);
     void BankBoxChangeLogic(QComboBox *TypeBox, QComboBox *BankBox, QComboBox *ToneBox);
     void ToneBoxChangeLogic(uint8_t part, int index, QComboBox *TypeBox, QComboBox *BankBox);
 
-    void TypeBoxChange(int part);
-    void BankBoxChange(int part);
-    void ToneBoxChange(int part);
+    void ConnectPCMSynthTone(Integra7Tone *tone);
+    void DisconnectPCMSynthTone(Integra7Tone *tone);
+
+    void ConnectPCMDrumKit(Integra7Tone *tone);
+    void ConnectPCMDrumKitPartial(Integra7PCMDrumKitPartial *partial);
+
+    void DisconnectPCMDrumKit(Integra7Tone *tone);
+    void DisconnectPCMDrumKitPartial(Integra7PCMDrumKitPartial *partial);
+
+    void ConnectSNAcousticTone(Integra7Tone *tone);
+    void DisconnectSNAcousticTone(Integra7Tone *tone);
+
+    void ConnectSNSynthTone(Integra7Tone *tone);
+    void DisconnectSNSynthTone(Integra7Tone *tone);
+
+    void ConnectSNDrumKit(Integra7Tone *tone);
+    void ConnectSNDrumKitNote(Integra7SNDrumKitNote *note);
+    void DisconnectSNDrumKit(Integra7Tone *tone);
+    void DisconnectSNDrumKitNote(Integra7SNDrumKitNote *note);
+
+    void ConnectMFX(Integra7ToneMFX *mfxd);
+    void DisconnectMFX(Integra7ToneMFX *mfxd);
+
+    void ConnectDrumCompEQ(Integra7DrumCompEQ *compeqd);
+    void DisconnectDrumCompEQ(Integra7DrumCompEQ *compeqd);
 
 private slots:    
     void PartBtnToggled(int id, bool checked);
@@ -116,31 +145,14 @@ private slots:
     void ShowVirtualSlotsCard();
     void ShowUtilityCard();
 
-    void ConnectPCMSynthTone(int part);
-    void DisconnectPCMSynthTone(int part);
-
-    void ConnectPCMDrumKit(int part);
-    void ConnectPCMDrumKitPartial(int part, int note);
-    void DisconnectPCMDrumKit(int part);
-    void DisconnectPCMDrumKitPartial(int part, int note);
-
-    void ConnectSNAcousticTone(int part);
-    void DisconnectSNAcousticTone(int part);
-
-    void ConnectSNSynthTone(int part);
-    void DisconnectSNSynthTone(int part);
-
-    void ConnectSNDrumKit(int part);
-    void ConnectSNDrumKitNote(int part, int note);
-    void DisconnectSNDrumKit(int part);
-    void DisconnectSNDrumKitNote(int part, int note);
-
     void SoloButtonsLogic(int id, bool checked);
 
     void MidiConnectBtn_clicked();
     void VSlotBox_currentIndexChanged(int index);
     void VSlotLoadBtn_clicked();
 
+    void PCMDrumKitNoteSelect(int note);
+    void SNDrumKitNoteSelect(int note);
 };
 
 class ReadRequest : public QRunnable
