@@ -386,6 +386,34 @@ int Integra7Device::getBankName(QString &type, QString &bank, int index)
         type = "SN-A";
         bank = "ExSN5:Brass";
         return 0;
+    case 11776:
+        type = "PCM-D";
+        bank = "SRX-01:Dynamic Drum Kits";
+        return 0;
+    case 11778:
+        type = "PCM-D";
+        bank = "SRX-03:Studio SRX";
+        return 0;
+    case 11780:
+        type = "PCM-D";
+        bank = "SRX-05:Supreme Dance";
+        return 0;
+    case 11783:
+        type = "PCM-D";
+        bank = "SRX-06:Complete Orchestra";
+        return 0;
+    case 11787:
+        type = "PCM-D";
+        bank = "SRX-07:Ultimate Keys";
+        return 0;
+    case 11791:
+        type = "PCM-D";
+        bank = "SRX-08:Platinum Trax";
+        return 0;
+    case 11795:
+        type = "PCM-D";
+        bank = "SRX-09:World Collection";
+        return 0;
     case 11904:
         type = "PCM-S";
         bank = "SRX-01:Dynamic Drum Kits";
@@ -542,6 +570,10 @@ int Integra7Device::getBankName(QString &type, QString &bank, int index)
         type = "SN-S";
         bank = "PRESET";
         return 0;
+    case 12288:
+        type = "ExPCM-Drums";
+        bank = "PRESET";
+        return 0;
     case 12416:
         type = "ExPCM";
         bank = "PRESET";
@@ -556,6 +588,10 @@ int Integra7Device::getBankName(QString &type, QString &bank, int index)
         return 0;
     case 12419:
         type = "ExPCM";
+        bank = "PRESET";
+        return 0;
+    case 15360:
+        type = "GM2-Drums";
         bank = "PRESET";
         return 0;
     case 15488:
