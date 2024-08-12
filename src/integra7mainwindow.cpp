@@ -6638,4 +6638,33 @@ void ReadRequest::run()
     req[7] = 0;
 
     dev->DataRequest(req);
+
+    QThread::msleep(dev->GetMsgDelay());
+
+    //Request Tone data for each part
+
+    uint8_t a1 = 0x19;
+    uint8_t a2 = 0x00;
+
+    for (int p=0;p<16;++p) {
+
+        req[0] = a1;
+        req[1] = a2;
+        req[2] = 0;
+        req[3] = 0;
+
+        req[4] = 0;
+        req[5] = 0x20;
+        req[6] = 0;
+        req[7] = 0;
+
+        dev->DataRequest(req);
+
+        QThread::msleep(dev->GetMsgDelay());
+
+        if (a2 == 0x60) {
+            ++a1;
+            a2=0;
+        } else a2+=0x20;
+    }
 }
