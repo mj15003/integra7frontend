@@ -9818,11 +9818,11 @@ void integra7MainWindow::ConnectSNAcousticTone(Integra7Tone *tone)
     QObject::connect(tone->SNAcousticToneCommon,&Integra7SNAcousticToneCommon::InstVariation,
          ui->InstVariationBox,&QSpinBox::setValue);
 
-    QObject::connect(ui->SNAInstNumberBox,&QSpinBox::valueChanged,
+    QObject::connect(ui->SNAInstNumberBox,&QComboBox::currentIndexChanged,
          tone->SNAcousticToneCommon,&Integra7SNAcousticToneCommon::setInstNumber);
 
     QObject::connect(tone->SNAcousticToneCommon,&Integra7SNAcousticToneCommon::InstNumber,
-         ui->SNAInstNumberBox,&QSpinBox::setValue);
+         ui->SNAInstNumberBox,&QComboBox::setCurrentIndex);
 
     QObject::connect(ui->ModifyParameter1Box,&QSpinBox::valueChanged,
          tone->SNAcousticToneCommon,&Integra7SNAcousticToneCommon::setModifyParameter1);
@@ -10124,11 +10124,11 @@ void integra7MainWindow::DisconnectSNAcousticTone(Integra7Tone *tone)
     QObject::disconnect(tone->SNAcousticToneCommon,&Integra7SNAcousticToneCommon::InstVariation,
          ui->InstVariationBox,&QSpinBox::setValue);
 
-    QObject::disconnect(ui->SNAInstNumberBox,&QSpinBox::valueChanged,
+    QObject::disconnect(ui->SNAInstNumberBox,&QComboBox::currentIndexChanged,
          tone->SNAcousticToneCommon,&Integra7SNAcousticToneCommon::setInstNumber);
 
     QObject::disconnect(tone->SNAcousticToneCommon,&Integra7SNAcousticToneCommon::InstNumber,
-         ui->SNAInstNumberBox,&QSpinBox::setValue);
+         ui->SNAInstNumberBox,&QComboBox::setCurrentIndex);
 
     QObject::disconnect(ui->ModifyParameter1Box,&QSpinBox::valueChanged,
          tone->SNAcousticToneCommon,&Integra7SNAcousticToneCommon::setModifyParameter1);

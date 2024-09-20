@@ -1386,7 +1386,7 @@ COMMON</string>
           </sizepolicy>
          </property>
          <property name="currentIndex">
-          <number>15</number>
+          <number>14</number>
          </property>
          <widget class="QWidget" name="PartViewCard">
           <layout class="QGridLayout" name="PartViewCardLayout">
@@ -30141,9 +30141,9 @@ LOWER UPPER</string>
               <property name="geometry">
                <rect>
                 <x>0</x>
-                <y>0</y>
-                <width>326</width>
-                <height>1757</height>
+                <y>-384</y>
+                <width>1211</width>
+                <height>1756</height>
                </rect>
               </property>
               <layout class="QVBoxLayout" name="verticalLayout_10">
@@ -30465,16 +30465,6 @@ LOWER UPPER</string>
                     </property>
                    </widget>
                   </item>
-                  <item row="18" column="1">
-                   <widget class="QSpinBox" name="SNAInstNumberBox">
-                    <property name="keyboardTracking">
-                     <bool>false</bool>
-                    </property>
-                    <property name="maximum">
-                     <number>127</number>
-                    </property>
-                   </widget>
-                  </item>
                   <item row="1" column="0">
                    <widget class="QLabel" name="SNAToneNameLbl">
                     <property name="text">
@@ -30489,11 +30479,17 @@ LOWER UPPER</string>
                     </property>
                    </widget>
                   </item>
+                  <item row="18" column="1">
+                   <widget class="QComboBox" name="SNAInstNumberBox"/>
+                  </item>
                  </layout>
                 </widget>
                </item>
                <item>
                 <widget class="QStackedWidget" name="SNAcousticToneVariable">
+                 <property name="currentIndex">
+                  <number>1</number>
+                 </property>
                  <widget class="QWidget" name="SNAGeneralModifiVariables">
                   <layout class="QFormLayout" name="SNAcousticToneVariableLayout">
                    <property name="fieldGrowthPolicy">
@@ -31044,8 +31040,7 @@ LOWER UPPER</string>
                     </widget>
                    </item>
                   </layout>
-                 </widget>
-                 <widget class="QWidget" name="SNATWOrganEdit"/>
+                 </widget>                 
                 </widget>
                </item>
               </layout>
@@ -31274,7 +31269,7 @@ LOWER UPPER</string>
                <rect>
                 <x>0</x>
                 <y>0</y>
-                <width>1211</width>
+                <width>291</width>
                 <height>2820</height>
                </rect>
               </property>
@@ -41849,6 +41844,11 @@ Pressure</string>
  </widget>
  <customwidgets>
   <customwidget>
+   <class>OnOffButton</class>
+   <extends>QPushButton</extends>
+   <header>onoffbutton.h</header>
+  </customwidget>
+  <customwidget>
    <class>NoteNameSelector</class>
    <extends>QSpinBox</extends>
    <header>notenameselector.h</header>
@@ -41862,11 +41862,6 @@ Pressure</string>
    <class>ColorCheckButton</class>
    <extends>QPushButton</extends>
    <header>colorcheckbutton.h</header>
-  </customwidget>
-  <customwidget>
-   <class>OnOffButton</class>
-   <extends>QPushButton</extends>
-   <header>onoffbutton.h</header>
   </customwidget>
  </customwidgets>
  <resources>

@@ -233,11 +233,16 @@ void Integra7SNAcousticToneCommon::DataReceive(const uint8_t *rdata, uint8_t a, 
     }
 }
 
-void Integra7SNAcousticToneCommon::setToneName(const QString name)
+void Integra7SNAcousticToneCommon::setToneName(const QString &name)
 {
     uint8_t c = 0;
-    while (c < name.length() && c < 0xC){
-        data[c] = name.at(c).toLatin1();
+    uint8_t buf[0xC];
+
+    while (c < 0xC){
+        if (c < name.length()) buf[c] = name.at(c).toLatin1();
+        else buf[c] = 0;
         c++;
     }
+
+    DataSetMultiB(0x0,buf,0xC);
 }

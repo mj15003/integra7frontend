@@ -1011,9 +1011,13 @@ integra7MainWindow::integra7MainWindow(QWidget *parent)
     ui->SNSWaveGainBox3->addItems(Integra7SNSynthTonePartial::WaveGainList());
 
     ui->SNAMonoPolyBox->addItems(Integra7SNAcousticToneCommon::MonoPolyList());
+    ui->SNAInstNumberBox->addItems(Integra7SNAcousticToneCommon::SNAcousticInstruments());
 
     ui->VariationBox->addItems(Integra7SNDrumKitNote::VariationList());
     ui->OutputAssignBox->addItems(Integra7SNDrumKitNote::OutputAssignList());
+
+    TWOrganEditorW = new TWOrganEditor(this);
+    ui->SNAcousticToneVariable->addWidget(TWOrganEditorW);    
 
     /* ComboBoxes change value logic connections */
     QObject::connect(ui->Ch1TypeBox,&QComboBox::currentIndexChanged,this,
@@ -1367,6 +1371,9 @@ integra7MainWindow::integra7MainWindow(QWidget *parent)
                      [this](){ToneBoxChangeLogic(15,ui->Ch16ToneBox1->currentIndex(),
                                                    ui->Ch16TypeBox1,
                                                    ui->Ch16BankBox1);});
+
+    QObject::connect(ui->SNAInstNumberBox,&QComboBox::currentIndexChanged,
+                     this,&integra7MainWindow::ShowSNAcousticParameters);
 
     /* Setup MIDI Engine */
     pMidiEngine = new MidiEngine();
@@ -6096,8 +6103,7 @@ integra7MainWindow::~integra7MainWindow()
     delete pI7d;
 
     pMidiEngine->Stop();
-    delete pMidiEngine;
-
+    delete pMidiEngine;    
     delete ui;
 }
 
@@ -6231,8 +6237,12 @@ void integra7MainWindow::ShowTone()
         if (SNATarget != ntone) {
 
             DisconnectSNAcousticTone(SNATarget);
+            TWOrganEditorW->DisconnectSignals(SNATarget);
+
             SNATarget = ntone;
+
             ConnectSNAcousticTone(SNATarget);
+            TWOrganEditorW->ConnectSignals(SNATarget);
         }
 
         if (MFXTarget != ntone->SNAcousticToneMFX) {
@@ -6412,6 +6422,18 @@ void integra7MainWindow::ShowSNAcousticMFX()
 {
     ui->ToneMFXLabel->setText("SuperNATURAL Acoustic Tone MFX");
     ui->RightContent->setCurrentWidget(ui->ToneMFXCard);
+}
+
+void integra7MainWindow::ShowSNAcousticParameters(int n)
+{
+    switch (n) {
+    case 28:
+        ui->SNAcousticToneVariable->setCurrentWidget(TWOrganEditorW);
+        break;
+    default:
+        ui->SNAcousticToneVariable->setCurrentWidget(ui->SNAGeneralModifiVariables);
+        break;
+    }
 }
 
 void integra7MainWindow::ShowSNDrumKitMFX()

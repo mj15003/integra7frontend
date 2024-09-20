@@ -21,6 +21,7 @@
 #include "integra7device.h"
 #include "integra7tone.h"
 #include "./ui_integra7mainwindow.h"
+#include "tworganeditor.h"
 
 #include <QButtonGroup>
 #include <QMainWindow>
@@ -50,6 +51,8 @@ public slots:
 
 private:
     Ui::integra7MainWindow *ui;
+    TWOrganEditor *TWOrganEditorW;
+
     MidiEngine *pMidiEngine;
 
     Integra7Device *pI7d;
@@ -134,6 +137,7 @@ private slots:
     void ShowSNSynthPartial(){ui->RightContent->setCurrentWidget(ui->SNSynthTonePartialCard);}
     void ShowSNAcousticCommon(){ui->RightContent->setCurrentWidget(ui->SNAcousticToneCard);}
     void ShowSNAcousticMFX();
+    void ShowSNAcousticParameters(int n);
     void ShowSNDrumKitCommon(){ui->RightContent->setCurrentWidget(ui->SNDrumKitCommonCard);}
     void ShowSNDrumKitMFX();
     void ShowSNDrumKitCompEQ();

@@ -39,7 +39,7 @@ public:
     int getToneName10() {return data[0x09];}
     int getToneName11() {return data[0x0A];}
     int getToneName12() {return data[0x0B];}
-    QLatin1StringView getToneName() {return QLatin1StringView((char*)&data[0],(char*)&data[0x0B]);}
+    QString getToneName() { return (const char *)data;}
     int getToneLevel() {return data[0x10];}
     int getMonoPoly() {return data[0x11];}
     int getPortamentoTimeOffset() {return data[0x12]-64;}
@@ -100,9 +100,16 @@ public:
         return list;
     }
 
+    static QStringList& SNAcousticInstruments() {
+        static QStringList list = {
+            #include "presets/SNAInstruments.inc"
+        };
+        return list;
+    }
+
 public slots:
 
-    void setToneName(const QString name);
+    void setToneName(const QString &name);
     void setToneName1(int v) {DataSet(0x00,v);}
     void setToneName2(int v) {DataSet(0x01,v);}
     void setToneName3(int v) {DataSet(0x02,v);}
@@ -179,7 +186,7 @@ signals:
     void ToneName10(int v);
     void ToneName11(int v);
     void ToneName12(int v);
-    void ToneName(QString v);
+    void ToneName(const QString &v);
     void ToneLevel(int v);
     void MonoPoly(int v);
     void PortamentoTimeOffset(int v);

@@ -28,7 +28,7 @@ public:
     explicit Integra7ParameterSet(Integra7Device *parent, uint8_t o1, uint8_t o2, uint8_t o3);
     virtual int GetLength() = 0;
     virtual int GetItemsNumber() = 0;
-    uint8_t GetAddress(uint8_t i) const { return address[i]; };
+    uint8_t GetAddress(uint8_t i) { return address[i]; }
     void GetRequestArray(uint8_t *req);
     int OutputDump(uint8_t *dump);
     void TriggerAllSignals();
@@ -44,7 +44,8 @@ protected:
     void DataSetOffsetGain(uint8_t a, int v, int offset, int gain);
     void DataSet2x7B(uint8_t a, int v);
     void DataSet2x4B(uint8_t a, int v);
-    void DataSet4x4B(uint8_t a, int v);    
+    void DataSet4x4B(uint8_t a, int v);
+    void DataSetMultiB(uint8_t a, uint8_t *v, int c);
     virtual void EmitSignal(uint8_t a, int v) = 0;
 };
 
