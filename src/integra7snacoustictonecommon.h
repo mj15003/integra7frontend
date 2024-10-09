@@ -107,6 +107,12 @@ public:
         return list;
     }
 
+    constexpr static uint8_t InstrumentByteList[127][2] = {
+        #include "presets/SNAInstByteList.inc"
+    };
+
+    static int GetInstrumentIndex(int v, int n);
+
 public slots:
 
     void setToneName(const QString &name);
@@ -139,6 +145,7 @@ public slots:
     void setTFXSwitch(int v) {DataSet(0x1F,v);}
     void setInstVariation(int v) {DataSet(0x20,v);}
     void setInstNumber(int v) {DataSet(0x21,v);}
+    void setInstrument(int v);
     void setModifyParameter1(int v) {DataSet(0x22,v);}
     void setModifyParameter2(int v) {DataSet(0x23,v);}
     void setModifyParameter3(int v) {DataSet(0x24,v);}
@@ -204,6 +211,7 @@ signals:
     void TFXSwitch(int v);
     void InstVariation(int v);
     void InstNumber(int v);
+    void Instrument(int v);
     void ModifyParameter1(int v);
     void ModifyParameter2(int v);
     void ModifyParameter3(int v);

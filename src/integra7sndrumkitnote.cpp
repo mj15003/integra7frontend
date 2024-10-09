@@ -18,7 +18,28 @@
 #include "integra7sndrumkitnote.h"
 
 Integra7SNDrumKitNote::Integra7SNDrumKitNote(Integra7Device *parent, uint8_t o1, uint8_t o2, uint8_t o3)
-: Integra7ParameterSet{parent,o1,o2,o3}{}
+: Integra7ParameterSet{parent,o1,o2,o3}
+{
+    data[0x00] = 0;
+    data[0x01] = 0;
+    data[0x02] = 0;
+    data[0x03] = 0;
+    data[0x04] = 0;
+    data[0x05] = 0;
+    data[0x06] = 0;
+    data[0x07] = 0;
+    data[0x08] = 0;
+    data[0x09] = 0;
+    data[0x0A] = 8;
+    data[0x0B] = 0;
+    data[0x0C] = 0;
+    data[0x0D] = 32;
+    data[0x0E] = 62;
+    data[0x0F] = 0;
+    data[0x10] = 0;
+    data[0x11] = 0;
+    data[0x12] = 0;
+}
 
 void Integra7SNDrumKitNote::EmitSignal(uint8_t a, int v)
 {

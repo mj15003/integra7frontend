@@ -197,7 +197,7 @@ void Integra7ParameterSet::DataSet4x4B(uint8_t a, int v)
     EmitSignal(a,v);
 }
 
-void Integra7ParameterSet::DataSetMultiB(uint8_t a, uint8_t *v, int c)
+void Integra7ParameterSet::DataSetMultiB(uint8_t a, const uint8_t *v, int c)
 {
     int k = 0;
 

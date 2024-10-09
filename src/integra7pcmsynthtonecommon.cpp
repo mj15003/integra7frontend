@@ -18,7 +18,72 @@
 #include "integra7pcmsynthtonecommon.h"
 
 Integra7PCMSynthToneCommon::Integra7PCMSynthToneCommon(Integra7Device *parent, uint8_t o1, uint8_t o2, uint8_t o3)
-: Integra7ParameterSet{parent,o1,o2,o3}{}
+: Integra7ParameterSet{parent,o1,o2,o3}
+{
+    /* Put correct initialization value into certain fields which does not allow zero */
+    data[0x0B] = 0;
+    data[0x0E] = 0;
+    data[0x0F] = 0;
+    data[0x10] = 0;
+    data[0x11] = 64;
+    data[0x12] = 64;
+    data[0x13] = 64;
+    data[0x14] = 0;
+    data[0x15] = 0;
+    data[0x16] = 0;
+    data[0x17] = 0;
+    data[0x18] = 0;
+    data[0x19] = 0;
+    data[0x1A] = 0;
+    data[0x1B] = 0;
+    data[0x1C] = 0;
+    data[0x1D] = 0;
+    data[0x1F] = 0;
+    data[0x22] = 64;
+    data[0x23] = 64;
+    data[0x24] = 64;
+    data[0x25] = 64;
+    data[0x26] = 64;
+    data[0x28] = 0;
+    data[0x29] = 0;
+    data[0x2A] = 0;
+    data[0x2B] = 0;
+    data[0x2C] = 0;
+    data[0x2D] = 64;
+    data[0x2E] = 0;
+    data[0x2F] = 64;
+    data[0x30] = 0;
+    data[0x31] = 64;
+    data[0x32] = 0;
+    data[0x33] = 64;
+    data[0x34] = 0;
+    data[0x35] = 0;
+    data[0x36] = 64;
+    data[0x37] = 0;
+    data[0x38] = 64;
+    data[0x39] = 0;
+    data[0x3A] = 64;
+    data[0x3B] = 0;
+    data[0x3C] = 64;
+    data[0x3D] = 0;
+    data[0x3E] = 0;
+    data[0x3F] = 64;
+    data[0x40] = 0;
+    data[0x41] = 64;
+    data[0x42] = 0;
+    data[0x43] = 64;
+    data[0x44] = 0;
+    data[0x45] = 64;
+    data[0x46] = 0;
+    data[0x47] = 0;
+    data[0x48] = 64;
+    data[0x49] = 0;
+    data[0x4A] = 64;
+    data[0x4B] = 0;
+    data[0x4C] = 64;
+    data[0x4D] = 0;
+    data[0x4E] = 64;
+}
 
 void Integra7PCMSynthToneCommon::EmitSignal(uint8_t a, int v)
 {

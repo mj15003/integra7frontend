@@ -18,7 +18,59 @@
 #include "integra7snacoustictonecommon.h"
 
 Integra7SNAcousticToneCommon::Integra7SNAcousticToneCommon(Integra7Device *parent, uint8_t o1, uint8_t o2, uint8_t o3)
-: Integra7ParameterSet{parent,o1,o2,o3}{}
+: Integra7ParameterSet{parent,o1,o2,o3}
+{
+    data[0x10] = 0;
+    data[0x11] = 0;
+    data[0x12] = 0;
+    data[0x13] = 0;
+    data[0x14] = 0;
+    data[0x15] = 0;
+    data[0x16] = 0;
+    data[0x17] = 0;
+    data[0x18] = 0;
+    data[0x19] = 0;
+    data[0x1A] = 64;
+    data[0x1B] = 0;
+    data[0x1C] = 0;
+    data[0x1D] = 0;
+    data[0x1E] = 64;
+    data[0x1F] = 0;
+    data[0x20] = 0;
+    data[0x21] = 0;
+    data[0x22] = 0;
+    data[0x23] = 0;
+    data[0x24] = 0;
+    data[0x25] = 0;
+    data[0x26] = 0;
+    data[0x27] = 0;
+    data[0x28] = 0;
+    data[0x29] = 0;
+    data[0x2A] = 0;
+    data[0x2B] = 0;
+    data[0x2C] = 0;
+    data[0x2D] = 0;
+    data[0x2E] = 0;
+    data[0x2F] = 0;
+    data[0x30] = 0;
+    data[0x31] = 0;
+    data[0x32] = 0;
+    data[0x33] = 0;
+    data[0x34] = 0;
+    data[0x35] = 0;
+    data[0x36] = 0;
+    data[0x37] = 0;
+    data[0x38] = 0;
+    data[0x39] = 0;
+    data[0x3A] = 0;
+    data[0x3B] = 0;
+    data[0x3C] = 0;
+    data[0x3D] = 0;
+    data[0x3E] = 0;
+    data[0x3F] = 0;
+    data[0x40] = 0;
+    data[0x41] = 0;
+}
 
 void Integra7SNAcousticToneCommon::EmitSignal(uint8_t a, int v)
 {
@@ -107,6 +159,7 @@ void Integra7SNAcousticToneCommon::EmitSignal(uint8_t a, int v)
         break;
     case 0x20:
         emit InstVariation(v);
+        emit Instrument(GetInstrumentIndex(data[0x20],data[0x21]));
         break;
     case 0x21:
         emit InstNumber(v);
@@ -218,19 +271,39 @@ void Integra7SNAcousticToneCommon::DataReceive(const uint8_t *rdata, uint8_t a, 
     uint8_t r = 0;
 
     while (a < a2) {
-        if (a == 0x0){
+        if (a == 0x0) {
             while (r<0x0C) data[a++] = rdata[r++];
             emit ToneName(getToneName());
         } else if (a == 0x1C) {
             data[a++] = rdata[r++];
             data[a++] = rdata[r++];
             EmitSignal(0x1C,getPhraseNumber());
+        } else if (a == 0x20) {
+            data[a++] = rdata[r++];
+            data[a++] = rdata[r++];
+            EmitSignal(0x20,getInstVariation());
+            EmitSignal(0x21,getInstNumber());
+            emit Instrument(GetInstrumentIndex(data[0x20],data[0x21]));
         } else {
             data[a] = rdata[r++];
             EmitSignal(a,data[a]);
             ++a;
         }
     }
+}
+
+int Integra7SNAcousticToneCommon::GetInstrumentIndex(int v, int n)
+{
+    int k = 0;
+
+    while (k < 127) {
+        if (InstrumentByteList[k][0] == v &&
+            InstrumentByteList[k][1] == n)
+            return k;
+        k++;
+    }
+
+    return -1;
 }
 
 void Integra7SNAcousticToneCommon::setToneName(const QString &name)
@@ -245,4 +318,9 @@ void Integra7SNAcousticToneCommon::setToneName(const QString &name)
     }
 
     DataSetMultiB(0x0,buf,0xC);
+}
+
+void Integra7SNAcousticToneCommon::setInstrument(int v)
+{
+    DataSetMultiB(0x20,InstrumentByteList[v],2);
 }

@@ -45,7 +45,7 @@ protected:
     void DataSet2x7B(uint8_t a, int v);
     void DataSet2x4B(uint8_t a, int v);
     void DataSet4x4B(uint8_t a, int v);
-    void DataSetMultiB(uint8_t a, uint8_t *v, int c);
+    void DataSetMultiB(uint8_t a, const uint8_t *v, int c);
     virtual void EmitSignal(uint8_t a, int v) = 0;
 };
 

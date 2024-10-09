@@ -18,7 +18,37 @@
 #include "integra7snsynthtonecommon.h"
 
 Integra7SNSynthToneCommon::Integra7SNSynthToneCommon(Integra7Device *parent, uint8_t o1, uint8_t o2, uint8_t o3)
-: Integra7ParameterSet{parent,o1,o2,o3}{}
+: Integra7ParameterSet{parent,o1,o2,o3}
+{
+    data[0x0B] = 0;
+    data[0x0C] = 0;
+    data[0x12] = 0;
+    data[0x13] = 0;
+    data[0x14] = 0;
+    data[0x15] = 64;
+    data[0x16] = 0;
+    data[0x17] = 0;
+    data[0x19] = 0;
+    data[0x1A] = 0;
+    data[0x1B] = 0;
+    data[0x1C] = 0;
+    data[0x1D] = 0;
+    data[0x1E] = 0;
+    data[0x1F] = 0;
+    data[0x20] = 0;
+    data[0x2E] = 0;
+    data[0x31] = 0;
+    data[0x32] = 0;
+    data[0x34] = 0;
+    data[0x35] = 0;
+    data[0x36] = 0;
+    data[0x37] = 0;
+    data[0x38] = 0;
+    data[0x39] = 0;
+    data[0x3A] = 0;
+    data[0x3B] = 64;
+    data[0x3C] = 0;
+}
 
 void Integra7SNSynthToneCommon::EmitSignal(uint8_t a, int v)
 {

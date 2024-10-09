@@ -457,7 +457,7 @@ private:
     uint8_t OutputData[BUFFER_SIZE];
     uint8_t VirtualSlots[8] = {0x0F, 0x00, 0x30, 0x00, 0, 0, 0, 0};
 
-    size_t msgDelay = 20;//miliseconds
+    size_t msgDelay = 200;//miliseconds
 
     size_t ReceivedSysExCounter = 0;
     size_t SentSysExCounter = 0;

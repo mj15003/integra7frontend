@@ -18,7 +18,92 @@
 #include "integra7chorus.h"
 
 Integra7Chorus::Integra7Chorus(Integra7Device *parent, uint8_t o1, uint8_t o2, uint8_t o3)
-    : Integra7ParameterSet{parent,o1,o2,o3}{}
+    : Integra7ParameterSet{parent,o1,o2,o3}
+{
+    data[0x00] = 0;
+    data[0x01] = 0;
+    data[0x03] = 0;
+    data[0x04] = 8;
+    data[0x05] = 0;
+    data[0x06] = 0;
+    data[0x07] = 0;
+    data[0x08] = 8;
+    data[0x09] = 0;
+    data[0x0A] = 0;
+    data[0x0B] = 0;
+    data[0x0C] = 8;
+    data[0x0D] = 0;
+    data[0x0E] = 0;
+    data[0x0F] = 0;
+    data[0x10] = 8;
+    data[0x11] = 0;
+    data[0x12] = 0;
+    data[0x13] = 0;
+    data[0x14] = 8;
+    data[0x15] = 0;
+    data[0x16] = 0;
+    data[0x17] = 0;
+    data[0x18] = 8;
+    data[0x19] = 0;
+    data[0x1A] = 0;
+    data[0x1B] = 0;
+    data[0x1C] = 8;
+    data[0x1D] = 0;
+    data[0x1E] = 0;
+    data[0x1F] = 0;
+    data[0x20] = 8;
+    data[0x21] = 0;
+    data[0x22] = 0;
+    data[0x23] = 0;
+    data[0x24] = 8;
+    data[0x25] = 0;
+    data[0x26] = 0;
+    data[0x27] = 0;
+    data[0x28] = 8;
+    data[0x29] = 0;
+    data[0x2A] = 0;
+    data[0x2B] = 0;
+    data[0x2C] = 8;
+    data[0x2D] = 0;
+    data[0x2E] = 0;
+    data[0x2F] = 0;
+    data[0x30] = 8;
+    data[0x31] = 0;
+    data[0x32] = 0;
+    data[0x33] = 0;
+    data[0x34] = 8;
+    data[0x35] = 0;
+    data[0x36] = 0;
+    data[0x37] = 0;
+    data[0x38] = 8;
+    data[0x39] = 0;
+    data[0x3A] = 0;
+    data[0x3B] = 0;
+    data[0x3C] = 8;
+    data[0x3D] = 0;
+    data[0x3E] = 0;
+    data[0x3F] = 0;
+    data[0x40] = 8;
+    data[0x41] = 0;
+    data[0x42] = 0;
+    data[0x43] = 0;
+    data[0x44] = 8;
+    data[0x45] = 0;
+    data[0x46] = 0;
+    data[0x47] = 0;
+    data[0x48] = 8;
+    data[0x49] = 0;
+    data[0x4A] = 0;
+    data[0x4B] = 0;
+    data[0x4C] = 8;
+    data[0x4D] = 0;
+    data[0x4E] = 0;
+    data[0x4F] = 0;
+    data[0x50] = 8;
+    data[0x51] = 0;
+    data[0x52] = 0;
+    data[0x53] = 0;
+}
 
 QStringList &Integra7Chorus::RateHzList()
 {

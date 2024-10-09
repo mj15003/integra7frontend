@@ -30141,9 +30141,9 @@ LOWER UPPER</string>
               <property name="geometry">
                <rect>
                 <x>0</x>
-                <y>-384</y>
+                <y>0</y>
                 <width>1211</width>
-                <height>1756</height>
+                <height>1722</height>
                </rect>
               </property>
               <layout class="QVBoxLayout" name="verticalLayout_10">
@@ -30153,6 +30153,20 @@ LOWER UPPER</string>
                   <property name="fieldGrowthPolicy">
                    <enum>QFormLayout::FieldGrowthPolicy::FieldsStayAtSizeHint</enum>
                   </property>
+                  <item row="1" column="0">
+                   <widget class="QLabel" name="SNAToneNameLbl">
+                    <property name="text">
+                     <string>Tone Name</string>
+                    </property>
+                   </widget>
+                  </item>
+                  <item row="1" column="1">
+                   <widget class="QLineEdit" name="SNAToneNameBox">
+                    <property name="maxLength">
+                     <number>12</number>
+                    </property>
+                   </widget>
+                  </item>
                   <item row="2" column="0">
                    <widget class="QLabel" name="SNAToneLevelLbl">
                     <property name="text">
@@ -30442,45 +30456,14 @@ LOWER UPPER</string>
                    </widget>
                   </item>
                   <item row="17" column="0">
-                   <widget class="QLabel" name="InstVariationLbl">
+                   <widget class="QLabel" name="SNAInstrumentLbl">
                     <property name="text">
-                     <string>Inst Variation</string>
+                     <string>Instrument</string>
                     </property>
                    </widget>
                   </item>
                   <item row="17" column="1">
-                   <widget class="QSpinBox" name="InstVariationBox">
-                    <property name="keyboardTracking">
-                     <bool>false</bool>
-                    </property>
-                    <property name="maximum">
-                     <number>127</number>
-                    </property>
-                   </widget>
-                  </item>
-                  <item row="18" column="0">
-                   <widget class="QLabel" name="SNAInstNumberLbl">
-                    <property name="text">
-                     <string>Inst Number</string>
-                    </property>
-                   </widget>
-                  </item>
-                  <item row="1" column="0">
-                   <widget class="QLabel" name="SNAToneNameLbl">
-                    <property name="text">
-                     <string>Tone Name</string>
-                    </property>
-                   </widget>
-                  </item>
-                  <item row="1" column="1">
-                   <widget class="QLineEdit" name="SNAToneNameBox">
-                    <property name="maxLength">
-                     <number>12</number>
-                    </property>
-                   </widget>
-                  </item>
-                  <item row="18" column="1">
-                   <widget class="QComboBox" name="SNAInstNumberBox"/>
+                   <widget class="QComboBox" name="SNAInstrumentBox"/>
                   </item>
                  </layout>
                 </widget>
@@ -30488,7 +30471,7 @@ LOWER UPPER</string>
                <item>
                 <widget class="QStackedWidget" name="SNAcousticToneVariable">
                  <property name="currentIndex">
-                  <number>1</number>
+                  <number>0</number>
                  </property>
                  <widget class="QWidget" name="SNAGeneralModifiVariables">
                   <layout class="QFormLayout" name="SNAcousticToneVariableLayout">
@@ -31040,7 +31023,7 @@ LOWER UPPER</string>
                     </widget>
                    </item>
                   </layout>
-                 </widget>                 
+                 </widget>
                 </widget>
                </item>
               </layout>
@@ -41110,7 +41093,7 @@ Pressure</string>
                 <number>9999</number>
                </property>
                <property name="value">
-                <number>20</number>
+                <number>200</number>
                </property>
               </widget>
              </item>

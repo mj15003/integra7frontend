@@ -18,7 +18,16 @@
 #include "integra7pcmsynthtonecommon2.h"
 
 Integra7PCMSynthToneCommon2::Integra7PCMSynthToneCommon2(Integra7Device *parent, uint8_t o1, uint8_t o2, uint8_t o3)
-: Integra7ParameterSet{parent,o1,o2,o3}{}
+: Integra7ParameterSet{parent,o1,o2,o3}
+{
+    data[0x10] = 0;
+    data[0x13] = 64;
+    data[0x33] = 0;
+    data[0x38] = 0;
+    data[0x39] = 0;
+    data[0x3A] = 0;
+    data[0x3B] = 0;
+}
 
 void Integra7PCMSynthToneCommon2::EmitSignal(uint8_t a, int v)
 {

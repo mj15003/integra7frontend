@@ -20,7 +20,13 @@
 Integra7MasterEQ::Integra7MasterEQ(Integra7Device *parent, uint8_t o1, uint8_t o2, uint8_t o3)
     :Integra7ParameterSet{parent,o1,o2,o3}
 {
-
+    data[0x00] = 0;
+    data[0x01] = 0;
+    data[0x02] = 0;
+    data[0x03] = 0;
+    data[0x04] = 0;
+    data[0x05] = 0;
+    data[0x06] = 0;
 }
 
 void Integra7MasterEQ::EmitSignal(uint8_t a, int v)

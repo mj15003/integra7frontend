@@ -1011,7 +1011,7 @@ integra7MainWindow::integra7MainWindow(QWidget *parent)
     ui->SNSWaveGainBox3->addItems(Integra7SNSynthTonePartial::WaveGainList());
 
     ui->SNAMonoPolyBox->addItems(Integra7SNAcousticToneCommon::MonoPolyList());
-    ui->SNAInstNumberBox->addItems(Integra7SNAcousticToneCommon::SNAcousticInstruments());
+    ui->SNAInstrumentBox->addItems(Integra7SNAcousticToneCommon::SNAcousticInstruments());
 
     ui->VariationBox->addItems(Integra7SNDrumKitNote::VariationList());
     ui->OutputAssignBox->addItems(Integra7SNDrumKitNote::OutputAssignList());
@@ -1372,7 +1372,7 @@ integra7MainWindow::integra7MainWindow(QWidget *parent)
                                                    ui->Ch16TypeBox1,
                                                    ui->Ch16BankBox1);});
 
-    QObject::connect(ui->SNAInstNumberBox,&QComboBox::currentIndexChanged,
+    QObject::connect(ui->SNAInstrumentBox,&QComboBox::currentIndexChanged,
                      this,&integra7MainWindow::ShowSNAcousticParameters);
 
     /* Setup MIDI Engine */

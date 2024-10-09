@@ -20,7 +20,28 @@
 Integra7SystemCommon::Integra7SystemCommon(Integra7Device *parent, uint8_t o1, uint8_t o2, uint8_t o3)
     : Integra7ParameterSet{parent,o1,o2,o3}
 {
-
+    data[0x00] = 0;
+    data[0x01] = 4;
+    data[0x02] = 0;
+    data[0x03] = 0;
+    data[0x04] = 64;
+    data[0x05] = 0;
+    data[0x06] = 0;
+    data[0x11] = 0;
+    data[0x20] = 0;
+    data[0x21] = 0;
+    data[0x22] = 0;
+    data[0x23] = 0;
+    data[0x24] = 0;
+    data[0x25] = 0;
+    data[0x26] = 8;
+    data[0x27] = 7;
+    data[0x28] = 0;
+    data[0x29] = 0;
+    data[0x2A] = 0;
+    data[0x2B] = 0;
+    data[0x2C] = 0;
+    data[0x2D] = 0;
 }
 
 void Integra7SystemCommon::EmitSignal(uint8_t a, int v)

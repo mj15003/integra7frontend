@@ -18,7 +18,13 @@
 #include "integra7sndrumkitcommon.h"
 
 Integra7SNDrumKitCommon::Integra7SNDrumKitCommon(Integra7Device *parent, uint8_t o1, uint8_t o2, uint8_t o3)
-: Integra7ParameterSet{parent,o1,o2,o3}{}
+: Integra7ParameterSet{parent,o1,o2,o3}
+{
+    data[0x10] = 0;
+    data[0x11] = 0;
+    data[0x12] = 0;
+    data[0x13] = 0;
+}
 
 void Integra7SNDrumKitCommon::EmitSignal(uint8_t a, int v)
 {

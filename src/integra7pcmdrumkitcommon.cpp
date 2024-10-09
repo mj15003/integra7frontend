@@ -18,7 +18,14 @@
 #include "integra7pcmdrumkitcommon.h"
 
 Integra7PCMDrumKitCommon::Integra7PCMDrumKitCommon(Integra7Device *parent, uint8_t o1, uint8_t o2, uint8_t o3)
-: Integra7ParameterSet{parent,o1,o2,o3}{}
+: Integra7ParameterSet{parent,o1,o2,o3}
+{
+    data[0x0B] = 0;
+    data[0x0C] = 0;
+    data[0x0D] = 0;
+    data[0x0E] = 0;
+    data[0x10] = 0;
+}
 
 void Integra7PCMDrumKitCommon::EmitSignal(uint8_t a, int v)
 {

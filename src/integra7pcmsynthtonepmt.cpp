@@ -1,7 +1,50 @@
 #include "integra7pcmsynthtonepmt.h"
 
 Integra7PCMSynthTonePMT::Integra7PCMSynthTonePMT(Integra7Device *parent, uint8_t o1, uint8_t o2, uint8_t o3)
-: Integra7ParameterSet{parent,o1,o2,o3}{}
+: Integra7ParameterSet{parent,o1,o2,o3}
+{
+    data[0x00] = 0;
+    data[0x01] = 0;
+    data[0x02] = 0;
+    data[0x03] = 0;
+    data[0x04] = 0;
+    data[0x05] = 0;
+    data[0x06] = 0;
+    data[0x07] = 0;
+    data[0x08] = 0;
+    data[0x09] = 0;
+    data[0x0A] = 64;
+    data[0x0B] = 64;
+    data[0x0C] = 0;
+    data[0x0D] = 0;
+    data[0x0E] = 0;
+    data[0x0F] = 0;
+    data[0x10] = 0;
+    data[0x11] = 0;
+    data[0x12] = 0;
+    data[0x13] = 64;
+    data[0x14] = 64;
+    data[0x15] = 0;
+    data[0x16] = 0;
+    data[0x17] = 0;
+    data[0x18] = 0;
+    data[0x19] = 0;
+    data[0x1A] = 0;
+    data[0x1B] = 0;
+    data[0x1C] = 64;
+    data[0x1D] = 64;
+    data[0x1E] = 0;
+    data[0x1F] = 0;
+    data[0x20] = 0;
+    data[0x21] = 0;
+    data[0x22] = 0;
+    data[0x23] = 0;
+    data[0x24] = 0;
+    data[0x25] = 64;
+    data[0x26] = 64;
+    data[0x27] = 0;
+    data[0x28] = 0;
+}
 
 void Integra7PCMSynthTonePMT::EmitSignal(uint8_t a, int v)
 {

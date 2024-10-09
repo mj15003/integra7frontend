@@ -20,6 +20,44 @@
 Integra7StudioSetCommon::Integra7StudioSetCommon(Integra7Device *parent, uint8_t o1, uint8_t o2, uint8_t o3)
 : Integra7ParameterSet{parent,o1,o2,o3}
 {
+    data[0x0B] = 79;
+    data[0x18] = 0;
+    data[0x19] = 0;
+    data[0x1A] = 0;
+    data[0x1B] = 0;
+    data[0x1C] = 0;
+    data[0x1D] = 0;
+    data[0x1E] = 0;
+    data[0x1F] = 0;
+    data[0x20] = 0;
+    data[0x21] = 0;
+    data[0x22] = 0;
+    data[0x23] = 0;
+    data[0x24] = 0;
+    data[0x25] = 0;
+    data[0x26] = 0;
+    data[0x27] = 0;
+    data[0x39] = 0;
+    data[0x3A] = 0;
+    data[0x3B] = 0;
+    data[0x3C] = 0;
+    data[0x3D] = 135;
+    data[0x3F] = 0;
+    data[0x40] = 0;
+    data[0x41] = 0;
+    data[0x42] = 0;
+    data[0x43] = 0;
+    data[0x44] = 0;
+    data[0x45] = 0;
+    data[0x46] = 0;
+    data[0x47] = 0;
+    data[0x48] = 0;
+    data[0x49] = 0;
+    data[0x4A] = 0;
+    data[0x4C] = 0;
+    data[0x4D] = 0;
+    data[0x4E] = 0;
+    data[0x4F] = 0;
 
 }
 
