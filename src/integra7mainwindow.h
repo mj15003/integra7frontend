@@ -159,23 +159,5 @@ private slots:
     void SNDrumKitNoteSelect(int note);
 };
 
-class ReadRequest : public QRunnable
-{
-public:
-    explicit ReadRequest(Integra7Device *i7dev);
-private:
-    Integra7Device *dev;
-    void run() override;
-};
 
-class DumpFileReader : public QRunnable
-{
-public:
-    explicit DumpFileReader(Integra7Device *pdev, integra7MainWindow *pwin, QString& fname);
-private:
-    QString fileName;    
-    integra7MainWindow *win;
-    Integra7Device *dev;
-    void run() override;
-};
 #endif // INTEGRA7MAINWINDOW_H

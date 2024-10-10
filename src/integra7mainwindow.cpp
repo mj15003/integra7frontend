@@ -16,8 +16,8 @@
 *************************************************************************/
 
 #include <QFileDialog>
-#include <QThreadPool>
 
+#include "asyncoperations.h"
 #include "integra7mainwindow.h"
 #include "./ui_integra7mainwindow.h"
 #include "integra7part.h"
@@ -437,12 +437,6 @@ integra7MainWindow::integra7MainWindow(QWidget *parent)
 
     QObject::connect(ui->BankBox,&QComboBox::currentIndexChanged,this,
                      [this](){BankBoxChangeLogic(ui->TypeBox,ui->BankBox,ui->ToneBox);});
-
-    QObject::connect(ui->ToneBox,&QComboBox::currentIndexChanged,this,
-                     [this](){ToneBoxChangeLogic(PartBtnGrp.checkedId(),
-                                                 ui->ToneBox->currentIndex(),
-                                                 ui->TypeBox,
-                                                 ui->BankBox);});
 
     /* Setup Virtual Slots lists*/
     ui->VSlotABox->addItems(Integra7Device::ExpansionNames());
@@ -1202,21 +1196,11 @@ integra7MainWindow::integra7MainWindow(QWidget *parent)
     QObject::connect(ui->Ch1BankBox1,&QComboBox::currentIndexChanged,this,
                      [this](){BankBoxChangeLogic(ui->Ch1TypeBox1,ui->Ch1BankBox1,ui->Ch1ToneBox1);});
 
-    QObject::connect(ui->Ch1ToneBox1,&QComboBox::currentIndexChanged,this,
-                     [this](){ToneBoxChangeLogic(0,ui->Ch1ToneBox1->currentIndex(),
-                                                   ui->Ch1TypeBox1,
-                                                   ui->Ch1BankBox1);});
-
     QObject::connect(ui->Ch2TypeBox1,&QComboBox::currentIndexChanged,this,
                      [this](){TypeBoxChangeLogic(ui->Ch2TypeBox1,ui->Ch2BankBox1,ui->Ch2ToneBox1);});
 
     QObject::connect(ui->Ch2BankBox1,&QComboBox::currentIndexChanged,this,
                      [this](){BankBoxChangeLogic(ui->Ch2TypeBox1,ui->Ch2BankBox1,ui->Ch2ToneBox1);});
-
-    QObject::connect(ui->Ch2ToneBox1,&QComboBox::currentIndexChanged,this,
-                     [this](){ToneBoxChangeLogic(1,ui->Ch2ToneBox1->currentIndex(),
-                                                   ui->Ch2TypeBox1,
-                                                   ui->Ch2BankBox1);});
 
     QObject::connect(ui->Ch3TypeBox1,&QComboBox::currentIndexChanged,this,
                      [this](){TypeBoxChangeLogic(ui->Ch3TypeBox1,ui->Ch3BankBox1,ui->Ch3ToneBox1);});
@@ -1224,21 +1208,11 @@ integra7MainWindow::integra7MainWindow(QWidget *parent)
     QObject::connect(ui->Ch3BankBox1,&QComboBox::currentIndexChanged,this,
                      [this](){BankBoxChangeLogic(ui->Ch3TypeBox1,ui->Ch3BankBox1,ui->Ch3ToneBox1);});
 
-    QObject::connect(ui->Ch3ToneBox1,&QComboBox::currentIndexChanged,this,
-                     [this](){ToneBoxChangeLogic(2,ui->Ch3ToneBox1->currentIndex(),
-                                                   ui->Ch3TypeBox1,
-                                                   ui->Ch3BankBox1);});
-
     QObject::connect(ui->Ch4TypeBox1,&QComboBox::currentIndexChanged,this,
                      [this](){TypeBoxChangeLogic(ui->Ch4TypeBox1,ui->Ch4BankBox1,ui->Ch4ToneBox1);});
 
     QObject::connect(ui->Ch4BankBox1,&QComboBox::currentIndexChanged,this,
                      [this](){BankBoxChangeLogic(ui->Ch4TypeBox1,ui->Ch4BankBox1,ui->Ch4ToneBox1);});
-
-    QObject::connect(ui->Ch4ToneBox1,&QComboBox::currentIndexChanged,this,
-                     [this](){ToneBoxChangeLogic(3,ui->Ch4ToneBox1->currentIndex(),
-                                                   ui->Ch4TypeBox1,
-                                                   ui->Ch4BankBox1);});
 
     QObject::connect(ui->Ch5TypeBox1,&QComboBox::currentIndexChanged,this,
                      [this](){TypeBoxChangeLogic(ui->Ch5TypeBox1,ui->Ch5BankBox1,ui->Ch5ToneBox1);});
@@ -1246,21 +1220,11 @@ integra7MainWindow::integra7MainWindow(QWidget *parent)
     QObject::connect(ui->Ch5BankBox1,&QComboBox::currentIndexChanged,this,
                      [this](){BankBoxChangeLogic(ui->Ch5TypeBox1,ui->Ch5BankBox1,ui->Ch5ToneBox1);});
 
-    QObject::connect(ui->Ch5ToneBox1,&QComboBox::currentIndexChanged,this,
-                     [this](){ToneBoxChangeLogic(4,ui->Ch5ToneBox1->currentIndex(),
-                                                   ui->Ch5TypeBox1,
-                                                   ui->Ch5BankBox1);});
-
     QObject::connect(ui->Ch6TypeBox1,&QComboBox::currentIndexChanged,this,
                      [this](){TypeBoxChangeLogic(ui->Ch6TypeBox1,ui->Ch6BankBox1,ui->Ch6ToneBox1);});
 
     QObject::connect(ui->Ch6BankBox1,&QComboBox::currentIndexChanged,this,
                      [this](){BankBoxChangeLogic(ui->Ch6TypeBox1,ui->Ch6BankBox1,ui->Ch6ToneBox1);});
-
-    QObject::connect(ui->Ch6ToneBox1,&QComboBox::currentIndexChanged,this,
-                     [this](){ToneBoxChangeLogic(5,ui->Ch6ToneBox1->currentIndex(),
-                                                   ui->Ch6TypeBox1,
-                                                   ui->Ch6BankBox1);});
 
     QObject::connect(ui->Ch7TypeBox1,&QComboBox::currentIndexChanged,this,
                      [this](){TypeBoxChangeLogic(ui->Ch7TypeBox1,ui->Ch7BankBox1,ui->Ch7ToneBox1);});
@@ -1268,21 +1232,11 @@ integra7MainWindow::integra7MainWindow(QWidget *parent)
     QObject::connect(ui->Ch7BankBox1,&QComboBox::currentIndexChanged,this,
                      [this](){BankBoxChangeLogic(ui->Ch7TypeBox1,ui->Ch7BankBox1,ui->Ch7ToneBox1);});
 
-    QObject::connect(ui->Ch7ToneBox1,&QComboBox::currentIndexChanged,this,
-                     [this](){ToneBoxChangeLogic(6,ui->Ch7ToneBox1->currentIndex(),
-                                                   ui->Ch7TypeBox1,
-                                                   ui->Ch7BankBox1);});
-
     QObject::connect(ui->Ch8TypeBox1,&QComboBox::currentIndexChanged,this,
                      [this](){TypeBoxChangeLogic(ui->Ch8TypeBox1,ui->Ch8BankBox1,ui->Ch8ToneBox1);});
 
     QObject::connect(ui->Ch8BankBox1,&QComboBox::currentIndexChanged,this,
                      [this](){BankBoxChangeLogic(ui->Ch8TypeBox1,ui->Ch8BankBox1,ui->Ch8ToneBox1);});
-
-    QObject::connect(ui->Ch8ToneBox1,&QComboBox::currentIndexChanged,this,
-                     [this](){ToneBoxChangeLogic(7,ui->Ch8ToneBox1->currentIndex(),
-                                                   ui->Ch8TypeBox1,
-                                                   ui->Ch8BankBox1);});
 
     QObject::connect(ui->Ch9TypeBox1,&QComboBox::currentIndexChanged,this,
                      [this](){TypeBoxChangeLogic(ui->Ch9TypeBox1,ui->Ch9BankBox1,ui->Ch9ToneBox1);});
@@ -1290,21 +1244,11 @@ integra7MainWindow::integra7MainWindow(QWidget *parent)
     QObject::connect(ui->Ch9BankBox1,&QComboBox::currentIndexChanged,this,
                      [this](){BankBoxChangeLogic(ui->Ch9TypeBox1,ui->Ch9BankBox1,ui->Ch9ToneBox1);});
 
-    QObject::connect(ui->Ch9ToneBox1,&QComboBox::currentIndexChanged,this,
-                     [this](){ToneBoxChangeLogic(8,ui->Ch9ToneBox1->currentIndex(),
-                                                   ui->Ch9TypeBox1,
-                                                   ui->Ch9BankBox1);});
-
     QObject::connect(ui->Ch10TypeBox1,&QComboBox::currentIndexChanged,this,
                      [this](){TypeBoxChangeLogic(ui->Ch10TypeBox1,ui->Ch10BankBox1,ui->Ch10ToneBox1);});
 
     QObject::connect(ui->Ch10BankBox1,&QComboBox::currentIndexChanged,this,
                      [this](){BankBoxChangeLogic(ui->Ch10TypeBox1,ui->Ch10BankBox1,ui->Ch10ToneBox1);});
-
-    QObject::connect(ui->Ch10ToneBox1,&QComboBox::currentIndexChanged,this,
-                     [this](){ToneBoxChangeLogic(9,ui->Ch10ToneBox1->currentIndex(),
-                                                   ui->Ch10TypeBox1,
-                                                   ui->Ch10BankBox1);});
 
     QObject::connect(ui->Ch11TypeBox1,&QComboBox::currentIndexChanged,this,
                      [this](){TypeBoxChangeLogic(ui->Ch11TypeBox1,ui->Ch11BankBox1,ui->Ch11ToneBox1);});
@@ -1312,21 +1256,11 @@ integra7MainWindow::integra7MainWindow(QWidget *parent)
     QObject::connect(ui->Ch11BankBox1,&QComboBox::currentIndexChanged,this,
                      [this](){BankBoxChangeLogic(ui->Ch11TypeBox1,ui->Ch11BankBox1,ui->Ch11ToneBox1);});
 
-    QObject::connect(ui->Ch11ToneBox1,&QComboBox::currentIndexChanged,this,
-                     [this](){ToneBoxChangeLogic(10,ui->Ch11ToneBox1->currentIndex(),
-                                                   ui->Ch11TypeBox1,
-                                                   ui->Ch11BankBox1);});
-
     QObject::connect(ui->Ch12TypeBox1,&QComboBox::currentIndexChanged,this,
                      [this](){TypeBoxChangeLogic(ui->Ch12TypeBox1,ui->Ch12BankBox1,ui->Ch12ToneBox1);});
 
     QObject::connect(ui->Ch12BankBox1,&QComboBox::currentIndexChanged,this,
                      [this](){BankBoxChangeLogic(ui->Ch12TypeBox1,ui->Ch12BankBox1,ui->Ch12ToneBox1);});
-
-    QObject::connect(ui->Ch12ToneBox1,&QComboBox::currentIndexChanged,this,
-                     [this](){ToneBoxChangeLogic(11,ui->Ch12ToneBox1->currentIndex(),
-                                                   ui->Ch12TypeBox1,
-                                                   ui->Ch12BankBox1);});
 
     QObject::connect(ui->Ch13TypeBox1,&QComboBox::currentIndexChanged,this,
                      [this](){TypeBoxChangeLogic(ui->Ch13TypeBox1,ui->Ch13BankBox1,ui->Ch13ToneBox1);});
@@ -1334,21 +1268,11 @@ integra7MainWindow::integra7MainWindow(QWidget *parent)
     QObject::connect(ui->Ch13BankBox1,&QComboBox::currentIndexChanged,this,
                      [this](){BankBoxChangeLogic(ui->Ch13TypeBox1,ui->Ch13BankBox1,ui->Ch13ToneBox1);});
 
-    QObject::connect(ui->Ch13ToneBox1,&QComboBox::currentIndexChanged,this,
-                     [this](){ToneBoxChangeLogic(12,ui->Ch13ToneBox1->currentIndex(),
-                                                   ui->Ch13TypeBox1,
-                                                   ui->Ch13BankBox1);});
-
     QObject::connect(ui->Ch14TypeBox1,&QComboBox::currentIndexChanged,this,
                      [this](){TypeBoxChangeLogic(ui->Ch14TypeBox1,ui->Ch14BankBox1,ui->Ch14ToneBox1);});
 
     QObject::connect(ui->Ch14BankBox1,&QComboBox::currentIndexChanged,this,
                      [this](){BankBoxChangeLogic(ui->Ch14TypeBox1,ui->Ch14BankBox1,ui->Ch14ToneBox1);});
-
-    QObject::connect(ui->Ch14ToneBox1,&QComboBox::currentIndexChanged,this,
-                     [this](){ToneBoxChangeLogic(13,ui->Ch14ToneBox1->currentIndex(),
-                                                   ui->Ch14TypeBox1,
-                                                   ui->Ch14BankBox1);});
 
     QObject::connect(ui->Ch15TypeBox1,&QComboBox::currentIndexChanged,this,
                      [this](){TypeBoxChangeLogic(ui->Ch15TypeBox1,ui->Ch15BankBox1,ui->Ch15ToneBox1);});
@@ -1356,21 +1280,11 @@ integra7MainWindow::integra7MainWindow(QWidget *parent)
     QObject::connect(ui->Ch15BankBox1,&QComboBox::currentIndexChanged,this,
                      [this](){BankBoxChangeLogic(ui->Ch15TypeBox1,ui->Ch15BankBox1,ui->Ch15ToneBox1);});
 
-    QObject::connect(ui->Ch15ToneBox1,&QComboBox::currentIndexChanged,this,
-                     [this](){ToneBoxChangeLogic(14,ui->Ch15ToneBox1->currentIndex(),
-                                                   ui->Ch15TypeBox1,
-                                                   ui->Ch15BankBox1);});
-
     QObject::connect(ui->Ch16TypeBox1,&QComboBox::currentIndexChanged,this,
                      [this](){TypeBoxChangeLogic(ui->Ch16TypeBox1,ui->Ch16BankBox1,ui->Ch16ToneBox1);});
 
     QObject::connect(ui->Ch16BankBox1,&QComboBox::currentIndexChanged,this,
                      [this](){BankBoxChangeLogic(ui->Ch16TypeBox1,ui->Ch16BankBox1,ui->Ch16ToneBox1);});
-
-    QObject::connect(ui->Ch16ToneBox1,&QComboBox::currentIndexChanged,this,
-                     [this](){ToneBoxChangeLogic(15,ui->Ch16ToneBox1->currentIndex(),
-                                                   ui->Ch16TypeBox1,
-                                                   ui->Ch16BankBox1);});
 
     QObject::connect(ui->SNAInstrumentBox,&QComboBox::currentIndexChanged,
                      this,&integra7MainWindow::ShowSNAcousticParameters);
@@ -6434,6 +6348,7 @@ void integra7MainWindow::ShowSNAcousticParameters(int n)
         ui->SNAcousticToneVariable->setCurrentWidget(ui->SNAGeneralModifiVariables);
         break;
     }
+    if (ui->RequestToneDataBox->isChecked()) SNATarget->RequestData();
 }
 
 void integra7MainWindow::ShowSNDrumKitMFX()
@@ -6536,18 +6451,11 @@ void integra7MainWindow::ToneBoxChangeLogic(uint8_t part, int index, QComboBox *
 
     if (bi < 0) return;
 
-    QString mTone = ToneBoxes[part][0]->currentText();
+    pI7d->Parts[part]->setToneBankProgram(bi,index);
 
-    if (PartBtnGrp.checkedId() == part)
-        mTone = ui->ToneBox->currentText();
+    if (ui->ToneBtn->isChecked()) ShowTone();
 
-    if (ToneBoxes[part][0]->currentText() == ToneBoxes[part][1]->currentText() &&
-        ToneBoxes[part][0]->currentText() == mTone)
-    {
-        pI7d->Parts[part]->setToneBankProgram(bi,index);
-        if (ui->ToneBtn->isChecked()) ShowTone();
-    }
-
+    if (ui->RequestToneDataBox->isChecked()) pI7d->Tones[part]->RequestData();
 }
 
 void integra7MainWindow::VSlotLoadBtn_clicked()
@@ -6584,109 +6492,4 @@ void integra7MainWindow::BulkDumpRequest()
        waiting between particular calls for data transmission */
     ReadRequest *RR = new ReadRequest(pI7d);
     QThreadPool::globalInstance()->start(RR);
-}
-
-DumpFileReader::DumpFileReader(Integra7Device *pdev, integra7MainWindow *pwin, QString &fname)
-{    
-    dev = pdev;
-    win = pwin;
-    fileName = fname;
-}
-
-void DumpFileReader::run()
-{
-    QFile file(fileName);
-    file.open(QIODevice::ReadOnly);
-
-    uint8_t *rdata = new uint8_t[file.size()];
-
-    //read the content of file at once into array
-    //split into SysExes and send each separately into the device with defined delay
-    //then request dump read from device to synchornize UI
-
-    int nrd = file.read((char*)rdata,file.size());
-    int len = 0;
-    int start = 0;
-
-    for (int c=0;c<nrd;++c) {
-        if (rdata[c] == 0xF0)
-        {
-            len = 1;
-            start = c;
-        }
-        else if (rdata[c] == 0xF7)
-        {
-            ++len;
-            dev->SendFullSysEx(rdata+start,len);
-            QThread::msleep(dev->GetMsgDelay());
-        }
-        else ++len;
-    }
-
-    file.close();
-    delete[] rdata;
-
-    win->BulkDumpRequest();
-}
-
-ReadRequest::ReadRequest(Integra7Device *i7dev)
-{
-    dev = i7dev;
-}
-
-void ReadRequest::run()
-{
-    uint8_t req[8];
-
-    dev->Setup->GetRequestArray(req);
-    dev->DataRequest(req);
-
-    QThread::msleep(dev->GetMsgDelay()); //give it a time to process the response
-
-    dev->SystemCommon->GetRequestArray(req);
-    dev->DataRequest(req);
-
-    QThread::msleep(dev->GetMsgDelay()); //give it a time to process the response
-
-    //Request whole StudioSet in single call
-    req[0] = 0x18;
-    req[1] = 0;
-    req[2] = 0;
-    req[3] = 0;
-
-    req[4] = 0;
-    req[5] = 0;
-    req[6] = 0x60;
-    req[7] = 0;
-
-    dev->DataRequest(req);
-
-    QThread::msleep(dev->GetMsgDelay());
-
-    //Request Tone data for each part
-
-    uint8_t a1 = 0x19;
-    uint8_t a2 = 0x00;
-
-    for (int p=0;p<16;++p) {
-
-        req[0] = a1;
-        req[1] = a2;
-        req[2] = 0;
-        req[3] = 0;
-
-        req[4] = 0;
-        req[5] = 0x20;
-        req[6] = 0;
-        req[7] = 0;
-
-        dev->DataRequest(req);
-
-        QThread::msleep(dev->GetMsgDelay());
-
-        if (a2 == 0x60) {
-            ++a1;
-            a2=0;
-        } else a2+=0x20;
-    }
 }

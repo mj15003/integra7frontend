@@ -16,6 +16,7 @@
 *************************************************************************/
 
 #include "integra7tone.h"
+#include "asyncoperations.h"
 
 Integra7Tone::Integra7Tone(Integra7Device *parent,uint8_t a0, uint8_t a1) {
     address[0] = a0;
@@ -343,6 +344,24 @@ void Integra7Tone::TriggerSignals(const QString &type, int drumnote)
         PCMDrumKitPartial[drumnote]->TriggerAllSignals();
         PCMDrumKitCommon2->TriggerAllSignals();
     }
+}
+
+void Integra7Tone::RequestData()
+{
+    uint8_t req[8];
+
+    req[0] = address[0];
+    req[1] = address[1];
+    req[2] = 0;
+    req[3] = 0;
+
+    req[4] = 0;
+    req[5] = 0x20;
+    req[6] = 0;
+    req[7] = 0;
+
+    ReadRequest *RR = new ReadRequest(pIntegraDev,req);
+    QThreadPool::globalInstance()->start(RR);
 }
 void Integra7Tone::setToneType(const QString &ts)
 {

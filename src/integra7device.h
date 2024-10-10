@@ -22,7 +22,6 @@
 
 #include <QObject>
 #include <QStringList>
-#include <QRunnable>
 
 #define PARAMETER_ARRAY_SIZE 256
 

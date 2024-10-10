@@ -1386,7 +1386,7 @@ COMMON</string>
           </sizepolicy>
          </property>
          <property name="currentIndex">
-          <number>14</number>
+          <number>26</number>
          </property>
          <widget class="QWidget" name="PartViewCard">
           <layout class="QGridLayout" name="PartViewCardLayout">
@@ -30142,7 +30142,7 @@ LOWER UPPER</string>
                <rect>
                 <x>0</x>
                 <y>0</y>
-                <width>1211</width>
+                <width>326</width>
                 <height>1722</height>
                </rect>
               </property>
@@ -41094,6 +41094,13 @@ Pressure</string>
                </property>
                <property name="value">
                 <number>200</number>
+               </property>
+              </widget>
+             </item>
+             <item row="1" column="0" colspan="2">
+              <widget class="QCheckBox" name="RequestToneDataBox">
+               <property name="text">
+                <string>Request tone data update after relevant change</string>
                </property>
               </widget>
              </item>

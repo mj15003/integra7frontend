@@ -70,6 +70,7 @@ public:
     void ReceiveData(const uint8_t *rdata, int len);
     int OutputDump(uint8_t *data,int *len);
     void TriggerSignals(const QString &type, int drumnote);
+    void RequestData();
 
 public slots:
     void setToneType(const QString &ts);

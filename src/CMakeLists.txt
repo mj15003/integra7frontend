@@ -72,8 +72,8 @@ if(${QT_VERSION_MAJOR} GREATER_EQUAL 6)
         integra7tonemfx.h integra7tonemfx.cpp
         integra7drumcompeq.h integra7drumcompeq.cpp
         toneconnections.cpp
-        tworganeditor.h tworganeditor.cpp tworganeditor.ui
-        presets/SNAInstruments.inc
+        tworganeditor.h tworganeditor.cpp tworganeditor.ui        
+        asyncoperations.h asyncoperations.cpp
     )
 # Define target properties for Android with Qt 6 as:
 #    set_property(TARGET Integra7Frontend APPEND PROPERTY QT_ANDROID_PACKAGE_SOURCE_DIR
