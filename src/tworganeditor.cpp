@@ -73,31 +73,31 @@ void TWOrganEditor::ConnectSignals(Integra7Tone *tone)
                      snat,&Integra7SNAcousticToneCommon::setModifyParameter9);
 
     QObject::connect(ui->LeakageLevelBox,&QSpinBox::valueChanged,
-                     snat,&Integra7SNAcousticToneCommon::setModifyParameter10);
+                     snat,&Integra7SNAcousticToneCommon::setModifyParameter22);
 
     QObject::connect(ui->PercussionSwitchBtn,&QAbstractButton::toggled,
-                     snat,&Integra7SNAcousticToneCommon::setModifyParameter11);
+                     snat,&Integra7SNAcousticToneCommon::setModifyParameter10);
 
     QObject::connect(ui->PercussionSoftBox,&QComboBox::currentIndexChanged,
-                     snat,&Integra7SNAcousticToneCommon::setModifyParameter12);
+                     snat,&Integra7SNAcousticToneCommon::setModifyParameter21);
 
     QObject::connect(ui->PercussionSoftLevelBox,&QSpinBox::valueChanged,
-                     snat,&Integra7SNAcousticToneCommon::setModifyParameter13);
-
-    QObject::connect(ui->PercussionNormalLevelBox,&QSpinBox::valueChanged,
-                     snat,&Integra7SNAcousticToneCommon::setModifyParameter14);
-
-    QObject::connect(ui->PercussionSlowBox,&QComboBox::currentIndexChanged,
                      snat,&Integra7SNAcousticToneCommon::setModifyParameter15);
 
-    QObject::connect(ui->PercussionSlowTimeBox,&QSpinBox::valueChanged,
+    QObject::connect(ui->PercussionNormalLevelBox,&QSpinBox::valueChanged,
                      snat,&Integra7SNAcousticToneCommon::setModifyParameter16);
 
-    QObject::connect(ui->PercussionFastTimeBox,&QSpinBox::valueChanged,
+    QObject::connect(ui->PercussionSlowBox,&QComboBox::currentIndexChanged,
+                     snat,&Integra7SNAcousticToneCommon::setModifyParameter12);
+
+    QObject::connect(ui->PercussionSlowTimeBox,&QSpinBox::valueChanged,
                      snat,&Integra7SNAcousticToneCommon::setModifyParameter17);
 
-    QObject::connect(ui->PercussionHarmonicBox,&QComboBox::currentIndexChanged,
+    QObject::connect(ui->PercussionFastTimeBox,&QSpinBox::valueChanged,
                      snat,&Integra7SNAcousticToneCommon::setModifyParameter18);
+
+    QObject::connect(ui->PercussionHarmonicBox,&QComboBox::currentIndexChanged,
+                     snat,&Integra7SNAcousticToneCommon::setModifyParameter11);
 
     QObject::connect(ui->PercussionRechargeTimeBox,&QSpinBox::valueChanged,
                      snat,&Integra7SNAcousticToneCommon::setModifyParameter19);
@@ -106,10 +106,10 @@ void TWOrganEditor::ConnectSignals(Integra7Tone *tone)
                      snat,&Integra7SNAcousticToneCommon::setModifyParameter20);
 
     QObject::connect(ui->KeyOnClickLevelBox,&QSpinBox::valueChanged,
-                     snat,&Integra7SNAcousticToneCommon::setModifyParameter21);
+                     snat,&Integra7SNAcousticToneCommon::setModifyParameter13);
 
     QObject::connect(ui->KeyOffClickLevelBox,&QSpinBox::valueChanged,
-                     snat,&Integra7SNAcousticToneCommon::setModifyParameter22);
+                     snat,&Integra7SNAcousticToneCommon::setModifyParameter14);
 
     /* Reverse connections */
 
@@ -140,31 +140,31 @@ void TWOrganEditor::ConnectSignals(Integra7Tone *tone)
     QObject::connect(snat,&Integra7SNAcousticToneCommon::ModifyParameter9,
                      ui->Slider1,&QSlider::setValue);
 
-    QObject::connect(snat,&Integra7SNAcousticToneCommon::ModifyParameter10,
+    QObject::connect(snat,&Integra7SNAcousticToneCommon::ModifyParameter22,
                      ui->LeakageLevelBox,&QSpinBox::setValue);
 
-    QObject::connect(snat,&Integra7SNAcousticToneCommon::ModifyParameter11,
+    QObject::connect(snat,&Integra7SNAcousticToneCommon::ModifyParameter10,
                      ui->PercussionSwitchBtn,&QAbstractButton::setChecked);
 
-    QObject::connect(snat,&Integra7SNAcousticToneCommon::ModifyParameter12,
+    QObject::connect(snat,&Integra7SNAcousticToneCommon::ModifyParameter21,
                      ui->PercussionSoftBox,&QComboBox::setCurrentIndex);
 
-    QObject::connect(snat,&Integra7SNAcousticToneCommon::ModifyParameter13,
+    QObject::connect(snat,&Integra7SNAcousticToneCommon::ModifyParameter15,
                      ui->PercussionSoftLevelBox,&QSpinBox::setValue);
 
-    QObject::connect(snat,&Integra7SNAcousticToneCommon::ModifyParameter14,
+    QObject::connect(snat,&Integra7SNAcousticToneCommon::ModifyParameter16,
                      ui->PercussionNormalLevelBox,&QSpinBox::setValue);
 
-    QObject::connect(snat,&Integra7SNAcousticToneCommon::ModifyParameter15,
+    QObject::connect(snat,&Integra7SNAcousticToneCommon::ModifyParameter12,
                      ui->PercussionSlowBox,&QComboBox::setCurrentIndex);
 
-    QObject::connect(snat,&Integra7SNAcousticToneCommon::ModifyParameter16,
+    QObject::connect(snat,&Integra7SNAcousticToneCommon::ModifyParameter17,
                      ui->PercussionSlowTimeBox,&QSpinBox::setValue);
 
-    QObject::connect(snat,&Integra7SNAcousticToneCommon::ModifyParameter17,
+    QObject::connect(snat,&Integra7SNAcousticToneCommon::ModifyParameter18,
                      ui->PercussionFastTimeBox,&QSpinBox::setValue);
 
-    QObject::connect(snat,&Integra7SNAcousticToneCommon::ModifyParameter18,
+    QObject::connect(snat,&Integra7SNAcousticToneCommon::ModifyParameter11,
                      ui->PercussionHarmonicBox,&QComboBox::setCurrentIndex);
 
     QObject::connect(snat,&Integra7SNAcousticToneCommon::ModifyParameter19,
@@ -173,10 +173,10 @@ void TWOrganEditor::ConnectSignals(Integra7Tone *tone)
     QObject::connect(snat,&Integra7SNAcousticToneCommon::ModifyParameter20,
                      ui->PercussionHBarLevelBox,&QSpinBox::setValue);
 
-    QObject::connect(snat,&Integra7SNAcousticToneCommon::ModifyParameter21,
+    QObject::connect(snat,&Integra7SNAcousticToneCommon::ModifyParameter13,
                      ui->KeyOnClickLevelBox,&QSpinBox::setValue);
 
-    QObject::connect(snat,&Integra7SNAcousticToneCommon::ModifyParameter22,
+    QObject::connect(snat,&Integra7SNAcousticToneCommon::ModifyParameter14,
                      ui->KeyOffClickLevelBox,&QSpinBox::setValue);
 }
 
@@ -214,31 +214,31 @@ void TWOrganEditor::DisconnectSignals(Integra7Tone *tone)
                         snat,&Integra7SNAcousticToneCommon::setModifyParameter9);
 
     QObject::disconnect(ui->LeakageLevelBox,&QSpinBox::valueChanged,
-                        snat,&Integra7SNAcousticToneCommon::setModifyParameter10);
+                        snat,&Integra7SNAcousticToneCommon::setModifyParameter22);
 
     QObject::disconnect(ui->PercussionSwitchBtn,&QAbstractButton::toggled,
-                        snat,&Integra7SNAcousticToneCommon::setModifyParameter11);
+                        snat,&Integra7SNAcousticToneCommon::setModifyParameter10);
 
     QObject::disconnect(ui->PercussionSoftBox,&QComboBox::currentIndexChanged,
-                        snat,&Integra7SNAcousticToneCommon::setModifyParameter12);
+                        snat,&Integra7SNAcousticToneCommon::setModifyParameter21);
 
     QObject::disconnect(ui->PercussionSoftLevelBox,&QSpinBox::valueChanged,
-                        snat,&Integra7SNAcousticToneCommon::setModifyParameter13);
-
-    QObject::disconnect(ui->PercussionNormalLevelBox,&QSpinBox::valueChanged,
-                        snat,&Integra7SNAcousticToneCommon::setModifyParameter14);
-
-    QObject::disconnect(ui->PercussionSlowBox,&QComboBox::currentIndexChanged,
                         snat,&Integra7SNAcousticToneCommon::setModifyParameter15);
 
-    QObject::disconnect(ui->PercussionSlowTimeBox,&QSpinBox::valueChanged,
+    QObject::disconnect(ui->PercussionNormalLevelBox,&QSpinBox::valueChanged,
                         snat,&Integra7SNAcousticToneCommon::setModifyParameter16);
 
-    QObject::disconnect(ui->PercussionFastTimeBox,&QSpinBox::valueChanged,
+    QObject::disconnect(ui->PercussionSlowBox,&QComboBox::currentIndexChanged,
+                        snat,&Integra7SNAcousticToneCommon::setModifyParameter12);
+
+    QObject::disconnect(ui->PercussionSlowTimeBox,&QSpinBox::valueChanged,
                         snat,&Integra7SNAcousticToneCommon::setModifyParameter17);
 
-    QObject::disconnect(ui->PercussionHarmonicBox,&QComboBox::currentIndexChanged,
+    QObject::disconnect(ui->PercussionFastTimeBox,&QSpinBox::valueChanged,
                         snat,&Integra7SNAcousticToneCommon::setModifyParameter18);
+
+    QObject::disconnect(ui->PercussionHarmonicBox,&QComboBox::currentIndexChanged,
+                        snat,&Integra7SNAcousticToneCommon::setModifyParameter11);
 
     QObject::disconnect(ui->PercussionRechargeTimeBox,&QSpinBox::valueChanged,
                         snat,&Integra7SNAcousticToneCommon::setModifyParameter19);
@@ -247,10 +247,10 @@ void TWOrganEditor::DisconnectSignals(Integra7Tone *tone)
                         snat,&Integra7SNAcousticToneCommon::setModifyParameter20);
 
     QObject::disconnect(ui->KeyOnClickLevelBox,&QSpinBox::valueChanged,
-                        snat,&Integra7SNAcousticToneCommon::setModifyParameter21);
+                        snat,&Integra7SNAcousticToneCommon::setModifyParameter13);
 
     QObject::disconnect(ui->KeyOffClickLevelBox,&QSpinBox::valueChanged,
-                        snat,&Integra7SNAcousticToneCommon::setModifyParameter22);
+                        snat,&Integra7SNAcousticToneCommon::setModifyParameter14);
 
     /* Reverse connections */
 
@@ -281,31 +281,31 @@ void TWOrganEditor::DisconnectSignals(Integra7Tone *tone)
     QObject::disconnect(snat,&Integra7SNAcousticToneCommon::ModifyParameter9,
                         ui->Slider1,&QSlider::setValue);
 
-    QObject::disconnect(snat,&Integra7SNAcousticToneCommon::ModifyParameter10,
+    QObject::disconnect(snat,&Integra7SNAcousticToneCommon::ModifyParameter22,
                         ui->LeakageLevelBox,&QSpinBox::setValue);
 
-    QObject::disconnect(snat,&Integra7SNAcousticToneCommon::ModifyParameter11,
+    QObject::disconnect(snat,&Integra7SNAcousticToneCommon::ModifyParameter10,
                         ui->PercussionSwitchBtn,&QAbstractButton::setChecked);
 
-    QObject::disconnect(snat,&Integra7SNAcousticToneCommon::ModifyParameter12,
+    QObject::disconnect(snat,&Integra7SNAcousticToneCommon::ModifyParameter21,
                         ui->PercussionSoftBox,&QComboBox::setCurrentIndex);
 
-    QObject::disconnect(snat,&Integra7SNAcousticToneCommon::ModifyParameter13,
+    QObject::disconnect(snat,&Integra7SNAcousticToneCommon::ModifyParameter15,
                         ui->PercussionSoftLevelBox,&QSpinBox::setValue);
 
-    QObject::disconnect(snat,&Integra7SNAcousticToneCommon::ModifyParameter14,
+    QObject::disconnect(snat,&Integra7SNAcousticToneCommon::ModifyParameter16,
                         ui->PercussionNormalLevelBox,&QSpinBox::setValue);
 
-    QObject::disconnect(snat,&Integra7SNAcousticToneCommon::ModifyParameter15,
+    QObject::disconnect(snat,&Integra7SNAcousticToneCommon::ModifyParameter12,
                         ui->PercussionSlowBox,&QComboBox::setCurrentIndex);
 
-    QObject::disconnect(snat,&Integra7SNAcousticToneCommon::ModifyParameter16,
+    QObject::disconnect(snat,&Integra7SNAcousticToneCommon::ModifyParameter17,
                         ui->PercussionSlowTimeBox,&QSpinBox::setValue);
 
-    QObject::disconnect(snat,&Integra7SNAcousticToneCommon::ModifyParameter17,
+    QObject::disconnect(snat,&Integra7SNAcousticToneCommon::ModifyParameter18,
                         ui->PercussionFastTimeBox,&QSpinBox::setValue);
 
-    QObject::disconnect(snat,&Integra7SNAcousticToneCommon::ModifyParameter18,
+    QObject::disconnect(snat,&Integra7SNAcousticToneCommon::ModifyParameter11,
                         ui->PercussionHarmonicBox,&QComboBox::setCurrentIndex);
 
     QObject::disconnect(snat,&Integra7SNAcousticToneCommon::ModifyParameter19,
@@ -314,9 +314,9 @@ void TWOrganEditor::DisconnectSignals(Integra7Tone *tone)
     QObject::disconnect(snat,&Integra7SNAcousticToneCommon::ModifyParameter20,
                         ui->PercussionHBarLevelBox,&QSpinBox::setValue);
 
-    QObject::disconnect(snat,&Integra7SNAcousticToneCommon::ModifyParameter21,
+    QObject::disconnect(snat,&Integra7SNAcousticToneCommon::ModifyParameter13,
                         ui->KeyOnClickLevelBox,&QSpinBox::setValue);
 
-    QObject::disconnect(snat,&Integra7SNAcousticToneCommon::ModifyParameter22,
+    QObject::disconnect(snat,&Integra7SNAcousticToneCommon::ModifyParameter14,
                         ui->KeyOffClickLevelBox,&QSpinBox::setValue);
 }
