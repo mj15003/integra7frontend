@@ -22,6 +22,7 @@
 #include "integra7tone.h"
 #include "./ui_integra7mainwindow.h"
 #include "tworganeditor.h"
+#include "acpianoeditor.h"
 
 #include <QButtonGroup>
 #include <QMainWindow>
@@ -52,6 +53,7 @@ public slots:
 private:
     Ui::integra7MainWindow *ui;
     TWOrganEditor *TWOrganEditorW;
+    AcPianoEditor *AcPianoEditorW;
 
     MidiEngine *pMidiEngine;
 

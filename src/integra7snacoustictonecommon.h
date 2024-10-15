@@ -100,6 +100,21 @@ public:
         return list;
     }
 
+    static QStringList& AcPianoHammerNoiseList() {
+        static QStringList list = { "-2","-1","0","1","2" };
+        return list;
+    }
+
+    static QStringList& AcPianoNuanceList() {
+        static QStringList list = { "Type1","Type2","Type3" };
+        return list;
+    }
+
+    static QStringList& AcPianoToneCharacterList() {
+        static QStringList list = { "-5","-4","-3","-2","-1","0","1","2","3","4","5" };
+        return list;
+    }
+
     static QStringList& SNAcousticInstruments() {
         static QStringList list = {
             #include "presets/SNAInstruments.inc"

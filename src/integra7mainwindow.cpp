@@ -1011,7 +1011,10 @@ integra7MainWindow::integra7MainWindow(QWidget *parent)
     ui->OutputAssignBox->addItems(Integra7SNDrumKitNote::OutputAssignList());
 
     TWOrganEditorW = new TWOrganEditor(this);
+    AcPianoEditorW = new AcPianoEditor(this);
+
     ui->SNAcousticToneVariable->addWidget(TWOrganEditorW);    
+    ui->SNAcousticToneVariable->addWidget(AcPianoEditorW);
 
     /* ComboBoxes change value logic connections */
     QObject::connect(ui->Ch1TypeBox,&QComboBox::currentIndexChanged,this,
@@ -6018,6 +6021,9 @@ integra7MainWindow::~integra7MainWindow()
 
     pMidiEngine->Stop();
     delete pMidiEngine;    
+
+    delete TWOrganEditorW;
+    delete AcPianoEditorW;
     delete ui;
 }
 
@@ -6152,11 +6158,13 @@ void integra7MainWindow::ShowTone()
 
             DisconnectSNAcousticTone(SNATarget);
             TWOrganEditorW->DisconnectSignals(SNATarget);
+            AcPianoEditorW->DisconnectSignals(SNATarget);
 
             SNATarget = ntone;
 
             ConnectSNAcousticTone(SNATarget);
             TWOrganEditorW->ConnectSignals(SNATarget);
+            AcPianoEditorW->ConnectSignals(SNATarget);
         }
 
         if (MFXTarget != ntone->SNAcousticToneMFX) {
@@ -6341,6 +6349,33 @@ void integra7MainWindow::ShowSNAcousticMFX()
 void integra7MainWindow::ShowSNAcousticParameters(int n)
 {
     switch (n) {
+    case 0:
+        ui->SNAcousticToneVariable->setCurrentWidget(AcPianoEditorW);
+        break;
+    case 1:
+        ui->SNAcousticToneVariable->setCurrentWidget(AcPianoEditorW);
+        break;
+    case 2:
+        ui->SNAcousticToneVariable->setCurrentWidget(AcPianoEditorW);
+        break;
+    case 3:
+        ui->SNAcousticToneVariable->setCurrentWidget(AcPianoEditorW);
+        break;
+    case 4:
+        ui->SNAcousticToneVariable->setCurrentWidget(AcPianoEditorW);
+        break;
+    case 5:
+        ui->SNAcousticToneVariable->setCurrentWidget(AcPianoEditorW);
+        break;
+    case 6:
+        ui->SNAcousticToneVariable->setCurrentWidget(AcPianoEditorW);
+        break;
+    case 7:
+        ui->SNAcousticToneVariable->setCurrentWidget(AcPianoEditorW);
+        break;
+    case 8:
+        ui->SNAcousticToneVariable->setCurrentWidget(AcPianoEditorW);
+        break;
     case 28:
         ui->SNAcousticToneVariable->setCurrentWidget(TWOrganEditorW);
         break;

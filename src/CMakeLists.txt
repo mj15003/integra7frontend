@@ -74,6 +74,7 @@ if(${QT_VERSION_MAJOR} GREATER_EQUAL 6)
         toneconnections.cpp
         tworganeditor.h tworganeditor.cpp tworganeditor.ui        
         asyncoperations.h asyncoperations.cpp
+        acpianoeditor.h acpianoeditor.cpp acpianoeditor.ui
     )
 # Define target properties for Android with Qt 6 as:
 #    set_property(TARGET Integra7Frontend APPEND PROPERTY QT_ANDROID_PACKAGE_SOURCE_DIR
