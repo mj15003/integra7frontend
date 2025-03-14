@@ -29,7 +29,7 @@ have appropriate official tools available.
 git clone
 cd Integra7Frontend
 cmake -S src -B build
-cmake --build -S src -B build
+cmake --build build
 ```
 
 ## Author
