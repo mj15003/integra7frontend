@@ -7,9 +7,7 @@ AcPianoEditor::AcPianoEditor(QWidget *parent)
 {
     ui->setupUi(this);
 
-    ui->HammerNoiseBox->addItems(Integra7SNAcousticToneCommon::AcPianoHammerNoiseList());
-    ui->NuanceBox->addItems(Integra7SNAcousticToneCommon::AcPianoNuanceList());
-    ui->ToneCharacterBox->addItems(Integra7SNAcousticToneCommon::AcPianoToneCharacterList());
+    ui->NuanceBox->addItems(Integra7SNAcousticToneCommon::AcPianoNuanceList());    
 }
 
 AcPianoEditor::~AcPianoEditor()
@@ -24,42 +22,42 @@ void AcPianoEditor::ConnectSignals(Integra7Tone *tone)
     Integra7SNAcousticToneCommon *snat = tone->SNAcousticToneCommon;
 
     QObject::connect(ui->StringResonanceBox,&QSpinBox::valueChanged,
-                     snat,&Integra7SNAcousticToneCommon::setModifyParameter1);
+                     snat,&Integra7SNAcousticToneCommon::setAcPianoStringResonance);
 
     QObject::connect(ui->KeyOffResonanceBox,&QSpinBox::valueChanged,
-                     snat,&Integra7SNAcousticToneCommon::setModifyParameter2);
+                     snat,&Integra7SNAcousticToneCommon::setAcPianoKeyOffResonance);
 
-    QObject::connect(ui->HammerNoiseBox,&QComboBox::currentIndexChanged,
-                     snat,&Integra7SNAcousticToneCommon::setModifyParameter3);
+    QObject::connect(ui->HammerNoiseBox,&QSpinBox::valueChanged,
+                     snat,&Integra7SNAcousticToneCommon::setAcPianoHammerNoise);
 
     QObject::connect(ui->StereoWidthBox,&QSpinBox::valueChanged,
-                     snat,&Integra7SNAcousticToneCommon::setModifyParameter4);
+                     snat,&Integra7SNAcousticToneCommon::setAcPianoStereoWidth);
 
     QObject::connect(ui->NuanceBox,&QComboBox::currentIndexChanged,
-                     snat,&Integra7SNAcousticToneCommon::setModifyParameter5);
+                     snat,&Integra7SNAcousticToneCommon::setAcPianoNuance);
 
-    QObject::connect(ui->ToneCharacterBox,&QComboBox::currentIndexChanged,
-                     snat,&Integra7SNAcousticToneCommon::setModifyParameter6);
+    QObject::connect(ui->ToneCharacterBox,&QSpinBox::valueChanged,
+                     snat,&Integra7SNAcousticToneCommon::setAcPianoToneCharacter);
 
     /* Reverse Connections*/
 
-    QObject::connect(snat,&Integra7SNAcousticToneCommon::ModifyParameter1,
+    QObject::connect(snat,&Integra7SNAcousticToneCommon::AcPianoStringResonance,
                      ui->StringResonanceBox,&QSpinBox::setValue);
 
-    QObject::connect(snat,&Integra7SNAcousticToneCommon::ModifyParameter2,
+    QObject::connect(snat,&Integra7SNAcousticToneCommon::AcPianoKeyOffResonance,
                      ui->KeyOffResonanceBox,&QSpinBox::setValue);
 
-    QObject::connect(snat,&Integra7SNAcousticToneCommon::ModifyParameter3,
-                     ui->HammerNoiseBox,&QComboBox::setCurrentIndex);
+    QObject::connect(snat,&Integra7SNAcousticToneCommon::AcPianoHammerNoise,
+                     ui->HammerNoiseBox,&QSpinBox::setValue);
 
-    QObject::connect(snat,&Integra7SNAcousticToneCommon::ModifyParameter4,
+    QObject::connect(snat,&Integra7SNAcousticToneCommon::AcPianoStereoWidth,
                      ui->StereoWidthBox,&QSpinBox::setValue);
 
-    QObject::connect(snat,&Integra7SNAcousticToneCommon::ModifyParameter5,
+    QObject::connect(snat,&Integra7SNAcousticToneCommon::AcPianoNuance,
                      ui->NuanceBox,&QComboBox::setCurrentIndex);
 
-    QObject::connect(snat,&Integra7SNAcousticToneCommon::ModifyParameter6,
-                     ui->ToneCharacterBox,&QComboBox::setCurrentIndex);
+    QObject::connect(snat,&Integra7SNAcousticToneCommon::AcPianoToneCharacter,
+                     ui->ToneCharacterBox,&QSpinBox::setValue);
 }
 
 void AcPianoEditor::DisconnectSignals(Integra7Tone *tone)
@@ -69,40 +67,40 @@ void AcPianoEditor::DisconnectSignals(Integra7Tone *tone)
     Integra7SNAcousticToneCommon *snat = tone->SNAcousticToneCommon;
 
     QObject::disconnect(ui->StringResonanceBox,&QSpinBox::valueChanged,
-                        snat,&Integra7SNAcousticToneCommon::setModifyParameter1);
+                        snat,&Integra7SNAcousticToneCommon::setAcPianoStringResonance);
 
     QObject::disconnect(ui->KeyOffResonanceBox,&QSpinBox::valueChanged,
-                        snat,&Integra7SNAcousticToneCommon::setModifyParameter2);
+                        snat,&Integra7SNAcousticToneCommon::setAcPianoKeyOffResonance);
 
-    QObject::disconnect(ui->HammerNoiseBox,&QComboBox::currentIndexChanged,
-                        snat,&Integra7SNAcousticToneCommon::setModifyParameter3);
+    QObject::disconnect(ui->HammerNoiseBox,&QSpinBox::valueChanged,
+                        snat,&Integra7SNAcousticToneCommon::setAcPianoHammerNoise);
 
     QObject::disconnect(ui->StereoWidthBox,&QSpinBox::valueChanged,
-                        snat,&Integra7SNAcousticToneCommon::setModifyParameter4);
+                        snat,&Integra7SNAcousticToneCommon::setAcPianoStereoWidth);
 
     QObject::disconnect(ui->NuanceBox,&QComboBox::currentIndexChanged,
-                        snat,&Integra7SNAcousticToneCommon::setModifyParameter5);
+                        snat,&Integra7SNAcousticToneCommon::setAcPianoNuance);
 
-    QObject::disconnect(ui->ToneCharacterBox,&QComboBox::currentIndexChanged,
-                        snat,&Integra7SNAcousticToneCommon::setModifyParameter6);
+    QObject::disconnect(ui->ToneCharacterBox,&QSpinBox::valueChanged,
+                        snat,&Integra7SNAcousticToneCommon::setAcPianoToneCharacter);
 
     /* Reverse Connections*/
 
-    QObject::disconnect(snat,&Integra7SNAcousticToneCommon::ModifyParameter1,
+    QObject::disconnect(snat,&Integra7SNAcousticToneCommon::AcPianoStringResonance,
                         ui->StringResonanceBox,&QSpinBox::setValue);
 
-    QObject::disconnect(snat,&Integra7SNAcousticToneCommon::ModifyParameter2,
+    QObject::disconnect(snat,&Integra7SNAcousticToneCommon::AcPianoKeyOffResonance,
                         ui->KeyOffResonanceBox,&QSpinBox::setValue);
 
-    QObject::disconnect(snat,&Integra7SNAcousticToneCommon::ModifyParameter3,
-                        ui->HammerNoiseBox,&QComboBox::setCurrentIndex);
+    QObject::disconnect(snat,&Integra7SNAcousticToneCommon::AcPianoHammerNoise,
+                        ui->HammerNoiseBox,&QSpinBox::setValue);
 
-    QObject::disconnect(snat,&Integra7SNAcousticToneCommon::ModifyParameter4,
+    QObject::disconnect(snat,&Integra7SNAcousticToneCommon::AcPianoStereoWidth,
                         ui->StereoWidthBox,&QSpinBox::setValue);
 
-    QObject::disconnect(snat,&Integra7SNAcousticToneCommon::ModifyParameter5,
+    QObject::disconnect(snat,&Integra7SNAcousticToneCommon::AcPianoNuance,
                         ui->NuanceBox,&QComboBox::setCurrentIndex);
 
-    QObject::disconnect(snat,&Integra7SNAcousticToneCommon::ModifyParameter6,
-                        ui->ToneCharacterBox,&QComboBox::setCurrentIndex);
+    QObject::disconnect(snat,&Integra7SNAcousticToneCommon::AcPianoToneCharacter,
+                        ui->ToneCharacterBox,&QSpinBox::setValue);
 }

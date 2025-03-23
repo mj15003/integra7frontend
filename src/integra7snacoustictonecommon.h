@@ -90,6 +90,14 @@ public:
     int getModifyParameter31() {return data[0x40];}
     int getModifyParameter32() {return data[0x41];}
 
+    //Acoustic Piano slots
+    int getAcPianoStringResonance() {return data[0x22];}
+    int getAcPianoKeyOffResonance() {return data[0x23];}
+    int getAcPianoHammerNoise() {return data[0x24]-64;}
+    int getAcPianoStereoWidth() {return data[0x25];}
+    int getAcPianoNuance() {return data[0x26];}
+    int getAcPianoToneCharacter() {return data[0x27]-64;}
+
     void DataReceive(const uint8_t *rdata, uint8_t a, int len);
 
     int GetLength() {return 0x46;}
@@ -98,20 +106,10 @@ public:
     static QStringList& MonoPolyList() {
         static QStringList list = { "MONO","POLY" };
         return list;
-    }
-
-    static QStringList& AcPianoHammerNoiseList() {
-        static QStringList list = { "-2","-1","0","1","2" };
-        return list;
-    }
+    }    
 
     static QStringList& AcPianoNuanceList() {
         static QStringList list = { "Type1","Type2","Type3" };
-        return list;
-    }
-
-    static QStringList& AcPianoToneCharacterList() {
-        static QStringList list = { "-5","-4","-3","-2","-1","0","1","2","3","4","5" };
         return list;
     }
 
@@ -194,6 +192,14 @@ public slots:
     void setModifyParameter31(int v) {DataSet(0x40,v);}
     void setModifyParameter32(int v) {DataSet(0x41,v);}
 
+    //Acoustic Piano slots
+    void setAcPianoStringResonance(int v) {DataSet(0x22,v);}
+    void setAcPianoKeyOffResonance(int v) {DataSet(0x23,v);}
+    void setAcPianoHammerNoise(int v) {DataSetOffset(0x24,v,64);}
+    void setAcPianoStereoWidth(int v) {DataSet(0x25,v);}
+    void setAcPianoNuance(int v) {DataSet(0x26,v);}
+    void setAcPianoToneCharacter(int v) {DataSetOffset(0x27,v,64);}
+
 signals:
 
     void ToneName1(int v);
@@ -259,6 +265,14 @@ signals:
     void ModifyParameter30(int v);
     void ModifyParameter31(int v);
     void ModifyParameter32(int v);
+
+    //Acoustic Piano signals
+    void AcPianoStringResonance(int v);
+    void AcPianoKeyOffResonance(int v);
+    void AcPianoHammerNoise(int v);
+    void AcPianoStereoWidth(int v);
+    void AcPianoNuance(int v);
+    void AcPianoToneCharacter(int v);
 
 private:
     void EmitSignal(uint8_t a, int v);

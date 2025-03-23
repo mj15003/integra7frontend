@@ -38,42 +38,44 @@ Integra7SNAcousticToneCommon::Integra7SNAcousticToneCommon(Integra7Device *paren
     data[0x1F] = 0;
     data[0x20] = 0;
     data[0x21] = 0;
-    data[0x22] = 0;
-    data[0x23] = 0;
-    data[0x24] = 0;
-    data[0x25] = 0;
-    data[0x26] = 0;
-    data[0x27] = 0;
-    data[0x28] = 0;
-    data[0x29] = 0;
-    data[0x2A] = 0;
-    data[0x2B] = 0;
-    data[0x2C] = 0;
-    data[0x2D] = 0;
-    data[0x2E] = 0;
-    data[0x2F] = 0;
-    data[0x30] = 0;
-    data[0x31] = 0;
-    data[0x32] = 0;
-    data[0x33] = 0;
-    data[0x34] = 0;
-    data[0x35] = 0;
-    data[0x36] = 0;
-    data[0x37] = 0;
-    data[0x38] = 0;
-    data[0x39] = 0;
-    data[0x3A] = 0;
-    data[0x3B] = 0;
-    data[0x3C] = 0;
-    data[0x3D] = 0;
-    data[0x3E] = 0;
-    data[0x3F] = 0;
-    data[0x40] = 0;
-    data[0x41] = 0;
+    data[0x22] = 64;
+    data[0x23] = 64;
+    data[0x24] = 64;
+    data[0x25] = 64;
+    data[0x26] = 64;
+    data[0x27] = 64;
+    data[0x28] = 64;
+    data[0x29] = 64;
+    data[0x2A] = 64;
+    data[0x2B] = 64;
+    data[0x2C] = 64;
+    data[0x2D] = 64;
+    data[0x2E] = 64;
+    data[0x2F] = 64;
+    data[0x30] = 64;
+    data[0x31] = 64;
+    data[0x32] = 64;
+    data[0x33] = 64;
+    data[0x34] = 64;
+    data[0x35] = 64;
+    data[0x36] = 64;
+    data[0x37] = 64;
+    data[0x38] = 64;
+    data[0x39] = 64;
+    data[0x3A] = 64;
+    data[0x3B] = 64;
+    data[0x3C] = 64;
+    data[0x3D] = 64;
+    data[0x3E] = 64;
+    data[0x3F] = 64;
+    data[0x40] = 64;
+    data[0x41] = 64;
 }
 
 void Integra7SNAcousticToneCommon::EmitSignal(uint8_t a, int v)
 {
+    v = data[a];
+
     switch (a) {
     case 0x00:
         emit ToneName1(v);
@@ -158,29 +160,35 @@ void Integra7SNAcousticToneCommon::EmitSignal(uint8_t a, int v)
         emit TFXSwitch(v);
         break;
     case 0x20:
-        emit InstVariation(v);
-        emit Instrument(GetInstrumentIndex(data[0x20],data[0x21]));
+        emit InstVariation(v);        
         break;
     case 0x21:
         emit InstNumber(v);
+        emit Instrument(GetInstrumentIndex(data[0x20],data[0x21]));
         break;
     case 0x22:
         emit ModifyParameter1(v);
+        emit AcPianoStringResonance(v);
         break;
     case 0x23:
         emit ModifyParameter2(v);
+        emit AcPianoKeyOffResonance(v);
         break;
     case 0x24:
         emit ModifyParameter3(v);
+        emit AcPianoHammerNoise(getAcPianoHammerNoise());
         break;
     case 0x25:
         emit ModifyParameter4(v);
+        emit AcPianoStereoWidth(getAcPianoStereoWidth());
         break;
     case 0x26:
         emit ModifyParameter5(v);
+        emit AcPianoNuance(getAcPianoNuance());
         break;
     case 0x27:
         emit ModifyParameter6(v);
+        emit AcPianoToneCharacter(getAcPianoToneCharacter());
         break;
     case 0x28:
         emit ModifyParameter7(v);
@@ -278,11 +286,9 @@ void Integra7SNAcousticToneCommon::DataReceive(const uint8_t *rdata, uint8_t a, 
             data[a++] = rdata[r++];
             data[a++] = rdata[r++];
             EmitSignal(0x1C,getPhraseNumber());
-        } else if (a == 0x20) {
-            data[a++] = rdata[r++];
-            data[a++] = rdata[r++];
-            EmitSignal(0x20,getInstVariation());
-            EmitSignal(0x21,getInstNumber());
+        } else if (a == 0x21) {
+            data[a++] = rdata[r++];            
+            emit InstNumber(data[0x21]);
             emit Instrument(GetInstrumentIndex(data[0x20],data[0x21]));
         } else {
             data[a] = rdata[r++];
