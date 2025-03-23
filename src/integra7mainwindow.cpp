@@ -287,145 +287,6 @@ integra7MainWindow::integra7MainWindow(QWidget *parent)
 
     SoloPartBtnGrp1.setExclusive(false);
 
-    QObject::connect(&SoloPartBtnGrp,&QButtonGroup::idToggled,
-                     this,&integra7MainWindow::SoloButtonsLogic);
-
-    QObject::connect(&SoloPartBtnGrp,&QButtonGroup::idToggled,this,
-                     [this](int id, bool checked)
-                     {SoloPartBtnGrp1.button(id)->setChecked(checked);});
-
-    QObject::connect(&SoloPartBtnGrp1,&QButtonGroup::idToggled,this,
-                     [this](int id, bool checked)
-                     {SoloPartBtnGrp.button(id)->setChecked(checked);});
-
-    QObject::connect(&PartBtnGrp,
-                     &QButtonGroup::idToggled,this,
-                     &integra7MainWindow::PartBtnToggled);
-
-    /* Setup UI buttons clicking logic*/
-    QObject::connect(ui->StudioSetBtn,&QAbstractButton::clicked,
-                     this,&integra7MainWindow::ShowStudioSet);
-
-    QObject::connect(ui->ToneBtn,&QAbstractButton::clicked,
-                     this,&integra7MainWindow::ShowTone);
-
-    QObject::connect(ui->UtilityBtn,&QAbstractButton::clicked,
-                     this,&integra7MainWindow::ShowUtilityCard);
-
-    QObject::connect(ui->EffectsBtn,&QAbstractButton::clicked,
-                     this,&integra7MainWindow::ShowEffects);
-
-    QObject::connect(ui->SystemBtn,&QAbstractButton::clicked,
-                     this,&integra7MainWindow::ShowSystemCard);
-
-    QObject::connect(ui->PartViewOpenBtn,&QAbstractButton::clicked,
-                     this,&integra7MainWindow::ShowPartViewCard);
-
-    QObject::connect(ui->ExpansionBtn,&QAbstractButton::clicked,
-                     this,&integra7MainWindow::ShowVirtualSlotsCard);
-
-    QObject::connect(ui->MidiConnectBtn,&QAbstractButton::clicked,
-                     this,&integra7MainWindow::MidiConnectBtn_clicked);
-
-    QObject::connect(ui->PartViewOpenBtn,&QAbstractButton::clicked,
-                     this,&integra7MainWindow::ShowPartViewCard);
-
-    QObject::connect(ui->PartToneBtn,&QAbstractButton::clicked,
-                     this,&integra7MainWindow::ShowPartToneCard);
-
-    QObject::connect(ui->LevelChOpenBtn,&QAbstractButton::clicked,
-                     this,&integra7MainWindow::ShowPartLevelCard);
-
-    QObject::connect(ui->PartEQOpenBtn,&QAbstractButton::clicked,
-                     this,&integra7MainWindow::ShowPartEQCard);
-
-    QObject::connect(ui->KeyboardOpenBtn,&QAbstractButton::clicked,
-                     this,&integra7MainWindow::ShowPartKeyboardCard);
-
-    QObject::connect(ui->PitchOpenBtn,&QAbstractButton::clicked,
-                     this,&integra7MainWindow::ShowPartPitchCard);
-
-    QObject::connect(ui->ScaleOpenBtn,&QAbstractButton::clicked,
-                     this,&integra7MainWindow::ShowPartScaleCard);
-
-    QObject::connect(ui->OffsetOpenBtn,&QAbstractButton::clicked,
-                     this,&integra7MainWindow::ShowPartOffsetCard);
-
-    QObject::connect(ui->PartMidiOpenBtn,&QAbstractButton::clicked,
-                     this,&integra7MainWindow::ShowPartMidiCard);
-
-    QObject::connect(ui->MasterEQBtn,&QAbstractButton::clicked,
-                     this,&integra7MainWindow::ShowMasterEQCard);
-
-    QObject::connect(ui->ChorusBtn,&QAbstractButton::clicked,
-                     this,&integra7MainWindow::ShowChorusCard);
-
-    QObject::connect(ui->ReverbBtn,&QAbstractButton::clicked,
-                     this,&integra7MainWindow::ShowReverbCard);
-
-    QObject::connect(ui->PCMSMCommonBtn,&QAbstractButton::clicked,
-                     this,&integra7MainWindow::ShowPCMSynthCommon);
-
-    QObject::connect(ui->PCMSMCommonMFXBtn,&QAbstractButton::clicked,
-                     this,&integra7MainWindow::ShowPCMSynthMFX);
-
-    QObject::connect(ui->PCMSMPMTBtn,&QAbstractButton::clicked,
-                     this,&integra7MainWindow::ShowPCMSynthPMT);
-
-    QObject::connect(ui->PCMSMPartialBtn,&QAbstractButton::clicked,
-                     this,&integra7MainWindow::ShowPCMSynthPartial);
-
-    QObject::connect(ui->SNSMCommonBtn,&QAbstractButton::clicked,
-                     this,&integra7MainWindow::ShowSNSynthCommon);
-
-    QObject::connect(ui->SNSMMFXBtn,&QAbstractButton::clicked,
-                     this,&integra7MainWindow::ShowSNSynthMFX);
-
-    QObject::connect(ui->SNSMPartialBtn,&QAbstractButton::clicked,
-                     this,&integra7MainWindow::ShowSNSynthPartial);
-
-    QObject::connect(ui->SNACMCommonBtn,&QAbstractButton::clicked,
-                     this,&integra7MainWindow::ShowSNAcousticCommon);
-
-    QObject::connect(ui->SNACMMFXBtn,&QAbstractButton::clicked,
-                     this,&integra7MainWindow::ShowSNAcousticMFX);
-
-    QObject::connect(ui->SNDKMCommonBtn,&QAbstractButton::clicked,
-                     this,&integra7MainWindow::ShowSNDrumKitCommon);
-
-    QObject::connect(ui->SNDKMMFXBtn,&QAbstractButton::clicked,
-                     this,&integra7MainWindow::ShowSNDrumKitMFX);
-
-    QObject::connect(ui->SNDKCompEQBtn,&QAbstractButton::clicked,
-                     this,&integra7MainWindow::ShowSNDrumKitCompEQ);
-
-    QObject::connect(ui->SNDKNoteBtn,&QAbstractButton::clicked,
-                     this,&integra7MainWindow::ShowSNDrumKitNote);
-
-    QObject::connect(ui->PCMDKMCommonBtn,&QAbstractButton::clicked,
-                     this,&integra7MainWindow::ShowPCMDrumKitCommon);
-
-    QObject::connect(ui->PCMDKMMFXBtn,&QAbstractButton::clicked,
-                     this,&integra7MainWindow::ShowPCMDrumKitMFX);
-
-    QObject::connect(ui->PCMDKCompEQBtn,&QAbstractButton::clicked,
-                     this,&integra7MainWindow::ShowPCMDrumKitCompEQ);
-
-    QObject::connect(ui->PCMDKPartialBtn,&QAbstractButton::clicked,
-                     this,&integra7MainWindow::ShowPCMDrumKitPartial);
-
-    QObject::connect(ui->WriteToFileBtn,&QAbstractButton::clicked,
-                     this,&integra7MainWindow::WriteDumpToFile);
-
-    QObject::connect(ui->ReadFromFileBtn,&QAbstractButton::clicked,
-                     this,&integra7MainWindow::ReadDumpFromFile);
-
-    QObject::connect(ui->PCMDrumKitPartialSelector,&QComboBox::currentIndexChanged,
-                     this,&integra7MainWindow::PCMDrumKitNoteSelect);
-
-    QObject::connect(ui->SNDrumKitPartialSelector,&QComboBox::currentIndexChanged,
-                     this,&integra7MainWindow::SNDrumKitNoteSelect);
-
     /* Setup Main Combo box lists*/
     ui->StudioSetBox->addItems(Integra7Device::NumberedCustomList("",1,64,":INIT"));
     ui->TypeBox->addItems(Integra7Device::TypeLabels());
@@ -1017,6 +878,148 @@ integra7MainWindow::integra7MainWindow(QWidget *parent)
     ui->SNAcousticToneVariable->addWidget(AcPianoEditorW);
 
     /* ComboBoxes change value logic connections */
+
+    QObject::connect(&SoloPartBtnGrp,&QButtonGroup::idToggled,
+                     this,&integra7MainWindow::SoloButtonsLogic);
+
+    QObject::connect(&SoloPartBtnGrp,&QButtonGroup::idToggled,this,
+                     [this](int id, bool checked)
+                     {SoloPartBtnGrp1.button(id)->setChecked(checked);});
+
+    QObject::connect(&SoloPartBtnGrp1,&QButtonGroup::idToggled,this,
+                     [this](int id, bool checked)
+                     {SoloPartBtnGrp.button(id)->setChecked(checked);});
+
+    QObject::connect(&PartBtnGrp,
+                     &QButtonGroup::idToggled,this,
+                     &integra7MainWindow::PartBtnToggled);
+
+    /* Setup UI buttons clicking logic*/
+    QObject::connect(ui->StudioSetBtn,&QAbstractButton::clicked,
+                     this,&integra7MainWindow::ShowStudioSet);
+
+    QObject::connect(ui->ToneBtn,&QAbstractButton::clicked,
+                     this,&integra7MainWindow::ShowTone);
+
+    QObject::connect(ui->UtilityBtn,&QAbstractButton::clicked,
+                     this,&integra7MainWindow::ShowUtilityCard);
+
+    QObject::connect(ui->EffectsBtn,&QAbstractButton::clicked,
+                     this,&integra7MainWindow::ShowEffects);
+
+    QObject::connect(ui->SystemBtn,&QAbstractButton::clicked,
+                     this,&integra7MainWindow::ShowSystemCard);
+
+    QObject::connect(ui->PartViewOpenBtn,&QAbstractButton::clicked,
+                     this,&integra7MainWindow::ShowPartViewCard);
+
+    QObject::connect(ui->ExpansionBtn,&QAbstractButton::clicked,
+                     this,&integra7MainWindow::ShowVirtualSlotsCard);
+
+    QObject::connect(ui->MidiConnectBtn,&QAbstractButton::clicked,
+                     this,&integra7MainWindow::MidiConnectBtn_clicked);
+
+    QObject::connect(ui->PartViewOpenBtn,&QAbstractButton::clicked,
+                     this,&integra7MainWindow::ShowPartViewCard);
+
+    QObject::connect(ui->PartToneBtn,&QAbstractButton::clicked,
+                     this,&integra7MainWindow::ShowPartToneCard);
+
+    QObject::connect(ui->LevelChOpenBtn,&QAbstractButton::clicked,
+                     this,&integra7MainWindow::ShowPartLevelCard);
+
+    QObject::connect(ui->PartEQOpenBtn,&QAbstractButton::clicked,
+                     this,&integra7MainWindow::ShowPartEQCard);
+
+    QObject::connect(ui->KeyboardOpenBtn,&QAbstractButton::clicked,
+                     this,&integra7MainWindow::ShowPartKeyboardCard);
+
+    QObject::connect(ui->PitchOpenBtn,&QAbstractButton::clicked,
+                     this,&integra7MainWindow::ShowPartPitchCard);
+
+    QObject::connect(ui->ScaleOpenBtn,&QAbstractButton::clicked,
+                     this,&integra7MainWindow::ShowPartScaleCard);
+
+    QObject::connect(ui->OffsetOpenBtn,&QAbstractButton::clicked,
+                     this,&integra7MainWindow::ShowPartOffsetCard);
+
+    QObject::connect(ui->PartMidiOpenBtn,&QAbstractButton::clicked,
+                     this,&integra7MainWindow::ShowPartMidiCard);
+
+    QObject::connect(ui->MasterEQBtn,&QAbstractButton::clicked,
+                     this,&integra7MainWindow::ShowMasterEQCard);
+
+    QObject::connect(ui->ChorusBtn,&QAbstractButton::clicked,
+                     this,&integra7MainWindow::ShowChorusCard);
+
+    QObject::connect(ui->ReverbBtn,&QAbstractButton::clicked,
+                     this,&integra7MainWindow::ShowReverbCard);
+
+    QObject::connect(ui->PCMSMCommonBtn,&QAbstractButton::clicked,
+                     this,&integra7MainWindow::ShowPCMSynthCommon);
+
+    QObject::connect(ui->PCMSMCommonMFXBtn,&QAbstractButton::clicked,
+                     this,&integra7MainWindow::ShowPCMSynthMFX);
+
+    QObject::connect(ui->PCMSMPMTBtn,&QAbstractButton::clicked,
+                     this,&integra7MainWindow::ShowPCMSynthPMT);
+
+    QObject::connect(ui->PCMSMPartialBtn,&QAbstractButton::clicked,
+                     this,&integra7MainWindow::ShowPCMSynthPartial);
+
+    QObject::connect(ui->SNSMCommonBtn,&QAbstractButton::clicked,
+                     this,&integra7MainWindow::ShowSNSynthCommon);
+
+    QObject::connect(ui->SNSMMFXBtn,&QAbstractButton::clicked,
+                     this,&integra7MainWindow::ShowSNSynthMFX);
+
+    QObject::connect(ui->SNSMPartialBtn,&QAbstractButton::clicked,
+                     this,&integra7MainWindow::ShowSNSynthPartial);
+
+    QObject::connect(ui->SNACMCommonBtn,&QAbstractButton::clicked,
+                     this,&integra7MainWindow::ShowSNAcousticCommon);
+
+    QObject::connect(ui->SNACMMFXBtn,&QAbstractButton::clicked,
+                     this,&integra7MainWindow::ShowSNAcousticMFX);
+
+    QObject::connect(ui->SNDKMCommonBtn,&QAbstractButton::clicked,
+                     this,&integra7MainWindow::ShowSNDrumKitCommon);
+
+    QObject::connect(ui->SNDKMMFXBtn,&QAbstractButton::clicked,
+                     this,&integra7MainWindow::ShowSNDrumKitMFX);
+
+    QObject::connect(ui->SNDKCompEQBtn,&QAbstractButton::clicked,
+                     this,&integra7MainWindow::ShowSNDrumKitCompEQ);
+
+    QObject::connect(ui->SNDKNoteBtn,&QAbstractButton::clicked,
+                     this,&integra7MainWindow::ShowSNDrumKitNote);
+
+    QObject::connect(ui->PCMDKMCommonBtn,&QAbstractButton::clicked,
+                     this,&integra7MainWindow::ShowPCMDrumKitCommon);
+
+    QObject::connect(ui->PCMDKMMFXBtn,&QAbstractButton::clicked,
+                     this,&integra7MainWindow::ShowPCMDrumKitMFX);
+
+    QObject::connect(ui->PCMDKCompEQBtn,&QAbstractButton::clicked,
+                     this,&integra7MainWindow::ShowPCMDrumKitCompEQ);
+
+    QObject::connect(ui->PCMDKPartialBtn,&QAbstractButton::clicked,
+                     this,&integra7MainWindow::ShowPCMDrumKitPartial);
+
+    QObject::connect(ui->WriteToFileBtn,&QAbstractButton::clicked,
+                     this,&integra7MainWindow::WriteDumpToFile);
+
+    QObject::connect(ui->ReadFromFileBtn,&QAbstractButton::clicked,
+                     this,&integra7MainWindow::ReadDumpFromFile);
+
+    QObject::connect(ui->PCMDrumKitPartialSelector,&QComboBox::currentIndexChanged,
+                     this,&integra7MainWindow::PCMDrumKitNoteSelect);
+
+    QObject::connect(ui->SNDrumKitPartialSelector,&QComboBox::currentIndexChanged,
+                     this,&integra7MainWindow::SNDrumKitNoteSelect);
+
+    /**************************************************************/
+
     QObject::connect(ui->Ch1TypeBox,&QComboBox::currentIndexChanged,this,
                      [this](){TypeBoxChangeLogic(ui->Ch1TypeBox,ui->Ch1BankBox,ui->Ch1ToneBox);});
 
