@@ -90,13 +90,42 @@ public:
     int getModifyParameter31() {return data[0x40];}
     int getModifyParameter32() {return data[0x41];}
 
-    //Acoustic Piano slots
+    //Acoustic Piano getters
     int getAcPianoStringResonance() {return data[0x22];}
     int getAcPianoKeyOffResonance() {return data[0x23];}
     int getAcPianoHammerNoise() {return data[0x24]-64;}
     int getAcPianoStereoWidth() {return data[0x25];}
     int getAcPianoNuance() {return data[0x26];}
     int getAcPianoToneCharacter() {return data[0x27]-64;}
+
+    //TWOrgan getters
+    int getTWOrganSlider16() {return data[0x22];}
+    int getTWOrganSlider513() {return data[0x23];}
+    int getTWOrganSlider8() {return data[0x24];}
+    int getTWOrganSlider4() {return data[0x25];}
+    int getTWOrganSlider223() {return data[0x26];}
+    int getTWOrganSlider2() {return data[0x27];}
+    int getTWOrganSlider135() {return data[0x28];}
+    int getTWOrganSlider113() {return data[0x29];}
+    int getTWOrganSlider1() {return data[0x2A];}
+
+    int getTWOrganLeakageLevel() {return data[0x37];}
+    int getTWOrganPercussionSwitch() {return data[0x2B];}
+    int getTWOrganPercussionSoftBox() {return data[0x36];}
+    int getTWOrganPercussionSoftLevel() {return data[0x30];}
+    int getTWOrganPercussionNormalLevel() {return data[0x31];}
+
+    int getTWOrganPercussionSlow() {return data[0x2D];}
+    int getTWOrganPercussionSlowTime() {return data[0x32];}
+    int getTWOrganPercussionFastTime() {return data[0x33];}
+
+    int getTWOrganPercussionHarmonic() {return data[0x2C];}
+    int getTWOrganPercussionRechargeTime() {return data[0x34];}
+    int getTWOrganPercussionHBarLevel() {return data[0x35];}
+
+    int getTWOrganKeyOnClick() {return data[0x2E];}
+    int getTWOrganKeyOffClick() {return data[0x2F];}
+
 
     void DataReceive(const uint8_t *rdata, uint8_t a, int len);
 
@@ -200,6 +229,34 @@ public slots:
     void setAcPianoNuance(int v) {DataSet(0x26,v);}
     void setAcPianoToneCharacter(int v) {DataSetOffset(0x27,v,64);}
 
+    //TWOrgan slots
+    void setTWOrganSlider16(int v) {DataSet(0x22,v);}
+    void setTWOrganSlider513(int v) {DataSet(0x23,v);}
+    void setTWOrganSlider8(int v) {DataSet(0x24,v);}
+    void setTWOrganSlider4(int v) {DataSet(0x25,v);}
+    void setTWOrganSlider223(int v) {DataSet(0x26,v);}
+    void setTWOrganSlider2(int v) {DataSet(0x27,v);}
+    void setTWOrganSlider135(int v) {DataSet(0x28,v);}
+    void setTWOrganSlider113(int v) {DataSet(0x29,v);}
+    void setTWOrganSlider1(int v) {DataSet(0x2A,v);}
+
+    void setTWOrganLeakageLevel(int v) {DataSet(0x37,v);}
+    void setTWOrganPercussionSwitch(int v) {DataSet(0x2B,v);}
+    void setTWOrganPercussionSoft(int v) {DataSet(0x36,v);}
+    void setTWOrganPercussionSoftLevel(int v) {DataSet(0x30,v);}
+    void setTWOrganPercussionNormalLevel(int v) {DataSet(0x31,v);}
+
+    void setTWOrganPercussionSlow(int v) {DataSet(0x2D,v);}
+    void setTWOrganPercussionSlowTime(int v) {DataSet(0x32,v);}
+    void setTWOrganPercussionFastTime(int v) {DataSet(0x33,v);}
+
+    void setTWOrganPercussionHarmonic(int v) {DataSet(0x2C,v);}
+    void setTWOrganPercussionRechargeTime(int v) {DataSet(0x34,v);}
+    void setTWOrganPercussionHBarLevel(int v) {DataSet(0x35,v);}
+
+    void setTWOrganKeyOnClick(int v) {DataSet(0x2E,v);}
+    void setTWOrganKeyOffClick(int v) {DataSet(0x2F,v);}
+
 signals:
 
     void ToneName1(int v);
@@ -273,6 +330,34 @@ signals:
     void AcPianoStereoWidth(int v);
     void AcPianoNuance(int v);
     void AcPianoToneCharacter(int v);
+
+    //TWOrgan signals
+    void TWOrganSlider16(int v);
+    void TWOrganSlider513(int v);
+    void TWOrganSlider8(int v);
+    void TWOrganSlider4(int v);
+    void TWOrganSlider223(int v);
+    void TWOrganSlider2(int v);
+    void TWOrganSlider135(int v);
+    void TWOrganSlider113(int v);
+    void TWOrganSlider1(int v);
+
+    void TWOrganLeakageLevel(int v);
+    void TWOrganPercussionSwitch(int v);
+    void TWOrganPercussionSoft(int v);
+    void TWOrganPercussionSoftLevel(int v);
+    void TWOrganPercussionNormalLevel(int v);
+
+    void TWOrganPercussionSlow(int v);
+    void TWOrganPercussionSlowTime(int v);
+    void TWOrganPercussionFastTime(int v);
+
+    void TWOrganPercussionHarmonic(int v);
+    void TWOrganPercussionRechargeTime(int v);
+    void TWOrganPercussionHBarLevel(int v);
+
+    void TWOrganKeyOnClick(int v);
+    void TWOrganKeyOffClick(int v);
 
 private:
     void EmitSignal(uint8_t a, int v);

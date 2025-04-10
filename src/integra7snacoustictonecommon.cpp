@@ -22,14 +22,14 @@ Integra7SNAcousticToneCommon::Integra7SNAcousticToneCommon(Integra7Device *paren
 {
     data[0x10] = 0;
     data[0x11] = 0;
-    data[0x12] = 0;
-    data[0x13] = 0;
-    data[0x14] = 0;
-    data[0x15] = 0;
-    data[0x16] = 0;
-    data[0x17] = 0;
-    data[0x18] = 0;
-    data[0x19] = 0;
+    data[0x12] = 64;
+    data[0x13] = 64;
+    data[0x14] = 64;
+    data[0x15] = 64;
+    data[0x16] = 64;
+    data[0x17] = 64;
+    data[0x18] = 64;
+    data[0x19] = 64;
     data[0x1A] = 64;
     data[0x1B] = 0;
     data[0x1C] = 0;
@@ -38,44 +38,42 @@ Integra7SNAcousticToneCommon::Integra7SNAcousticToneCommon(Integra7Device *paren
     data[0x1F] = 0;
     data[0x20] = 0;
     data[0x21] = 0;
-    data[0x22] = 64;
-    data[0x23] = 64;
+    data[0x22] = 0;
+    data[0x23] = 0;
     data[0x24] = 64;
-    data[0x25] = 64;
-    data[0x26] = 64;
+    data[0x25] = 0;
+    data[0x26] = 0;
     data[0x27] = 64;
-    data[0x28] = 64;
-    data[0x29] = 64;
-    data[0x2A] = 64;
-    data[0x2B] = 64;
-    data[0x2C] = 64;
-    data[0x2D] = 64;
-    data[0x2E] = 64;
-    data[0x2F] = 64;
-    data[0x30] = 64;
-    data[0x31] = 64;
-    data[0x32] = 64;
-    data[0x33] = 64;
-    data[0x34] = 64;
-    data[0x35] = 64;
-    data[0x36] = 64;
-    data[0x37] = 64;
-    data[0x38] = 64;
-    data[0x39] = 64;
-    data[0x3A] = 64;
-    data[0x3B] = 64;
-    data[0x3C] = 64;
-    data[0x3D] = 64;
-    data[0x3E] = 64;
-    data[0x3F] = 64;
-    data[0x40] = 64;
-    data[0x41] = 64;
+    data[0x28] = 0;
+    data[0x29] = 0;
+    data[0x2A] = 0;
+    data[0x2B] = 0;
+    data[0x2C] = 0;
+    data[0x2D] = 0;
+    data[0x2E] = 0;
+    data[0x2F] = 0;
+    data[0x30] = 0;
+    data[0x31] = 0;
+    data[0x32] = 0;
+    data[0x33] = 0;
+    data[0x34] = 0;
+    data[0x35] = 0;
+    data[0x36] = 0;
+    data[0x37] = 0;
+    data[0x38] = 0;
+    data[0x39] = 0;
+    data[0x3A] = 0;
+    data[0x3B] = 0;
+    data[0x3C] = 0;
+    data[0x3D] = 0;
+    data[0x3E] = 0;
+    data[0x3F] = 0;
+    data[0x40] = 0;
+    data[0x41] = 0;
 }
 
 void Integra7SNAcousticToneCommon::EmitSignal(uint8_t a, int v)
 {
-    v = data[a];
-
     switch (a) {
     case 0x00:
         emit ToneName1(v);
@@ -167,76 +165,171 @@ void Integra7SNAcousticToneCommon::EmitSignal(uint8_t a, int v)
         emit Instrument(GetInstrumentIndex(data[0x20],data[0x21]));
         break;
     case 0x22:
-        emit ModifyParameter1(v);
-        emit AcPianoStringResonance(v);
+        if (data[0x20] == 0x40)
+        {
+            emit AcPianoStringResonance(v);
+        }
+        else if (data[0x20] == 0x41 && v < 9)
+        {
+            emit TWOrganSlider16(v);
+        }
+        else emit ModifyParameter1(v);
         break;
     case 0x23:
         emit ModifyParameter2(v);
-        emit AcPianoKeyOffResonance(v);
+        if (data[0x20] == 0x40)
+        {
+            emit AcPianoKeyOffResonance(v);
+        }
+        else if (data[0x20] == 0x41 && v < 9)
+        {
+            emit TWOrganSlider513(v);
+        }
+        else emit ModifyParameter2(v);
         break;
     case 0x24:
-        emit ModifyParameter3(v);
-        emit AcPianoHammerNoise(getAcPianoHammerNoise());
+        if (data[0x20] == 0x40)
+        {
+            v = getAcPianoHammerNoise();
+            if (abs(v) < 3)
+                emit AcPianoHammerNoise(v);
+        }
+        else if (data[0x20] == 0x41 && v < 9)
+        {
+            emit TWOrganSlider8(v);
+        }
+        else emit ModifyParameter3(v);
         break;
     case 0x25:
-        emit ModifyParameter4(v);
-        emit AcPianoStereoWidth(getAcPianoStereoWidth());
+        if (data[0x20] == 0x40 && v < 64)
+        {
+            emit AcPianoStereoWidth(getAcPianoStereoWidth());
+        }
+        else if (data[0x20] == 0x41 && v < 9)
+        {
+            emit TWOrganSlider4(v);
+        }
+        else emit ModifyParameter4(v);
         break;
     case 0x26:
-        emit ModifyParameter5(v);
-        emit AcPianoNuance(getAcPianoNuance());
+        if (data[0x20] == 0x40 && v < 3)
+        {
+            emit AcPianoNuance(getAcPianoNuance());
+        }
+        else if (data[0x20] == 0x41 && v < 9)
+        {
+            emit TWOrganSlider223(v);
+        }
+        else emit ModifyParameter5(v);
         break;
     case 0x27:
-        emit ModifyParameter6(v);
-        emit AcPianoToneCharacter(getAcPianoToneCharacter());
+        if (data[0x20] == 0x41 && v < 9)
+        {
+            emit TWOrganSlider2(v);
+        }
+        else if (data[0x20] == 0x40)
+        {
+            v = getAcPianoToneCharacter();
+            if (abs(v) < 6)
+                emit AcPianoToneCharacter(v);
+        }
+        else emit ModifyParameter6(v);
         break;
     case 0x28:
-        emit ModifyParameter7(v);
+        if (data[0x20] == 0x41 && v < 9)
+            emit TWOrganSlider135(v);
+        else
+            emit ModifyParameter7(v);
         break;
     case 0x29:
-        emit ModifyParameter8(v);
+        if (data[0x20] == 0x41 && v < 9)
+            emit TWOrganSlider113(v);
+        else
+            emit ModifyParameter8(v);
         break;
     case 0x2A:
-        emit ModifyParameter9(v);
+        if (data[0x20] == 0x41 && v < 9)
+            emit TWOrganSlider1(v);
+        else
+            emit ModifyParameter9(v);
         break;
     case 0x2B:
-        emit ModifyParameter10(v);
+        if (data[0x20] == 0x41 && v < 2)
+            emit TWOrganPercussionSwitch(v);
+        else
+            emit ModifyParameter10(v);
         break;
     case 0x2C:
-        emit ModifyParameter11(v);
+        if (data[0x20] == 0x41 && v < 2)
+            emit TWOrganPercussionHarmonic(v);
+        else
+            emit ModifyParameter11(v);
         break;
     case 0x2D:
-        emit ModifyParameter12(v);
+        if (data[0x20] == 0x41 && v < 2)
+            emit TWOrganPercussionSlow(v);
+        else
+            emit ModifyParameter12(v);
         break;
     case 0x2E:
-        emit ModifyParameter13(v);
+        if (data[0x20] == 0x41 && v < 32)
+            emit TWOrganKeyOnClick(v);
+        else
+            emit ModifyParameter13(v);
         break;
     case 0x2F:
-        emit ModifyParameter14(v);
+        if (data[0x20] == 0x41 && v < 32)
+            emit TWOrganKeyOffClick(v);
+        else
+            emit ModifyParameter14(v);
         break;
     case 0x30:
-        emit ModifyParameter15(v);
+        if (data[0x20] == 0x41 && v < 16)
+            emit TWOrganPercussionSoftLevel(v);
+        else
+            emit ModifyParameter15(v);
         break;
     case 0x31:
-        emit ModifyParameter16(v);
+        if (data[0x20] == 0x41 && v < 16)
+            emit TWOrganPercussionNormalLevel(v);
+        else
+            emit ModifyParameter16(v);
         break;
     case 0x32:
-        emit ModifyParameter17(v);
+        if (data[0x20] == 0x41)
+            emit TWOrganPercussionSlowTime(v);
+        else
+            emit ModifyParameter17(v);
         break;
-    case 0x33:
-        emit ModifyParameter18(v);
+    case 0x33:        
+        if (data[0x20] == 0x41)
+            emit TWOrganPercussionFastTime(v);
+        else
+            emit ModifyParameter18(v);
         break;
     case 0x34:
-        emit ModifyParameter19(v);
+        if (data[0x20] == 0x41 && v < 16)
+            emit TWOrganPercussionRechargeTime(v);
+        else
+            emit ModifyParameter19(v);
         break;
     case 0x35:
-        emit ModifyParameter20(v);
+        if (data[0x20] == 0x41)
+            emit TWOrganPercussionHBarLevel(v);
+        else
+            emit ModifyParameter20(v);
         break;
-    case 0x36:
-        emit ModifyParameter21(v);
+    case 0x36:        
+        if (data[0x20] == 0x41)
+            emit TWOrganPercussionSoft(v);
+        else
+            emit ModifyParameter21(v);
         break;
-    case 0x37:
-        emit ModifyParameter22(v);
+    case 0x37:        
+        if (data[0x20] == 0x41)
+            emit TWOrganLeakageLevel(v);
+        else
+            emit ModifyParameter22(v);
         break;
     case 0x38:
         emit ModifyParameter23(v);

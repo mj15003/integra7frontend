@@ -70,15 +70,15 @@ private:
 
     bool BlockToneChangeSignal = 0;
 
-    Integra7ToneMFX *MFXTarget;
-    Integra7DrumCompEQ *CompEQTarget;
-    Integra7Tone *PCMSTarget;
-    Integra7Tone *PCMDKTarget;
-    Integra7PCMDrumKitPartial *PCMDKPartialTarget;
-    Integra7Tone *SNATarget;
-    Integra7Tone *SNSTarget;
-    Integra7Tone *SNDKTarget;
-    Integra7SNDrumKitNote *SNDKNoteTarget;
+    Integra7ToneMFX *MFXTarget = NULL;
+    Integra7DrumCompEQ *CompEQTarget = NULL;
+    Integra7Tone *PCMSTarget = NULL;
+    Integra7Tone *PCMDKTarget = NULL;
+    Integra7PCMDrumKitPartial *PCMDKPartialTarget = NULL;
+    Integra7Tone *SNATarget = NULL;
+    Integra7Tone *SNSTarget = NULL;
+    Integra7Tone *SNDKTarget = NULL;
+    Integra7SNDrumKitNote *SNDKNoteTarget = NULL;
 
     void TypeBoxChangeLogic(QComboBox *TypeBox, QComboBox *BankBox, QComboBox *ToneBox);
     void BankBoxChangeLogic(QComboBox *TypeBox, QComboBox *BankBox, QComboBox *ToneBox);

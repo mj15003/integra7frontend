@@ -15,7 +15,7 @@
   </property>
   <layout class="QFormLayout" name="formLayout">
    <property name="fieldGrowthPolicy">
-    <enum>QFormLayout::FieldGrowthPolicy::FieldsStayAtSizeHint</enum>
+    <enum>QFormLayout::FieldsStayAtSizeHint</enum>
    </property>
    <item row="0" column="0">
     <widget class="QLabel" name="label">
@@ -31,6 +31,9 @@
      </property>
      <property name="maximum">
       <number>127</number>
+     </property>
+     <property name="value">
+      <number>0</number>
      </property>
     </widget>
    </item>
@@ -48,6 +51,9 @@
      </property>
      <property name="maximum">
       <number>127</number>
+     </property>
+     <property name="value">
+      <number>0</number>
      </property>
     </widget>
    </item>
