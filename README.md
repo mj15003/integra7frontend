@@ -27,8 +27,8 @@ have appropriate official tools available.
 
 ```shell
 git clone
-cd Integra7Frontend
-cmake -S src -B build
+cd integra7frontend
+cmake -S src -B build -DCMAKE_BUILD_TYPE:STRING=Release
 cmake --build build
 ```
 

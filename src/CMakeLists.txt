@@ -1,4 +1,4 @@
-cmake_minimum_required(VERSION 3.5)
+cmake_minimum_required(VERSION 3.15)
 
 project(Integra7Frontend VERSION 0.1 LANGUAGES CXX)
 
@@ -13,6 +13,7 @@ set(PROJECT_NAME Integra7Frontend)
 
 find_package(QT NAMES Qt6 Qt5 REQUIRED COMPONENTS Widgets)
 find_package(Qt${QT_VERSION_MAJOR} REQUIRED COMPONENTS Widgets)
+find_package(PkgConfig REQUIRED)
 
 # Check for ALSA libraries.
 pkg_check_modules (ALSA REQUIRED IMPORTED_TARGET alsa)
